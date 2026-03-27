@@ -884,21 +884,17 @@ function closeDayPopupDirect() {
   }
 
   function navigateWithAnim(direction) { // direction: -1 = next, 1 = prev
-    const grid = document.getElementById('month-grid');
-    if (!grid) {
-      direction < 0 ? (currentView === 'week' ? nextWeek() : nextMonth())
-                    : (currentView === 'week' ? prevWeek() : prevMonth());
+    if (currentView === 'week') {
+      direction < 0 ? nextWeek() : prevWeek();
       return;
     }
-    const outClass = direction < 0 ? 'slide-out-left' : 'slide-out-right';
-    const inClass  = direction < 0 ? 'slide-in-right' : 'slide-in-left';
-    grid.classList.add(outClass);
+    const grid = document.getElementById('month-grid');
+    if (!grid) { direction < 0 ? nextMonth() : prevMonth(); return; }
+    grid.classList.add('fading');
     setTimeout(() => {
-      grid.classList.remove(outClass);
       direction < 0 ? nextMonth() : prevMonth();
-      grid.classList.add(inClass);
-      setTimeout(() => grid.classList.remove(inClass), 220);
-    }, 180);
+      requestAnimationFrame(() => grid.classList.remove('fading'));
+    }, 120);
   }
 
   document.addEventListener('touchstart', e => {

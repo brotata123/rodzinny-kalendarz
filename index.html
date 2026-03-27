@@ -72,17 +72,10 @@
     @keyframes slideDown {
       to { transform: translateY(110%); opacity: 0; }
     }
-    @keyframes slideOutLeft  { to   { transform: translateX(-40px); opacity: 0; } }
-    @keyframes slideOutRight { to   { transform: translateX(40px);  opacity: 0; } }
-    @keyframes slideInLeft   { from { transform: translateX(-40px); opacity: 0; } }
-    @keyframes slideInRight  { from { transform: translateX(40px);  opacity: 0; } }
-
     .day-popup-overlay.closing .day-popup { animation: slideDown 0.25s ease forwards; }
     .modal-overlay.closing .modal         { animation: slideDown 0.25s ease forwards; }
-    #month-grid.slide-out-left  { animation: slideOutLeft  0.18s ease forwards; }
-    #month-grid.slide-out-right { animation: slideOutRight 0.18s ease forwards; }
-    #month-grid.slide-in-left   { animation: slideInLeft   0.2s  ease forwards; }
-    #month-grid.slide-in-right  { animation: slideInRight  0.2s  ease forwards; }
+    #month-grid { transition: opacity 0.12s ease; }
+    #month-grid.fading { opacity: 0; }
 
     /* ============================================================
        EKRAN BŁĘDU
