@@ -1130,6 +1130,9 @@ function closeFormModal(e) {
 
 function closeFormModalDirect() {
   document.getElementById('form-modal').classList.remove('open');
+  const btn = document.getElementById('btn-save');
+  btn.disabled = false;
+  btn.textContent = 'Zapisz';
 }
 
 // Zapis do Firebase
@@ -1641,7 +1644,10 @@ function openTaskForm(existingTask = null) {
   document.getElementById('form-title').textContent = existingTask ? 'Edytuj zadanie' : 'Nowe zadanie';
   document.getElementById('form-body').innerHTML    = buildTaskFormHtml(existingTask);
   document.getElementById('form-error').textContent = '';
-  document.getElementById('btn-save').onclick       = submitTaskForm;
+  const taskBtn = document.getElementById('btn-save');
+  taskBtn.onclick   = submitTaskForm;
+  taskBtn.disabled  = false;
+  taskBtn.textContent = 'Zapisz';
   document.getElementById('form-modal').classList.add('open');
 }
 
