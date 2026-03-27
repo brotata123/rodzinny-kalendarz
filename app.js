@@ -888,12 +888,12 @@ function closeDayPopupDirect() {
       direction < 0 ? nextWeek() : prevWeek();
       return;
     }
-    const grid = document.getElementById('month-grid');
-    if (!grid) { direction < 0 ? nextMonth() : prevMonth(); return; }
-    grid.classList.add('fading');
+    const wrap = document.querySelector('.calendar-wrap');
+    if (!wrap) { direction < 0 ? nextMonth() : prevMonth(); return; }
+    wrap.classList.add('fading');
     setTimeout(() => {
       direction < 0 ? nextMonth() : prevMonth();
-      requestAnimationFrame(() => grid.classList.remove('fading'));
+      requestAnimationFrame(() => wrap.classList.remove('fading'));
     }, 120);
   }
 
