@@ -23,10 +23,13 @@ function notifyTelegram(data) {
     'szachy': '♟️', 'sprawdzian': '📝', 'ortodonta': '🦷',
     'konkurs': '🏆', 'inne': '📌'
   };
-  const icon = categoryEmoji[data.category] || '📅';
-  const time = data.time ? ` · ${data.time}` : '';
-  const date = data.date ? ` ${data.date}` : '';
-  const text = `${icon} Nowy wpis: *${data.title || data.name || ''}*\n📆${date}${time}`;
+  const icon     = categoryEmoji[data.category] || '📅';
+  const title    = data.title || data.name || '';
+  const time     = data.time ? ` · ${data.time}` : '';
+  const date     = data.date ? ` ${data.date}` : '';
+  const location = data.location ? `\n📍 ${data.location}` : '';
+  const notes    = data.notes    ? `\n📝 ${data.notes}`    : '';
+  const text = `${icon} *${title}*\n📆${date}${time}${location}${notes}`;
 
   fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
     method: 'POST',
