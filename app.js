@@ -3,7 +3,7 @@
 //  Logika aplikacji: Firebase, PIN, nawigacja, kalendarz
 // ============================================================
 
-// --- n8n webhook ---
+// --- n8n webhook (lokalny) ---
 const N8N_WEBHOOK = 'http://localhost:5678/webhook/rodzinny-kalendarz';
 
 function notifyN8n(data) {
@@ -11,7 +11,28 @@ function notifyN8n(data) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ ...data, familyId })
-  }).catch(() => {}); // cicho ignoruj błędy — brak n8n nie blokuje aplikacji
+  }).catch(() => {});
+}
+
+// --- Telegram powiadomienia ---
+const TG_TOKEN   = '7924720319:AAGqG6LqmFcuiWV8_wpKvWo_EmxtazYEJgA';
+const TG_CHAT_ID = '8087307530';
+
+function notifyTelegram(data) {
+  const categoryEmoji = {
+    'szachy': '♟️', 'sprawdzian': '📝', 'ortodonta': '🦷',
+    'konkurs': '🏆', 'inne': '📌'
+  };
+  const icon = categoryEmoji[data.category] || '📅';
+  const time = data.time ? ` · ${data.time}` : '';
+  const date = data.date ? ` ${data.date}` : '';
+  const text = `${icon} Nowy wpis: *${data.title || data.name || ''}*\n📆${date}${time}`;
+
+  fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: TG_CHAT_ID, text, parse_mode: 'Markdown' })
+  }).catch(() => {});
 }
 
 // --- Stan globalny ---
@@ -1226,6 +1247,7 @@ async function submitForm() {
       };
       await familyRef.collection('contests').add(contestData);
       notifyN8n({ ...contestData, title: name, category: 'konkurs' });
+      notifyTelegram({ ...contestData, title: name, category: 'konkurs' });
 
     } else {
       // Wszystkie typy wydarzeń
@@ -1264,6 +1286,7 @@ async function submitForm() {
         if (!eventsCache[evData.date]) eventsCache[evData.date] = [];
         eventsCache[evData.date].push({ ...evData, id: newRef.id });
         notifyN8n(evData);
+        notifyTelegram(evData);
       }
     }
 
