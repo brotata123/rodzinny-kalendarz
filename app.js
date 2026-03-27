@@ -1255,9 +1255,14 @@ async function submitForm() {
         result:   null,
         created_at: firebase.firestore.FieldValue.serverTimestamp()
       };
-      await familyRef.collection('contests').add(contestData);
-      notifyN8n({ ...contestData, title: name, category: 'konkurs' });
-      notifyTelegram({ ...contestData, title: name, category: 'konkurs' });
+      if (editMode && editDocId) {
+        await familyRef.collection('contests').doc(editDocId).update(contestData);
+        notifyTelegram({ ...contestData, title: name, category: 'konkurs' }, 'edit');
+      } else {
+        await familyRef.collection('contests').add(contestData);
+        notifyN8n({ ...contestData, title: name, category: 'konkurs' });
+        notifyTelegram({ ...contestData, title: name, category: 'konkurs' }, 'add');
+      }
 
     } else {
       // Wszystkie typy wydarzeń
