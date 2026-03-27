@@ -384,7 +384,7 @@ function loadMonthData(callback) {
     // Dołącz konkursy do eventsCache (mapuj name→title, category→'konkurs')
     contestSnap.forEach(doc => {
       const d = doc.data();
-      const ev = { ...d, id: doc.id, title: d.name || d.title || '', category: 'konkurs' };
+      const ev = { ...d, id: doc.id, title: d.name || d.title || '', category: 'konkurs', _col: 'contest' };
       if (!eventsCache[ev.date]) eventsCache[ev.date] = [];
       eventsCache[ev.date].push(ev);
     });
@@ -467,7 +467,7 @@ function loadWeekData(callback) {
     });
     contestSnap.forEach(doc => {
       const d = doc.data();
-      const ev = { ...d, id: doc.id, title: d.name || d.title || '', category: 'konkurs' };
+      const ev = { ...d, id: doc.id, title: d.name || d.title || '', category: 'konkurs', _col: 'contest' };
       if (!eventsCache[ev.date]) eventsCache[ev.date] = [];
       eventsCache[ev.date].push(ev);
     });
@@ -763,8 +763,8 @@ function openDayPopup(dateStr, dayNum) {
           <div class="event-name">${escHtml(ev.title)}</div>
           <div class="event-time">${timeStr}${locStr}</div>
         </div>
-        <button class="del-btn" onclick="editEntry('event','${ev.id}')" title="Edytuj">✏️</button>
-        <button class="del-btn" onclick="deleteEntry('event','${ev.id}')" title="Usuń">🗑</button>
+        <button class="del-btn" onclick="editEntry('${ev._col||'event'}','${ev.id}')" title="Edytuj">✏️</button>
+        <button class="del-btn" onclick="deleteEntry('${ev._col||'event'}','${ev.id}')" title="Usuń">🗑</button>
       </div>`;
   });
 
@@ -859,17 +859,19 @@ function closeDayPopupDirect() {
   document.getElementById('day-popup').classList.remove('open');
 }
 
-// Swipe down = zamknij popup
+// Swipe down = zamknij popup lub formularz
 (function initSwipeToClose() {
   let startY = 0;
   const popup = document.getElementById('day-popup');
+  const form  = document.getElementById('form-modal');
   document.addEventListener('touchstart', e => {
-    if (popup.classList.contains('open')) startY = e.touches[0].clientY;
+    startY = e.touches[0].clientY;
   }, { passive: true });
   document.addEventListener('touchend', e => {
-    if (popup.classList.contains('open')) {
-      const dy = e.changedTouches[0].clientY - startY;
-      if (dy > 60) popup.classList.remove('open');
+    const dy = e.changedTouches[0].clientY - startY;
+    if (dy > 60) {
+      if (popup.classList.contains('open')) popup.classList.remove('open');
+      else if (form.classList.contains('open')) form.classList.remove('open');
     }
   }, { passive: true });
 })();
@@ -925,6 +927,7 @@ function openAddForm(type) {
     other:        'Dodaj wpis'
   };
 
+  document.getElementById('btn-save').onclick = submitForm;
   document.getElementById('form-title').textContent = titles[type] || 'Dodaj wpis';
   document.getElementById('form-body').innerHTML    = buildFormHtml(type);
   document.getElementById('form-error').textContent = '';
