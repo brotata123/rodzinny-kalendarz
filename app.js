@@ -1533,9 +1533,20 @@ function renderEvents() {
 
     eventsListMap = {};
     list.innerHTML = '';
+
+    // Delegacja zdarzeń — niezawodna na mobile
+    list.onclick = e => {
+      const card = e.target.closest('.ev-card');
+      if (card) openEventDetail(card.dataset.evid);
+    };
+
     Object.entries(byMonth).forEach(([ym, events]) => {
       const [y, m] = ym.split('-');
-      list.innerHTML += `<div class="events-month-label">${MONTH_NAMES[parseInt(m) - 1]} ${y}</div>`;
+      const label = document.createElement('div');
+      label.className = 'events-month-label';
+      label.textContent = `${MONTH_NAMES[parseInt(m) - 1]} ${y}`;
+      list.appendChild(label);
+
       events.forEach(ev => {
         eventsListMap[ev.id] = ev;
         const d    = new Date(ev.date + 'T12:00:00');
@@ -1544,20 +1555,22 @@ function renderEvents() {
         const { icon, tagClass, tagName } = getCategoryDisplay(ev.category);
         const timeStr = ev.time ? `🕐 ${ev.time}` : '';
         const locStr  = ev.location ? ` • ${escHtml(ev.location)}` : '';
-        list.innerHTML += `
-          <div class="ev-card" onclick="openEventDetail('${ev.id}')">
-            <div class="ev-left">
-              <div class="ev-day">${day}</div>
-              <div class="ev-dow">${dow}</div>
-            </div>
-            <div class="ev-divider"></div>
-            <div class="ev-content">
-              <div class="ev-title">${escHtml(ev.title)}</div>
-              <div class="ev-meta">${timeStr}${locStr}</div>
-              <span class="ev-tag ${tagClass}">${tagName}</span>
-            </div>
-            <div class="ev-badge">${icon}</div>
-          </div>`;
+        const card = document.createElement('div');
+        card.className = 'ev-card';
+        card.dataset.evid = ev.id;
+        card.innerHTML = `
+          <div class="ev-left">
+            <div class="ev-day">${day}</div>
+            <div class="ev-dow">${dow}</div>
+          </div>
+          <div class="ev-divider"></div>
+          <div class="ev-content">
+            <div class="ev-title">${escHtml(ev.title)}</div>
+            <div class="ev-meta">${timeStr}${locStr}</div>
+            <span class="ev-tag ${tagClass}">${tagName}</span>
+          </div>
+          <div class="ev-badge">${icon}</div>`;
+        list.appendChild(card);
       });
     });
   })
