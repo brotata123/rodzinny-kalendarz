@@ -4,7 +4,7 @@
 //  Dane Firebase synchronizują się online przez SDK.
 // ============================================================
 
-const CACHE_NAME = 'rodzinny-kalendarz-v3';
+const CACHE_NAME = 'rodzinny-kalendarz-v4';
 
 // Pliki statyczne do zcachowania przy instalacji
 const STATIC_FILES = [

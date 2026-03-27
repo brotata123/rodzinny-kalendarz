@@ -35,7 +35,7 @@ async function initApp() {
   // Odczytaj klucz rodziny z hasha URL (np. index.html#abc123)
   const hash = window.location.hash.slice(1);
   if (!hash || hash.length < 4) {
-    showError('Nieprawidłowy link dostępu. Skontaktuj się z drugą osobą po prawidłowy adres URL.');
+    window.location.replace('./index.html#kalendarz');
     return;
   }
   familyId = hash;
@@ -317,8 +317,8 @@ function buildMonthGrid() {
     else if (custody === 'a')     div.classList.add('tata-full');
     else if (custody === 'b')     div.classList.add('mama-full');
 
-    // Dzisiaj
-    if (isThisMonth && d === today.getDate()) div.classList.add('today');
+    // Dzisiaj — subtelna kropka zamiast wypełnionego kółka
+    if (isThisMonth && d === today.getDate()) div.classList.add('today-dot');
 
     div.innerHTML = `<span class="day-num">${d}</span>`;
 
@@ -859,19 +859,36 @@ function closeDayPopupDirect() {
   document.getElementById('day-popup').classList.remove('open');
 }
 
-// Swipe down = zamknij popup lub formularz
-(function initSwipeToClose() {
-  let startY = 0;
+// Swipe down = zamknij popup lub formularz; swipe lewo/prawo = zmień miesiąc/tydzień
+(function initSwipeHandlers() {
+  let startX = 0, startY = 0;
   const popup = document.getElementById('day-popup');
   const form  = document.getElementById('form-modal');
+
   document.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
   }, { passive: true });
+
   document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
     const dy = e.changedTouches[0].clientY - startY;
-    if (dy > 60) {
+
+    // Swipe w dół — zamknij popup/formularz
+    if (dy > 60 && Math.abs(dy) > Math.abs(dx)) {
       if (popup.classList.contains('open')) popup.classList.remove('open');
       else if (form.classList.contains('open')) form.classList.remove('open');
+      return;
+    }
+
+    // Swipe lewo/prawo — nawigacja, tylko gdy popup i formularz zamknięte
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) &&
+        !popup.classList.contains('open') && !form.classList.contains('open')) {
+      if (dx < 0) { // lewo = następny
+        currentView === 'week' ? nextWeek() : nextMonth();
+      } else {      // prawo = poprzedni
+        currentView === 'week' ? prevWeek() : prevMonth();
+      }
     }
   }, { passive: true });
 })();
