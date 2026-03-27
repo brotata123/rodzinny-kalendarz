@@ -796,28 +796,41 @@ async function editEntry(type, id) {
           if (d.split_from) selectSplitFrom(d.split_from);
         }
       }
+    } else if (type === 'contest') {
+      const snap = await familyRef.collection('contests').doc(id).get();
+      if (!snap.exists) return;
+      const data = snap.data();
+      openAddForm('contest');
+      document.getElementById('f-date').value = data.date || '';
+      document.getElementById('f-name').value = data.name || data.title || '';
+      const timeEl    = document.getElementById('f-time');
+      const timeEndEl = document.getElementById('f-time-end');
+      const locEl     = document.getElementById('f-location');
+      const notEl     = document.getElementById('f-notes');
+      if (timeEl)    timeEl.value    = data.time     || '';
+      if (timeEndEl) timeEndEl.value = data.timeEnd  || '';
+      if (locEl)     locEl.value     = data.location || '';
+      if (notEl)     notEl.value     = data.notes    || '';
     } else {
       const snap = await familyRef.collection('events').doc(id).get();
       if (!snap.exists) return;
       const data = snap.data();
-      // Mapuj kategorię na typ formularza
       const catToType = {
         'szachy': 'chess', 'sprawdzian': 'exam',
         'ortodonta': 'orthodontist', 'inne': 'other',
-        // wsteczna zgodność
         'zajęcia': 'chess', 'wizyta': 'orthodontist', 'wydarzenie': 'other'
       };
       openAddForm(catToType[data.category] || 'other');
       document.getElementById('f-date').value  = data.date  || '';
       document.getElementById('f-title').value = data.title || '';
-      const timeEl = document.getElementById('f-time');
-      const locEl  = document.getElementById('f-location');
-      const notEl  = document.getElementById('f-notes');
-      if (timeEl) timeEl.value = data.time     || '';
-      if (locEl)  locEl.value  = data.location || '';
-      if (notEl)  notEl.value  = data.notes    || '';
+      const timeEl    = document.getElementById('f-time');
       const timeEndEl = document.getElementById('f-time-end');
-      if (timeEndEl) timeEndEl.value = data.timeEnd || '';
+      const locEl     = document.getElementById('f-location');
+      const notEl     = document.getElementById('f-notes');
+      if (timeEl)    timeEl.value    = data.time     || '';
+      if (timeEndEl) timeEndEl.value = data.timeEnd  || '';
+      if (locEl)     locEl.value     = data.location || '';
+      if (notEl)     notEl.value     = data.notes    || '';
     }
 
     editMode  = true;
