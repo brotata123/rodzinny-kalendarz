@@ -18,18 +18,19 @@ function notifyN8n(data) {
 const TG_TOKEN   = '7924720319:AAGqG6LqmFcuiWV8_wpKvWo_EmxtazYEJgA';
 const TG_CHAT_ID = '8087307530';
 
-function notifyTelegram(data) {
+function notifyTelegram(data, action = 'add') {
   const categoryEmoji = {
     'szachy': '♟️', 'sprawdzian': '📝', 'ortodonta': '🦷',
     'konkurs': '🏆', 'inne': '📌'
   };
+  const actionPrefix = { add: '➕ Dodano', edit: '✏️ Zmieniono', delete: '🗑 Usunięto' };
   const icon     = categoryEmoji[data.category] || '📅';
   const title    = data.title || data.name || '';
   const time     = data.time ? ` · ${data.time}` : '';
   const date     = data.date ? ` ${data.date}` : '';
   const location = data.location ? `\n📍 ${data.location}` : '';
   const notes    = data.notes    ? `\n📝 ${data.notes}`    : '';
-  const text = `${icon} *${title}*\n📆${date}${time}${location}${notes}`;
+  const text = `${actionPrefix[action]} ${icon} *${title}*\n📆${date}${time}${location}${notes}`;
 
   fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
     method: 'POST',
@@ -871,13 +872,19 @@ async function deleteEntry(type, id) {
   if (!confirm('Usunąć ten wpis?')) return;
   try {
     const familyRef = db.collection('families').doc(familyId);
+    let notifyData = null;
     if (type === 'custody') {
       await familyRef.collection('custody').doc(id).delete();
     } else if (type === 'contest') {
+      const snap = await familyRef.collection('contests').doc(id).get();
+      if (snap.exists) notifyData = { ...snap.data(), title: snap.data().name, category: 'konkurs' };
       await familyRef.collection('contests').doc(id).delete();
     } else {
+      const snap = await familyRef.collection('events').doc(id).get();
+      if (snap.exists) notifyData = snap.data();
       await familyRef.collection('events').doc(id).delete();
     }
+    if (notifyData) notifyTelegram(notifyData, 'delete');
     closeDayPopupDirect();
     renderCalendar();
     renderEvents();
@@ -1279,6 +1286,7 @@ async function submitForm() {
       };
       if (editMode && editDocId) {
         await familyRef.collection('events').doc(editDocId).update(evData);
+        notifyTelegram(evData, 'edit');
       } else {
         const newRef = await familyRef.collection('events').add({
           ...evData,
