@@ -865,6 +865,29 @@ function closeDayPopupDirect() {
   const popup = document.getElementById('day-popup');
   const form  = document.getElementById('form-modal');
 
+  function closeWithAnim(el) {
+    el.classList.add('closing');
+    setTimeout(() => el.classList.remove('open', 'closing'), 260);
+  }
+
+  function navigateWithAnim(direction) { // direction: -1 = next, 1 = prev
+    const grid = document.getElementById('month-grid');
+    if (!grid) {
+      direction < 0 ? (currentView === 'week' ? nextWeek() : nextMonth())
+                    : (currentView === 'week' ? prevWeek() : prevMonth());
+      return;
+    }
+    const outClass = direction < 0 ? 'slide-out-left' : 'slide-out-right';
+    const inClass  = direction < 0 ? 'slide-in-right' : 'slide-in-left';
+    grid.classList.add(outClass);
+    setTimeout(() => {
+      grid.classList.remove(outClass);
+      direction < 0 ? nextMonth() : prevMonth();
+      grid.classList.add(inClass);
+      setTimeout(() => grid.classList.remove(inClass), 220);
+    }, 180);
+  }
+
   document.addEventListener('touchstart', e => {
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
@@ -874,21 +897,17 @@ function closeDayPopupDirect() {
     const dx = e.changedTouches[0].clientX - startX;
     const dy = e.changedTouches[0].clientY - startY;
 
-    // Swipe w dół — zamknij popup/formularz
+    // Swipe w dół — zamknij z animacją
     if (dy > 60 && Math.abs(dy) > Math.abs(dx)) {
-      if (popup.classList.contains('open')) popup.classList.remove('open');
-      else if (form.classList.contains('open')) form.classList.remove('open');
+      if (popup.classList.contains('open')) closeWithAnim(popup);
+      else if (form.classList.contains('open')) closeWithAnim(form);
       return;
     }
 
-    // Swipe lewo/prawo — nawigacja, tylko gdy popup i formularz zamknięte
+    // Swipe lewo/prawo — nawigacja z animacją
     if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) &&
         !popup.classList.contains('open') && !form.classList.contains('open')) {
-      if (dx < 0) { // lewo = następny
-        currentView === 'week' ? nextWeek() : nextMonth();
-      } else {      // prawo = poprzedni
-        currentView === 'week' ? prevWeek() : prevMonth();
-      }
+      navigateWithAnim(dx < 0 ? -1 : 1);
     }
   }, { passive: true });
 })();
