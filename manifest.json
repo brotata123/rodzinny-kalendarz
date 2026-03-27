@@ -2,7 +2,7 @@
   "name": "Rodzinny Kalendarz",
   "short_name": "Kalendarz",
   "description": "Wspólny kalendarz dla rodziców — opieka, wydarzenia, oceny, konkursy",
-  "start_url": "./index.html",
+  "start_url": "./index.html#kalendarz",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0f1f3d",
