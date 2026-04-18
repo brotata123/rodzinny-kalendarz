@@ -957,11 +957,11 @@ function closeDayPopupDirect() {
 //  MODAL WYBORU TYPU WPISU
 // ============================================================
 function openModal() {
-  // Na ekranie To Do FAB otwiera formularz zadania
-  const todoScreen = document.getElementById('screen-todo');
-  if (todoScreen && todoScreen.classList.contains('active')) {
-    openTaskForm();
-    return;
+  if (document.getElementById('screen-todo')?.classList.contains('active')) {
+    openTaskForm(); return;
+  }
+  if (document.getElementById('screen-results')?.classList.contains('active')) {
+    openResultForm(); return;
   }
   document.getElementById('modal').classList.add('open');
 }
@@ -2045,10 +2045,6 @@ function renderResults() {
       }
       list.innerHTML = '';
       // Delegacja zdarzeń
-      list.onclick = e => {
-        const card = e.target.closest('.result-card');
-        if (card) openResultDetail(card.dataset.rid);
-      };
       snap.forEach(doc => {
         const r = { ...doc.data(), id: doc.id };
         resultsMap[r.id] = r;
@@ -2059,7 +2055,6 @@ function renderResults() {
         const year = d.getFullYear();
         const card = document.createElement('div');
         card.className = 'result-card';
-        card.dataset.rid = r.id;
         card.innerHTML = `
           <div class="result-medal">${medal}</div>
           <div class="result-info">
@@ -2070,6 +2065,7 @@ function renderResults() {
             ${r.place  ? `<div class="result-place">${escHtml(r.place)}</div>`  : ''}
             ${r.points ? `<div class="result-pts">${escHtml(r.points)}</div>`   : ''}
           </div>`;
+        card.addEventListener('click', () => openResultDetail(r.id));
         list.appendChild(card);
       });
     })
