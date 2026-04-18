@@ -1953,7 +1953,7 @@ function openResultForm(existingResult = null) {
   btn.disabled = false;
   btn.onclick = () => submitResultForm(isEdit ? existingResult.id : null);
 
-  closeModal();
+  document.getElementById('modal').classList.remove('open');
   document.getElementById('form-modal').classList.add('open');
 }
 
