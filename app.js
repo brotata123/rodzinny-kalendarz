@@ -193,8 +193,8 @@ async function verifyPin() {
       // ── Pierwsze uruchomienie: ustaw PIN i stwórz dokument rodziny ──
       await ref.set({
         pin_hash:       pinHash,
-        child_name:     'Dziecko',
-        child_grade:    'klasa',
+        child_name:     'Olaf',
+        child_grade:    '',
         parent_a_name:  'Tata',
         parent_b_name:  'Mama',
         parent_a_color: '#4a9eff',
@@ -259,6 +259,14 @@ async function loadFamilyConfig() {
     const doc = await db.collection('families').doc(familyId).get();
     if (doc.exists) {
       familyConfig = doc.data();
+      // Jednorazowa migracja: zaktualizuj domyślne wartości dziecka
+      if (familyConfig.child_name === 'Dziecko' || familyConfig.child_grade === 'klasa') {
+        familyConfig.child_name  = 'Olaf';
+        familyConfig.child_grade = '';
+        db.collection('families').doc(familyId)
+          .update({ child_name: 'Olaf', child_grade: '' })
+          .catch(() => {});
+      }
       applyFamilyConfig();
     }
   } catch (e) {
@@ -284,7 +292,9 @@ function applyFamilyConfig() {
   document.querySelectorAll('.parent-b-name').forEach(el => el.textContent = b);
 
   // Informacja o dziecku
-  const childInfo = `${familyConfig.child_name || 'Dziecko'} • ${familyConfig.child_grade || ''}`;
+  const childName  = familyConfig.child_name  || 'Olaf';
+  const childGrade = familyConfig.child_grade || '';
+  const childInfo  = childGrade ? `${childName} • ${childGrade}` : childName;
   document.querySelectorAll('.child-info').forEach(el => el.textContent = childInfo);
 
   // Inicjały avatarów
