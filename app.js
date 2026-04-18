@@ -3,6 +3,9 @@
 //  Logika aplikacji: Firebase, PIN, nawigacja, kalendarz
 // ============================================================
 
+// --- Haptyczne wibracje (Web Vibration API) ---
+function vib(pattern = 40) { if (navigator.vibrate) navigator.vibrate(pattern); }
+
 // --- n8n webhook (lokalny) ---
 const N8N_WEBHOOK = 'http://localhost:5678/webhook/rodzinny-kalendarz';
 
@@ -871,6 +874,7 @@ async function editEntry(type, id) {
 // Usuwa wpis z Firebase i odświeża widok
 async function deleteEntry(type, id) {
   if (!confirm('Usunąć ten wpis?')) return;
+  vib([30, 50, 80]); // mocniejsza wibracja przy usuwaniu
   try {
     const familyRef = db.collection('families').doc(familyId);
     let notifyData = null;
@@ -1314,6 +1318,7 @@ async function submitForm() {
     }
 
     // Sukces — zamknij i odśwież widoki
+    vib(30); // wibracja przy zapisie
     closeFormModalDirect();
     renderCalendar();
     if (currentFormType === 'grade')   renderGrades();
@@ -1701,6 +1706,7 @@ function openTaskDetail(id) {
 
 function updateTaskStatus(id, status) {
   if (!db || !familyId) return;
+  vib(status === 'done' ? [20, 30, 60] : 25);
   const data = { status };
   if (status === 'done') data.doneAt = firebase.firestore.FieldValue.serverTimestamp();
   db.collection('families').doc(familyId).collection('tasks').doc(id)
