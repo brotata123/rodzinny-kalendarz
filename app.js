@@ -989,6 +989,13 @@ async function doDeleteSeries(seriesId) {
   try {
     const snap = await db.collection('families').doc(familyId)
       .collection('events').where('seriesId', '==', seriesId).get();
+    if (snap.empty) return;
+    // Powiadomienie Telegram przed usunięciem (dane z pierwszego wpisu)
+    const sample = snap.docs[0].data();
+    notifyTelegram(
+      { ...sample, title: `${sample.title} (cała seria, ${snap.size} wpisów)` },
+      'delete'
+    );
     const batch = db.batch();
     snap.forEach(doc => batch.delete(doc.ref));
     await batch.commit();
@@ -2271,10 +2278,14 @@ function updateBadges() {
     .then(snap => setBadge('todo', snap.size))
     .catch(() => {});
 
-  // Badge WYNIKI: wyniki bez wpisanego miejsca (oczekujące)
+  // Badge WYNIKI: przeszłe konkursy (data < dziś) bez wpisanego miejsca
+  const today = formatDateObj(new Date());
   familyRef.collection('results').get()
     .then(snap => {
-      const pending = snap.docs.filter(d => !d.data().place).length;
+      const pending = snap.docs.filter(d => {
+        const r = d.data();
+        return !r.place && r.date && r.date < today;
+      }).length;
       setBadge('results', pending);
     })
     .catch(() => {});
