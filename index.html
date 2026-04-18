@@ -34,7 +34,39 @@
       --radius:     18px;
       --shadow-sm:  0 2px 8px rgba(15,31,61,0.08);
       --nav-height: 68px;
+      --border:     #dde3ee;
+      --surface:    rgba(15,31,61,0.03);
     }
+
+    /* ============================================================
+       TRYB CIEMNY
+    ============================================================ */
+    body.dark {
+      --cream:      #111c30;
+      --white:      #1a2d4a;
+      --text-dark:  #dde6f5;
+      --text-light: #5e7399;
+      --border:     rgba(255,255,255,0.12);
+      --surface:    rgba(255,255,255,0.04);
+      --shadow-sm:  0 2px 8px rgba(0,0,0,0.45);
+      --mint-pale:  rgba(61,191,138,0.12);
+    }
+    body.dark .contest-date-box.past {
+      background: rgba(255,255,255,0.08);
+    }
+    body.dark .contest-date-box.past .contest-day { color: var(--text-dark); }
+    body.dark .contest-date-box.past .contest-mon  { color: var(--text-light); }
+    body.dark .nav-btn    { background: var(--white); color: var(--text-dark); }
+    body.dark .day.today  { background: var(--navy) !important; }
+    body.dark .grade-btn.grade-1,
+    body.dark .grade-btn.grade-2 { background: rgba(255,107,107,0.10); }
+    body.dark .grade-btn.grade-3 { background: rgba(245,166,35, 0.10); }
+    body.dark .grade-btn.grade-4 { background: rgba(74,158,255, 0.10); }
+    body.dark .grade-btn.grade-5,
+    body.dark .grade-btn.grade-6 { background: rgba(61,191,138, 0.10); }
+    body.dark .parent-btn { background: rgba(255,255,255,0.06); color: var(--text-light); }
+    body.dark .type-btn   { background: rgba(255,255,255,0.06); }
+    body.dark .btn-cancel { background: var(--white); }
 
     html {
       height: 100%;
@@ -74,8 +106,18 @@
     }
     .day-popup-overlay.closing .day-popup { animation: slideDown 0.25s ease forwards; }
     .modal-overlay.closing .modal         { animation: slideDown 0.25s ease forwards; }
-    .calendar-wrap { transition: opacity 0.12s ease; }
-    .calendar-wrap.fading { opacity: 0; }
+    .calendar-wrap { transition: none; }
+    .calendar-wrap.fading { opacity: 0; transition: opacity 0.12s ease; }
+
+    /* Animacje przejścia między miesiącami */
+    @keyframes slideOutLeft  { from{transform:translateX(0);opacity:1} to{transform:translateX(-20px);opacity:0} }
+    @keyframes slideInRight  { from{transform:translateX(20px);opacity:0} to{transform:translateX(0);opacity:1} }
+    @keyframes slideOutRight { from{transform:translateX(0);opacity:1} to{transform:translateX(20px);opacity:0} }
+    @keyframes slideInLeft   { from{transform:translateX(-20px);opacity:0} to{transform:translateX(0);opacity:1} }
+    .calendar-wrap.slide-out-left  { animation: slideOutLeft  0.16s ease forwards; }
+    .calendar-wrap.slide-in-right  { animation: slideInRight  0.22s ease forwards; }
+    .calendar-wrap.slide-out-right { animation: slideOutRight 0.16s ease forwards; }
+    .calendar-wrap.slide-in-left   { animation: slideInLeft   0.22s ease forwards; }
 
     /* ============================================================
        EKRAN BŁĘDU
@@ -612,7 +654,7 @@
     .popup-handle {
       width: 40px;
       height: 4px;
-      background: #dde3ee;
+      background: var(--border);
       border-radius: 2px;
       margin: 10px auto 16px;
     }
@@ -743,7 +785,7 @@
     .modal-handle {
       width: 40px;
       height: 4px;
-      background: #dde3ee;
+      background: var(--border);
       border-radius: 2px;
       margin: 0 auto 18px;
     }
@@ -766,7 +808,7 @@
 
     .form-input, .form-select, .form-textarea {
       width: 100%;
-      border: 1.5px solid #dde3ee;
+      border: 1.5px solid var(--border);
       border-radius: 12px;
       padding: 11px 14px;
       font-size: 14px;
@@ -788,7 +830,7 @@
       flex: 1;
       padding: 10px 4px;
       border-radius: 12px;
-      border: 2px solid #dde3ee;
+      border: 2px solid var(--border);
       background: white;
       font-size: 13px;
       font-weight: 600;
@@ -827,8 +869,8 @@
       flex: 1;
       padding: 13px;
       border-radius: 14px;
-      border: 1.5px solid #dde3ee;
-      background: white;
+      border: 1.5px solid var(--border);
+      background: var(--white);
       font-size: 14px;
       font-weight: 600;
       font-family: 'DM Sans', sans-serif;
@@ -1046,8 +1088,8 @@
       border-radius: 20px;
       font-size: 11px;
       font-weight: 600;
-      border: 1.5px solid #dde3ee;
-      background: white;
+      border: 1.5px solid var(--border);
+      background: var(--white);
       color: var(--text-light);
       cursor: pointer;
       transition: all 0.15s;
@@ -1193,6 +1235,7 @@
       flex: 1;
       padding: 8px 4px;
       border: 1.5px solid var(--border);
+      background: var(--white);
       border-radius: 10px;
       background: var(--bg);
       font-size: 11px;
@@ -1265,6 +1308,32 @@
     .nav-label { font-size: 9px; font-weight: 500; color: var(--text-light); }
     .nav-item.active .nav-label { color: var(--mint); font-weight: 700; }
 
+    /* Odznaki badge na ikonie nawigacji */
+    .nav-icon-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-badge {
+      position: absolute;
+      top: -5px; right: -9px;
+      background: #ff5252;
+      color: white;
+      font-size: 8px;
+      font-weight: 700;
+      min-width: 15px;
+      height: 15px;
+      border-radius: 8px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0 3px;
+      border: 1.5px solid var(--cream);
+      line-height: 1;
+    }
+    .nav-badge.show { display: flex; }
+
     /* ============================================================
        GLOBALNY FAB (+)
     ============================================================ */
@@ -1290,6 +1359,7 @@
   </style>
 </head>
 <body>
+  <script>(function(){if(localStorage.getItem('darkMode')==='1')document.body.classList.add('dark');})()</script>
 
   <!-- ============================================================
        EKRAN BŁĘDU
@@ -1339,6 +1409,11 @@
           <div class="header-sub child-info">Ładowanie...</div>
         </div>
         <div class="header-right">
+          <button id="dark-toggle" onclick="toggleDarkMode()"
+                  style="background:rgba(255,255,255,0.12);border:none;border-radius:8px;
+                         width:30px;height:30px;font-size:15px;cursor:pointer;
+                         display:flex;align-items:center;justify-content:center;
+                         transition:background 0.2s;" title="Tryb ciemny">🌙</button>
           <div class="avatar tata" id="avatar-a">T</div>
           <div class="avatar mama" id="avatar-b">M</div>
         </div>
@@ -1634,15 +1709,24 @@
       <div class="nav-label">Kalendarz</div>
     </div>
     <div class="nav-item" id="nav-events" onclick="showScreen('events')">
-      <div class="nav-icon">📋</div>
+      <div class="nav-icon-wrap">
+        <span class="nav-icon">📋</span>
+        <span class="nav-badge" id="badge-events"></span>
+      </div>
       <div class="nav-label">Wydarzenia</div>
     </div>
     <div class="nav-item" id="nav-todo" onclick="showScreen('todo')">
-      <div class="nav-icon">☑️</div>
+      <div class="nav-icon-wrap">
+        <span class="nav-icon">☑️</span>
+        <span class="nav-badge" id="badge-todo"></span>
+      </div>
       <div class="nav-label">To Do</div>
     </div>
     <div class="nav-item" id="nav-results" onclick="showScreen('results')">
-      <div class="nav-icon">🏅</div>
+      <div class="nav-icon-wrap">
+        <span class="nav-icon">🏅</span>
+        <span class="nav-badge" id="badge-results"></span>
+      </div>
       <div class="nav-label">Wyniki</div>
     </div>
   </div>

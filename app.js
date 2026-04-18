@@ -95,8 +95,16 @@ async function initApp() {
   if (sessionAuth === 'ok') {
     await loadFamilyConfig();
     showScreen('calendar');
+    updateBadges();
   } else {
     showScreen('pin');
+  }
+
+  // Przywróć tryb ciemny jeśli włączony
+  if (localStorage.getItem('darkMode') === '1') {
+    document.body.classList.add('dark');
+    const dt = document.getElementById('dark-toggle');
+    if (dt) dt.textContent = '☀️';
   }
 }
 
@@ -130,6 +138,9 @@ function showScreen(name) {
     const el = document.getElementById('nav-' + n);
     if (el) el.classList.toggle('active', n === name);
   });
+
+  // Oznacz ekran jako odwiedzony (czyści badge)
+  markScreenSeen(name);
 
   // Załaduj dane dla danego ekranu
   if (name === 'calendar') renderCalendar();
@@ -194,6 +205,7 @@ async function verifyPin() {
       sessionStorage.setItem('auth_' + familyId, 'ok');
       applyFamilyConfig();
       showScreen('calendar');
+      updateBadges();
 
     } else {
       // ── Kolejne logowanie: porównaj hash ──
@@ -203,6 +215,7 @@ async function verifyPin() {
         sessionStorage.setItem('auth_' + familyId, 'ok');
         applyFamilyConfig();
         showScreen('calendar');
+        updateBadges();
       } else {
         // Błędny PIN
         pinDigits = [];
@@ -426,17 +439,38 @@ function loadMonthData(callback) {
   });
 }
 
-// Nawigacja miesiącami
+// Animowana nawigacja między miesiącami
+function animateMonth(dir, callback) {
+  if (currentView !== 'month') { callback(); return; }
+  const wrap = document.querySelector('.calendar-wrap');
+  if (!wrap) { callback(); return; }
+  const outCls = dir === 'next' ? 'slide-out-left'  : 'slide-out-right';
+  const inCls  = dir === 'next' ? 'slide-in-right' : 'slide-in-left';
+  wrap.classList.add(outCls);
+  setTimeout(() => {
+    wrap.classList.remove(outCls);
+    callback();
+    requestAnimationFrame(() => {
+      wrap.classList.add(inCls);
+      setTimeout(() => wrap.classList.remove(inCls), 240);
+    });
+  }, 170);
+}
+
 function prevMonth() {
-  currentMonth--;
-  if (currentMonth < 0) { currentMonth = 11; currentYear--; }
-  renderMonthView();
+  animateMonth('prev', () => {
+    currentMonth--;
+    if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+    renderMonthView();
+  });
 }
 
 function nextMonth() {
-  currentMonth++;
-  if (currentMonth > 11) { currentMonth = 0; currentYear++; }
-  renderMonthView();
+  animateMonth('next', () => {
+    currentMonth++;
+    if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+    renderMonthView();
+  });
 }
 
 // ============================================================
@@ -893,6 +927,7 @@ async function deleteEntry(type, id) {
     closeDayPopupDirect();
     renderCalendar();
     renderEvents();
+    updateBadges();
   } catch (err) {
     alert('Błąd usuwania: ' + err.message);
   }
@@ -919,18 +954,13 @@ function closeDayPopupDirect() {
     setTimeout(() => el.classList.remove('open', 'closing'), 260);
   }
 
-  function navigateWithAnim(direction) { // direction: -1 = next, 1 = prev
+  function navigateWithAnim(direction) { // direction: -1 = next (swipe left), 1 = prev (swipe right)
     if (currentView === 'week') {
       direction < 0 ? nextWeek() : prevWeek();
       return;
     }
-    const wrap = document.querySelector('.calendar-wrap');
-    if (!wrap) { direction < 0 ? nextMonth() : prevMonth(); return; }
-    wrap.classList.add('fading');
-    setTimeout(() => {
-      direction < 0 ? nextMonth() : prevMonth();
-      requestAnimationFrame(() => wrap.classList.remove('fading'));
-    }, 120);
+    // nextMonth()/prevMonth() już zawierają animację
+    direction < 0 ? nextMonth() : prevMonth();
   }
 
   document.addEventListener('touchstart', e => {
@@ -1323,6 +1353,7 @@ async function submitForm() {
     renderCalendar();
     if (currentFormType === 'grade')   renderGrades();
     if (currentFormType === 'contest') renderContests();
+    updateBadges();
     if (['event','visit','barber','activity','birthday','trip'].includes(currentFormType)) {
       renderEvents();
     }
@@ -1807,6 +1838,7 @@ async function submitTaskForm() {
     }
     closeFormModalDirect();
     renderTasks();
+    updateBadges();
   } catch (err) {
     document.getElementById('form-error').textContent = 'Błąd: ' + err.message;
   } finally {
@@ -1995,6 +2027,7 @@ async function submitResultForm(editId = null) {
     }
     closeFormModalDirect();
     renderResults();
+    updateBadges();
   } catch (err) {
     errEl.textContent = 'Błąd: ' + err.message;
     btn.textContent = 'Zapisz'; btn.disabled = false;
@@ -2003,10 +2036,12 @@ async function submitResultForm(editId = null) {
 
 async function deleteResult(id) {
   if (!confirm('Usunąć ten wynik?')) return;
+  vib([30, 50, 80]);
   try {
     await db.collection('families').doc(familyId).collection('results').doc(id).delete();
     closeDayPopupDirect();
     renderResults();
+    updateBadges();
   } catch (err) { alert('Błąd: ' + err.message); }
 }
 
@@ -2039,6 +2074,74 @@ function openResultDetail(id) {
 function closePopupAndEdit(id) {
   closeDayPopupDirect();
   openResultForm(resultsMap[id]);
+}
+
+// ============================================================
+//  TRYB CIEMNY
+// ============================================================
+function toggleDarkMode() {
+  const isDark = document.body.classList.toggle('dark');
+  localStorage.setItem('darkMode', isDark ? '1' : '0');
+  const btn = document.getElementById('dark-toggle');
+  if (btn) btn.textContent = isDark ? '☀️' : '🌙';
+  vib(25);
+}
+
+// ============================================================
+//  ODZNAKI (BADGES) — powiadomienia na ikonach nawigacji
+// ============================================================
+function updateBadges() {
+  if (!db || !familyId) return;
+  const familyRef = db.collection('families').doc(familyId);
+
+  // Badge TODO: niezakończone zadania (Nowe + W trakcie)
+  familyRef.collection('tasks')
+    .where('status', 'in', ['new', 'in_progress'])
+    .get()
+    .then(snap => setBadge('todo', snap.size))
+    .catch(() => {});
+
+  // Badge WYNIKI: wyniki bez wpisanego miejsca (oczekujące)
+  familyRef.collection('results').get()
+    .then(snap => {
+      const pending = snap.docs.filter(d => !d.data().place).length;
+      setBadge('results', pending);
+    })
+    .catch(() => {});
+
+  // Badge WYDARZENIA: nowe (dodane od ostatniej wizyty na ekranie)
+  const lastSeen = parseInt(localStorage.getItem('lastSeen_' + familyId + '_events') || '0');
+  familyRef.collection('events').get()
+    .then(snap => {
+      const newCount = snap.docs.filter(d => {
+        const ca = d.data().created_at;
+        if (!ca) return false;
+        const ms = ca.toMillis ? ca.toMillis() : (ca.seconds * 1000);
+        return ms > lastSeen;
+      }).length;
+      setBadge('events', newCount);
+    })
+    .catch(() => {});
+}
+
+function setBadge(screen, count) {
+  const badge = document.getElementById('badge-' + screen);
+  if (!badge) return;
+  if (count > 0) {
+    badge.textContent = count > 9 ? '9+' : String(count);
+    badge.classList.add('show');
+  } else {
+    badge.classList.remove('show');
+  }
+}
+
+function markScreenSeen(name) {
+  // Oznacz "events" jako widziane — zeruje badge nowych wydarzeń
+  if (name === 'events') {
+    localStorage.setItem('lastSeen_' + familyId + '_events', Date.now());
+    setBadge('events', 0);
+  }
+  // Todo i wyniki mają badge statyczny (aktualna liczba) — nie zerujemy ręcznie
 }
 
 function renderResults() {
