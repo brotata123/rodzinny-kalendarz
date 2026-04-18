@@ -345,16 +345,16 @@ const PL_HOLIDAYS_MOVING = new Set([
   '2026-04-05','2026-04-06','2026-05-24','2026-06-04',
   '2027-03-28','2027-03-29','2027-05-16','2027-05-27',
 ]);
-// Ferie szkolne (Mazowsze)
+// Ferie szkolne (Pomorskie)
 const PL_SCHOOL_BREAKS = [
-  { from: '2025-12-22', to: '2026-01-02' },
-  { from: '2026-02-16', to: '2026-03-01' },
-  { from: '2026-04-02', to: '2026-04-17' },
-  { from: '2026-06-27', to: '2026-08-31' },
-  { from: '2026-12-21', to: '2027-01-01' },
-  { from: '2027-02-15', to: '2027-02-28' },
-  { from: '2027-04-01', to: '2027-04-16' },
-  { from: '2027-06-26', to: '2027-08-31' },
+  { from: '2025-12-22', to: '2026-01-01' }, // Przerwa świąteczna Bożego Narodzenia
+  { from: '2026-01-19', to: '2026-02-01' }, // Ferie zimowe 2025/2026 — Pomorskie (tura I)
+  { from: '2026-04-02', to: '2026-04-07' }, // Wiosenna przerwa świąteczna (ogólnopolska)
+  { from: '2026-06-27', to: '2026-08-31' }, // Ferie letnie 2026
+  { from: '2026-12-22', to: '2026-12-31' }, // Przerwa świąteczna Bożego Narodzenia
+  { from: '2027-02-01', to: '2027-02-14' }, // Ferie zimowe 2026/2027 — Pomorskie (tura II)
+  { from: '2027-03-25', to: '2027-03-30' }, // Wiosenna przerwa świąteczna (ogólnopolska)
+  { from: '2027-06-26', to: '2027-08-31' }, // Ferie letnie 2027
 ];
 
 function isHoliday(dateStr) {
