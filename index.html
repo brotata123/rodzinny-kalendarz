@@ -1206,6 +1206,38 @@
     }
 
     /* ============================================================
+       WYNIKI
+    ============================================================ */
+    .result-card {
+      background: white;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .result-card:active { transform: scale(0.98); }
+    .result-medal { font-size: 28px; flex-shrink: 0; }
+    .result-info  { flex: 1; min-width: 0; }
+    .result-title { font-size: 13px; font-weight: 700; color: var(--text-dark);
+                    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .result-meta  { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+    .result-badge {
+      display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0; gap: 3px;
+    }
+    .result-place {
+      font-size: 11px; font-weight: 700; padding: 3px 8px;
+      border-radius: 20px; background: rgba(0,201,167,0.12); color: #009e82;
+    }
+    .result-pts {
+      font-size: 10px; color: var(--text-light); font-weight: 600;
+    }
+
+    /* ============================================================
        GLOBALNA NAWIGACJA DOLNA
     ============================================================ */
     .global-nav {
@@ -1541,6 +1573,10 @@
           <span class="type-emoji">📌</span>
           <span class="type-name">Inne</span>
         </div>
+        <div class="type-btn" onclick="openResultForm()">
+          <span class="type-emoji">🏅</span>
+          <span class="type-name">Wynik</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1566,6 +1602,25 @@
   </div>
 
   <!-- ============================================================
+       EKRAN: WYNIKI
+  ============================================================ -->
+  <div id="screen-results" class="screen">
+    <div class="header">
+      <div class="header-top">
+        <div>
+          <div class="header-title">Wyniki</div>
+          <div class="header-sub">Osiągnięcia i miejsca</div>
+        </div>
+      </div>
+    </div>
+    <div class="screen-body" style="padding:16px;overflow-y:auto;">
+      <div id="results-list">
+        <div class="empty-state"><div class="es-icon">🏅</div><p>Brak wyników</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
        GLOBALNY FAB (+)
   ============================================================ -->
   <div class="global-fab" id="global-fab" onclick="openModal()" style="display:none">+</div>
@@ -1585,6 +1640,10 @@
     <div class="nav-item" id="nav-todo" onclick="showScreen('todo')">
       <div class="nav-icon">☑️</div>
       <div class="nav-label">To Do</div>
+    </div>
+    <div class="nav-item" id="nav-results" onclick="showScreen('results')">
+      <div class="nav-icon">🏅</div>
+      <div class="nav-label">Wyniki</div>
     </div>
   </div>
 

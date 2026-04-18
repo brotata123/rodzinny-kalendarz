@@ -123,7 +123,7 @@ function showScreen(name) {
   if (nav) nav.style.display = isAppScreen ? 'flex' : 'none';
 
   // Aktywna zakładka w dolnej nawigacji
-  ['calendar', 'grades', 'contests', 'events', 'todo'].forEach(n => {
+  ['calendar', 'grades', 'contests', 'events', 'todo', 'results'].forEach(n => {
     const el = document.getElementById('nav-' + n);
     if (el) el.classList.toggle('active', n === name);
   });
@@ -134,6 +134,7 @@ function showScreen(name) {
   if (name === 'contests') renderContests();
   if (name === 'events')   renderEvents();
   if (name === 'todo')     renderTasks();
+  if (name === 'results')  renderResults();
 }
 
 // ============================================================
@@ -1898,4 +1899,179 @@ function getCategoryDotClass(category) {
     'urodziny': 'purple', 'wyjazd': 'orange',
   };
   return map[category] || 'gray';
+}
+
+// ============================================================
+//  WYNIKI
+// ============================================================
+let resultsMap = {}; // id → result
+
+function medalEmoji(place) {
+  if (!place) return '🏅';
+  const p = place.toLowerCase();
+  if (p.includes('1') || p.includes('złot') || p.includes('pierwsze')) return '🥇';
+  if (p.includes('2') || p.includes('srebrn') || p.includes('drugie'))  return '🥈';
+  if (p.includes('3') || p.includes('brąz')  || p.includes('trzecie'))  return '🥉';
+  if (p.includes('wyróżn'))                                               return '🌟';
+  return '🏅';
+}
+
+function openResultForm(existingResult = null) {
+  const isEdit  = !!existingResult;
+  const date    = existingResult ? existingResult.date  : (selectedDate || formatDateObj(new Date()));
+  const title   = existingResult ? escHtml(existingResult.title  || '') : '';
+  const place   = existingResult ? escHtml(existingResult.place  || '') : '';
+  const points  = existingResult ? escHtml(existingResult.points || '') : '';
+  const notes   = existingResult ? escHtml(existingResult.notes  || '') : '';
+
+  document.getElementById('form-title').textContent = isEdit ? 'Edytuj wynik' : 'Dodaj wynik';
+  document.getElementById('form-body').innerHTML = `
+    <div class="form-group">
+      <label class="form-label">Nazwa wydarzenia</label>
+      <input type="text" class="form-input" id="r-title" placeholder="np. Konkurs matematyczny Kangur" value="${title}" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Data</label>
+      <input type="date" class="form-input" id="r-date" value="${date}">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Wynik / Miejsce</label>
+      <input type="text" class="form-input" id="r-place" placeholder="np. 1 miejsce, Wyróżnienie, Finalista" value="${place}" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Punkty (opcjonalnie)</label>
+      <input type="text" class="form-input" id="r-points" placeholder="np. 31/35, 95%, 4:52" value="${points}" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Notatka (opcjonalnie)</label>
+      <textarea class="form-input" id="r-notes" rows="2" placeholder="Dodatkowe informacje...">${notes}</textarea>
+    </div>`;
+  document.getElementById('form-error').textContent = '';
+
+  const btn = document.getElementById('btn-save');
+  btn.textContent = isEdit ? 'Zaktualizuj' : 'Zapisz';
+  btn.disabled = false;
+  btn.onclick = () => submitResultForm(isEdit ? existingResult.id : null);
+
+  closeModal();
+  document.getElementById('form-modal').classList.add('open');
+}
+
+async function submitResultForm(editId = null) {
+  const btn    = document.getElementById('btn-save');
+  const errEl  = document.getElementById('form-error');
+  const title  = document.getElementById('r-title').value.trim();
+  const date   = document.getElementById('r-date').value;
+  const place  = document.getElementById('r-place').value.trim();
+  const points = document.getElementById('r-points').value.trim();
+  const notes  = document.getElementById('r-notes').value.trim();
+
+  if (!title) { errEl.textContent = 'Podaj nazwę wydarzenia.'; return; }
+  if (!date)  { errEl.textContent = 'Wybierz datę.';          return; }
+
+  btn.textContent = 'Zapisuję…'; btn.disabled = true;
+  const data = { title, date, place, points: points || null, notes: notes || null };
+
+  try {
+    const col = db.collection('families').doc(familyId).collection('results');
+    if (editId) {
+      await col.doc(editId).update(data);
+    } else {
+      data.created_at = firebase.firestore.FieldValue.serverTimestamp();
+      await col.add(data);
+      notifyTelegram({ ...data, category: 'wynik' }, 'new');
+    }
+    closeFormModalDirect();
+    renderResults();
+  } catch (err) {
+    errEl.textContent = 'Błąd: ' + err.message;
+    btn.textContent = 'Zapisz'; btn.disabled = false;
+  }
+}
+
+async function deleteResult(id) {
+  if (!confirm('Usunąć ten wynik?')) return;
+  try {
+    await db.collection('families').doc(familyId).collection('results').doc(id).delete();
+    closeDayPopupDirect();
+    renderResults();
+  } catch (err) { alert('Błąd: ' + err.message); }
+}
+
+function openResultDetail(id) {
+  const r = resultsMap[id];
+  if (!r) return;
+  const medal = medalEmoji(r.place);
+  const d = new Date(r.date + 'T12:00:00');
+  const dow = DOW_NAMES[d.getDay()];
+  const mon = MONTH_NAMES_SHORT[d.getMonth()];
+  document.getElementById('popup-date-title').textContent = `${medal} ${r.title}`;
+
+  let html = `
+    <div class="event-item" style="margin-bottom:8px">
+      <div class="event-icon">${medal}</div>
+      <div class="event-info">
+        <div class="event-name">${escHtml(r.title)}</div>
+        <div class="event-time">📅 ${dow}, ${d.getDate()} ${mon}</div>
+        ${r.place  ? `<div class="event-time" style="margin-top:2px">🏆 ${escHtml(r.place)}</div>`  : ''}
+        ${r.points ? `<div class="event-time" style="margin-top:2px">📊 ${escHtml(r.points)}</div>` : ''}
+        ${r.notes  ? `<div class="event-time" style="margin-top:2px;font-style:italic">💬 ${escHtml(r.notes)}</div>` : ''}
+      </div>
+      <button class="del-btn" onclick="closePopupAndEdit('${id}')" title="Edytuj">✏️</button>
+      <button class="del-btn" onclick="deleteResult('${id}')" title="Usuń">🗑</button>
+    </div>`;
+  document.getElementById('popup-content').innerHTML = html;
+  document.getElementById('day-popup').classList.add('open');
+}
+
+function closePopupAndEdit(id) {
+  closeDayPopupDirect();
+  openResultForm(resultsMap[id]);
+}
+
+function renderResults() {
+  if (!db || !familyId) return;
+  const list = document.getElementById('results-list');
+  if (!list) return;
+  list.innerHTML = '<div class="empty-state"><div class="es-icon">⏳</div><p>Ładowanie...</p></div>';
+
+  db.collection('families').doc(familyId).collection('results')
+    .orderBy('date', 'desc').get()
+    .then(snap => {
+      resultsMap = {};
+      if (snap.empty) {
+        list.innerHTML = '<div class="empty-state"><div class="es-icon">🏅</div><p>Brak wyników. Dodaj pierwszy!</p></div>';
+        return;
+      }
+      list.innerHTML = '';
+      // Delegacja zdarzeń
+      list.onclick = e => {
+        const card = e.target.closest('.result-card');
+        if (card) openResultDetail(card.dataset.rid);
+      };
+      snap.forEach(doc => {
+        const r = { ...doc.data(), id: doc.id };
+        resultsMap[r.id] = r;
+        const medal = medalEmoji(r.place);
+        const d   = new Date(r.date + 'T12:00:00');
+        const day = d.getDate();
+        const mon = MONTH_NAMES_SHORT[d.getMonth()];
+        const year = d.getFullYear();
+        const card = document.createElement('div');
+        card.className = 'result-card';
+        card.dataset.rid = r.id;
+        card.innerHTML = `
+          <div class="result-medal">${medal}</div>
+          <div class="result-info">
+            <div class="result-title">${escHtml(r.title)}</div>
+            <div class="result-meta">${day} ${mon} ${year}</div>
+          </div>
+          <div class="result-badge">
+            ${r.place  ? `<div class="result-place">${escHtml(r.place)}</div>`  : ''}
+            ${r.points ? `<div class="result-pts">${escHtml(r.points)}</div>`   : ''}
+          </div>`;
+        list.appendChild(card);
+      });
+    })
+    .catch(err => console.error('renderResults error:', err));
 }
