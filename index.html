@@ -1356,6 +1356,72 @@
       z-index: 14;
     }
     .global-fab:active { transform: scale(0.92); }
+
+    /* ============================================================
+       CUSTOM CONFIRM DIALOG
+    ============================================================ */
+    .confirm-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .btn-danger {
+      width: 100%;
+      padding: 13px;
+      border-radius: 14px;
+      border: none;
+      background: var(--school);
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-danger:active { transform: scale(0.97); }
+    .btn-danger.soft {
+      background: rgba(255,107,107,0.12);
+      color: var(--school);
+    }
+
+    /* ============================================================
+       RECURRING TOGGLE
+    ============================================================ */
+    .recurring-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--cream);
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.15s;
+      margin-top: 4px;
+      user-select: none;
+    }
+    .recurring-row.on { border-color: var(--mint); }
+    .tog-track {
+      width: 38px; height: 22px;
+      background: #c8d0de;
+      border-radius: 11px;
+      position: relative;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .tog-track.on { background: var(--mint); }
+    .tog-thumb {
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 16px; height: 16px;
+      background: white;
+      border-radius: 50%;
+      transition: left 0.2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .tog-track.on .tog-thumb { left: 19px; }
   </style>
 </head>
 <body>
@@ -1690,6 +1756,18 @@
       <div id="results-list">
         <div class="empty-state"><div class="es-icon">🏅</div><p>Brak wyników</p></div>
       </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CUSTOM CONFIRM DIALOG
+  ============================================================ -->
+  <div class="modal-overlay" id="confirm-modal" onclick="closeConfirmDialog(event)">
+    <div class="modal" style="padding-bottom:24px;">
+      <div class="modal-handle"></div>
+      <div class="confirm-title" id="confirm-title">Usunąć wpis?</div>
+      <div class="confirm-msg" id="confirm-msg" style="display:none;font-size:13px;color:var(--text-light);margin-bottom:16px;line-height:1.5;"></div>
+      <div class="confirm-actions" id="confirm-actions" style="display:flex;flex-direction:column;gap:8px;"></div>
     </div>
   </div>
 

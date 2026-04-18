@@ -250,6 +250,16 @@ async function sha256(message) {
   return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
+function generateSeriesId() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+}
+
+function getSchoolYearEnd() {
+  const now = new Date();
+  const year = now.getMonth() < 8 ? now.getFullYear() : now.getFullYear() + 1;
+  return `${year}-06-20`;
+}
+
 // ============================================================
 //  KONFIGURACJA RODZINY
 // ============================================================
@@ -837,7 +847,7 @@ function openDayPopup(dateStr, dayNum) {
           <div class="event-time">${timeStr}${locStr}</div>
         </div>
         <button class="del-btn" onclick="editEntry('${ev._col||'event'}','${ev.id}')" title="Edytuj">✏️</button>
-        <button class="del-btn" onclick="deleteEntry('${ev._col||'event'}','${ev.id}')" title="Usuń">🗑</button>
+        <button class="del-btn" onclick="deleteEntry('${ev._col||'event'}','${ev.id}','${ev.seriesId||''}')" title="Usuń">🗑</button>
       </div>`;
   });
 
@@ -869,6 +879,10 @@ async function editEntry(type, id) {
           if (d.split_from) selectSplitFrom(d.split_from);
         }
       }
+      editMode = true; editDocId = id;
+      document.getElementById('form-title').textContent = 'Edytuj opiekę';
+      document.getElementById('btn-save').textContent   = 'Zaktualizuj';
+
     } else if (type === 'contest') {
       const snap = await familyRef.collection('contests').doc(id).get();
       if (!snap.exists) return;
@@ -876,49 +890,78 @@ async function editEntry(type, id) {
       openAddForm('contest');
       document.getElementById('f-date').value = data.date || '';
       document.getElementById('f-name').value = data.name || data.title || '';
-      const timeEl    = document.getElementById('f-time');
-      const timeEndEl = document.getElementById('f-time-end');
-      const locEl     = document.getElementById('f-location');
-      const notEl     = document.getElementById('f-notes');
+      const timeEl = document.getElementById('f-time'), timeEndEl = document.getElementById('f-time-end');
+      const locEl  = document.getElementById('f-location'), notEl = document.getElementById('f-notes');
       if (timeEl)    timeEl.value    = data.time     || '';
       if (timeEndEl) timeEndEl.value = data.timeEnd  || '';
       if (locEl)     locEl.value     = data.location || '';
       if (notEl)     notEl.value     = data.notes    || '';
+      editMode = true; editDocId = id;
+      document.getElementById('form-title').textContent = 'Edytuj konkurs';
+      document.getElementById('btn-save').textContent   = 'Zaktualizuj';
+
     } else {
       const snap = await familyRef.collection('events').doc(id).get();
       if (!snap.exists) return;
       const data = snap.data();
-      const catToType = {
-        'szachy': 'chess', 'sprawdzian': 'exam',
-        'ortodonta': 'orthodontist', 'inne': 'other',
-        'zajęcia': 'chess', 'wizyta': 'orthodontist', 'wydarzenie': 'other'
-      };
-      openAddForm(catToType[data.category] || 'other');
-      document.getElementById('f-date').value  = data.date  || '';
-      document.getElementById('f-title').value = data.title || '';
-      const timeEl    = document.getElementById('f-time');
-      const timeEndEl = document.getElementById('f-time-end');
-      const locEl     = document.getElementById('f-location');
-      const notEl     = document.getElementById('f-notes');
-      if (timeEl)    timeEl.value    = data.time     || '';
-      if (timeEndEl) timeEndEl.value = data.timeEnd  || '';
-      if (locEl)     locEl.value     = data.location || '';
-      if (notEl)     notEl.value     = data.notes    || '';
+      if (data.seriesId) {
+        showConfirmDialog(
+          '✏️ Edycja zdarzenia',
+          'Ten wpis jest częścią serii cyklicznej.',
+          [
+            { label: 'Anuluj',     cls: 'btn-cancel',                           action: () => {} },
+            { label: 'Tylko ten',  cls: 'btn-save',                             action: () => _fillEditForm(id, data, null) },
+            { label: 'Całą serię', cls: 'btn-save', style: 'background:var(--event)', action: () => _fillEditForm(id, data, data.seriesId) }
+          ]
+        );
+        return;
+      }
+      _fillEditForm(id, data, null);
     }
-
-    editMode  = true;
-    editDocId = id;
-    document.getElementById('form-title').textContent  = 'Edytuj wpis';
-    document.getElementById('btn-save').textContent    = 'Zaktualizuj';
-  } catch (err) {
-    alert('Błąd: ' + err.message);
-  }
+  } catch (err) { alert('Błąd: ' + err.message); }
 }
 
-// Usuwa wpis z Firebase i odświeża widok
-async function deleteEntry(type, id) {
-  if (!confirm('Usunąć ten wpis?')) return;
-  vib([30, 50, 80]); // mocniejsza wibracja przy usuwaniu
+function _fillEditForm(id, data, seriesId) {
+  const catToType = {
+    'szachy': 'chess', 'sprawdzian': 'exam', 'ortodonta': 'orthodontist', 'inne': 'other',
+    'zajęcia': 'chess', 'wizyta': 'orthodontist', 'wydarzenie': 'other'
+  };
+  openAddForm(catToType[data.category] || 'other');
+  document.getElementById('f-date').value  = data.date  || '';
+  document.getElementById('f-title').value = data.title || '';
+  const timeEl = document.getElementById('f-time'), timeEndEl = document.getElementById('f-time-end');
+  const locEl  = document.getElementById('f-location'), notEl = document.getElementById('f-notes');
+  if (timeEl)    timeEl.value    = data.time     || '';
+  if (timeEndEl) timeEndEl.value = data.timeEnd  || '';
+  if (locEl)     locEl.value     = data.location || '';
+  if (notEl)     notEl.value     = data.notes    || '';
+  editMode     = true;
+  editDocId    = id;
+  editSeriesId = seriesId;
+  document.getElementById('form-title').textContent = seriesId ? 'Edytuj serię' : 'Edytuj wpis';
+  document.getElementById('btn-save').textContent   = seriesId ? 'Zaktualizuj serię' : 'Zaktualizuj';
+}
+
+function deleteEntry(type, id, seriesId) {
+  const hasSeries = !!seriesId;
+  const buttons = [
+    { label: 'Anuluj', cls: 'btn-cancel', action: () => {} }
+  ];
+  if (hasSeries) {
+    buttons.push({ label: 'Usuń ten wpis',   cls: 'btn-danger soft', action: () => doDeleteEntry(type, id) });
+    buttons.push({ label: 'Usuń całą serię', cls: 'btn-danger',      action: () => doDeleteSeries(seriesId) });
+  } else {
+    buttons.push({ label: 'Usuń', cls: 'btn-danger', action: () => doDeleteEntry(type, id) });
+  }
+  showConfirmDialog(
+    'Usunąć wpis?',
+    hasSeries ? 'Ten wpis należy do serii cyklicznej.' : '',
+    buttons
+  );
+}
+
+async function doDeleteEntry(type, id) {
+  vib([30, 50, 80]);
   try {
     const familyRef = db.collection('families').doc(familyId);
     let notifyData = null;
@@ -938,9 +981,22 @@ async function deleteEntry(type, id) {
     renderCalendar();
     renderEvents();
     updateBadges();
-  } catch (err) {
-    alert('Błąd usuwania: ' + err.message);
-  }
+  } catch (err) { alert('Błąd usuwania: ' + err.message); }
+}
+
+async function doDeleteSeries(seriesId) {
+  vib([30, 50, 80]);
+  try {
+    const snap = await db.collection('families').doc(familyId)
+      .collection('events').where('seriesId', '==', seriesId).get();
+    const batch = db.batch();
+    snap.forEach(doc => batch.delete(doc.ref));
+    await batch.commit();
+    closeDayPopupDirect();
+    renderCalendar();
+    renderEvents();
+    updateBadges();
+  } catch (err) { alert('Błąd usuwania serii: ' + err.message); }
 }
 
 function closeDayPopup(e) {
@@ -956,8 +1012,9 @@ function closeDayPopupDirect() {
 // Swipe down = zamknij popup lub formularz; swipe lewo/prawo = zmień miesiąc/tydzień
 (function initSwipeHandlers() {
   let startX = 0, startY = 0;
-  const popup = document.getElementById('day-popup');
-  const form  = document.getElementById('form-modal');
+  const popup   = document.getElementById('day-popup');
+  const form    = document.getElementById('form-modal');
+  const confirm = document.getElementById('confirm-modal');
 
   function closeWithAnim(el) {
     el.classList.add('closing');
@@ -979,6 +1036,9 @@ function closeDayPopupDirect() {
   }, { passive: true });
 
   document.addEventListener('touchend', e => {
+    // Nie obsługuj swipe gdy confirm-modal jest otwarty
+    if (confirm && confirm.classList.contains('open')) return;
+
     const dx = e.changedTouches[0].clientX - startX;
     const dy = e.changedTouches[0].clientY - startY;
 
@@ -1029,6 +1089,7 @@ let currentSplitFrom   = null;
 let currentGrade       = null;
 let editMode           = false;
 let editDocId          = null;
+let editSeriesId       = null;
 
 function openAddForm(type) {
   closeModalDirect();
@@ -1038,6 +1099,7 @@ function openAddForm(type) {
   currentGrade       = null;
   editMode           = false;
   editDocId          = null;
+  editSeriesId       = null;
 
   const titles = {
     custody:      'Dodaj opiekę',
@@ -1194,6 +1256,19 @@ function buildFormHtml(type) {
     <div class="form-group">
       <label class="form-label">Notatki (opcjonalnie)</label>
       <textarea class="form-textarea" id="f-notes" placeholder="..."></textarea>
+    </div>
+    <div class="form-group">
+      <div class="recurring-row" id="recurring-row" onclick="toggleRecurring()">
+        <input type="checkbox" id="f-recurring" style="display:none">
+        <div class="tog-track" id="tog-track"><div class="tog-thumb"></div></div>
+        <span style="font-size:13px;font-weight:500;color:var(--text-dark);">Powtarzaj co tydzień</span>
+      </div>
+    </div>
+    <div id="recurring-fields" style="display:none">
+      <div class="form-group">
+        <label class="form-label">Do kiedy</label>
+        <input type="date" class="form-input" id="f-recurring-until" value="${getSchoolYearEnd()}">
+      </div>
     </div>`;
 }
 
@@ -1225,6 +1300,24 @@ function selectGrade(g) {
   });
 }
 
+function toggleRecurring() {
+  const cb    = document.getElementById('f-recurring');
+  if (!cb) return;
+  cb.checked  = !cb.checked;
+  const track = document.getElementById('tog-track');
+  const row   = document.getElementById('recurring-row');
+  const flds  = document.getElementById('recurring-fields');
+  if (cb.checked) {
+    track && track.classList.add('on');
+    row   && row.classList.add('on');
+    flds  && (flds.style.display = 'block');
+  } else {
+    track && track.classList.remove('on');
+    row   && row.classList.remove('on');
+    flds  && (flds.style.display = 'none');
+  }
+}
+
 // Zamknięcie formularza
 function closeFormModal(e) {
   if (e.target === document.getElementById('form-modal')) {
@@ -1237,6 +1330,34 @@ function closeFormModalDirect() {
   const btn = document.getElementById('btn-save');
   btn.disabled = false;
   btn.textContent = 'Zapisz';
+}
+
+// ============================================================
+//  CUSTOM CONFIRM DIALOG
+// ============================================================
+function showConfirmDialog(title, msg, buttons) {
+  document.getElementById('confirm-title').textContent = title;
+  const msgEl = document.getElementById('confirm-msg');
+  if (msg) { msgEl.textContent = msg; msgEl.style.display = 'block'; }
+  else      { msgEl.style.display = 'none'; }
+  const actionsEl = document.getElementById('confirm-actions');
+  actionsEl.innerHTML = '';
+  buttons.forEach(btn => {
+    const el = document.createElement('button');
+    el.textContent = btn.label;
+    el.className   = btn.cls || 'btn-cancel';
+    if (btn.style) el.style.cssText = btn.style;
+    el.style.width = '100%';
+    el.onclick = () => { closeConfirmDialog(); if (btn.action) btn.action(); };
+    actionsEl.appendChild(el);
+  });
+  document.getElementById('confirm-modal').classList.add('open');
+}
+
+function closeConfirmDialog(e) {
+  if (!e || e.target === document.getElementById('confirm-modal')) {
+    document.getElementById('confirm-modal').classList.remove('open');
+  }
 }
 
 // Zapis do Firebase
@@ -1341,19 +1462,49 @@ async function submitForm() {
         notes:    document.getElementById('f-notes').value.trim() || null,
       };
       if (editMode && editDocId) {
-        await familyRef.collection('events').doc(editDocId).update(evData);
-        notifyTelegram(evData, 'edit');
+        if (editSeriesId) {
+          // Aktualizuj całą serię (wszystkie wpisy z tym seriesId, bez zmiany dat)
+          const seriesSnap = await familyRef.collection('events')
+            .where('seriesId', '==', editSeriesId).get();
+          const batch = db.batch();
+          const upd = { title: evData.title, time: evData.time, timeEnd: evData.timeEnd,
+                        category: evData.category, location: evData.location, notes: evData.notes };
+          seriesSnap.forEach(doc => batch.update(doc.ref, upd));
+          await batch.commit();
+          notifyTelegram({ ...evData, title: `${evData.title} (cała seria)` }, 'edit');
+        } else {
+          await familyRef.collection('events').doc(editDocId).update(evData);
+          notifyTelegram(evData, 'edit');
+        }
       } else {
-        const newRef = await familyRef.collection('events').add({
-          ...evData,
-          created_by: 'a',
-          created_at: firebase.firestore.FieldValue.serverTimestamp()
-        });
-        // Natychmiast aktualizuj cache — Firestore query cache może pominąć nowy dokument
-        if (!eventsCache[evData.date]) eventsCache[evData.date] = [];
-        eventsCache[evData.date].push({ ...evData, id: newRef.id });
-        notifyN8n(evData);
-        notifyTelegram(evData);
+        // Sprawdź czy cykliczne
+        const isRecurring = document.getElementById('f-recurring')?.checked;
+        const untilStr    = document.getElementById('f-recurring-until')?.value;
+        if (isRecurring && untilStr) {
+          const seriesId  = generateSeriesId();
+          const startDate = new Date(evData.date + 'T12:00:00');
+          const untilDate = new Date(untilStr + 'T12:00:00');
+          if (untilDate < startDate) throw new Error('Data końcowa musi być późniejsza niż startowa');
+          const batch = db.batch();
+          let cur = new Date(startDate), count = 0;
+          while (cur <= untilDate && count < 52) {
+            const ref = familyRef.collection('events').doc();
+            batch.set(ref, { ...evData, date: formatDateObj(cur), seriesId,
+                             created_by: 'a', created_at: firebase.firestore.FieldValue.serverTimestamp() });
+            cur.setDate(cur.getDate() + 7);
+            count++;
+          }
+          await batch.commit();
+          notifyTelegram({ ...evData, title: `${evData.title} (seria ×${count})` });
+        } else {
+          const newRef = await familyRef.collection('events').add({
+            ...evData, created_by: 'a', created_at: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          if (!eventsCache[evData.date]) eventsCache[evData.date] = [];
+          eventsCache[evData.date].push({ ...evData, id: newRef.id });
+          notifyN8n(evData);
+          notifyTelegram(evData);
+        }
       }
     }
 
@@ -1525,7 +1676,7 @@ function openEventDetail(evId) {
         ${notesHtml}
       </div>
       <button class="del-btn" onclick="editEntry('${ev._col || 'event'}','${ev.id}')" title="Edytuj">✏️</button>
-      <button class="del-btn" onclick="deleteEntry('${ev._col || 'event'}','${ev.id}')" title="Usuń">🗑</button>
+      <button class="del-btn" onclick="deleteEntry('${ev._col || 'event'}','${ev.id}','${ev.seriesId||''}')" title="Usuń">🗑</button>
     </div>`;
   document.getElementById('day-popup').classList.add('open');
 }
@@ -1757,11 +1908,16 @@ function updateTaskStatus(id, status) {
 }
 
 function deleteTask(id) {
-  if (!confirm('Usunąć zadanie?')) return;
-  db.collection('families').doc(familyId).collection('tasks').doc(id)
-    .delete()
-    .then(() => { closeDayPopupDirect(); renderTasks(); })
-    .catch(err => alert('Błąd: ' + err.message));
+  showConfirmDialog('Usunąć zadanie?', '', [
+    { label: 'Anuluj', cls: 'btn-cancel', action: () => {} },
+    { label: 'Usuń',   cls: 'btn-danger', action: () => {
+      vib([30,50,80]);
+      db.collection('families').doc(familyId).collection('tasks').doc(id)
+        .delete()
+        .then(() => { closeDayPopupDirect(); renderTasks(); updateBadges(); })
+        .catch(err => alert('Błąd: ' + err.message));
+    }}
+  ]);
 }
 
 function editTask(id) {
@@ -2044,15 +2200,19 @@ async function submitResultForm(editId = null) {
   }
 }
 
-async function deleteResult(id) {
-  if (!confirm('Usunąć ten wynik?')) return;
-  vib([30, 50, 80]);
-  try {
-    await db.collection('families').doc(familyId).collection('results').doc(id).delete();
-    closeDayPopupDirect();
-    renderResults();
-    updateBadges();
-  } catch (err) { alert('Błąd: ' + err.message); }
+function deleteResult(id) {
+  showConfirmDialog('Usunąć wynik?', '', [
+    { label: 'Anuluj', cls: 'btn-cancel', action: () => {} },
+    { label: 'Usuń',   cls: 'btn-danger', action: async () => {
+      vib([30,50,80]);
+      try {
+        await db.collection('families').doc(familyId).collection('results').doc(id).delete();
+        closeDayPopupDirect();
+        renderResults();
+        updateBadges();
+      } catch (err) { alert('Błąd: ' + err.message); }
+    }}
+  ]);
 }
 
 function openResultDetail(id) {
