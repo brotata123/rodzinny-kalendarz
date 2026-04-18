@@ -1263,6 +1263,12 @@ async function submitForm() {
         await familyRef.collection('contests').add(contestData);
         notifyN8n({ ...contestData, title: name, category: 'konkurs' });
         notifyTelegram({ ...contestData, title: name, category: 'konkurs' }, 'add');
+        // Automatycznie utwórz wpis w Wynikach (wynik do uzupełnienia później)
+        await familyRef.collection('results').add({
+          title: name, date: contestData.date,
+          place: null, points: null, notes: null,
+          created_at: firebase.firestore.FieldValue.serverTimestamp()
+        });
       }
 
     } else {
