@@ -326,6 +326,44 @@ const MONTH_NAMES_SHORT = [
 ];
 const DOW_NAMES = ['Nd','Pn','Wt','Śr','Cz','Pt','Sb'];
 
+// ── Polskie święta i ferie ────────────────────────────────────────────────────
+// Święta stałe (MM-DD)
+const PL_HOLIDAYS_FIXED = new Set([
+  '01-01', // Nowy Rok
+  '01-06', // Trzech Króli
+  '05-01', // Święto Pracy
+  '05-03', // Konstytucja 3 Maja
+  '08-15', // Wniebowzięcie NMP
+  '11-01', // Wszystkich Świętych
+  '11-11', // Niepodległości
+  '12-25', // Boże Narodzenie
+  '12-26', // Drugi dzień Bożego Narodzenia
+]);
+// Święta ruchome (YYYY-MM-DD): Wielkanoc, Zielone Świątki, Boże Ciało
+const PL_HOLIDAYS_MOVING = new Set([
+  '2025-04-20','2025-04-21','2025-06-08','2025-06-19',
+  '2026-04-05','2026-04-06','2026-05-24','2026-06-04',
+  '2027-03-28','2027-03-29','2027-05-16','2027-05-27',
+]);
+// Ferie szkolne (Mazowsze)
+const PL_SCHOOL_BREAKS = [
+  { from: '2025-12-22', to: '2026-01-02' },
+  { from: '2026-02-16', to: '2026-03-01' },
+  { from: '2026-04-02', to: '2026-04-17' },
+  { from: '2026-06-27', to: '2026-08-31' },
+  { from: '2026-12-21', to: '2027-01-01' },
+  { from: '2027-02-15', to: '2027-02-28' },
+  { from: '2027-04-01', to: '2027-04-16' },
+  { from: '2027-06-26', to: '2027-08-31' },
+];
+
+function isHoliday(dateStr) {
+  return PL_HOLIDAYS_MOVING.has(dateStr) || PL_HOLIDAYS_FIXED.has(dateStr.slice(5));
+}
+function isSchoolBreak(dateStr) {
+  return PL_SCHOOL_BREAKS.some(b => dateStr >= b.from && dateStr <= b.to);
+}
+
 let currentYear  = new Date().getFullYear();
 let currentMonth = new Date().getMonth(); // 0-indexed
 let currentView  = 'month';
@@ -378,6 +416,10 @@ function buildMonthGrid() {
     if      (custody === 'split') div.classList.add('split');
     else if (custody === 'a')     div.classList.add('tata-full');
     else if (custody === 'b')     div.classList.add('mama-full');
+
+    // Święta i ferie
+    if (isHoliday(dateStr))     div.classList.add('holiday');
+    if (isSchoolBreak(dateStr)) div.classList.add('school-break');
 
     // Dzisiaj — subtelna kropka zamiast wypełnionego kółka
     if (isThisMonth && d === today.getDate()) div.classList.add('today-dot');
@@ -591,6 +633,10 @@ function buildWeekGrid() {
     if (custody === 'b')     cell.style.background = 'rgba(176,122,245,0.18)';
     if (custody === 'split') cell.style.background =
       'linear-gradient(135deg,rgba(74,158,255,0.28) 50%,rgba(176,122,245,0.28) 50%)';
+
+    // Święta i ferie w widoku tygodniowym
+    if (isHoliday(dateStr))     cell.classList.add('wkh-holiday');
+    if (isSchoolBreak(dateStr)) cell.classList.add('wkh-break');
 
     const dnameEl = document.createElement('div');
     dnameEl.className = 'wkh-dname';

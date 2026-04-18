@@ -419,6 +419,25 @@
       box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.5);
     }
 
+    /* Święta — czerwona cyfra dnia */
+    .day.holiday .day-num { color: #e53935 !important; font-weight: 700; }
+    /* Dzisiaj ma granat — nie nadpisuj czerwonym */
+    .day.today-dot.holiday .day-num { color: var(--navy) !important; }
+    .day.today.holiday .day-num     { color: white !important; }
+    /* Ferie — bursztynowy pasek u góry (zachowuje tło opieki) */
+    .day.school-break { box-shadow: inset 0 3px 0 #f5a623; }
+    /* Ferie + split — oba box-shadowy */
+    .day.school-break.split {
+      background: linear-gradient(135deg, rgba(74,158,255,0.5) 50%, rgba(176,122,245,0.5) 50%);
+      box-shadow: inset 0 3px 0 #f5a623;
+    }
+
+    /* Widok tygodniowy — święta i ferie w nagłówku */
+    .wkh-head-day.wkh-holiday .wkh-dnum,
+    .wkh-head-day.wkh-holiday .wkh-today-num { color: #e53935 !important; }
+    .wkh-head-day.wkh-holiday .wkh-dname     { color: #e53935 !important; }
+    .wkh-head-day.wkh-break { box-shadow: inset 0 3px 0 #f5a623; }
+
     .day-dots {
       display: flex;
       gap: 2px;
@@ -1516,6 +1535,14 @@
           <div class="legend-dot" style="background:var(--school)"></div>
           <span class="legend-text">Szkoła</span>
         </div>
+        <div class="legend-item">
+          <span class="legend-text" style="color:#e53935;font-weight:700">31</span>
+          <span class="legend-text">Święto</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#f5a623;border-radius:2px 2px 3px 3px"></div>
+          <span class="legend-text">Ferie</span>
+        </div>
       </div>
       <div class="calendar-wrap">
         <div class="month-nav">
@@ -1550,6 +1577,14 @@
         <div class="legend-item">
           <div class="legend-split"></div>
           <span class="legend-text">Dzielona</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-text" style="color:#e53935;font-weight:700">31</span>
+          <span class="legend-text">Święto</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#f5a623;border-radius:2px 2px 3px 3px"></div>
+          <span class="legend-text">Ferie</span>
         </div>
       </div>
       <div class="week-wrap">
