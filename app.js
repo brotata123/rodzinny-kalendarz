@@ -1865,11 +1865,14 @@ function renderTests() {
       snapshot.forEach(doc => {
         const t = { ...doc.data(), id: doc.id };
         testsMap[t.id] = t;
-        const pct      = t.maxPoints ? Math.round((t.points / t.maxPoints) * 100) : null;
-        const pctStr   = pct !== null ? `${pct}%` : '—';
-        const ptsStr   = t.maxPoints ? `${t.points}/${t.maxPoints} pkt` : `${t.points} pkt`;
+        const pct        = t.maxPoints ? Math.round((t.points / t.maxPoints) * 100) : null;
+        const pctStr     = pct !== null ? `${pct}%` : '—';
+        const ptsStr     = t.maxPoints ? `${t.points}/${t.maxPoints} pkt` : `${t.points} pkt`;
+        const taskPct    = (t.tasks != null && t.maxTasks) ? Math.round((t.tasks / t.maxTasks) * 100) : null;
+        const taskStr    = taskPct !== null ? `✏️ ${t.tasks}/${t.maxTasks} zad. (${taskPct}%)` : '';
         const scoreClass = pct === null ? 'score-mid' : pct >= 75 ? 'score-hi' : pct >= 50 ? 'score-mid' : 'score-lo';
-        const dateStr  = formatDisplayDate(t.date);
+        const dateStr    = formatDisplayDate(t.date);
+        const meta2      = [taskStr, t.comment ? `💬 ${escHtml(t.comment)}` : ''].filter(Boolean).join(' · ');
         list.innerHTML += `
           <div class="test-card" onclick="openTestDetail('${t.id}')">
             <div class="test-score-circle ${scoreClass}">
@@ -1878,7 +1881,7 @@ function renderTests() {
             </div>
             <div class="test-info">
               <div class="test-name">${escHtml(t.name)}</div>
-              <div class="test-meta">📅 ${dateStr}</div>
+              <div class="test-meta">📅 ${dateStr}${meta2 ? ' · ' + meta2 : ''}</div>
             </div>
             <div class="test-class-chip">kl. ${t.class}</div>
           </div>`;
@@ -1890,16 +1893,24 @@ function renderTests() {
 function openTestDetail(id) {
   const t = testsMap[id];
   if (!t) return;
-  const pct    = t.maxPoints ? Math.round((t.points / t.maxPoints) * 100) : null;
-  const pctStr = pct !== null ? `${pct}%` : '—';
-  const ptsStr = t.maxPoints ? `${t.points} / ${t.maxPoints} pkt` : `${t.points} pkt`;
+  const pct     = t.maxPoints ? Math.round((t.points / t.maxPoints) * 100) : null;
+  const pctStr  = pct !== null ? `${pct}%` : '—';
+  const ptsStr  = t.maxPoints ? `${t.points} / ${t.maxPoints} pkt` : `${t.points} pkt`;
+  const taskPct = (t.tasks != null && t.maxTasks) ? Math.round((t.tasks / t.maxTasks) * 100) : null;
+  const taskRow = taskPct !== null
+    ? `<div style="font-size:12px;color:var(--text-light);margin-bottom:3px;">✏️ Zadania: <strong>${t.tasks} / ${t.maxTasks}</strong> = <strong>${taskPct}% skuteczności</strong></div>`
+    : '';
+  const commentRow = t.comment
+    ? `<div style="font-size:12px;color:var(--text-light);margin-top:6px;">💬 ${escHtml(t.comment)}</div>`
+    : '';
   document.getElementById('popup-date-title').textContent = '🧪 Test';
   document.getElementById('popup-content').innerHTML = `
     <div style="margin-bottom:14px;">
       <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;">${escHtml(t.name)}</div>
       <div style="font-size:12px;color:var(--text-light);margin-bottom:3px;">📅 ${formatDisplayDate(t.date)}</div>
       <div style="font-size:12px;color:var(--text-light);margin-bottom:3px;">🏫 Klasa ${t.class}</div>
-      <div style="font-size:12px;color:var(--text-light);">📊 Wynik: <strong>${ptsStr}</strong> = <strong>${pctStr}</strong></div>
+      <div style="font-size:12px;color:var(--text-light);margin-bottom:3px;">📊 Punkty: <strong>${ptsStr}</strong> = <strong>${pctStr}</strong></div>
+      ${taskRow}${commentRow}
     </div>
     <div style="display:flex;gap:8px;margin-top:14px;">
       <button class="del-btn" style="flex:1;justify-content:center;" onclick="editTest('${id}')">✏️ Edytuj</button>
@@ -1948,6 +1959,9 @@ function buildTestFormHtml(t) {
   const cls       = t ? (t.class     || 1)    : 1;
   const points    = t ? (t.points    ?? '')   : '';
   const maxPoints = t ? (t.maxPoints ?? '')   : '';
+  const tasks     = t ? (t.tasks     ?? '')   : '';
+  const maxTasks  = t ? (t.maxTasks  ?? '')   : '';
+  const comment   = t ? escHtml(t.comment || '') : '';
 
   const classOptions = [1,2,3,4,5,6,7,8].map(n =>
     `<option value="${n}" ${n == cls ? 'selected' : ''}>Klasa ${n}</option>`
@@ -1976,7 +1990,20 @@ function buildTestFormHtml(t) {
         <input class="form-input" type="number" id="test-max" min="1" placeholder="np. 100" value="${maxPoints}">
       </div>
     </div>
-    <div id="test-pct-preview" style="text-align:center;font-size:13px;color:var(--text-light);margin-top:4px;min-height:18px;"></div>`;
+    <div class="form-row" style="display:flex;gap:12px;">
+      <div class="form-group" style="flex:1">
+        <label class="form-label">Zadania poprawne</label>
+        <input class="form-input" type="number" id="test-tasks" min="0" placeholder="np. 18" value="${tasks}">
+      </div>
+      <div class="form-group" style="flex:1">
+        <label class="form-label">Zadania łącznie</label>
+        <input class="form-input" type="number" id="test-max-tasks" min="1" placeholder="np. 20" value="${maxTasks}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Komentarz (opcjonalny)</label>
+      <input class="form-input" id="test-comment" placeholder="np. Dobrze poszło z ułamkami" value="${comment}">
+    </div>`;
 }
 
 async function submitTestForm() {
@@ -1985,18 +2012,27 @@ async function submitTestForm() {
   const cls       = parseInt(document.getElementById('test-class').value);
   const points    = parseFloat(document.getElementById('test-points').value);
   const maxPoints = parseFloat(document.getElementById('test-max').value);
+  const tasksRaw    = document.getElementById('test-tasks').value;
+  const maxTasksRaw = document.getElementById('test-max-tasks').value;
+  const tasks     = tasksRaw    !== '' ? parseFloat(tasksRaw)    : null;
+  const maxTasks  = maxTasksRaw !== '' ? parseFloat(maxTasksRaw) : null;
+  const comment   = document.getElementById('test-comment').value.trim();
 
   if (!name) { document.getElementById('form-error').textContent = 'Podaj nazwę testu.'; return; }
   if (!date) { document.getElementById('form-error').textContent = 'Podaj datę.'; return; }
   if (isNaN(points))    { document.getElementById('form-error').textContent = 'Podaj punkty zdobyte.'; return; }
   if (isNaN(maxPoints)) { document.getElementById('form-error').textContent = 'Podaj punkty maksymalne.'; return; }
   if (points > maxPoints) { document.getElementById('form-error').textContent = 'Punkty zdobyte nie mogą być większe niż max.'; return; }
+  if (tasks !== null && maxTasks === null) { document.getElementById('form-error').textContent = 'Podaj łączną liczbę zadań.'; return; }
+  if (tasks !== null && maxTasks !== null && tasks > maxTasks) { document.getElementById('form-error').textContent = 'Zadania poprawne nie mogą być większe niż łącznie.'; return; }
 
   const btn = document.getElementById('btn-save');
   btn.disabled = true;
   try {
     const ref = db.collection('families').doc(familyId).collection('tests');
-    const data = { name, date, class: cls, points, maxPoints };
+    const data = { name, date, class: cls, points, maxPoints,
+                   tasks: tasks ?? null, maxTasks: maxTasks ?? null,
+                   comment: comment || '' };
     if (editMode && editDocId) {
       await ref.doc(editDocId).update(data);
     } else {
