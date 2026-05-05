@@ -1865,25 +1865,42 @@ function renderTests() {
       snapshot.forEach(doc => {
         const t = { ...doc.data(), id: doc.id };
         testsMap[t.id] = t;
-        const pct        = t.maxPoints ? Math.round((t.points / t.maxPoints) * 100) : null;
-        const pctStr     = pct !== null ? `${pct}%` : '—';
-        const ptsStr     = t.maxPoints ? `${t.points}/${t.maxPoints} pkt` : `${t.points} pkt`;
-        const taskPct    = (t.tasks != null && t.maxTasks) ? Math.round((t.tasks / t.maxTasks) * 100) : null;
-        const taskStr    = taskPct !== null ? `✏️ ${t.tasks}/${t.maxTasks} zad. (${taskPct}%)` : '';
-        const scoreClass = pct === null ? 'score-mid' : pct >= 75 ? 'score-hi' : pct >= 50 ? 'score-mid' : 'score-lo';
-        const dateStr    = formatDisplayDate(t.date);
-        const meta2      = [taskStr, t.comment ? `💬 ${escHtml(t.comment)}` : ''].filter(Boolean).join(' · ');
+
+        const pct      = t.maxPoints ? Math.round((t.points / t.maxPoints) * 100) : null;
+        const taskPct  = (t.tasks != null && t.maxTasks) ? Math.round((t.tasks / t.maxTasks) * 100) : null;
+
+        function scoreClass(p) { return p === null ? 'score-mid' : p >= 75 ? 'score-hi' : p >= 50 ? 'score-mid' : 'score-lo'; }
+        function colorClass(p) { return p === null ? 'mid-color' : p >= 75 ? 'hi-color' : p >= 50 ? 'mid-color' : 'lo-color'; }
+
+        const ptsBlock = `
+          <div class="test-metric ${scoreClass(pct)}">
+            <div class="test-metric-label">Punkty</div>
+            <div class="test-metric-row">
+              <span class="test-metric-pct ${colorClass(pct)}">${pct !== null ? pct + '%' : '—'}</span>
+              <span class="test-metric-sub">${t.points}/${t.maxPoints}</span>
+            </div>
+          </div>`;
+
+        const taskBlock = taskPct !== null ? `
+          <div class="test-metric ${scoreClass(taskPct)}">
+            <div class="test-metric-label">Zadania</div>
+            <div class="test-metric-row">
+              <span class="test-metric-pct ${colorClass(taskPct)}">${taskPct}%</span>
+              <span class="test-metric-sub">${t.tasks}/${t.maxTasks}</span>
+            </div>
+          </div>` : '';
+
+        const commentRow = t.comment ? `<div class="test-comment">💬 ${escHtml(t.comment)}</div>` : '';
+
         list.innerHTML += `
           <div class="test-card" onclick="openTestDetail('${t.id}')">
-            <div class="test-score-circle ${scoreClass}">
-              <span class="pct">${pctStr}</span>
-              <span class="pts">${ptsStr}</span>
-            </div>
-            <div class="test-info">
+            <div class="test-card-top">
               <div class="test-name">${escHtml(t.name)}</div>
-              <div class="test-meta">📅 ${dateStr}${meta2 ? ' · ' + meta2 : ''}</div>
+              <div class="test-class-chip">kl. ${t.class}</div>
             </div>
-            <div class="test-class-chip">kl. ${t.class}</div>
+            <div class="test-date">📅 ${formatDisplayDate(t.date)}</div>
+            <div class="test-metrics">${ptsBlock}${taskBlock}</div>
+            ${commentRow}
           </div>`;
       });
     })

@@ -1274,39 +1274,49 @@
     .test-card {
       background: var(--white);
       border-radius: 14px;
-      padding: 14px 16px;
+      padding: 13px 14px 12px;
       margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
       cursor: pointer;
       transition: transform 0.15s;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
     .test-card:active { transform: scale(0.98); }
-    .test-score-circle {
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      flex-shrink: 0;
-      font-weight: 700;
+    .test-card-top {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 4px;
     }
-    .test-score-circle .pct  { font-size: 15px; line-height: 1.1; }
-    .test-score-circle .pts  { font-size: 9px; opacity: 0.75; line-height: 1.2; }
-    .score-hi  { background: rgba(76,175,80,0.15);  color: #2e7d32; }
-    .score-mid { background: rgba(245,166,35,0.18); color: #b36800; }
-    .score-lo  { background: rgba(229,57,53,0.14);  color: #c62828; }
-    .test-info { flex: 1; min-width: 0; }
-    .test-name { font-size: 14px; font-weight: 600; color: var(--navy);
-                 white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .test-meta { font-size: 11px; color: var(--text-light); margin-top: 3px; }
+    .test-name {
+      flex: 1; min-width: 0;
+      font-size: 14px; font-weight: 600; color: var(--navy);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
     .test-class-chip {
-      font-size: 10px; font-weight: 700;
-      padding: 3px 9px; border-radius: 20px; flex-shrink: 0;
+      font-size: 10px; font-weight: 700; flex-shrink: 0;
+      padding: 2px 8px; border-radius: 20px;
       background: rgba(15,31,61,0.08); color: var(--navy);
     }
     body.dark .test-class-chip { background: rgba(255,255,255,0.1); color: var(--text-dark); }
+    .test-date { font-size: 11px; color: var(--text-light); margin-bottom: 8px; }
+    .test-metrics { display: flex; gap: 8px; }
+    .test-metric {
+      flex: 1; border-radius: 10px; padding: 7px 10px;
+    }
+    .score-hi  { background: rgba(76,175,80,0.13);  }
+    .score-mid { background: rgba(245,166,35,0.15); }
+    .score-lo  { background: rgba(229,57,53,0.12);  }
+    .test-metric-label {
+      font-size: 9px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .05em; opacity: .6; margin-bottom: 2px;
+      color: var(--navy);
+    }
+    .test-metric-row { display: flex; align-items: baseline; gap: 6px; }
+    .test-metric-pct {
+      font-size: 18px; font-weight: 800; line-height: 1;
+    }
+    .hi-color  { color: #2e7d32; }
+    .mid-color { color: #b36800; }
+    .lo-color  { color: #c62828; }
+    .test-metric-sub { font-size: 10px; color: var(--text-light); }
+    .test-comment { font-size: 11px; color: var(--text-light); margin-top: 6px; }
 
     /* ============================================================
        WYNIKI
