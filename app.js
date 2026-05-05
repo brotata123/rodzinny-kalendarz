@@ -1910,26 +1910,44 @@ function renderTests() {
 function openTestDetail(id) {
   const t = testsMap[id];
   if (!t) return;
+
   const pct     = t.maxPoints ? Math.round((t.points / t.maxPoints) * 100) : null;
-  const pctStr  = pct !== null ? `${pct}%` : '—';
-  const ptsStr  = t.maxPoints ? `${t.points} / ${t.maxPoints} pkt` : `${t.points} pkt`;
   const taskPct = (t.tasks != null && t.maxTasks) ? Math.round((t.tasks / t.maxTasks) * 100) : null;
-  const taskRow = taskPct !== null
-    ? `<div style="font-size:12px;color:var(--text-light);margin-bottom:3px;">✏️ Zadania: <strong>${t.tasks} / ${t.maxTasks}</strong> = <strong>${taskPct}% skuteczności</strong></div>`
-    : '';
+
+  function sc(p) { return p === null ? 'score-mid' : p >= 75 ? 'score-hi' : p >= 50 ? 'score-mid' : 'score-lo'; }
+  function cc(p) { return p === null ? 'mid-color' : p >= 75 ? 'hi-color' : p >= 50 ? 'mid-color' : 'lo-color'; }
+
+  const ptsBlock = `
+    <div class="test-metric ${sc(pct)}" style="flex:1">
+      <div class="test-metric-label">Punkty</div>
+      <div class="test-metric-row">
+        <span class="test-metric-pct ${cc(pct)}">${pct !== null ? pct + '%' : '—'}</span>
+        <span class="test-metric-sub">${t.points} / ${t.maxPoints}</span>
+      </div>
+    </div>`;
+
+  const taskBlock = taskPct !== null ? `
+    <div class="test-metric ${sc(taskPct)}" style="flex:1">
+      <div class="test-metric-label">Zadania</div>
+      <div class="test-metric-row">
+        <span class="test-metric-pct ${cc(taskPct)}">${taskPct}%</span>
+        <span class="test-metric-sub">${t.tasks} / ${t.maxTasks}</span>
+      </div>
+    </div>` : '';
+
   const commentRow = t.comment
-    ? `<div style="font-size:12px;color:var(--text-light);margin-top:6px;">💬 ${escHtml(t.comment)}</div>`
+    ? `<div class="test-comment" style="margin-top:10px;font-size:13px;">💬 ${escHtml(t.comment)}</div>`
     : '';
+
   document.getElementById('popup-date-title').textContent = '🧪 Test';
   document.getElementById('popup-content').innerHTML = `
-    <div style="margin-bottom:14px;">
-      <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;">${escHtml(t.name)}</div>
-      <div style="font-size:12px;color:var(--text-light);margin-bottom:3px;">📅 ${formatDisplayDate(t.date)}</div>
-      <div style="font-size:12px;color:var(--text-light);margin-bottom:3px;">🏫 Klasa ${t.class}</div>
-      <div style="font-size:12px;color:var(--text-light);margin-bottom:3px;">📊 Punkty: <strong>${ptsStr}</strong> = <strong>${pctStr}</strong></div>
-      ${taskRow}${commentRow}
+    <div style="margin-bottom:4px;">
+      <div style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:4px;">${escHtml(t.name)}</div>
+      <div style="font-size:12px;color:var(--text-light);margin-bottom:12px;">📅 ${formatDisplayDate(t.date)} &nbsp;·&nbsp; 🏫 Klasa ${t.class}</div>
+      <div class="test-metrics">${ptsBlock}${taskBlock}</div>
+      ${commentRow}
     </div>
-    <div style="display:flex;gap:8px;margin-top:14px;">
+    <div style="display:flex;gap:8px;margin-top:16px;">
       <button class="del-btn" style="flex:1;justify-content:center;" onclick="editTest('${id}')">✏️ Edytuj</button>
       <button class="del-btn" style="flex:1;justify-content:center;" onclick="deleteTest('${id}')">🗑 Usuń</button>
     </div>`;
