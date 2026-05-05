@@ -4,7 +4,7 @@
 //             Cache First dla fontów (stabilne zasoby zewnętrzne)
 // ============================================================
 
-const CACHE_NAME = 'rodzinny-kalendarz-v8';
+const CACHE_NAME = 'rodzinny-kalendarz-v9';
 
 self.addEventListener('install', event => {
   self.skipWaiting();

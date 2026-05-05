@@ -1269,6 +1269,46 @@
     }
 
     /* ============================================================
+       TESTY
+    ============================================================ */
+    .test-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: transform 0.15s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .test-card:active { transform: scale(0.98); }
+    .test-score-circle {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+    .test-score-circle .pct  { font-size: 15px; line-height: 1.1; }
+    .test-score-circle .pts  { font-size: 9px; opacity: 0.75; line-height: 1.2; }
+    .score-hi  { background: rgba(76,175,80,0.15);  color: #2e7d32; }
+    .score-mid { background: rgba(245,166,35,0.18); color: #b36800; }
+    .score-lo  { background: rgba(229,57,53,0.14);  color: #c62828; }
+    .test-info { flex: 1; min-width: 0; }
+    .test-name { font-size: 14px; font-weight: 600; color: var(--navy);
+                 white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .test-meta { font-size: 11px; color: var(--text-light); margin-top: 3px; }
+    .test-class-chip {
+      font-size: 10px; font-weight: 700;
+      padding: 3px 9px; border-radius: 20px; flex-shrink: 0;
+      background: rgba(15,31,61,0.08); color: var(--navy);
+    }
+    body.dark .test-class-chip { background: rgba(255,255,255,0.1); color: var(--text-dark); }
+
+    /* ============================================================
        WYNIKI
     ============================================================ */
     .result-card {
@@ -1682,17 +1722,17 @@
     <div class="header">
       <div class="header-top">
         <div>
-          <div class="header-title">To Do</div>
-          <div class="header-sub">Lista zadań rodziny</div>
+          <div class="header-title">Testy</div>
+          <div class="header-sub">Historia testów i wyniki</div>
         </div>
-        <div style="font-size:26px;">☑️</div>
+        <div style="font-size:26px;">🧪</div>
       </div>
     </div>
-    <div class="todo-wrap">
-      <div class="todo-list" id="todo-list">
+    <div class="screen-body" style="flex:1;padding:16px;overflow-y:auto;padding-bottom:calc(var(--nav-height) + 80px);">
+      <div id="tests-list">
         <div class="empty-state">
-          <div class="es-icon">✅</div>
-          <p>Brak zadań.<br>Dodaj pierwsze zadanie przyciskiem +</p>
+          <div class="es-icon">🧪</div>
+          <p>Brak testów.<br>Dodaj pierwszy test przyciskiem +</p>
         </div>
       </div>
     </div>
@@ -1829,10 +1869,9 @@
     </div>
     <div class="nav-item" id="nav-todo" onclick="showScreen('todo')">
       <div class="nav-icon-wrap">
-        <span class="nav-icon">☑️</span>
-        <span class="nav-badge" id="badge-todo"></span>
+        <span class="nav-icon">🧪</span>
       </div>
-      <div class="nav-label">To Do</div>
+      <div class="nav-label">Testy</div>
     </div>
     <div class="nav-item" id="nav-results" onclick="showScreen('results')">
       <div class="nav-icon-wrap">

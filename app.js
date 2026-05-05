@@ -1115,7 +1115,7 @@ function closeDayPopupDirect() {
 // ============================================================
 function openModal() {
   if (document.getElementById('screen-todo')?.classList.contains('active')) {
-    openTaskForm(); return;
+    openTestForm(); return;
   }
   if (document.getElementById('screen-results')?.classList.contains('active')) {
     openResultForm(); return;
@@ -1838,232 +1838,192 @@ function renderEvents() {
 //  ZADANIA (TO DO)
 // ============================================================
 
-let tasksMap = {};
+// ============================================================
+//  TESTY — historia testów do nauki
+// ============================================================
+let testsMap = {};
 
-function renderTasks() {
+function renderTasks() { renderTests(); } // alias dla showScreen('todo')
+
+function renderTests() {
   if (!db || !familyId) return;
-  const list = document.getElementById('todo-list');
+  const list = document.getElementById('tests-list');
   if (!list) return;
   list.innerHTML = '<div class="empty-state"><div class="es-icon">⏳</div><p>Ładowanie...</p></div>';
 
   db.collection('families').doc(familyId)
-    .collection('tasks')
-    .orderBy('createdAt', 'asc')
+    .collection('tests')
+    .orderBy('date', 'desc')
     .get()
     .then(snapshot => {
-      const now = Date.now();
-      const SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
-      const tasks = { new: [], in_progress: [], done: [] };
-      tasksMap = {};
-
-      snapshot.forEach(doc => {
-        const task = { ...doc.data(), id: doc.id };
-        // Auto-usuń zadania "Zrobione" starsze niż 7 dni
-        if (task.status === 'done' && task.doneAt) {
-          const doneMs = task.doneAt.toMillis ? task.doneAt.toMillis() : (task.doneAt * 1000);
-          if (now - doneMs > SEVEN_DAYS) {
-            db.collection('families').doc(familyId).collection('tasks').doc(doc.id).delete();
-            return;
-          }
-        }
-        tasksMap[task.id] = task;
-        const s = task.status || 'new';
-        if (tasks[s]) tasks[s].push(task); else tasks.new.push(task);
-      });
-
-      const total = tasks.new.length + tasks.in_progress.length + tasks.done.length;
-      if (total === 0) {
-        list.innerHTML = `<div class="empty-state"><div class="es-icon">✅</div><p>Brak zadań.<br>Dodaj pierwsze zadanie przyciskiem +</p></div>`;
+      testsMap = {};
+      if (snapshot.empty) {
+        list.innerHTML = `<div class="empty-state"><div class="es-icon">🧪</div><p>Brak testów.<br>Dodaj pierwszy test przyciskiem +</p></div>`;
         return;
       }
-
       list.innerHTML = '';
-      const sections = [
-        { key: 'new',         label: 'Nowe',      dotClass: 'dot-new',      arr: tasks.new },
-        { key: 'in_progress', label: 'W trakcie', dotClass: 'dot-progress', arr: tasks.in_progress },
-        { key: 'done',        label: 'Zrobione',  dotClass: 'dot-done',     arr: tasks.done },
-      ];
-
-      sections.forEach(({ key, label, dotClass, arr }) => {
-        if (!arr.length) return;
+      snapshot.forEach(doc => {
+        const t = { ...doc.data(), id: doc.id };
+        testsMap[t.id] = t;
+        const pct      = t.maxPoints ? Math.round((t.points / t.maxPoints) * 100) : null;
+        const pctStr   = pct !== null ? `${pct}%` : '—';
+        const ptsStr   = t.maxPoints ? `${t.points}/${t.maxPoints} pkt` : `${t.points} pkt`;
+        const scoreClass = pct === null ? 'score-mid' : pct >= 75 ? 'score-hi' : pct >= 50 ? 'score-mid' : 'score-lo';
+        const dateStr  = formatDisplayDate(t.date);
         list.innerHTML += `
-          <div class="todo-section-header">
-            <div class="todo-section-dot ${dotClass}"></div>
-            ${label} <span style="opacity:0.5;font-weight:400;margin-left:4px;">(${arr.length})</span>
+          <div class="test-card" onclick="openTestDetail('${t.id}')">
+            <div class="test-score-circle ${scoreClass}">
+              <span class="pct">${pctStr}</span>
+              <span class="pts">${ptsStr}</span>
+            </div>
+            <div class="test-info">
+              <div class="test-name">${escHtml(t.name)}</div>
+              <div class="test-meta">📅 ${dateStr}</div>
+            </div>
+            <div class="test-class-chip">kl. ${t.class}</div>
           </div>`;
-        arr.forEach(task => {
-          const checkMark = key === 'done' ? '✓' : '';
-          const assigneeLabel = { mama: 'Mama', tata: 'Tata', both: 'Oboje' }[task.assignee] || 'Oboje';
-          const chipClass     = { mama: 'chip-mama', tata: 'chip-tata', both: 'chip-both' }[task.assignee] || 'chip-both';
-          const dueStr  = task.dueDate ? `📅 do ${formatDisplayDate(task.dueDate)}` : '';
-          const noteStr = task.notes ? escHtml(task.notes.substring(0, 40)) : '';
-          const meta    = [dueStr, noteStr].filter(Boolean).join(' · ');
-          const doneClass = key === 'done' ? 'done-card' : '';
-          list.innerHTML += `
-            <div class="todo-card ${doneClass}" onclick="openTaskDetail('${task.id}')">
-              <div class="todo-status-circle status-${key}">${checkMark}</div>
-              <div class="todo-content">
-                <div class="todo-title">${escHtml(task.title)}</div>
-                ${meta ? `<div class="todo-meta">${meta}</div>` : ''}
-              </div>
-              <div class="assignee-chip ${chipClass}">${assigneeLabel}</div>
-            </div>`;
-        });
       });
     })
-    .catch(err => console.error('renderTasks error:', err));
+    .catch(err => console.error('renderTests error:', err));
 }
 
-function openTaskDetail(id) {
-  const task = tasksMap[id];
-  if (!task) return;
-
-  const assigneeLabel = { mama: 'Mama', tata: 'Tata', both: 'Oboje' }[task.assignee] || 'Oboje';
-  const dueStr  = task.dueDate ? `📅 do ${formatDisplayDate(task.dueDate)}` : '';
-
-  const statusDefs = [
-    { key: 'new',         lbl: '🔵 Nowe' },
-    { key: 'in_progress', lbl: '🟡 W trakcie' },
-    { key: 'done',        lbl: '✅ Zrobione' },
-  ];
-  const statusBtns = statusDefs.map(({ key, lbl }) => {
-    const isActive = (task.status || 'new') === key;
-    const cls = isActive ? 'task-status-btn active-status' : 'task-status-btn';
-    return `<button class="${cls}" onclick="updateTaskStatus('${id}','${key}')">${lbl}</button>`;
-  }).join('');
-
-  document.getElementById('popup-date-title').textContent = '☑️ Zadanie';
+function openTestDetail(id) {
+  const t = testsMap[id];
+  if (!t) return;
+  const pct    = t.maxPoints ? Math.round((t.points / t.maxPoints) * 100) : null;
+  const pctStr = pct !== null ? `${pct}%` : '—';
+  const ptsStr = t.maxPoints ? `${t.points} / ${t.maxPoints} pkt` : `${t.points} pkt`;
+  document.getElementById('popup-date-title').textContent = '🧪 Test';
   document.getElementById('popup-content').innerHTML = `
     <div style="margin-bottom:14px;">
-      <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:5px;">${escHtml(task.title)}</div>
-      ${dueStr  ? `<div style="font-size:12px;color:var(--text-light);margin-bottom:3px;">${dueStr}</div>` : ''}
-      ${task.notes ? `<div style="font-size:12px;color:var(--text-light);margin-bottom:3px;">${escHtml(task.notes)}</div>` : ''}
-      <div style="font-size:12px;color:var(--text-light);">👤 ${assigneeLabel}</div>
+      <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;">${escHtml(t.name)}</div>
+      <div style="font-size:12px;color:var(--text-light);margin-bottom:3px;">📅 ${formatDisplayDate(t.date)}</div>
+      <div style="font-size:12px;color:var(--text-light);margin-bottom:3px;">🏫 Klasa ${t.class}</div>
+      <div style="font-size:12px;color:var(--text-light);">📊 Wynik: <strong>${ptsStr}</strong> = <strong>${pctStr}</strong></div>
     </div>
-    <div style="font-size:10px;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px;">Zmień status</div>
-    <div class="task-status-row">${statusBtns}</div>
     <div style="display:flex;gap:8px;margin-top:14px;">
-      <button class="del-btn" style="flex:1;justify-content:center;" onclick="editTask('${id}')">✏️ Edytuj</button>
-      <button class="del-btn" style="flex:1;justify-content:center;" onclick="deleteTask('${id}')">🗑 Usuń</button>
+      <button class="del-btn" style="flex:1;justify-content:center;" onclick="editTest('${id}')">✏️ Edytuj</button>
+      <button class="del-btn" style="flex:1;justify-content:center;" onclick="deleteTest('${id}')">🗑 Usuń</button>
     </div>`;
   document.getElementById('day-popup').classList.add('open');
 }
 
-function updateTaskStatus(id, status) {
-  if (!db || !familyId) return;
-  vib(status === 'done' ? [20, 30, 60] : 25);
-  const data = { status };
-  if (status === 'done') data.doneAt = firebase.firestore.FieldValue.serverTimestamp();
-  db.collection('families').doc(familyId).collection('tasks').doc(id)
-    .update(data)
-    .then(() => { closeDayPopupDirect(); renderTasks(); })
-    .catch(err => alert('Błąd: ' + err.message));
-}
-
-function deleteTask(id) {
-  showConfirmDialog('Usunąć zadanie?', '', [
+function deleteTest(id) {
+  showConfirmDialog('Usunąć test?', '', [
     { label: 'Anuluj', cls: 'btn-cancel', action: () => {} },
     { label: 'Usuń',   cls: 'btn-danger', action: () => {
       vib([30,50,80]);
-      db.collection('families').doc(familyId).collection('tasks').doc(id)
+      db.collection('families').doc(familyId).collection('tests').doc(id)
         .delete()
-        .then(() => { closeDayPopupDirect(); renderTasks(); updateBadges(); })
+        .then(() => { closeDayPopupDirect(); renderTests(); })
         .catch(err => alert('Błąd: ' + err.message));
     }}
   ]);
 }
 
-function editTask(id) {
-  const task = tasksMap[id];
-  if (!task) return;
+function editTest(id) {
+  const t = testsMap[id];
+  if (!t) return;
   closeDayPopupDirect();
-  openTaskForm(task);
+  openTestForm(t);
 }
 
-function openTaskForm(existingTask = null) {
-  editMode   = !!existingTask;
-  editDocId  = existingTask ? existingTask.id : null;
-  currentFormType = 'task';
-  document.getElementById('form-title').textContent = existingTask ? 'Edytuj zadanie' : 'Nowe zadanie';
-  document.getElementById('form-body').innerHTML    = buildTaskFormHtml(existingTask);
+function openTestForm(existingTest = null) {
+  editMode   = !!existingTest;
+  editDocId  = existingTest ? existingTest.id : null;
+  currentFormType = 'test';
+  document.getElementById('form-title').textContent = existingTest ? 'Edytuj test' : 'Nowy test';
+  document.getElementById('form-body').innerHTML    = buildTestFormHtml(existingTest);
   document.getElementById('form-error').textContent = '';
-  const taskBtn = document.getElementById('btn-save');
-  taskBtn.onclick   = submitTaskForm;
-  taskBtn.disabled  = false;
-  taskBtn.textContent = 'Zapisz';
+  const btn = document.getElementById('btn-save');
+  btn.onclick    = submitTestForm;
+  btn.disabled   = false;
+  btn.textContent = 'Zapisz';
   document.getElementById('form-modal').classList.add('open');
 }
 
-function buildTaskFormHtml(task) {
-  const title    = task ? escHtml(task.title)         : '';
-  const notes    = task ? escHtml(task.notes    || '') : '';
-  const dueDate  = task ? (task.dueDate         || '') : '';
-  const assignee = task ? (task.assignee        || 'both') : 'both';
-  const selBtn = (val) => assignee === val ? 'active' : '';
+function buildTestFormHtml(t) {
+  const name      = t ? escHtml(t.name)       : '';
+  const date      = t ? (t.date      || '')   : formatDateObj(new Date());
+  const cls       = t ? (t.class     || 1)    : 1;
+  const points    = t ? (t.points    ?? '')   : '';
+  const maxPoints = t ? (t.maxPoints ?? '')   : '';
+
+  const classOptions = [1,2,3,4,5,6,7,8].map(n =>
+    `<option value="${n}" ${n == cls ? 'selected' : ''}>Klasa ${n}</option>`
+  ).join('');
+
   return `
     <div class="form-group">
-      <label class="form-label">Nazwa zadania *</label>
-      <input class="form-input" id="task-title" placeholder="np. Zapisać do dentysty" value="${title}">
+      <label class="form-label">Nazwa testu *</label>
+      <input class="form-input" id="test-name" placeholder="np. Matematyka – ułamki" value="${name}">
     </div>
     <div class="form-group">
-      <label class="form-label">Kto odpowiada</label>
-      <div class="parent-btns">
-        <button type="button" class="parent-btn ${selBtn('tata')}" onclick="selectTaskAssignee(this,'tata')">Tata</button>
-        <button type="button" class="parent-btn ${selBtn('mama')}" onclick="selectTaskAssignee(this,'mama')">Mama</button>
-        <button type="button" class="parent-btn ${selBtn('both')}" onclick="selectTaskAssignee(this,'both')">Oboje</button>
+      <label class="form-label">Data testu *</label>
+      <input class="form-input" type="date" id="test-date" value="${date}">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Klasa</label>
+      <select class="form-input" id="test-class">${classOptions}</select>
+    </div>
+    <div class="form-row" style="display:flex;gap:12px;">
+      <div class="form-group" style="flex:1">
+        <label class="form-label">Punkty zdobyte *</label>
+        <input class="form-input" type="number" id="test-points" min="0" placeholder="np. 85" value="${points}">
       </div>
-      <input type="hidden" id="task-assignee" value="${assignee}">
+      <div class="form-group" style="flex:1">
+        <label class="form-label">Punkty max *</label>
+        <input class="form-input" type="number" id="test-max" min="1" placeholder="np. 100" value="${maxPoints}">
+      </div>
     </div>
-    <div class="form-group">
-      <label class="form-label">Termin (opcjonalny)</label>
-      <input class="form-input" type="date" id="task-due" value="${dueDate}">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Notatka (opcjonalna)</label>
-      <input class="form-input" id="task-notes" placeholder="Dodatkowe info..." value="${notes}">
-    </div>`;
+    <div id="test-pct-preview" style="text-align:center;font-size:13px;color:var(--text-light);margin-top:4px;min-height:18px;"></div>`;
 }
 
-function selectTaskAssignee(btn, val) {
-  btn.closest('.parent-btns').querySelectorAll('.parent-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('task-assignee').value = val;
-}
+async function submitTestForm() {
+  const name      = document.getElementById('test-name').value.trim();
+  const date      = document.getElementById('test-date').value;
+  const cls       = parseInt(document.getElementById('test-class').value);
+  const points    = parseFloat(document.getElementById('test-points').value);
+  const maxPoints = parseFloat(document.getElementById('test-max').value);
 
-async function submitTaskForm() {
-  const title    = document.getElementById('task-title').value.trim();
-  const assignee = document.getElementById('task-assignee').value;
-  const dueDate  = document.getElementById('task-due').value;
-  const notes    = document.getElementById('task-notes').value.trim();
+  if (!name) { document.getElementById('form-error').textContent = 'Podaj nazwę testu.'; return; }
+  if (!date) { document.getElementById('form-error').textContent = 'Podaj datę.'; return; }
+  if (isNaN(points))    { document.getElementById('form-error').textContent = 'Podaj punkty zdobyte.'; return; }
+  if (isNaN(maxPoints)) { document.getElementById('form-error').textContent = 'Podaj punkty maksymalne.'; return; }
+  if (points > maxPoints) { document.getElementById('form-error').textContent = 'Punkty zdobyte nie mogą być większe niż max.'; return; }
 
-  if (!title) {
-    document.getElementById('form-error').textContent = 'Podaj nazwę zadania.';
-    return;
-  }
   const btn = document.getElementById('btn-save');
   btn.disabled = true;
   try {
-    const ref = db.collection('families').doc(familyId).collection('tasks');
+    const ref = db.collection('families').doc(familyId).collection('tests');
+    const data = { name, date, class: cls, points, maxPoints };
     if (editMode && editDocId) {
-      await ref.doc(editDocId).update({ title, assignee, dueDate: dueDate || '', notes: notes || '' });
+      await ref.doc(editDocId).update(data);
     } else {
-      await ref.add({
-        title, assignee,
-        dueDate: dueDate || '',
-        notes:   notes   || '',
-        status:  'new',
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      });
+      await ref.add({ ...data, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
     }
     closeFormModalDirect();
-    renderTasks();
-    updateBadges();
+    renderTests();
   } catch (err) {
     document.getElementById('form-error').textContent = 'Błąd: ' + err.message;
   } finally {
     btn.disabled = false;
   }
 }
+
+// ====== STARE FUNKCJE TODO (usunięte) ======
+// (renderTasks zastąpiony przez renderTests powyżej)
+
+let tasksMap = {}; // zachowane dla kompatybilności z ewentualnymi starymi refs
+
+function openTaskDetail() {}
+function updateTaskStatus() {}
+function deleteTask(id) { deleteTest(id); }
+function editTask(id)   { editTest(id); }
+function openTaskForm(t) { openTestForm(t || null); }
+function buildTaskFormHtml() { return ''; }
+async function submitTaskForm() { await submitTestForm(); }
+function selectTaskAssignee() {}
 
 function formatDisplayDate(dateStr) {
   if (!dateStr) return '';
@@ -2317,12 +2277,7 @@ function updateBadges() {
   if (!db || !familyId) return;
   const familyRef = db.collection('families').doc(familyId);
 
-  // Badge TODO: niezakończone zadania (Nowe + W trakcie)
-  familyRef.collection('tasks')
-    .where('status', 'in', ['new', 'in_progress'])
-    .get()
-    .then(snap => setBadge('todo', snap.size))
-    .catch(() => {});
+  // Badge TODO (Testy) — brak odznaki
 
   // Badge WYNIKI: przeszłe konkursy (data < dziś) bez wpisanego miejsca
   const today = formatDateObj(new Date());
