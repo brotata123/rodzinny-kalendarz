@@ -1891,6 +1891,9 @@ function renderTests() {
           </div>` : '';
 
         const commentRow = t.comment ? `<div class="test-comment">💬 ${escHtml(t.comment)}</div>` : '';
+        const wrongRow = (t.wrongQuestions && t.wrongQuestions.length)
+          ? `<div class="test-wrong">❌ Błędne: zadania nr ${t.wrongQuestions.join(', ')}</div>`
+          : '';
 
         list.innerHTML += `
           <div class="test-card" onclick="openTestDetail('${t.id}')">
@@ -1901,6 +1904,7 @@ function renderTests() {
             <div class="test-date">📅 ${formatDisplayDate(t.date)}</div>
             <div class="test-metrics">${ptsBlock}${taskBlock}</div>
             ${commentRow}
+            ${wrongRow}
           </div>`;
       });
     })
@@ -1939,6 +1943,12 @@ function openTestDetail(id) {
     ? `<div class="test-comment" style="margin-top:10px;font-size:13px;">💬 ${escHtml(t.comment)}</div>`
     : '';
 
+  const wrongRow = (t.wrongQuestions && t.wrongQuestions.length)
+    ? `<div style="margin-top:10px;padding:8px 12px;background:#fef2f2;border-radius:8px;font-size:12px;color:#dc2626;">
+        ❌ <strong>Błędne zadania:</strong> nr ${t.wrongQuestions.join(', ')}
+       </div>`
+    : '';
+
   document.getElementById('popup-date-title').textContent = '🧪 Test';
   document.getElementById('popup-content').innerHTML = `
     <div style="margin-bottom:4px;">
@@ -1946,6 +1956,7 @@ function openTestDetail(id) {
       <div style="font-size:12px;color:var(--text-light);margin-bottom:12px;">📅 ${formatDisplayDate(t.date)} &nbsp;·&nbsp; 🏫 Klasa ${t.class}</div>
       <div class="test-metrics">${ptsBlock}${taskBlock}</div>
       ${commentRow}
+      ${wrongRow}
     </div>
     <div style="display:flex;gap:8px;margin-top:16px;">
       <button class="del-btn" style="flex:1;justify-content:center;" onclick="editTest('${id}')">✏️ Edytuj</button>
