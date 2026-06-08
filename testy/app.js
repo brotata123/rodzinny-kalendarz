@@ -515,6 +515,7 @@ function backToResults() {
 
 // ─── Solution modal ───────────────────────────────────────────
 const AI_SOLUTION_URL = 'http://localhost:5678/webhook/testy-rozwiazanie';
+const AI_AVAILABLE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
 function showSolution(idx) {
   const q = currentTest.questions[idx];
@@ -526,12 +527,16 @@ function showSolution(idx) {
   const solutionEl = document.getElementById('modal-solution-text');
   solutionEl.textContent = q.solution;
 
-  // Przycisk AI
+  // Przycisk AI — tylko na localhost
   const aiBtn = document.getElementById('modal-ai-btn');
-  aiBtn.style.display = 'inline-flex';
-  aiBtn.disabled = false;
-  aiBtn.innerHTML = '✨ Wyjaśnij z AI';
-  aiBtn.onclick = () => generateAISolution(idx);
+  if (AI_AVAILABLE) {
+    aiBtn.style.display = 'inline-flex';
+    aiBtn.disabled = false;
+    aiBtn.innerHTML = '✨ Wyjaśnij z AI';
+    aiBtn.onclick = () => generateAISolution(idx);
+  } else {
+    aiBtn.style.display = 'none';
+  }
 
   document.getElementById('modal-solution').style.display = 'flex';
 }
