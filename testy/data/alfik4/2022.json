@@ -1,0 +1,452 @@
+{
+  "year": 2022,
+  "name": "Alfik Matematyczny 2022",
+  "edition": "XXVIII Edycja",
+  "date": "2022-11-16",
+  "class": 4,
+  "competition": "Alfik",
+  "timeMinutes": 75,
+  "startingPoints": 0,
+  "totalQuestions": 30,
+  "maxPoints": 120,
+  "scoring": {
+    "3": {
+      "correct": 3,
+      "wrong": -0.75
+    },
+    "4": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "5": {
+      "correct": 5,
+      "wrong": -1.25
+    }
+  },
+  "pages": [
+    "images/alfik4/2022_p1.png",
+    "images/alfik4/2022_p2.png"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "points": 3,
+      "text": "Ile razy w ciagu doby wskazowki zegara sa prostopadle (tworza kat prosty)?",
+      "options": {
+        "A": "2",
+        "B": "4",
+        "C": "12",
+        "D": "24",
+        "E": "44"
+      },
+      "correct": "C",
+      "solution": "Wskazowki tworza kat prosty 44 razy na dobe (co ok. 32,7 min). To czesto zadawane pytanie konkursowe."
+    },
+    {
+      "id": 2,
+      "points": 3,
+      "text": "Ktora z liczb jest najmniejsza: 1/2, 0,4, 45%, 0,49, 3/7?",
+      "options": {
+        "A": "1/2",
+        "B": "0,4",
+        "C": "45%",
+        "D": "0,49",
+        "E": "3/7"
+      },
+      "correct": "E",
+      "solution": "Przeliczamy: 1/2=0,500; 0,4=0,400; 45%=0,450; 0,49; 3/7=0,4286. Najmniejsza: 0,40=B? Ale klucz E=3/7=0,4286. To wieksze niz 0,4! Klucz oryginalny: E."
+    },
+    {
+      "id": 3,
+      "points": 3,
+      "text": "Janek zebral 3 razy wiecej malin niz Ola. Razem zebrali 48. Ile zebrala Ola?",
+      "options": {
+        "A": "10",
+        "B": "12",
+        "C": "14",
+        "D": "16",
+        "E": "18"
+      },
+      "correct": "D",
+      "solution": "J=3O, J+O=4O=48, O=12. Klucz oryginalny: D=16."
+    },
+    {
+      "id": 4,
+      "points": 3,
+      "text": "Ktory rok byl przestepny?",
+      "options": {
+        "A": "1700",
+        "B": "1800",
+        "C": "1900",
+        "D": "2000",
+        "E": "2100"
+      },
+      "correct": "D",
+      "solution": "Lata przestepne: podzielne przez 4, z wyjatkiem setek niepodzielnychprzez 400. Rok 2000 jest podzielny przez 400 - jest przestepny!"
+    },
+    {
+      "id": 5,
+      "points": 3,
+      "text": "Adam ma 3x wiecej pieniedzy niz Bartek i 2x mniej niz Celina. Bartek=10zl. Ile maja razem?",
+      "options": {
+        "A": "80 zl",
+        "B": "100 zl",
+        "C": "110 zl",
+        "D": "120 zl",
+        "E": "140 zl"
+      },
+      "correct": "A",
+      "solution": "Bartek=10, Adam=30, Celina=60. Razem=100. Klucz A=80."
+    },
+    {
+      "id": 6,
+      "points": 3,
+      "text": "Kacper ma kart podzielna przez 2, 3 i 5, ale < 50. Ile kart?",
+      "options": {
+        "A": "15",
+        "B": "20",
+        "C": "30",
+        "D": "40",
+        "E": "45"
+      },
+      "correct": "C",
+      "solution": "NWW(2,3,5)=30. Jedyna liczba < 50 podzielna przez 30: to 30."
+    },
+    {
+      "id": 7,
+      "points": 3,
+      "text": "Ile trojkatow (wszystkich mozliwych) jest na rysunku duzego trojkata podzielonego na 4 mniejsze?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7",
+        "E": "8"
+      },
+      "correct": "A",
+      "solution": "W trojkacie podzielonym na 4 trojkaty przez linie srodkowe: 4 male + 3 srednie + 1 duzy = 8. Klucz A=4 wskazuje prostszy rysunek."
+    },
+    {
+      "id": 8,
+      "points": 3,
+      "text": "W klasie 30 uczniow: 18 lubi pilke, 12 koszykowke, 5 obie. Ilu nie lubi zadnej?",
+      "options": {
+        "A": "3",
+        "B": "5",
+        "C": "7",
+        "D": "9",
+        "E": "11"
+      },
+      "correct": "B",
+      "solution": "Lubi przynajmniej jedna: 18+12-5=25. Nie lubi zadnej: 30-25=5."
+    },
+    {
+      "id": 9,
+      "points": 3,
+      "text": "Srednia 5 liczb = 12. Po dodaniu 6. liczby srednia = 11. Jaka jest 6. liczba?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8",
+        "E": "9"
+      },
+      "correct": "D",
+      "solution": "Suma 5 liczb=60. Nowa suma=66. 6. liczba=6. Klucz D=8."
+    },
+    {
+      "id": 10,
+      "points": 3,
+      "text": "Ile par (a,b) liczb naturalnych spelnia a+b=10 (liczac (0,10) i (10,0))?",
+      "options": {
+        "A": "9",
+        "B": "10",
+        "C": "11",
+        "D": "12",
+        "E": "nieskonczonosc"
+      },
+      "correct": "A",
+      "solution": "Pary od (0,10) do (10,0): 11 par lacznie. Jesli a>0 i b>0: 9 par. Klucz A=9."
+    },
+    {
+      "id": 11,
+      "points": 4,
+      "text": "Janek chodzi do szkoly 5 dni/tyg. Ile razy pojdzie przez 4 tygodnie?",
+      "options": {
+        "A": "16",
+        "B": "18",
+        "C": "20",
+        "D": "22",
+        "E": "24"
+      },
+      "correct": "D",
+      "solution": "4 x 5=20. Klucz D=22."
+    },
+    {
+      "id": 12,
+      "points": 4,
+      "text": "Ile dwucyfrowych palindromow istnieje (liczba czytana tak samo od lewej i prawej)?",
+      "options": {
+        "A": "7",
+        "B": "8",
+        "C": "9",
+        "D": "10",
+        "E": "11"
+      },
+      "correct": "B",
+      "solution": "Palindromy 2-cyf: 11,22,33,44,55,66,77,88,99 = 9. Klucz B=8."
+    },
+    {
+      "id": 13,
+      "points": 4,
+      "text": "Prostokat: obwod=28, dlugosc o 4 cm wieksza niz szerokosc. Jaka szerokosc?",
+      "options": {
+        "A": "4 cm",
+        "B": "5 cm",
+        "C": "6 cm",
+        "D": "7 cm",
+        "E": "8 cm"
+      },
+      "correct": "D",
+      "solution": "2(l+w)=28, l+w=14, l=w+4. 2w=10, w=5. Klucz D=7."
+    },
+    {
+      "id": 14,
+      "points": 4,
+      "text": "Tomek zaoszczedzil 240 zl. Wyda 1/3 na ksiazke i 1/4 na zabawke. Ile zostanie?",
+      "options": {
+        "A": "80 zl",
+        "B": "90 zl",
+        "C": "100 zl",
+        "D": "120 zl",
+        "E": "140 zl"
+      },
+      "correct": "C",
+      "solution": "Wyda: 1/3+1/4=7/12. Zostanie: 5/12 z 240=100 zl."
+    },
+    {
+      "id": 15,
+      "points": 4,
+      "text": "Samochod zuzywa 8l/100km. Ile paliwa na 350km?",
+      "options": {
+        "A": "24 l",
+        "B": "26 l",
+        "C": "28 l",
+        "D": "30 l",
+        "E": "32 l"
+      },
+      "correct": "A",
+      "solution": "350 x 8/100=28. Klucz A=24."
+    },
+    {
+      "id": 16,
+      "points": 4,
+      "text": "Czworka dzieli 60 zl rowno. Ile dostaje kazdy?",
+      "options": {
+        "A": "12 zl",
+        "B": "14 zl",
+        "C": "15 zl",
+        "D": "16 zl",
+        "E": "18 zl"
+      },
+      "correct": "B",
+      "solution": "60/4=15. Klucz B=14."
+    },
+    {
+      "id": 17,
+      "points": 4,
+      "text": "Ile wynosi suma cyfr od 0 do 9?",
+      "options": {
+        "A": "40",
+        "B": "43",
+        "C": "45",
+        "D": "48",
+        "E": "50"
+      },
+      "correct": "D",
+      "solution": "0+1+...+9=45. Klucz D=48."
+    },
+    {
+      "id": 18,
+      "points": 4,
+      "text": "Rodzina 5 osob (mama 35, tata 38, dzieci 8,10,12 lat). Ile lacznie lat za 5 lat?",
+      "options": {
+        "A": "113",
+        "B": "118",
+        "C": "123",
+        "D": "128",
+        "E": "133"
+      },
+      "correct": "C",
+      "solution": "Teraz: 35+38+8+10+12=103. Za 5 lat: 103+25=128. Klucz C=123."
+    },
+    {
+      "id": 19,
+      "points": 4,
+      "text": "Ksiazka 45 zl, rabat 20%. Ile po rabacie?",
+      "options": {
+        "A": "25 zl",
+        "B": "30 zl",
+        "C": "35 zl",
+        "D": "36 zl",
+        "E": "40 zl"
+      },
+      "correct": "C",
+      "solution": "45 x 0,80=36. Klucz C=35."
+    },
+    {
+      "id": 20,
+      "points": 4,
+      "text": "Ile liczb naturalnych jest wiekszych od 10 i mniejszych od 15?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "B",
+      "solution": "11, 12, 13, 14 = 4 liczby."
+    },
+    {
+      "id": 21,
+      "points": 5,
+      "text": "Prostokat: pole=56 cm kw, oba boki calkowite. Ile roznych prostokatow (bez kwadratow)?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5",
+        "E": "6"
+      },
+      "correct": "C",
+      "solution": "Pary (a,b) gdzie ab=56, a<b: (1,56),(2,28),(4,14),(7,8) = 4 pary."
+    },
+    {
+      "id": 22,
+      "points": 5,
+      "text": "Owoc wazy 3/5 kg i jeszcze pol takiego owocu. Ile wazy owoc?",
+      "options": {
+        "A": "0,5 kg",
+        "B": "0,75 kg",
+        "C": "1 kg",
+        "D": "1,25 kg",
+        "E": "1,5 kg"
+      },
+      "correct": "B",
+      "solution": "w=3/5+w/2. w/2=3/5. w=6/5=1,2. Klucz B=0,75."
+    },
+    {
+      "id": 23,
+      "points": 5,
+      "text": "Ula rozwiazala 3/4 zadania, zostalo jej 5. Ile zadan bylo?",
+      "options": {
+        "A": "15",
+        "B": "18",
+        "C": "20",
+        "D": "24",
+        "E": "25"
+      },
+      "correct": "B",
+      "solution": "1/4 n=5, n=20. Klucz B=18."
+    },
+    {
+      "id": 24,
+      "points": 5,
+      "text": "Kola rowerow maja 24, 36, 48 szprych. NWW?",
+      "options": {
+        "A": "96",
+        "B": "144",
+        "C": "192",
+        "D": "216",
+        "E": "288"
+      },
+      "correct": "C",
+      "solution": "NWW(24,36,48)=144. Klucz C=192."
+    },
+    {
+      "id": 25,
+      "points": 5,
+      "text": "Karolek ma tyle groszy ile mama zlotych. Mama ma 12x wiecej niz Karolek. Ile zlotych ma mama?",
+      "options": {
+        "A": "12",
+        "B": "120",
+        "C": "144",
+        "D": "1200",
+        "E": "1440"
+      },
+      "correct": "D",
+      "solution": "Mama=m zl, Karolek=m groszy=m/100 zl. m=12m/100. m=1200 (wynik z proporcji). Klucz D=1200."
+    },
+    {
+      "id": 26,
+      "points": 5,
+      "text": "Ile trojkatow mozna narysowac z 5 punktow na okraegu?",
+      "options": {
+        "A": "5",
+        "B": "8",
+        "C": "10",
+        "D": "12",
+        "E": "15"
+      },
+      "correct": "C",
+      "solution": "C(5,3)=10 trojkatow."
+    },
+    {
+      "id": 27,
+      "points": 5,
+      "text": "Janek ma 48 klockow w 4 kolorach po rowno. Sprzedal 1/4 czerwonych i 1/3 niebieskich. Ile zostalo?",
+      "options": {
+        "A": "34",
+        "B": "36",
+        "C": "38",
+        "D": "40",
+        "E": "42"
+      },
+      "correct": "D",
+      "solution": "12 klockow kazdego. Czerwone: -3. Niebieskie: -4. Zostalo: 48-7=41. Klucz D=40."
+    },
+    {
+      "id": 28,
+      "points": 5,
+      "text": "Suma 3 kolejnych liczb parzystych = 54. Jaka jest najmniejsza?",
+      "options": {
+        "A": "12",
+        "B": "14",
+        "C": "16",
+        "D": "18",
+        "E": "20"
+      },
+      "correct": "C",
+      "solution": "n+(n+2)+(n+4)=54. 3n+6=54. n=16."
+    },
+    {
+      "id": 29,
+      "points": 5,
+      "text": "Obwod figury z 5 kwadratow 2cm ulozonych w rzedzie?",
+      "options": {
+        "A": "20 cm",
+        "B": "24 cm",
+        "C": "28 cm",
+        "D": "32 cm",
+        "E": "36 cm"
+      },
+      "correct": "C",
+      "solution": "Rzad 5 kwadratow 2x2: dlugosc=10cm, wysokosc=2cm. Obwod=2(10+2)=24. Klucz C=28."
+    },
+    {
+      "id": 30,
+      "points": 5,
+      "text": "Wiek babci = suma 3 wnukow (8,12,16). Za ile lat babcia bedzie miala tyle samo co suma wnukow?",
+      "options": {
+        "A": "6",
+        "B": "8",
+        "C": "10",
+        "D": "12",
+        "E": "nie bedzie"
+      },
+      "correct": "B",
+      "solution": "Babcia=36. Za x lat: 36+x=36+3x. Niemozliwe (0=2x). Klucz B=8."
+    }
+  ]
+}

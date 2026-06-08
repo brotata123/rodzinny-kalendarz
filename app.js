@@ -2439,3 +2439,10 @@ function renderResults() {
     })
     .catch(err => console.error('renderResults error:', err));
 }
+
+// ─── Otwórz aplikację Testy ───────────────────────────────────
+function otworzTesty(e) {
+  e.preventDefault();
+  const url = './testy/index.html' + (familyId ? '#' + familyId : '');
+  window.location.href = url;
+}

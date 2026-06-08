@@ -1,0 +1,106 @@
+{
+  "competition": "Alfik",
+  "class": 4,
+  "tests": [
+    {
+      "year": 2015,
+      "name": "Alfik Matematyczny 2015",
+      "edition": "XXI Edycja",
+      "date": "2015-11-25",
+      "totalQuestions": 30,
+      "maxPoints": 120,
+      "startingPoints": 0,
+      "file": "data/alfik4/2015.json"
+    },
+    {
+      "year": 2016,
+      "name": "Alfik Matematyczny 2016",
+      "edition": "XXII Edycja",
+      "date": "2016-11-23",
+      "totalQuestions": 30,
+      "maxPoints": 120,
+      "startingPoints": 0,
+      "file": "data/alfik4/2016.json"
+    },
+    {
+      "year": 2017,
+      "name": "Alfik Matematyczny 2017",
+      "edition": "XXIII Edycja",
+      "date": "2017-11-22",
+      "totalQuestions": 30,
+      "maxPoints": 120,
+      "startingPoints": 0,
+      "file": "data/alfik4/2017.json"
+    },
+    {
+      "year": 2018,
+      "name": "Alfik Matematyczny 2018",
+      "edition": "XXIV Edycja",
+      "date": "2018-11-28",
+      "totalQuestions": 30,
+      "maxPoints": 120,
+      "startingPoints": 0,
+      "file": "data/alfik4/2018.json"
+    },
+    {
+      "year": 2019,
+      "name": "Alfik Matematyczny 2019",
+      "edition": "XXV Edycja",
+      "date": "2019-11-20",
+      "totalQuestions": 30,
+      "maxPoints": 120,
+      "startingPoints": 0,
+      "file": "data/alfik4/2019.json"
+    },
+    {
+      "year": 2021,
+      "name": "Alfik Matematyczny 2021",
+      "edition": "XXVII Edycja",
+      "date": "2021-11-17",
+      "totalQuestions": 30,
+      "maxPoints": 120,
+      "startingPoints": 0,
+      "file": "data/alfik4/2021.json"
+    },
+    {
+      "year": 2022,
+      "name": "Alfik Matematyczny 2022",
+      "edition": "XXVIII Edycja",
+      "date": "2022-11-16",
+      "totalQuestions": 30,
+      "maxPoints": 120,
+      "startingPoints": 0,
+      "file": "data/alfik4/2022.json"
+    },
+    {
+      "year": 2023,
+      "name": "Alfik Matematyczny 2023",
+      "edition": "XXIX Edycja",
+      "date": "2023-11-15",
+      "totalQuestions": 30,
+      "maxPoints": 150,
+      "startingPoints": 30,
+      "file": "data/alfik4/2023.json"
+    },
+    {
+      "year": 2024,
+      "name": "Alfik Matematyczny 2024",
+      "edition": "XXX Edycja",
+      "date": "2024-11-20",
+      "totalQuestions": 30,
+      "maxPoints": 120,
+      "startingPoints": 0,
+      "file": "data/alfik4/2024.json"
+    },
+    {
+      "year": 2025,
+      "name": "Alfik Matematyczny 2025",
+      "edition": "XXXI Edycja",
+      "date": "2025-11-19",
+      "totalQuestions": 30,
+      "maxPoints": 120,
+      "startingPoints": 0,
+      "file": "data/alfik4/2025.json"
+    }
+  ]
+}

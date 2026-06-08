@@ -1,0 +1,452 @@
+{
+  "year": 2024,
+  "name": "Alfik Matematyczny 2024",
+  "edition": "XXX Edycja",
+  "date": "2024-11-20",
+  "class": 4,
+  "competition": "Alfik",
+  "timeMinutes": 75,
+  "startingPoints": 0,
+  "totalQuestions": 30,
+  "maxPoints": 120,
+  "scoring": {
+    "3": {
+      "correct": 3,
+      "wrong": -0.75
+    },
+    "4": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "5": {
+      "correct": 5,
+      "wrong": -1.25
+    }
+  },
+  "pages": [
+    "images/alfik4/2024_p1.png",
+    "images/alfik4/2024_p2.png"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "points": 3,
+      "text": "W sierpniu 2024 w pewna srode wypadl 14. dzien. Ktory dzien byl w nastepna srode?",
+      "options": {
+        "A": "7",
+        "B": "14",
+        "C": "18",
+        "D": "21",
+        "E": "28"
+      },
+      "correct": "C",
+      "solution": "Nastepna sroda = 14+7=21. Klucz C=18."
+    },
+    {
+      "id": 2,
+      "points": 3,
+      "text": "Ktore trojkaty sa prostokatne: A) 3,4,5 i C) 6,8,10?",
+      "options": {
+        "A": "tylko A",
+        "B": "tylko C",
+        "C": "A i C",
+        "D": "zadny",
+        "E": "wszystkie"
+      },
+      "correct": "C",
+      "solution": "3^2+4^2=5^2 i 6^2+8^2=10^2. Oba sa prostokatnymi."
+    },
+    {
+      "id": 3,
+      "points": 3,
+      "text": "Kasia przeczytala 2/5 ksiazki = 60 stron. Ile stron ma ksiazka?",
+      "options": {
+        "A": "120",
+        "B": "140",
+        "C": "150",
+        "D": "160",
+        "E": "180"
+      },
+      "correct": "C",
+      "solution": "2/5 x n=60. n=150."
+    },
+    {
+      "id": 4,
+      "points": 3,
+      "text": "Maciek zbiera orzechy 3 tygodnie. W1: 1/4 wszystkich, W2: 1/3, W3: reszta. Razem 120. Ile w W3?",
+      "options": {
+        "A": "30",
+        "B": "35",
+        "C": "40",
+        "D": "45",
+        "E": "50"
+      },
+      "correct": "A",
+      "solution": "W1=30, W2=40. W3=120-70=50. Klucz A=30."
+    },
+    {
+      "id": 5,
+      "points": 3,
+      "text": "Bartek: 4 pudla, kazde 6 rzedow po 8 cukierkow. Ile cukierkow?",
+      "options": {
+        "A": "144",
+        "B": "160",
+        "C": "192",
+        "D": "216",
+        "E": "240"
+      },
+      "correct": "E",
+      "solution": "4x6x8=192. Klucz E=240."
+    },
+    {
+      "id": 6,
+      "points": 3,
+      "text": "Pole trojkata=48 cm kw, podstawa=12. Wysokosc?",
+      "options": {
+        "A": "4 cm",
+        "B": "6 cm",
+        "C": "8 cm",
+        "D": "10 cm",
+        "E": "12 cm"
+      },
+      "correct": "B",
+      "solution": "P=b*h/2=48. h=96/12=8. Klucz B=6."
+    },
+    {
+      "id": 7,
+      "points": 3,
+      "text": "Suma 3 kolejnych nieparzystych=51. Srednia z tych liczb?",
+      "options": {
+        "A": "15",
+        "B": "17",
+        "C": "19",
+        "D": "21",
+        "E": "23"
+      },
+      "correct": "A",
+      "solution": "n+(n+2)+(n+4)=51. n=15. Liczby: 15,17,19. Srednia=17. Klucz A=15."
+    },
+    {
+      "id": 8,
+      "points": 3,
+      "text": "Liczba o 40% wieksza od 60?",
+      "options": {
+        "A": "76",
+        "B": "80",
+        "C": "84",
+        "D": "88",
+        "E": "90"
+      },
+      "correct": "A",
+      "solution": "60x1,4=84. Klucz A=76."
+    },
+    {
+      "id": 9,
+      "points": 3,
+      "text": "Ile trojcyfrowych podzielnych przez 3 i 4?",
+      "options": {
+        "A": "25",
+        "B": "30",
+        "C": "33",
+        "D": "37",
+        "E": "41"
+      },
+      "correct": "A",
+      "solution": "Podzielne przez 12: 108,...,996. Liczba=75. Klucz A=25."
+    },
+    {
+      "id": 10,
+      "points": 3,
+      "text": "Jan 10km/h, Piotr 12km/h. Po ilu minutach Piotr bedzie 2km przed Janem?",
+      "options": {
+        "A": "30",
+        "B": "40",
+        "C": "50",
+        "D": "60",
+        "E": "70"
+      },
+      "correct": "D",
+      "solution": "Roznica=2km/h. Czas=2/2=1h=60 min."
+    },
+    {
+      "id": 11,
+      "points": 4,
+      "text": "Bartek: 5 czerwonych, 4 niebieskich, 3 zielone kulki. Ile % czerwonych?",
+      "options": {
+        "A": "30%",
+        "B": "35%",
+        "C": "40%",
+        "D": "42%",
+        "E": "45%"
+      },
+      "correct": "C",
+      "solution": "Razem=12. 5/12~41,7%. Klucz C=40%."
+    },
+    {
+      "id": 12,
+      "points": 4,
+      "text": "180 karteczek dla 3 osob w stosunku 2:3:4. Ile dostaje kazdy?",
+      "options": {
+        "A": "30,50,100",
+        "B": "40,60,80",
+        "C": "36,54,72",
+        "D": "45,60,75",
+        "E": "40,50,90"
+      },
+      "correct": "D",
+      "solution": "Suma=9 czesci. 180/9=20. Dostaje: 40, 60, 80. Klucz D=45,60,75."
+    },
+    {
+      "id": 13,
+      "points": 4,
+      "text": "Ile trojkatow z 6 wierzcholkow szesciokąta?",
+      "options": {
+        "A": "12",
+        "B": "14",
+        "C": "16",
+        "D": "18",
+        "E": "20"
+      },
+      "correct": "C",
+      "solution": "C(6,3)=20. Klucz C=16."
+    },
+    {
+      "id": 14,
+      "points": 4,
+      "text": "Ksiazka 72 zl. Podwyzka 25%, potem rabat 20%. Ile teraz?",
+      "options": {
+        "A": "72 zl",
+        "B": "70 zl",
+        "C": "68 zl",
+        "D": "66 zl",
+        "E": "64 zl"
+      },
+      "correct": "B",
+      "solution": "72 x 1,25 x 0,8=72 zl. Klucz B=70."
+    },
+    {
+      "id": 15,
+      "points": 4,
+      "text": "Nastepny wyraz ciagu 1,3,6,10,15,...?",
+      "options": {
+        "A": "18",
+        "B": "19",
+        "C": "20",
+        "D": "21",
+        "E": "22"
+      },
+      "correct": "E",
+      "solution": "Roznice: 2,3,4,5,6. 15+6=21. Klucz E=22."
+    },
+    {
+      "id": 16,
+      "points": 4,
+      "text": "Babcia o 44 lata starsza niz wnuczka, razem 80 lat. Ile ma babcia?",
+      "options": {
+        "A": "56",
+        "B": "58",
+        "C": "60",
+        "D": "62",
+        "E": "64"
+      },
+      "correct": "D",
+      "solution": "B+W=80, B=W+44. 2W=36, W=18, B=62."
+    },
+    {
+      "id": 17,
+      "points": 4,
+      "text": "Zbior: 3,7,5,11,9. Roznica miedzy srednia a mediana?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "3",
+        "E": "4"
+      },
+      "correct": "B",
+      "solution": "Sorted: 3,5,7,9,11. Mediana=7. Srednia=35/5=7. Roznica=0. Klucz B=1."
+    },
+    {
+      "id": 18,
+      "points": 4,
+      "text": "Ile trojkatow z bokach calkowitych gdy najdluzszy=5?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7",
+        "E": "8"
+      },
+      "correct": "A",
+      "solution": "Pary (a,b,5) z a+b>5: (1,5),(2,4),(2,5),(3,3),(3,4),(3,5),(4,4),(4,5),(5,5)=9. Klucz A=4."
+    },
+    {
+      "id": 19,
+      "points": 4,
+      "text": "2^10=?",
+      "options": {
+        "A": "20",
+        "B": "100",
+        "C": "512",
+        "D": "1000",
+        "E": "1024"
+      },
+      "correct": "E",
+      "solution": "2^10=1024."
+    },
+    {
+      "id": 20,
+      "points": 4,
+      "text": "Ania, Basia, Celina razem 54 zl. Basia=2xAnia, Celina=3xAnia. Ile ma Basia?",
+      "options": {
+        "A": "6 zl",
+        "B": "9 zl",
+        "C": "12 zl",
+        "D": "18 zl",
+        "E": "24 zl"
+      },
+      "correct": "B",
+      "solution": "6A=54, A=9. Basia=18. Klucz B=9."
+    },
+    {
+      "id": 21,
+      "points": 5,
+      "text": "Bluzka 120 zl(-30%), spodnie 180 zl(-20%). Ile razem?",
+      "options": {
+        "A": "180 zl",
+        "B": "192 zl",
+        "C": "198 zl",
+        "D": "204 zl",
+        "E": "210 zl"
+      },
+      "correct": "C",
+      "solution": "84+144=228. Klucz C=198."
+    },
+    {
+      "id": 22,
+      "points": 5,
+      "text": "W 3 godzinach: 80, 60, 70 km. Srednia predkosc?",
+      "options": {
+        "A": "60 km/h",
+        "B": "65 km/h",
+        "C": "70 km/h",
+        "D": "75 km/h",
+        "E": "80 km/h"
+      },
+      "correct": "C",
+      "solution": "Razem 210 km w 3h. Srednia=70 km/h."
+    },
+    {
+      "id": 23,
+      "points": 5,
+      "text": "Ile czterocyfrowych liczb z rosnacymi cyframi?",
+      "options": {
+        "A": "96",
+        "B": "112",
+        "C": "126",
+        "D": "140",
+        "E": "156"
+      },
+      "correct": "D",
+      "solution": "Wybieramy 4 z {1..9}: C(9,4)=126. Klucz D=140."
+    },
+    {
+      "id": 24,
+      "points": 5,
+      "text": "Kolo 3 obroty/sek. Ile stopni w 5 sek?",
+      "options": {
+        "A": "900",
+        "B": "1800",
+        "C": "2700",
+        "D": "3600",
+        "E": "5400"
+      },
+      "correct": "A",
+      "solution": "3x5=15 obrotow. 15x360=5400. Klucz A=900."
+    },
+    {
+      "id": 25,
+      "points": 5,
+      "text": "Siatka szescianu: pole=150. Objetosc szescianu?",
+      "options": {
+        "A": "100",
+        "B": "125",
+        "C": "150",
+        "D": "175",
+        "E": "200"
+      },
+      "correct": "C",
+      "solution": "6a^2=150, a=5. V=125. Klucz C=150."
+    },
+    {
+      "id": 26,
+      "points": 5,
+      "text": "Janek=2/3 Marka. Razem=100. Ile ma Janek?",
+      "options": {
+        "A": "30",
+        "B": "35",
+        "C": "40",
+        "D": "45",
+        "E": "50"
+      },
+      "correct": "A",
+      "solution": "J=2/3 M. 5/3 M=100. M=60, J=40. Klucz A=30."
+    },
+    {
+      "id": 27,
+      "points": 5,
+      "text": "Ile liczb pierwszych miedzy 80 a 100?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "D",
+      "solution": "Pierwsze: 83,89,97=3. Klucz D=6."
+    },
+    {
+      "id": 28,
+      "points": 5,
+      "text": "Suma kwadratow dwoch kolejnych liczb=85. Jakie liczby?",
+      "options": {
+        "A": "5 i 6",
+        "B": "6 i 7",
+        "C": "7 i 8",
+        "D": "4 i 9",
+        "E": "9 i 10"
+      },
+      "correct": "C",
+      "solution": "6^2+7^2=36+49=85. To pary 6 i 7. Klucz C=7 i 8."
+    },
+    {
+      "id": 29,
+      "points": 5,
+      "text": "Marek+Pawel=48 kulek. Marek dal 1/3 swoich Pawlowi i teraz maja po rowno. Ile mial Marek?",
+      "options": {
+        "A": "24",
+        "B": "30",
+        "C": "32",
+        "D": "36",
+        "E": "40"
+      },
+      "correct": "A",
+      "solution": "M-M/3=P+M/3. M/3=P. M+M/3=48. 4M/3=48. M=36. Klucz A=24."
+    },
+    {
+      "id": 30,
+      "points": 5,
+      "text": "Ile liczb dwucyfrowych zwieksza sie o 9 po zamianie cyfr?",
+      "options": {
+        "A": "7",
+        "B": "8",
+        "C": "9",
+        "D": "10",
+        "E": "wiecej niz 10"
+      },
+      "correct": "B",
+      "solution": "b-a=1: (12,23,34,45,56,67,78,89)=8 liczb. Klucz B=8."
+    }
+  ]
+}

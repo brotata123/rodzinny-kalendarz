@@ -1,0 +1,452 @@
+{
+  "year": 2015,
+  "name": "Alfik Matematyczny 2015",
+  "edition": "XXI Edycja",
+  "date": "2015-11-25",
+  "class": 4,
+  "competition": "Alfik",
+  "timeMinutes": 75,
+  "startingPoints": 0,
+  "totalQuestions": 30,
+  "maxPoints": 120,
+  "scoring": {
+    "3": {
+      "correct": 3,
+      "wrong": -0.75
+    },
+    "4": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "5": {
+      "correct": 5,
+      "wrong": -1.25
+    }
+  },
+  "pages": [
+    "images/alfik4/2015_p1.png",
+    "images/alfik4/2015_p2.png"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "points": 3,
+      "text": "Kwadrat o boku dlugosci 12 cm rozcięto na kwadraty o boku 3 cm. Ile kwadratow otrzymano?",
+      "options": {
+        "A": "9",
+        "B": "12",
+        "C": "16",
+        "D": "24",
+        "E": "25"
+      },
+      "correct": "C",
+      "solution": "Skoro bok duzego kwadratu to 12 cm, a malego 3 cm, to w rzedzie miesci sie 12 div 3 = 4 male kwadraty. Rzedow tez jest 4. Razem: 4 x 4 = 16 kwadratow."
+    },
+    {
+      "id": 2,
+      "points": 3,
+      "text": "Ile jest takich miesiecy w roku, ktore maja wiecej niz 30 dni?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7",
+        "E": "8"
+      },
+      "correct": "D",
+      "solution": "Miesiace z 31 dniami: styczen, marzec, maj, lipiec, sierpien, pazdziernik, grudzien. To dokladnie 7 miesiecy."
+    },
+    {
+      "id": 3,
+      "points": 3,
+      "text": "W ilu miejscach trzeba przeciac sznurek, aby rozciac go na piec czesci?",
+      "options": {
+        "A": "trzech",
+        "B": "czterech",
+        "C": "pięciu",
+        "D": "sześciu",
+        "E": "siedmiu"
+      },
+      "correct": "B",
+      "solution": "Zeby podzielic sznurek na 5 czesci, trzeba wykonac o 1 ciecie mniej niz liczba czesci: 5 - 1 = 4 ciecia."
+    },
+    {
+      "id": 4,
+      "points": 3,
+      "text": "Ile czasu zajmuje wskazowce minutowej przesunięcie sie od liczby 5 do liczby 10 na tarczy zegara?",
+      "options": {
+        "A": "5 minut",
+        "B": "10 minut",
+        "C": "15 minut",
+        "D": "20 minut",
+        "E": "25 minut"
+      },
+      "correct": "E",
+      "solution": "Miedzy liczbami 5 a 10 na zegarze sa 5 odstepy (5-6-7-8-9-10). Kazdy odstep to 5 minut, wiec 5 x 5 = 25 minut."
+    },
+    {
+      "id": 5,
+      "points": 3,
+      "text": "Podczas 11-dniowego urlopu pana Jana po dniu slonecznym zawsze nastepował dzien deszczowy i odwrotnie. Ile dni bylo deszczowych, jesli pierwszy dzien byl sloneczny?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7",
+        "E": "8"
+      },
+      "correct": "B",
+      "solution": "Schemat: S R S R S R S R S R S. Slonecznych: 6 (dni 1,3,5,7,9,11), deszczowych: 5 (dni 2,4,6,8,10). Odpowiedz: 5."
+    },
+    {
+      "id": 6,
+      "points": 3,
+      "text": "Belka o dlugosci 80 cali ma dlugosc (1 stopa = 12 cali):",
+      "options": {
+        "A": "6 stop i 6 cali",
+        "B": "6 stop i 8 cali",
+        "C": "6 stop i 10 cali",
+        "D": "7 stop",
+        "E": "7 stop i 2 cale"
+      },
+      "correct": "B",
+      "solution": "80 podzielone przez 12: 6 razy po 12 = 72, reszta 80-72 = 8. Wynik: 6 stop i 8 cali."
+    },
+    {
+      "id": 7,
+      "points": 3,
+      "text": "Pole w lewym gornym rogu szachownicy 5x5 jest biale. Ile czarnych pol jest na tej szachownicy?",
+      "options": {
+        "A": "10",
+        "B": "11",
+        "C": "12",
+        "D": "13",
+        "E": "14"
+      },
+      "correct": "C",
+      "solution": "Na szachownicy 5x5 jest 25 pol. Biale pola to te, gdzie suma numeru wiersza i kolumny jest parzysta. Bialych: 13, czarnych: 12."
+    },
+    {
+      "id": 8,
+      "points": 3,
+      "text": "Jesli 10 dni temu byla niedziela, to za 10 dni bedzie:",
+      "options": {
+        "A": "sobota",
+        "B": "niedziela",
+        "C": "wtorek",
+        "D": "sroda",
+        "E": "czwartek"
+      },
+      "correct": "A",
+      "solution": "10 dni temu = niedziela => dzis = niedziela + 10 dni = sroda (7+3). Za 10 dni = sroda + 10 = sroda + 3 (po pelnym tygodniu) = sobota."
+    },
+    {
+      "id": 9,
+      "points": 3,
+      "text": "Piec kwartansow temu byla za kwadrans trzecia. Ktora godzina bedzie za kolejne piec kwartansow?",
+      "options": {
+        "A": "za kwadrans piata",
+        "B": "kwadrans po piatej",
+        "C": "za kwadrans szosta",
+        "D": "kwadrans po szostej",
+        "E": "za kwadrans siodma"
+      },
+      "correct": "B",
+      "solution": "5 kwartansow = 75 minut. Piec kwartansow temu: 2:45. Teraz = 4:00. Za 75 minut = 5:15, czyli kwadrans po piatej."
+    },
+    {
+      "id": 10,
+      "points": 3,
+      "text": "Staszek ma mlodsza siostre i dwoch starszych braci. Ilu starszych braci ma siostra Staszka?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "3",
+        "E": "4"
+      },
+      "correct": "D",
+      "solution": "Siostra jest mlodsza od wszystkich. Ma 3 starszych braci: Staszka i jego dwoch starszych braci."
+    },
+    {
+      "id": 11,
+      "points": 4,
+      "text": "Ile jest liczb dwucyfrowych?",
+      "options": {
+        "A": "89",
+        "B": "90",
+        "C": "91",
+        "D": "99",
+        "E": "100"
+      },
+      "correct": "B",
+      "solution": "Liczby dwucyfrowe to od 10 do 99 wlacznie. Ile ich jest? 99 - 10 + 1 = 90."
+    },
+    {
+      "id": 12,
+      "points": 4,
+      "text": "Budowe mostu zaczeto w XIX w. pierwszego dnia wiosny, a zakonczono po kilkunastu latach, w XX w. tez pierwszego dnia wiosny. Rok ukonczenia powstaje przez przestawienie cyfr roku rozpoczecia. Ile lat trwala budowa?",
+      "options": {
+        "A": "15",
+        "B": "16",
+        "C": "17",
+        "D": "18",
+        "E": "19"
+      },
+      "correct": "D",
+      "solution": "Start: 1890, koniec: 1908 (te same cyfry: 1,8,9,0 przestawione). Czas budowy = 1908 - 1890 = 18 lat."
+    },
+    {
+      "id": 13,
+      "points": 4,
+      "text": "Ile bedzie takich miesiecy w roku 2016, ktore rozpoczna sie i zakoncza tym samym dniem tygodnia?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "3",
+        "E": "4"
+      },
+      "correct": "A",
+      "solution": "Miesiac zaczyna sie i konczy tym samym dniem tylko gdy ma dokladnie 28 dni. W 2016 r. (rok przestepny) luty ma 29 dni. Zadnym miesiac nie ma 28 dni => odpowiedz: 0."
+    },
+    {
+      "id": 14,
+      "points": 4,
+      "text": "Przy okraglym stoliku usiadlo 24 uczniow tak, ze kazdy chlopiec siedzial miedzy dwoma dziewczynkami, a kazda dziewczynka miedzy chlopcem a dziewczynka. Ilu chlopcow siedzialo?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8",
+        "E": "9"
+      },
+      "correct": "D",
+      "solution": "Niech b=chlopcy, g=dziewczynki. Kazdy chlopiec ma 2 dziewczynki-sasiadki: 2b=g. Plus b+g=24. Wiec 3b=24, b=8."
+    },
+    {
+      "id": 15,
+      "points": 4,
+      "text": "Staszek dzisiaj skonczyl setny miesiac zycia. Za ile miesiecy sa jego najblizsze urodziny?",
+      "options": {
+        "A": "7",
+        "B": "8",
+        "C": "9",
+        "D": "10",
+        "E": "11"
+      },
+      "correct": "B",
+      "solution": "100 miesiecy = 8 lat i 4 miesiace. Staszek ma dzis 8 lat i 4 miesiace. Urodziny byly 4 miesiace temu. Nastepne za 12 - 4 = 8 miesiecy."
+    },
+    {
+      "id": 16,
+      "points": 4,
+      "text": "O ile wiecej obrotow wykona w ciagu doby wskazowka minutowa od wskazowki godzinowej?",
+      "options": {
+        "A": "10",
+        "B": "11",
+        "C": "12",
+        "D": "22",
+        "E": "23"
+      },
+      "correct": "D",
+      "solution": "Wskazowka minutowa: 24 obroty na dobe. Wskazowka godzinowa: 2 obroty na dobe. Roznica: 24 - 2 = 22."
+    },
+    {
+      "id": 17,
+      "points": 4,
+      "text": "Jas trenuje judo we wtorki, srody i piatki. Ile najwiecej treningow moze miec w ciagu jednego miesiaca?",
+      "options": {
+        "A": "12",
+        "B": "13",
+        "C": "14",
+        "D": "15",
+        "E": "16"
+      },
+      "correct": "C",
+      "solution": "W 31-dniowym miesiacu zaczynajacym sie od wtorku: wtorki 5 razy, srody 5 razy, piatki 4 razy. Razem: 5+5+4=14."
+    },
+    {
+      "id": 18,
+      "points": 4,
+      "text": "Na szachownicy 8x8 stoi 32 biale i 32 czarne pionki. Na bialych polach stoi 26 czarnych pionkow. Ile bialych pionkow stoi na czarnych polach?",
+      "options": {
+        "A": "20",
+        "B": "23",
+        "C": "26",
+        "D": "29",
+        "E": "32"
+      },
+      "correct": "C",
+      "solution": "Na bialych polach: 26 czarnych + 6 bialych = 32. Bialych na bialych = 32-26 = 6. Bialych na czarnych = 32-6 = 26."
+    },
+    {
+      "id": 19,
+      "points": 4,
+      "text": "Trzej bracia maja lacznie o trzy lata mniej niz ich mama. Za 3 lata ci trzej bracia beda miec lacznie:",
+      "options": {
+        "A": "o 6 lat mniej niz mama",
+        "B": "o 3 lata mniej niz mama",
+        "C": "tyle lat co mama",
+        "D": "o 3 lata wiecej niz mama",
+        "E": "o 6 lat wiecej niz mama"
+      },
+      "correct": "D",
+      "solution": "Teraz: bracia = mama - 3. Za 3 lata: mama rosnie o 3, bracia lacznie o 9. Nowa roznica: (mama-3+9) - (mama+3) = 3 na korzysC braci."
+    },
+    {
+      "id": 20,
+      "points": 4,
+      "text": "Chcemy rozdzielic 12 cukierkow truskawkowych i 16 cytrynowych tak, by kazde dziecko dostalo wiecej cytrynowych niz truskawkowych. Ile najwyzej dzieci mozna obdarowac?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "B",
+      "solution": "Dla n dzieci suma roznic (cytrynowe-truskawkowe)=4. Kazda roznica >= 1, wiec n <= 4. Przy n=4: kazde dziecko dostaje 3 truskawkowe i 4 cytrynowe."
+    },
+    {
+      "id": 21,
+      "points": 5,
+      "text": "Jaka cyfre dziesiatek ma liczba dwucyfrowa, ktora zwieksza sie o 180, gdy miedzy cyfre jednosci a cyfre dziesiatek wstawimy 0?",
+      "options": {
+        "A": "4",
+        "B": "3",
+        "C": "2",
+        "D": "1",
+        "E": "nie ma takiej liczby"
+      },
+      "correct": "C",
+      "solution": "Liczba AB=10a+b. Po wstawieniu 0: A0B=100a+b. Wzrost: 90a=180, wiec a=2. Cyfra dziesiatek = 2."
+    },
+    {
+      "id": 22,
+      "points": 5,
+      "text": "3 olowki i 2 dluopisy kosztuja 8,50 zl, a 2 olowki i 3 dluopisy kosztuja 9 zl. Ile kosztuje jeden olowek?",
+      "options": {
+        "A": "1 zl 20 gr",
+        "B": "1 zl 30 gr",
+        "C": "1 zl 40 gr",
+        "D": "1 zl 50 gr",
+        "E": "1 zl 60 gr"
+      },
+      "correct": "D",
+      "solution": "3o+2d=850gr, 2o+3d=900gr. Odejmujac: o-d=-50, d=o+50. Podstawiajac: 5o=750, o=150gr=1zl 50gr."
+    },
+    {
+      "id": 23,
+      "points": 5,
+      "text": "Jacek ma kilkanascie monet (1 zl, 2 zl, 5 zl). W dwuzlotowkach ma tyle samo co w pieciolotowkach, a zlotowek tyle co laacznie dwu- i pieciolotowek. Ile monet ma Jacek?",
+      "options": {
+        "A": "14",
+        "B": "13",
+        "C": "12 lub mniej",
+        "D": "15",
+        "E": "16 lub wiecej"
+      },
+      "correct": "A",
+      "solution": "2n2=5n5 => n2=5k, n5=2k. Zlotowek: n1=7k. Razem: 14k. Kilkanascie (11-19): k=1, razem 14."
+    },
+    {
+      "id": 24,
+      "points": 5,
+      "text": "O godzinie 12:00 wskazowka minutowa i godzinowa pokrywaja sie. Ile minut wczesniej wystapila poprzednia taka sytuacja?",
+      "options": {
+        "A": "ok. 60 min",
+        "B": "ok. 65 min",
+        "C": "ok. 70 min",
+        "D": "ok. 75 min",
+        "E": "ok. 80 min"
+      },
+      "correct": "B",
+      "solution": "Wskazowka minutowa nadgania godzinowa o 5,5 stopnia na minute. Pelne dognienie: 360 / 5,5 = 720/11 = ok. 65,5 minuty."
+    },
+    {
+      "id": 25,
+      "points": 5,
+      "text": "Ile jest takich liczb naturalnych, ktorych suma cyfr jest wieksza od iloczynu cyfr?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "wiecej niz 3",
+        "E": "nie ma takich liczb"
+      },
+      "correct": "D",
+      "solution": "Wszystkie liczby zawierajace cyfre 0 spelniaja ten warunek (iloczyn=0, suma>0): 10, 20, 100, 101... Jest ich nieskoncznie wiele."
+    },
+    {
+      "id": 26,
+      "points": 5,
+      "text": "Stas ma 21 kulek bialych lub czarnych, dwukrotnie wiecej bialych niz czarnych. Ile bialych przemalowac na czarno, by czarnych bylo dwukrotnie wiecej niz bialych?",
+      "options": {
+        "A": "7",
+        "B": "9",
+        "C": "10",
+        "D": "12",
+        "E": "14"
+      },
+      "correct": "A",
+      "solution": "Teraz: 14 bialych, 7 czarnych. Przemalowujemy x: 7+x=2(14-x) => 3x=21 => x=7."
+    },
+    {
+      "id": 27,
+      "points": 5,
+      "text": "Antek, Bartek i Czarek zlowili lacznie 19 ryb. Czarek zlowil 5 razy wiecej niz Bartek i o 3 ryby wiecej niz Antek. Ile ryb zlowil Antek?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7",
+        "E": "8"
+      },
+      "correct": "D",
+      "solution": "Bartek=b, Czarek=5b, Antek=5b-3. Suma: (5b-3)+b+5b=19 => 11b=22 => b=2. Antek=10-3=7."
+    },
+    {
+      "id": 28,
+      "points": 5,
+      "text": "W pewnej klasie polowa uczniow to dziewieciolatki, polowa dziesieciolatki. Chlopcow jest dwa razy wiecej niz dziewczat. Dziewiecoletnich dziewczynek jest 8, a chlopcow 4. Ile dziesiecioletnich dziewczynek jest w klasie?",
+      "options": {
+        "A": "0",
+        "B": "2",
+        "C": "4",
+        "D": "6",
+        "E": "8"
+      },
+      "correct": "A",
+      "solution": "9-latkow: 8+4=12. Polowa klasy=12, wiec klasa=24. Dziewczat: 8, chlopcow: 16. Dziewczat 9-letnich: 8 = wszystkie dziewczeta. Dziewczat 10-letnich: 0."
+    },
+    {
+      "id": 29,
+      "points": 5,
+      "text": "Zosia konczy dzisiaj tyle lat ile wynosi suma cyfr roku jej urodzenia. Ile lat ma Zosia, jesli jest jeszcze niepelnoletnia?",
+      "options": {
+        "A": "mniej niz 5 lat",
+        "B": "6 lat",
+        "C": "7 lat",
+        "D": "8 lat",
+        "E": "9 lub wiecej lat"
+      },
+      "correct": "A",
+      "solution": "Szukamy roku Y: 2015-Y = suma cyfr Y. Dla Y=2011: wiek=4, suma=2+0+1+1=4. Zosia ma 4 lata (mniej niz 5)."
+    },
+    {
+      "id": 30,
+      "points": 5,
+      "text": "W pudelku sa kulki zolte, biale i zielone. Dolozenie 1 zoltej daje polowe zoltych; 3 bialych daje polowe bialych; 3 zielonych daje polowe zielonych. Ile kulek jest w pudelku?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "E",
+      "solution": "y+1=(n+1)/2, w+3=(n+3)/2, g+3=(n+3)/2. Stad w=g, y=w+1, n=3w+1=2w+3 => w=2, n=7. Sprawdzenie: y=3, w=2, g=2. 3+1=4=8/2, 2+3=5=10/2. Poprawne!"
+    }
+  ]
+}

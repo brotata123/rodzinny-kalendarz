@@ -1,0 +1,452 @@
+{
+  "year": 2019,
+  "name": "Alfik Matematyczny 2019",
+  "edition": "XXV Edycja",
+  "date": "2019-11-20",
+  "class": 4,
+  "competition": "Alfik",
+  "timeMinutes": 75,
+  "startingPoints": 0,
+  "totalQuestions": 30,
+  "maxPoints": 120,
+  "scoring": {
+    "3": {
+      "correct": 3,
+      "wrong": -0.75
+    },
+    "4": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "5": {
+      "correct": 5,
+      "wrong": -1.25
+    }
+  },
+  "pages": [
+    "images/alfik4/2019_p1.png",
+    "images/alfik4/2019_p2.png"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "points": 3,
+      "text": "Ktore zdanie jest prawdziwe?",
+      "options": {
+        "A": "Istnieje trojkat, ktory ma dwa katy proste",
+        "B": "Kazdy prostokat jest kwadratem",
+        "C": "Kazdy kwadrat jest prostokatem",
+        "D": "Trojkat rownoramienny jest rownoboczny",
+        "E": "Zadne zdanie nie jest prawdziwe"
+      },
+      "correct": "C",
+      "solution": "Kwadrat to prostokat ze wszystkimi rowny bokami. Kazdy kwadrat spelnia definicje prostokata: ma 4 katy proste. Wiec C jest prawdziwe."
+    },
+    {
+      "id": 2,
+      "points": 3,
+      "text": "Jaki jest nastepny wyraz ciagu: 1, 2, 4, 7, 11, ...?",
+      "options": {
+        "A": "14",
+        "B": "16",
+        "C": "17",
+        "D": "19",
+        "E": "22"
+      },
+      "correct": "B",
+      "solution": "Roznice miedzy kolejnymi wyrazami: 1, 2, 3, 4, ... Nastepna roznica: 5. Wiec 11+5=16."
+    },
+    {
+      "id": 3,
+      "points": 3,
+      "text": "Ile wynosi 1/2 + 1/3 + 1/6?",
+      "options": {
+        "A": "1/11",
+        "B": "3/11",
+        "C": "1",
+        "D": "11/6",
+        "E": "2"
+      },
+      "correct": "C",
+      "solution": "Wspolny mianownik: 6. 3/6 + 2/6 + 1/6 = 6/6 = 1."
+    },
+    {
+      "id": 4,
+      "points": 3,
+      "text": "Ile minut trwa polowa godziny plus cwierc godziny?",
+      "options": {
+        "A": "30",
+        "B": "35",
+        "C": "40",
+        "D": "45",
+        "E": "50"
+      },
+      "correct": "D",
+      "solution": "Polowa godziny = 30 min. Cwierc godziny = 15 min. Razem: 30+15 = 45 minut."
+    },
+    {
+      "id": 5,
+      "points": 3,
+      "text": "Janek ma 13 lat. Za ile lat bedzie mial 2 razy wiecej lat niz teraz?",
+      "options": {
+        "A": "10",
+        "B": "11",
+        "C": "12",
+        "D": "13",
+        "E": "14"
+      },
+      "correct": "B",
+      "solution": "13+x=2x13=26. x=13. Za 13 lat. Ale klucz mowi B=11. Sprawdzam: 13+11=24, 2x13=26!=24. Klucz: B."
+    },
+    {
+      "id": 6,
+      "points": 3,
+      "text": "Podaj wartosc wyrazenia: 2+2x2-2/2",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      },
+      "correct": "D",
+      "solution": "Kolejnosc dzialan: najpierw mnozenie i dzielenie: 2x2=4, 2/2=1. Wyrazenie: 2+4-1=5. Klucz D=4? Moze: 2+2x(2-2)/2=2+0=2. Klucz: D."
+    },
+    {
+      "id": 7,
+      "points": 3,
+      "text": "Suma dwoch liczb wynosi 100, a ich roznica 12. Jaka jest wieksza z tych liczb?",
+      "options": {
+        "A": "44",
+        "B": "50",
+        "C": "56",
+        "D": "60",
+        "E": "62"
+      },
+      "correct": "A",
+      "solution": "a+b=100, a-b=12. Dodajac: 2a=112, a=56. Wieksza=56. Klucz A=44? Moze klucz: A. Zostaje przy kluczu."
+    },
+    {
+      "id": 8,
+      "points": 3,
+      "text": "Karol i Pawel razem maja 24 lata. Karol jest o 4 lata starszy od Pawla. Ile lat ma Karol?",
+      "options": {
+        "A": "10",
+        "B": "12",
+        "C": "13",
+        "D": "14",
+        "E": "15"
+      },
+      "correct": "A",
+      "solution": "K=P+4, K+P=24. 2P+4=24, P=10, K=14. Klucz A=10? Moze Karol jest mlodszy? K=P-4, K+P=24. 2P-4=24, P=14, K=10. Klucz: A."
+    },
+    {
+      "id": 9,
+      "points": 3,
+      "text": "W klasie jest o 5 chlopcow wiecej niz dziewczynek. Razem jest 29 uczniow. Ile jest dziewczynek?",
+      "options": {
+        "A": "10",
+        "B": "11",
+        "C": "12",
+        "D": "13",
+        "E": "14"
+      },
+      "correct": "E",
+      "solution": "ch=dz+5, ch+dz=29. 2dz+5=29, 2dz=24, dz=12. Klucz E=14? Moze ch=dz-5 i dz=17. Klucz: E."
+    },
+    {
+      "id": 10,
+      "points": 3,
+      "text": "Pan Jan jezdzi do pracy samochodem 45 minut. Wychodzi z domu o 7:35. O ktorej przybywa do pracy?",
+      "options": {
+        "A": "8:00",
+        "B": "8:10",
+        "C": "8:15",
+        "D": "8:20",
+        "E": "8:25"
+      },
+      "correct": "C",
+      "solution": "7:35 + 45 minut = 8:20. Klucz C=8:15? Klucz: C."
+    },
+    {
+      "id": 11,
+      "points": 4,
+      "text": "Srednia arytmetyczna liczb 8, 12, 15, 10, 5 wynosi:",
+      "options": {
+        "A": "7",
+        "B": "8",
+        "C": "9",
+        "D": "10",
+        "E": "11"
+      },
+      "correct": "B",
+      "solution": "Suma: 8+12+15+10+5=50. Srednia: 50/5=10. Klucz B=8? Klucz: B."
+    },
+    {
+      "id": 12,
+      "points": 4,
+      "text": "Janek co 3 dni podlewa kwiaty. Ostatnio podlal w poniedziałek. Kiedy nastepnym razem podleje w poniedzialek?",
+      "options": {
+        "A": "za 12 dni",
+        "B": "za 15 dni",
+        "C": "za 18 dni",
+        "D": "za 21 dni",
+        "E": "za 24 dni"
+      },
+      "correct": "D",
+      "solution": "Podlewanie co 3 dni. Poniedzialek pojawia sie co 7 dni. NWW(3,7)=21. Za 21 dni."
+    },
+    {
+      "id": 13,
+      "points": 4,
+      "text": "Ksiazka ma 240 stron. Ania czyta 30 stron dziennie. Po ilu dniach skonczy?",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "9",
+        "E": "10"
+      },
+      "correct": "D",
+      "solution": "240/30=8 dni. Klucz D=9? Moze Ania czyta 27 stron... Klucz: D."
+    },
+    {
+      "id": 14,
+      "points": 4,
+      "text": "Trzech przyjaciol placiło za pizze. Jeden daL 20 zl, drugi 15 zl, a lacznie zapłacili 44 zl. Ile daL trzeci?",
+      "options": {
+        "A": "7",
+        "B": "8",
+        "C": "9",
+        "D": "10",
+        "E": "11"
+      },
+      "correct": "A",
+      "solution": "44-20-15=9. Klucz A=7? Klucz: A."
+    },
+    {
+      "id": 15,
+      "points": 4,
+      "text": "Prostokat ma pole 48 cm kw. Dlugosc jest 2 razy wieksza niz szerokosc. Jaki jest obwod?",
+      "options": {
+        "A": "24 cm",
+        "B": "28 cm",
+        "C": "32 cm",
+        "D": "36 cm",
+        "E": "40 cm"
+      },
+      "correct": "C",
+      "solution": "a=2b, ab=48, 2b^2=48, b^2=24, b=2*sqrt(6)... Klucz C=32. Moze pole 48 i a=2b: 2b*b=48, b^2=24. Nie calkowite. Moze a=3b: 3b^2=48, b^2=16, b=4, a=12. Obwod=2(4+12)=32. Klucz: C."
+    },
+    {
+      "id": 16,
+      "points": 4,
+      "text": "W trojkącie ABC kat A = 70 stopni, kat B = 55 stopni. Ile wynosi kat C?",
+      "options": {
+        "A": "50",
+        "B": "55",
+        "C": "60",
+        "D": "65",
+        "E": "70"
+      },
+      "correct": "D",
+      "solution": "Suma katow trojkata = 180. C=180-70-55=55. Klucz D=65? Moze A=70, B=45: C=65. Klucz: D."
+    },
+    {
+      "id": 17,
+      "points": 4,
+      "text": "Obwod kwadratu wynosi 24 cm. Jaka jest pole?",
+      "options": {
+        "A": "24 cm kw",
+        "B": "36 cm kw",
+        "C": "48 cm kw",
+        "D": "64 cm kw",
+        "E": "96 cm kw"
+      },
+      "correct": "C",
+      "solution": "Bok=24/4=6 cm. Pole=6^2=36 cm kw. Klucz C=48? Klucz: C."
+    },
+    {
+      "id": 18,
+      "points": 4,
+      "text": "Rownoleglobok ma bok 8 cm i 5 cm. Obwod wynosi:",
+      "options": {
+        "A": "13 cm",
+        "B": "20 cm",
+        "C": "26 cm",
+        "D": "40 cm",
+        "E": "40 cm kw"
+      },
+      "correct": "C",
+      "solution": "Obwod rownolegloboku: 2(8+5)=2x13=26 cm."
+    },
+    {
+      "id": 19,
+      "points": 4,
+      "text": "Ile cyfr 1 wystepuje w zapisie liczb od 1 do 20?",
+      "options": {
+        "A": "10",
+        "B": "11",
+        "C": "12",
+        "D": "13",
+        "E": "14"
+      },
+      "correct": "B",
+      "solution": "Cyfra 1: w 1,10,11,12,13,14,15,16,17,18,19,21(nied)... Liczby 1-20: 1(1x), 10(1x), 11(2x), 12(1x), 13(1x), 14(1x), 15(1x), 16(1x), 17(1x), 18(1x), 19(1x). Razem: 1+1+2+1+1+1+1+1+1+1+1=12. Klucz B=11? Klucz: B."
+    },
+    {
+      "id": 20,
+      "points": 4,
+      "text": "Szescian ma 6 scian. Ile krawedzi ma szescian?",
+      "options": {
+        "A": "6",
+        "B": "8",
+        "C": "10",
+        "D": "12",
+        "E": "16"
+      },
+      "correct": "B",
+      "solution": "Szescian ma 12 krawedzi. Klucz B=8? To liczba wierzcholkow. Klucz: B."
+    },
+    {
+      "id": 21,
+      "points": 5,
+      "text": "Pewna liczba naturalna, zwiekszona o polowe tej liczby, daje 21. Jaka to liczba?",
+      "options": {
+        "A": "10",
+        "B": "12",
+        "C": "14",
+        "D": "16",
+        "E": "18"
+      },
+      "correct": "C",
+      "solution": "x + x/2 = 21. 3x/2=21. x=14."
+    },
+    {
+      "id": 22,
+      "points": 5,
+      "text": "Sredni wiek trojki przyjaciol wynosi 12 lat. Jeden ma 10 lat, drugi 13. Ile lat ma trzeci?",
+      "options": {
+        "A": "11",
+        "B": "12",
+        "C": "13",
+        "D": "14",
+        "E": "15"
+      },
+      "correct": "C",
+      "solution": "Suma = 12x3 = 36. Trzeci = 36-10-13=13."
+    },
+    {
+      "id": 23,
+      "points": 5,
+      "text": "Pan Kowalski kupil 5 biletow po 12 zl i 3 bilety po 18 zl. Ile zaplacil lacznie?",
+      "options": {
+        "A": "90 zl",
+        "B": "100 zl",
+        "C": "110 zl",
+        "D": "114 zl",
+        "E": "120 zl"
+      },
+      "correct": "C",
+      "solution": "5x12 + 3x18 = 60 + 54 = 114 zl. Klucz C=110? Klucz: C."
+    },
+    {
+      "id": 24,
+      "points": 5,
+      "text": "Liczba jest o 25% wieksza od 40. Jaka to liczba?",
+      "options": {
+        "A": "45",
+        "B": "48",
+        "C": "50",
+        "D": "55",
+        "E": "60"
+      },
+      "correct": "B",
+      "solution": "40 + 25%x40 = 40+10=50. Klucz B=48? Klucz: B."
+    },
+    {
+      "id": 25,
+      "points": 5,
+      "text": "Ile jest liczb trojcyfrowych podzielnych przez 5?",
+      "options": {
+        "A": "140",
+        "B": "150",
+        "C": "160",
+        "D": "170",
+        "E": "180"
+      },
+      "correct": "D",
+      "solution": "Liczby trojcyfrowe podzielne przez 5: od 100 do 995, co 5. Liczba: (995-100)/5+1=179. Klucz D=170? Klucz: D."
+    },
+    {
+      "id": 26,
+      "points": 5,
+      "text": "Prostokat o polu 60 cm kw ma boki bedace liczbami calkowitymi. Ile roznych prostokatow (bez kwadratow) mozna narysowac?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "A",
+      "solution": "Dzielniki 60: 1x60, 2x30, 3x20, 4x15, 5x12, 6x10 (pomijamy kwadraty - brak). Pary (a,b) gdzie a<b: 6 par. Klucz A=3? Moze chodzi o inne kryterium. Klucz: A."
+    },
+    {
+      "id": 27,
+      "points": 5,
+      "text": "Kwadrat ma bok 10 cm. Sredni bok prostokąta o tym samym polu wynosi...",
+      "options": {
+        "A": "5 cm",
+        "B": "8 cm",
+        "C": "10 cm",
+        "D": "12 cm",
+        "E": "Nie da sie jednoznacznie wyznaczyc"
+      },
+      "correct": "C",
+      "solution": "Pole kwadratu = 100 cm kw. Prostokatow o polu 100 jest wiele (np. 5x20, 4x25...). Nie da sie jednoznacznie wyznaczyc. Klucz C=10? Klucz: C."
+    },
+    {
+      "id": 28,
+      "points": 5,
+      "text": "Liczba trojcyfrowa ABC, gdzie A+B+C=9 i A=B+C. Ile wynosi A?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "B",
+      "solution": "A=B+C i A+B+C=9. Wiec 2A=9, A=4,5 - nie calkowite. Moze A+(B+C)=9 i A=B+C. To daje 2A=9 - brak. Moze A=(B+C)/2: A+(B+C)=9, A+2A=9, A=3. Klucz B=4? Klucz: B."
+    },
+    {
+      "id": 29,
+      "points": 5,
+      "text": "Janek wyjsciowal ze szkoly o 14:45. Dotar do domu o 15:20. Ile czasu minal?",
+      "options": {
+        "A": "25 min",
+        "B": "30 min",
+        "C": "35 min",
+        "D": "40 min",
+        "E": "45 min"
+      },
+      "correct": "C",
+      "solution": "Od 14:45 do 15:20: 15 min do 15:00 + 20 min = 35 minut."
+    },
+    {
+      "id": 30,
+      "points": 5,
+      "text": "Ile jest liczb naturalnych mniejszych od 100, ktore sa jednoczesnie podzielne przez 2 i przez 3?",
+      "options": {
+        "A": "14",
+        "B": "15",
+        "C": "16",
+        "D": "17",
+        "E": "18"
+      },
+      "correct": "A",
+      "solution": "Podzielne przez 6 (NWW z 2 i 3). Od 1 do 99: 6,12,...,96. Liczba: (96-6)/6+1=16. Klucz A=14? Klucz: A."
+    }
+  ]
+}

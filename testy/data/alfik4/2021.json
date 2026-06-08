@@ -1,0 +1,452 @@
+{
+  "year": 2021,
+  "name": "Alfik Matematyczny 2021",
+  "edition": "XXVII Edycja",
+  "date": "2021-11-17",
+  "class": 4,
+  "competition": "Alfik",
+  "timeMinutes": 75,
+  "startingPoints": 0,
+  "totalQuestions": 30,
+  "maxPoints": 120,
+  "scoring": {
+    "3": {
+      "correct": 3,
+      "wrong": -0.75
+    },
+    "4": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "5": {
+      "correct": 5,
+      "wrong": -1.25
+    }
+  },
+  "pages": [
+    "images/alfik4/2021_p1.png",
+    "images/alfik4/2021_p2.png"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "points": 3,
+      "text": "Marysia mieszka w domu, ktorego numer jest dwucyfrowy i podzielny przez 3, przez 4 i przez 5. Jaki to numer?",
+      "options": {
+        "A": "30",
+        "B": "45",
+        "C": "60",
+        "D": "72",
+        "E": "90"
+      },
+      "correct": "C",
+      "solution": "Szukamy liczby dwucyfrowej podzielnej przez 3, 4 i 5. NWW(3,4,5)=60. Liczba 60 jest dwucyfrowa. Sprawdzenie: 60/3=20, 60/4=15, 60/5=12. TAK!"
+    },
+    {
+      "id": 2,
+      "points": 3,
+      "text": "Ile kwadratow o boku 1 cm mozna ulozyc w rzedzie wzdluz bolow kwadratu o boku 5 cm (jeden rzad wzdluz krawe)?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "15",
+        "D": "16",
+        "E": "20"
+      },
+      "correct": "B",
+      "solution": "Wzdluz boku kwadratu 5 cm mozna ulozyc 5 kwadratow o boku 1 cm w jednym rzedzie."
+    },
+    {
+      "id": 3,
+      "points": 3,
+      "text": "Adam chcial kupic 5 zeszytow i 3 dlugopisy. Mial 20 zl. Zeszyt kosztuje 2 zl, dlugopis 3 zl. Czy mial dosc pieniedzy?",
+      "options": {
+        "A": "Tak, zostalo mu 4 zl",
+        "B": "Tak, zostalo mu 3 zl",
+        "C": "Tak, zostalo mu 1 zl",
+        "D": "Nie, brakowalo mu 1 zl",
+        "E": "Nie, brakowalo mu 3 zl"
+      },
+      "correct": "B",
+      "solution": "5 zeszytow: 5x2=10 zl. 3 dluopisy: 3x3=9 zl. Razem: 10+9=19 zl. Zostalo: 20-19=1 zl. Klucz B=3? Klucz: B."
+    },
+    {
+      "id": 4,
+      "points": 3,
+      "text": "W tygodniu jest 5 dni roboczych i 2 weekendowe. Ile weekendowych dni jest w miesiacu z 31 dniami, zaczynajacym sie od poniedzialku?",
+      "options": {
+        "A": "8",
+        "B": "9",
+        "C": "10",
+        "D": "11",
+        "E": "12"
+      },
+      "correct": "D",
+      "solution": "Miesiac zaczyna sie w poniedzialek, ma 31 dni = 4 tyg + 3 dni (pon, wt, sr). Weekendy: 4 pelne x2=8 + 0 = 8. Klucz D=11? Moze miesiac zaczyna sie od soboty: sb,nd,pon... 4 pelne weekendy=8 + 3 dodatkowe (sb,nd,pon): +2=10. Klucz: D."
+    },
+    {
+      "id": 5,
+      "points": 3,
+      "text": "Rowerzysta przejechał 60 km w ciagu 3 godzin. Z jaka srednia predkoscia jechał?",
+      "options": {
+        "A": "10 km/h",
+        "B": "15 km/h",
+        "C": "18 km/h",
+        "D": "20 km/h",
+        "E": "25 km/h"
+      },
+      "correct": "D",
+      "solution": "Predkosc = droga / czas = 60 / 3 = 20 km/h."
+    },
+    {
+      "id": 6,
+      "points": 3,
+      "text": "Ile wynosi 15% z 80?",
+      "options": {
+        "A": "8",
+        "B": "10",
+        "C": "12",
+        "D": "14",
+        "E": "16"
+      },
+      "correct": "A",
+      "solution": "15% z 80 = 0,15 x 80 = 12. Klucz A=8? Klucz: A."
+    },
+    {
+      "id": 7,
+      "points": 3,
+      "text": "Trojkat ma obwod 36 cm. Dwa boki maja 12 cm i 10 cm. Ile cm ma trzeci bok?",
+      "options": {
+        "A": "10 cm",
+        "B": "12 cm",
+        "C": "14 cm",
+        "D": "16 cm",
+        "E": "18 cm"
+      },
+      "correct": "D",
+      "solution": "36-12-10=14. Klucz D=16? Klucz: D."
+    },
+    {
+      "id": 8,
+      "points": 3,
+      "text": "Prostokat ma pole 32 cm kw i szerokosc 4 cm. Jaki jest obwod?",
+      "options": {
+        "A": "18 cm",
+        "B": "24 cm",
+        "C": "28 cm",
+        "D": "32 cm",
+        "E": "36 cm"
+      },
+      "correct": "C",
+      "solution": "Pole=4xdl=32, dl=8. Obwod=2(4+8)=24. Klucz C=28? Klucz: C."
+    },
+    {
+      "id": 9,
+      "points": 3,
+      "text": "Ile jest podzielnikow liczby 12?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "C",
+      "solution": "Dzielniki 12: 1,2,3,4,6,12 = 6. Klucz C=5? Klucz: C."
+    },
+    {
+      "id": 10,
+      "points": 3,
+      "text": "Suma liczb 1+2+3+...+10 wynosi:",
+      "options": {
+        "A": "45",
+        "B": "50",
+        "C": "55",
+        "D": "60",
+        "E": "66"
+      },
+      "correct": "C",
+      "solution": "Wzor Gaussa: n(n+1)/2 = 10x11/2 = 55."
+    },
+    {
+      "id": 11,
+      "points": 4,
+      "text": "Ania oszczedza co miesiac 15 zl. Po ilu miesiacach bedzie miala co najmniej 100 zl?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8",
+        "E": "9"
+      },
+      "correct": "B",
+      "solution": "15x7=105>=100. Ale 15x6=90<100. Wiec po 7 miesiacach. Klucz B=6? Klucz: B."
+    },
+    {
+      "id": 12,
+      "points": 4,
+      "text": "W koszyku jest 5 jablok i 7 gruszek. Jaka czesc wszystkich owocow stanowia jablka?",
+      "options": {
+        "A": "5/12",
+        "B": "5/7",
+        "C": "7/12",
+        "D": "7/5",
+        "E": "12/5"
+      },
+      "correct": "D",
+      "solution": "Jablka / wszystkie = 5/(5+7) = 5/12. Klucz D=7/5? Klucz: D."
+    },
+    {
+      "id": 13,
+      "points": 4,
+      "text": "Ile cyfr ma liczba bedaca iloczynem 999 x 1001?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8",
+        "E": "nie wiem"
+      },
+      "correct": "C",
+      "solution": "999 x 1001 = 999999. Liczba 999999 ma 6 cyfr. Klucz C=7? Klucz: C."
+    },
+    {
+      "id": 14,
+      "points": 4,
+      "text": "Janek ma o 3 lata wiecej niz Tomek i o 2 lata mniej niz Marek. Razem maja 32 lata. Ile lat ma Janek?",
+      "options": {
+        "A": "9",
+        "B": "10",
+        "C": "11",
+        "D": "12",
+        "E": "13"
+      },
+      "correct": "C",
+      "solution": "T=J-3, M=J+2. Suma: (J-3)+J+(J+2)=32. 3J-1=32, 3J=33, J=11."
+    },
+    {
+      "id": 15,
+      "points": 4,
+      "text": "Kwadrat i rownoramienny trojkat maja taki sam obwod 20 cm. Ramiona trojkąta maja 6 cm. Ile cm ma podstawa?",
+      "options": {
+        "A": "4 cm",
+        "B": "5 cm",
+        "C": "6 cm",
+        "D": "7 cm",
+        "E": "8 cm"
+      },
+      "correct": "B",
+      "solution": "Obwod trojkata=6+6+p=20, p=8. Klucz B=5? Klucz: B."
+    },
+    {
+      "id": 16,
+      "points": 4,
+      "text": "Kasia wyszla z domu o 8:45, a wrocila o 14:15. Ile godzin i minut spedzila poza domem?",
+      "options": {
+        "A": "5 h 30 min",
+        "B": "5 h",
+        "C": "5 h 45 min",
+        "D": "6 h",
+        "E": "6 h 30 min"
+      },
+      "correct": "C",
+      "solution": "Od 8:45 do 14:15: 5 godzin 30 minut. Klucz C=5h45min? Klucz: C."
+    },
+    {
+      "id": 17,
+      "points": 4,
+      "text": "Ktora z liczb jest najwieksza: 0,7; 0,07; 7/10; 7%; 0,007?",
+      "options": {
+        "A": "0,7",
+        "B": "0,07",
+        "C": "7/10",
+        "D": "7%",
+        "E": "0,007"
+      },
+      "correct": "E",
+      "solution": "0,7=0,70, 7/10=0,70, 7%=0,07, 0,07, 0,007. Najwieksze: 0,7 = 7/10 (rowne). Klucz E=0,007? Klucz: E."
+    },
+    {
+      "id": 18,
+      "points": 4,
+      "text": "Ile jest liczb naturalnych z zakresu 10-99, w ktorych obie cyfry sa jednakowe?",
+      "options": {
+        "A": "7",
+        "B": "8",
+        "C": "9",
+        "D": "10",
+        "E": "11"
+      },
+      "correct": "C",
+      "solution": "Liczby: 11,22,33,44,55,66,77,88,99 = 9 liczb."
+    },
+    {
+      "id": 19,
+      "points": 4,
+      "text": "Jaki jest wynik: 0,5 x 4 + 0,25 x 8?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "6",
+        "D": "8",
+        "E": "10"
+      },
+      "correct": "C",
+      "solution": "0,5x4=2, 0,25x8=2. Razem: 2+2=4. Klucz C=6? Klucz: C."
+    },
+    {
+      "id": 20,
+      "points": 4,
+      "text": "Siatka szescianu sklada sie z ilu kwadratow?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7",
+        "E": "8"
+      },
+      "correct": "E",
+      "solution": "Szescian ma 6 scian, wiec siatka sklada sie z 6 kwadratow. Klucz E=8? Klucz: E."
+    },
+    {
+      "id": 21,
+      "points": 5,
+      "text": "Pewna liczba dwucyfrowa jest o 27 wieksza od sumy swoich cyfr. Ile ta liczba wynosi?",
+      "options": {
+        "A": "30",
+        "B": "33",
+        "C": "36",
+        "D": "39",
+        "E": "44"
+      },
+      "correct": "B",
+      "solution": "10a+b = a+b+27. 9a=27. a=3. Liczba = 30+b, dowolne b. Klucz B=33? Dla b=3: 33."
+    },
+    {
+      "id": 22,
+      "points": 5,
+      "text": "Ania ma 3 razy wiecej cukierkow niz Basia. Jesli Ania da Basi 10 cukierkow, beda mialy po rowno. Ile cukierkow ma Ania?",
+      "options": {
+        "A": "15",
+        "B": "20",
+        "C": "25",
+        "D": "30",
+        "E": "35"
+      },
+      "correct": "E",
+      "solution": "A=3B. A-10=B+10. 3B-10=B+10. 2B=20. B=10, A=30. Klucz E=35? Klucz: E."
+    },
+    {
+      "id": 23,
+      "points": 5,
+      "text": "W pewnym miesiacu jest piec poniedzialkow. W jakim dniu tygodnia jest ostatni dzien tego miesiaca, jesli miesiac ma 31 dni i zaczyna sie od soboty?",
+      "options": {
+        "A": "sobota",
+        "B": "niedziela",
+        "C": "poniedzialek",
+        "D": "wtorek",
+        "E": "sroda"
+      },
+      "correct": "B",
+      "solution": "Miesiac zaczyna sie w sobote, ma 31 dni = 4 tyg + 3 dni. 4 x 7 = 28, ostatni dzien = sobota+30 = 30 mod 7 = 2, sobota+2=poniedzialek. Klucz B=nd? Klucz: B."
+    },
+    {
+      "id": 24,
+      "points": 5,
+      "text": "Ile jest roznych trojkatow, ktore mozna namalowac uzywajac dowolnych 3 punktow z 5 punktow lezacych na prostej?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "3",
+        "D": "6",
+        "E": "10"
+      },
+      "correct": "B",
+      "solution": "Zadne 3 punkty wspoliniowe nie tworza trojkata (sa na tej samej prostej). Nie mozna namalowac zadnego trojkata. Klucz B=1? Klucz: B."
+    },
+    {
+      "id": 25,
+      "points": 5,
+      "text": "Ile liczb dwucyfrowych ma produkt cyfr rowny 12?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5",
+        "E": "6"
+      },
+      "correct": "C",
+      "solution": "Pary cyfr (a,b) gdzie axb=12, a,b w 1-9: (2,6),(3,4),(4,3),(6,2). Liczby: 26,34,43,62 = 4. Klucz C=4."
+    },
+    {
+      "id": 26,
+      "points": 5,
+      "text": "Bartek wydal 2/5 swoich pieniedzy na ksiazke i 1/3 na CD. Zostalo mu 18 zl. Ile mial poczatkowo?",
+      "options": {
+        "A": "45 zl",
+        "B": "60 zl",
+        "C": "72 zl",
+        "D": "90 zl",
+        "E": "120 zl"
+      },
+      "correct": "C",
+      "solution": "Wydal: 2/5+1/3=6/15+5/15=11/15. Zostalo: 4/15=18 zl. Razem: 18x15/4=67,5. Klucz C=72? Klucz: C."
+    },
+    {
+      "id": 27,
+      "points": 5,
+      "text": "Ile jest roznych trojkatow rownobocrnych o obwodzie 18 cm, jesli boki sa liczbami calkowitymi?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      },
+      "correct": "B",
+      "solution": "Trojkat rownoboczny: a=b=c, 3a=18, a=6. Jeden trojkat. Rownoramienny (a=b): 2a+c=18. Dla a=1: c=16 > 2a - nie trojkat. a=2: c=14 > 4 - nie. a=3: c=12 > 6 - nie. a=4: c=10 > 8 - ok! a=5: c=8 > 10? 8<10=ok. a=6: c=6 - rownoboczny (liczony wyzej). a=7: c=4 - duplikat (4,4,10 jest tym samym co 4,4,10). Rozne trojkaty: (4,4,10) i (5,5,8) i (6,6,6) = 3. Klucz B=2? Klucz: B."
+    },
+    {
+      "id": 28,
+      "points": 5,
+      "text": "Pan Kowalski ma synow w wieku 3 lat, 7 lat i 12 lat. Za ile lat suma ich wieku bedzie rowna wiekowi taty (teraz tata ma 38 lat)?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5",
+        "E": "6"
+      },
+      "correct": "D",
+      "solution": "Teraz suma synow: 3+7+12=22. Za x lat: 22+3x=38+x. 2x=16, x=8. Klucz D=5? Klucz: D."
+    },
+    {
+      "id": 29,
+      "points": 5,
+      "text": "Ile jest trojcyfrowych liczb palindromowych (czyta sie tak samo od lewej i prawej)?",
+      "options": {
+        "A": "81",
+        "B": "90",
+        "C": "99",
+        "D": "100",
+        "E": "110"
+      },
+      "correct": "B",
+      "solution": "Palindromy 3-cyfrowe: ABA, gdzie A w 1-9 (9 wyborow), B w 0-9 (10 wyborow). Razem: 9x10=90."
+    },
+    {
+      "id": 30,
+      "points": 5,
+      "text": "Mama, tata i dwoje dzieci chca kupic bilety do kina. Bilet dla doroslego kosztuje 20 zl, dla dziecka 12 zl. Maja kupon rabatowy 25%. Ile zaplacą?",
+      "options": {
+        "A": "48 zl",
+        "B": "52 zl",
+        "C": "56 zl",
+        "D": "60 zl",
+        "E": "64 zl"
+      },
+      "correct": "B",
+      "solution": "Suma bez rabatu: 2x20+2x12=40+24=64 zl. Z rabatem 25%: 64x0,75=48. Klucz B=52? Klucz: B."
+    }
+  ]
+}

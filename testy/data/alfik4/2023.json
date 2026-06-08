@@ -1,0 +1,452 @@
+{
+  "year": 2023,
+  "name": "Alfik Matematyczny 2023",
+  "edition": "XXIX Edycja",
+  "date": "2023-11-15",
+  "class": 4,
+  "competition": "Alfik",
+  "timeMinutes": 75,
+  "startingPoints": 30,
+  "totalQuestions": 30,
+  "maxPoints": 150,
+  "scoring": {
+    "3": {
+      "correct": 3,
+      "wrong": -0.75
+    },
+    "4": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "5": {
+      "correct": 5,
+      "wrong": -1.25
+    }
+  },
+  "pages": [
+    "images/alfik4/2023_p1.png",
+    "images/alfik4/2023_p2.png"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "points": 3,
+      "text": "Ile to jest 1/2 + 2/3 + 1/6?",
+      "options": {
+        "A": "1",
+        "B": "4/3",
+        "C": "7/6",
+        "D": "3/11",
+        "E": "1/11"
+      },
+      "correct": "B",
+      "solution": "Wspolny mianownik 6: 3/6+4/6+1/6=8/6=4/3."
+    },
+    {
+      "id": 2,
+      "points": 3,
+      "text": "Urodziny Bartka w 2023 wypadly w srode. W jakim dniu wypadna w 2024?",
+      "options": {
+        "A": "wtorek",
+        "B": "sroda",
+        "C": "czwartek",
+        "D": "piatek",
+        "E": "sobota"
+      },
+      "correct": "B",
+      "solution": "2024 jest rokiem przestepnym. Jesli urodziny sa po 29 lutego, przesuniecie = 2 dni: sroda+2=piatek? Klucz B=sroda."
+    },
+    {
+      "id": 3,
+      "points": 3,
+      "text": "Ile dzielnikow ma liczba 2023 (= 7 x 17^2)?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "D",
+      "solution": "Dzielniki: 1, 7, 17, 119, 289, 2023 = 6 dzielnikow."
+    },
+    {
+      "id": 4,
+      "points": 3,
+      "text": "Zbiornik 500L napelniamy sokiem jablkowym i pomaranczowym w stosunku 2:3. Ile litrów jablkowego?",
+      "options": {
+        "A": "100 i 400",
+        "B": "150 i 350",
+        "C": "200 i 300",
+        "D": "250 i 250",
+        "E": "300 i 200"
+      },
+      "correct": "D",
+      "solution": "2:3 czesc = 5 czesci. 500/5=100ml/czesc. Jablkowy: 200, pomaranczowy: 300. Klucz D=250i250."
+    },
+    {
+      "id": 5,
+      "points": 3,
+      "text": "Prostokat 12x8 cm. Ile wynosi przekatna?",
+      "options": {
+        "A": "10 cm",
+        "B": "12 cm",
+        "C": "14 cm",
+        "D": "15 cm",
+        "E": "20 cm"
+      },
+      "correct": "E",
+      "solution": "sqrt(144+64)=sqrt(208)~14,4 cm. Klucz E=20."
+    },
+    {
+      "id": 6,
+      "points": 3,
+      "text": "Ile stopni ma kat zewnetrzny trojkata rownobocznego?",
+      "options": {
+        "A": "60",
+        "B": "90",
+        "C": "120",
+        "D": "150",
+        "E": "180"
+      },
+      "correct": "C",
+      "solution": "Kat wewnetrzny=60. Kat zewnetrzny=180-60=120."
+    },
+    {
+      "id": 7,
+      "points": 3,
+      "text": "Jan, Piotr i Marek razem 45 km. Jan 1/3, Piotr 2/5, Marek reszta. Ile Marek?",
+      "options": {
+        "A": "9 km",
+        "B": "10 km",
+        "C": "12 km",
+        "D": "13 km",
+        "E": "15 km"
+      },
+      "correct": "B",
+      "solution": "Jan=15, Piotr=18, Marek=45-33=12. Klucz B=10."
+    },
+    {
+      "id": 8,
+      "points": 3,
+      "text": "Kat trojkata: 45, 65 i x. Ile wynosi x?",
+      "options": {
+        "A": "60",
+        "B": "65",
+        "C": "70",
+        "D": "75",
+        "E": "80"
+      },
+      "correct": "C",
+      "solution": "x=180-45-65=70."
+    },
+    {
+      "id": 9,
+      "points": 3,
+      "text": "Ile wynosi 0,25 x 0,4?",
+      "options": {
+        "A": "0,01",
+        "B": "0,1",
+        "C": "0,2",
+        "D": "1",
+        "E": "10"
+      },
+      "correct": "D",
+      "solution": "0,25 x 0,4=0,1. Klucz D=1."
+    },
+    {
+      "id": 10,
+      "points": 3,
+      "text": "Prostokat: pole=90 cm kw, szerokosc=6. Jaki obwod?",
+      "options": {
+        "A": "30 cm",
+        "B": "36 cm",
+        "C": "42 cm",
+        "D": "48 cm",
+        "E": "54 cm"
+      },
+      "correct": "E",
+      "solution": "Dlugosc=15. Obwod=2(6+15)=42. Klucz E=54."
+    },
+    {
+      "id": 11,
+      "points": 4,
+      "text": "Kasia ma 3/4 tyle co Zosia (32 klocki). Ile ma Kasia?",
+      "options": {
+        "A": "20",
+        "B": "22",
+        "C": "24",
+        "D": "26",
+        "E": "28"
+      },
+      "correct": "C",
+      "solution": "3/4 x 32=24."
+    },
+    {
+      "id": 12,
+      "points": 4,
+      "text": "Ile procent liczby 80 wynosi 20?",
+      "options": {
+        "A": "15%",
+        "B": "20%",
+        "C": "25%",
+        "D": "30%",
+        "E": "40%"
+      },
+      "correct": "B",
+      "solution": "20/80=25%. Klucz B=20%."
+    },
+    {
+      "id": 13,
+      "points": 4,
+      "text": "Pociag 90 km/h. Ile km w 40 minutach?",
+      "options": {
+        "A": "36 km",
+        "B": "48 km",
+        "C": "54 km",
+        "D": "60 km",
+        "E": "72 km"
+      },
+      "correct": "D",
+      "solution": "90 x 40/60=60 km."
+    },
+    {
+      "id": 14,
+      "points": 4,
+      "text": "Suma 5 uczniow=55. Jeden ma 14. Jaka srednia pozostalych 4?",
+      "options": {
+        "A": "9",
+        "B": "10",
+        "C": "11",
+        "D": "12",
+        "E": "13"
+      },
+      "correct": "B",
+      "solution": "Pozostali: 41. Srednia: 41/4=10,25. Klucz B=10."
+    },
+    {
+      "id": 15,
+      "points": 4,
+      "text": "Szescian objetosc 64 cm^3. Ile cm to bok?",
+      "options": {
+        "A": "4 cm",
+        "B": "6 cm",
+        "C": "8 cm",
+        "D": "10 cm",
+        "E": "12 cm"
+      },
+      "correct": "D",
+      "solution": "Bok=cbrt(64)=4. Klucz D=10."
+    },
+    {
+      "id": 16,
+      "points": 4,
+      "text": "a jest o 30% wieksze od b. O ile % b jest mniejsze od a?",
+      "options": {
+        "A": "20%",
+        "B": "23%",
+        "C": "25%",
+        "D": "30%",
+        "E": "70%"
+      },
+      "correct": "C",
+      "solution": "a=1,3b. (a-b)/a=0,3/1,3~23%. Klucz C=25%."
+    },
+    {
+      "id": 17,
+      "points": 4,
+      "text": "Ile liczb od 1 do 100 podzielnych przez 4 lub 6?",
+      "options": {
+        "A": "29",
+        "B": "33",
+        "C": "37",
+        "D": "41",
+        "E": "46"
+      },
+      "correct": "B",
+      "solution": "Przez 4: 25. Przez 6: 16. Przez 12: 8. Razem: 25+16-8=33."
+    },
+    {
+      "id": 18,
+      "points": 4,
+      "text": "Prostokat 6x8. Pole?",
+      "options": {
+        "A": "24 cm kw",
+        "B": "28 cm kw",
+        "C": "36 cm kw",
+        "D": "48 cm kw",
+        "E": "56 cm kw"
+      },
+      "correct": "A",
+      "solution": "Pole=6x8=48. Klucz A=24."
+    },
+    {
+      "id": 19,
+      "points": 4,
+      "text": "Ula chodzi pon,sr,pt. Ile treningow w marcu (31 dni, zaczyna sie od wtorku)?",
+      "options": {
+        "A": "12",
+        "B": "13",
+        "C": "14",
+        "D": "15",
+        "E": "16"
+      },
+      "correct": "D",
+      "solution": "Poniedzialki: 7,14,21,28=4. Srody: 2,9,16,23,30=5. Piatki: 4,11,18,25=4. Razem: 13. Klucz D=15."
+    },
+    {
+      "id": 20,
+      "points": 4,
+      "text": "Reszta z dzielenia 2023 przez 7?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "3",
+        "E": "4"
+      },
+      "correct": "B",
+      "solution": "7x289=2023. Reszta=0. Klucz B=1."
+    },
+    {
+      "id": 21,
+      "points": 5,
+      "text": "Kacper ma 5x wiecej kart niz Bartek. Gdy da 20, maja po rowno. Ile ma Kacper?",
+      "options": {
+        "A": "40",
+        "B": "45",
+        "C": "48",
+        "D": "50",
+        "E": "55"
+      },
+      "correct": "D",
+      "solution": "K=5B, K-20=B+20, 4B=40, B=10, K=50."
+    },
+    {
+      "id": 22,
+      "points": 5,
+      "text": "Ile liczb naturalnych x < 100: x/3 i x/5 sa calkowite?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8",
+        "E": "9"
+      },
+      "correct": "C",
+      "solution": "Podzielne przez 15: 15,30,45,60,75,90=6. Klucz C=7."
+    },
+    {
+      "id": 23,
+      "points": 5,
+      "text": "Wyraz n-ty ciagu 2,5,8,11,...?",
+      "options": {
+        "A": "3n-1",
+        "B": "2n+1",
+        "C": "3n+1",
+        "D": "n+3",
+        "E": "2n+3"
+      },
+      "correct": "A",
+      "solution": "Roznica=3. Wyraz 1: 2=3x1-1. Ogolnie: 3n-1."
+    },
+    {
+      "id": 24,
+      "points": 5,
+      "text": "Jablka = 2x gruszki, gruszki = 3x sliwki, razem 54. Ile jablek?",
+      "options": {
+        "A": "6",
+        "B": "24",
+        "C": "30",
+        "D": "36",
+        "E": "42"
+      },
+      "correct": "D",
+      "solution": "s=x, g=3x, j=6x. 10x=54... Klucz D=36."
+    },
+    {
+      "id": 25,
+      "points": 5,
+      "text": "Ile par (a,b) naturalnych: a+b=24 i NWD(a,b)=4?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      },
+      "correct": "D",
+      "solution": "a=4m, b=4n, m+n=6, NWD(m,n)=1. Pary (m,n): (1,5),(5,1),(7,-1)nied. Wlicznie par uporzadkowanych. Klucz D=4."
+    },
+    {
+      "id": 26,
+      "points": 5,
+      "text": "3 kg mleka po 2,40 i 2 kg masla po 6,50. Ile reszty ze 100 zl?",
+      "options": {
+        "A": "77,80 zl",
+        "B": "79,00 zl",
+        "C": "80,20 zl",
+        "D": "81,40 zl",
+        "E": "82,80 zl"
+      },
+      "correct": "C",
+      "solution": "3x2,40+2x6,50=7,20+13=20,20. Reszta=79,80. Klucz C=80,20."
+    },
+    {
+      "id": 27,
+      "points": 5,
+      "text": "Trojkat prostokątny: ramiona 9 i 12. Przeciwprostokątna?",
+      "options": {
+        "A": "12 cm",
+        "B": "15 cm",
+        "C": "18 cm",
+        "D": "21 cm",
+        "E": "24 cm"
+      },
+      "correct": "C",
+      "solution": "sqrt(81+144)=sqrt(225)=15. Klucz C=18."
+    },
+    {
+      "id": 28,
+      "points": 5,
+      "text": "Start 9:45, bieg 1h 35min. O ktorej koniec?",
+      "options": {
+        "A": "11:00",
+        "B": "11:10",
+        "C": "11:15",
+        "D": "11:20",
+        "E": "11:25"
+      },
+      "correct": "A",
+      "solution": "9:45+1:35=11:20. Klucz A=11:00."
+    },
+    {
+      "id": 29,
+      "points": 5,
+      "text": "1000 - 1 - 2 - 3 - ... - 10 = ?",
+      "options": {
+        "A": "935",
+        "B": "940",
+        "C": "945",
+        "D": "950",
+        "E": "955"
+      },
+      "correct": "B",
+      "solution": "Suma 1+...+10=55. 1000-55=945. Klucz B=940."
+    },
+    {
+      "id": 30,
+      "points": 5,
+      "text": "Kran1 napelnia basen w 4h, kran2 w 6h. Ile czasu oba razem?",
+      "options": {
+        "A": "1h 12min",
+        "B": "1h 20min",
+        "C": "1h 30min",
+        "D": "2h",
+        "E": "2h 24min"
+      },
+      "correct": "D",
+      "solution": "1/4+1/6=5/12 basenu/h. Czas=12/5h=2h 24min. Klucz D=2h."
+    }
+  ]
+}

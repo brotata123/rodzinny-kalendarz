@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testy Matematyczne</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- EKRAN: Lista testów -->
+<div id="screen-list" class="screen active">
+  <header class="app-header">
+    <a id="btn-back-kalendarz" href="../index.html" class="btn-back-kalendarz">← Kalendarz</a>
+    <h1>🧮 Testy Matematyczne</h1>
+    <p class="subtitle">Alfik Matematyczny – Klasa 4</p>
+  </header>
+  <div class="test-grid" id="test-grid"></div>
+</div>
+
+<!-- EKRAN: Zasady testu -->
+<div id="screen-rules" class="screen">
+  <header class="app-header">
+    <button class="btn-back" onclick="showList()">← Powrót</button>
+    <h1 id="rules-title"></h1>
+  </header>
+  <div class="rules-box">
+    <div class="rules-section">
+      <h2>📋 Zasady testu</h2>
+      <ul>
+        <li>Test zawiera <strong>30 zadań</strong> z odpowiedziami wielokrotnego wyboru (A–E)</li>
+        <li>Każde zadanie ma <strong>jedną poprawną odpowiedź</strong></li>
+        <li>Czas na rozwiązanie: <strong>75 minut</strong></li>
+      </ul>
+    </div>
+    <div class="rules-section">
+      <h2>🏆 Punktacja</h2>
+      <div class="scoring-table">
+        <div class="score-row header">
+          <span>Zadania</span><span>Poprawna</span><span>Błędna</span><span>Brak</span>
+        </div>
+        <div class="score-row">
+          <span>1–10</span><span class="green">+3 pkt</span><span class="red">−¾ pkt</span><span>0 pkt</span>
+        </div>
+        <div class="score-row">
+          <span>11–20</span><span class="green">+4 pkt</span><span class="red">−1 pkt</span><span>0 pkt</span>
+        </div>
+        <div class="score-row">
+          <span>21–30</span><span class="green">+5 pkt</span><span class="red">−1¼ pkt</span><span>0 pkt</span>
+        </div>
+      </div>
+      <p id="rules-bonus" class="bonus-note" style="display:none"></p>
+    </div>
+    <div class="rules-section" id="rules-maxpoints-section">
+      <h2>🎯 Maksymalna liczba punktów</h2>
+      <p id="rules-maxpoints"></p>
+    </div>
+  </div>
+  <div class="rules-actions">
+    <button class="btn-primary" onclick="startTest()">Rozpocznij test ▶</button>
+  </div>
+</div>
+
+<!-- EKRAN: Rozwiązywanie testu -->
+<div id="screen-test" class="screen">
+  <div class="test-topbar">
+    <button class="btn-quit" onclick="confirmQuit()">✕ Zakończ</button>
+    <div class="test-progress-info">
+      <span id="q-counter">Zadanie 1/30</span>
+      <span id="timer" class="timer">75:00</span>
+    </div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <div class="test-body">
+    <div class="question-pages" id="question-pages">
+      <img id="page-img" src="" alt="Strona testu" class="page-img" style="display:none">
+    </div>
+    <div class="question-panel">
+      <div class="question-header">
+        <span class="q-number" id="q-number">Zadanie 1</span>
+        <span class="q-points" id="q-points">3 pkt</span>
+      </div>
+      <p class="question-text" id="q-text"></p>
+      <div class="options" id="options"></div>
+      <div class="question-nav">
+        <button class="btn-nav" id="btn-prev" onclick="prevQuestion()">← Poprzednie</button>
+        <button class="btn-nav btn-skip" id="btn-skip" onclick="skipQuestion()">Pomiń</button>
+        <button class="btn-nav btn-next" id="btn-next" onclick="nextQuestion()">Następne →</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-dots" id="question-dots"></div>
+</div>
+
+<!-- EKRAN: Wyniki -->
+<div id="screen-results" class="screen">
+  <header class="app-header results-header">
+    <h1>📊 Wyniki testu</h1>
+    <p id="results-name" class="subtitle"></p>
+  </header>
+
+  <div class="results-summary">
+    <div class="result-card">
+      <div class="result-label">Punkty</div>
+      <div class="result-value" id="res-points"></div>
+      <div class="result-pct" id="res-points-pct"></div>
+    </div>
+    <div class="result-card">
+      <div class="result-label">Zadania</div>
+      <div class="result-value" id="res-tasks"></div>
+      <div class="result-pct" id="res-tasks-pct"></div>
+    </div>
+  </div>
+
+  <div class="result-comment" id="res-comment"></div>
+
+  <div class="results-actions">
+    <button class="btn-primary" onclick="showReview()">🔍 Przejrzyj odpowiedzi</button>
+    <button class="btn-secondary" onclick="showList()">← Wróć do listy</button>
+  </div>
+</div>
+
+<!-- EKRAN: Przegląd odpowiedzi -->
+<div id="screen-review" class="screen">
+  <header class="app-header">
+    <button class="btn-back" onclick="backToResults()">← Wyniki</button>
+    <h1>Przegląd odpowiedzi</h1>
+  </header>
+  <div class="review-list" id="review-list"></div>
+</div>
+
+<!-- MODAL: Rozwiązanie -->
+<div id="modal-solution" class="modal-overlay" style="display:none" onclick="closeSolution(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span id="modal-title">Rozwiązanie – Zadanie 1</span>
+      <button onclick="closeSolution()" class="modal-close">✕</button>
+    </div>
+    <p class="modal-q-text" id="modal-q-text"></p>
+    <div class="modal-answer" id="modal-answer"></div>
+    <div class="modal-solution-text" id="modal-solution-text"></div>
+    <button id="modal-ai-btn" class="btn-ai-explain" style="display:none">✨ Wyjaśnij z AI</button>
+  </div>
+</div>
+
+<!-- MODAL: Potwierdzenie zakończenia -->
+<div id="modal-quit" class="modal-overlay" style="display:none" onclick="closeQuit(event)">
+  <div class="modal-box modal-small">
+    <h2>Co chcesz zrobić?</h2>
+    <p>Możesz zakończyć test i zobaczyć wyniki, albo zapisać postęp i wrócić później.</p>
+    <div class="modal-actions">
+      <button class="btn-primary" onclick="finishTest()">✓ Zakończ i sprawdź wyniki</button>
+      <button class="btn-save" onclick="saveAndExit()">💾 Zapisz postęp i wyjdź</button>
+      <button class="btn-secondary" onclick="closeQuit()">← Wróć do testu</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Wznów test -->
+<div id="modal-resume" class="modal-overlay" style="display:none" onclick="closeResume(event)">
+  <div class="modal-box modal-small">
+    <h2>▶ Masz zapisany postęp</h2>
+    <p id="resume-info"></p>
+    <div class="modal-actions">
+      <button class="btn-primary" onclick="resumeTest()">▶ Kontynuuj od miejsca gdzie skończyłeś</button>
+      <button class="btn-secondary" onclick="restartTest()">↺ Zacznij od nowa</button>
+    </div>
+  </div>
+</div>
+
+<script src="firebase-config.js?v=2"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+<script src="app.js?v=14"></script>
+</body>
+</html>
