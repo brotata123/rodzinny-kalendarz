@@ -723,8 +723,8 @@ function showReview() {
 function backToResults() { showScreen('screen-results'); }
 
 // ─── Solution modal ───────────────────────────────────────────
-const AI_SOLUTION_URL = 'http://localhost:5678/webhook/testy-rozwiazanie';
-const AI_AVAILABLE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const AI_SOLUTION_URL = 'http://158.180.27.32:5678/webhook/testy-rozwiazanie';
+const AI_AVAILABLE = true;
 
 function showSolution(idx) {
   const q = currentTest.questions[idx];
