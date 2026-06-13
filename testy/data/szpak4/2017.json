@@ -1,0 +1,391 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2017",
+  "year": "2017",
+  "edition": "2017",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Która z poniższych liczb ma w swoim zapisie przynajmniej trzy różne cyfry?",
+      "options": {
+        "A": "sto piętnaście tysięcy",
+        "B": "sto osiem",
+        "C": "sto siedemnaście",
+        "D": "trzysta dwadzieścia trzy"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "Ściany pewnej sześciennej kostki do gry są ponumerowane liczbami 1, 12, 5, 9, 4, 8 (każda ściana inną liczbą) w taki sposób, że suma liczb na każdej parze przeciwległych ścian jest taka sama. Wobec tego:",
+      "options": {
+        "A": "ściana z liczbą 5 sąsiaduje ze ścianą z liczbą 9",
+        "B": "ściana z liczbą 4 leży naprzeciw ściany z liczbą 9",
+        "C": "ściana z liczbą 12 sąsiaduje ze ścianą z liczbą 1",
+        "D": "ściana z liczbą 5 leży naprzeciw ściany z liczbą 12"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "Które z poniższych liczb można przedstawić w postaci iloczynu dwóch różnych liczb parzystych?",
+      "options": {
+        "A": "24",
+        "B": "38",
+        "C": "42",
+        "D": "48"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "Jeżeli za 100 godzin będzie godzina 1500, to:",
+      "options": {
+        "A": "100 godzin temu była godzina 900",
+        "B": "200 godzin temu była godzina 700",
+        "C": "za 200 godzin będzie godzina 1900",
+        "D": "za 300 godzin będzie godzina 2200"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "Jacek spędził nad morzem 20 kolejnych dni. Mogło się zdarzyć, że wśród tych dni były:",
+      "options": {
+        "A": "cztery piątki",
+        "B": "tylko trzy piątki",
+        "C": "tylko dwa piątki",
+        "D": "tylko jeden piątek"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "Przedstawienie rozpoczęło się, gdy wskazówka minutowa zegara wskazywała dziesiątkę, a skończyło – gdy wskazywała dwójkę. Ile czasu mogło trwać przedstawienie?",
+      "options": {
+        "A": "80 minut",
+        "B": "100 minut",
+        "C": "120 minut",
+        "D": "140 minut"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "Agata ma brata starszego o 3 lata i siostrę młodszą o 5 lat. Ile lat może mieć łącznie cała trójka rodzeństwa, jeśli wszyscy właśnie dzisiaj obchodzą urodziny?",
+      "options": {
+        "A": "32",
+        "B": "35",
+        "C": "37",
+        "D": "41"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "Łączna długość trzech kolejnych miesięcy może być:",
+      "options": {
+        "A": "mniejsza niż 13 tygodni",
+        "B": "równa 13 tygodni",
+        "C": "większa niż 13 tygodni",
+        "D": "równa 90 dni"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "Suma cyfr numeru ostatniej strony pewnej książki to 12. Ile może wynosić suma cyfr numeru przedostatniej strony tej książki?",
+      "options": {
+        "A": "11",
+        "B": "15",
+        "C": "17",
+        "D": "20"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "Paczka cukierków zawiera 7 cukierków. Joasia kupiła kilkanaście takich paczek. Ile cukierków mogła kupić Joasia?",
+      "options": {
+        "A": "67",
+        "B": "84",
+        "C": "87",
+        "D": "91"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Jeśli pierwszy dzień miesiąca wypadł w czwartek, to w jakim dniu tygodnia może wypaść ostatni dzień tego miesiąca?",
+      "options": {
+        "A": "w czwartek",
+        "B": "w sobotę",
+        "C": "w niedzielę",
+        "D": "we wtorek"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "Wszystkie strony pewnej książki są ponumerowane kolejnymi liczbami od 1 do 100. Która z poniższych cyfr występuje w numerach dokładnie 20 stron?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "3"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "Na ile części można podzielić prostokąt czterema prostymi liniami?",
+      "options": {
+        "A": "5",
+        "B": "8",
+        "C": "9",
+        "D": "10"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Na każdym polu pustej szachownicy o wymiarach 4×4 ustawiono jeden lub dwa pionki tak, że w każdej kolumnie i w każdym rzędzie jest tyle samo pionków. Jaka może być liczba pionków ustawionych na szachownicy?",
+      "options": {
+        "A": "20",
+        "B": "24",
+        "C": "25",
+        "D": "28"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 15,
+      "text": "Asia i jej dwie siostry mają łącznie 28 lat. Wszystkie trzy dziewczynki obchodzą dziś urodziny i każda z nich jest w innym wieku. Ile lat może mieć młodsza z dwóch sióstr Asi?",
+      "options": {
+        "A": "8 lat",
+        "B": "9 lat",
+        "C": "10 lat",
+        "D": "14 lat"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "Kwadrat można rozciąć na:",
+      "options": {
+        "A": "6 trójkątów",
+        "B": "10 kwadratów",
+        "C": "6 kwadratów",
+        "D": "4 trójkąty i 2 kwadraty"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 17,
+      "text": "Bartek kończy dzisiaj tyle lat ile wynosi suma cyfr roku jego urodzenia. Ile lat może mieć Bartek?",
+      "options": {
+        "A": "4 lata",
+        "B": "5 lat",
+        "C": "10 lat",
+        "D": "więcej niż 18 lat"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "Królowa ma w swoim skarbcu szkatułki z klejnotami. Każda szkatułka zawiera 1 perłę albo 2 mniejsze szkatułki (z których każda znów zawiera 1 perłę albo 2 mniejsze szkatułki itd.). Łącznie królowa ma 13 szkatułek i w największej z nich schowane są wszystkie pozostałe. Jaka może być łączna liczba pereł we wszystkich szkatułkach?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Kółko teatralne w każdym miesiącu spotyka się 2, 3 lub 4 razy, przy czym w trzech kolejnych miesiącach jest zawsze łącznie 9 spotkań. Jeśli w styczniu pewnego roku były 2 spotkania, a w grudniu tego samego roku – 3 spotkania, to:",
+      "options": {
+        "A": "w lutym były 3 spotkania",
+        "B": "w kwietniu były 4 spotkania",
+        "C": "w czerwcu były 2 spotkania",
+        "D": "w sierpniu były 4 spotkania"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "Każdą gwiazdkę w równaniu: * · * · * = * + * + * chcemy zastąpić jedną z cyfr 1, 2, 3, 4, 5, 6, 7 (każdą gwiazdkę inną cyfrą) tak, by otrzymać prawdziwą równość. Możemy to zrobić tak, by nie użyć cyfry:",
+      "options": {
+        "A": "1",
+        "B": "4",
+        "C": "2",
+        "D": "7"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "Dana jest czarno-biała szachownica o wymiarach 8×8. Ruch polega na zmianie koloru (z białego na czarny lub z czarnego na biały) wszystkich pól w dowolnie wybranej kolumnie albo wszystkich pól w dowolnie wybranym wierszu. Wykonując jaką liczbę ruchów możemy doprowadzić do sytuacji, gdy wszystkie pola będą białe?",
+      "options": {
+        "A": "4",
+        "B": "8",
+        "C": "10",
+        "D": "12 PATRONI I PARTNERZY © COPYRIGHT BY ŁOWCY TALENTÓW – JERSZ. WILCZYN"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

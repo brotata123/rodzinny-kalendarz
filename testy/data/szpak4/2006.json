@@ -1,0 +1,390 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2006",
+  "year": "2006",
+  "edition": "2006",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Nastoletni brat Grzegorza jest od niego o 5 lat młodszy. Ile lat może mieć Grzegorz?",
+      "options": {
+        "A": "18",
+        "B": "23",
+        "C": "30",
+        "D": "27"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "Kasia ma w portmonetce pięć monet. Ile może mieć pieniędzy?",
+      "options": {
+        "A": "2 zł",
+        "B": "3 zł",
+        "C": "4 zł",
+        "D": "5 zł"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "Jeśli kwadrat z rysunku obok rozetniemy wzdłuż zaznaczonych linii, to:",
+      "options": {
+        "A": "wśród otrzymanych części będą 24 kwadraty",
+        "B": "wśród otrzymanych części będzie 20 trójkątów",
+        "C": "z uzyskanych części będzie można ułożyć 32 jednakowe kwadraty",
+        "D": "z uzyskanych części będzie można ułożyć (wykorzystując wszystkie części) 2 jednakowe kwadraty"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "Suma dziewięciu różnych parzystych liczb (dodatnich) może być równa:",
+      "options": {
+        "A": "86",
+        "B": "92",
+        "C": "98",
+        "D": "102"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "Ile dni może upłynąć od pierwszej soboty września do pierwszej soboty października?",
+      "options": {
+        "A": "28",
+        "B": "32",
+        "C": "35",
+        "D": "42"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "W pewnym pudełku jest kilkanaście kul. Każdą kulę można rozłożyć na dwie połówki, a każda połówka jest pomalo- wana jednym kolorem. Wiemy, że 8 połówek jest pomalowanych na czerwono, 6 połówek – na niebiesko, 12 – na zielono, a pozostałe na żółto. Ile żółtych połówek może być w tym pudełku?",
+      "options": {
+        "A": "6",
+        "B": "9",
+        "C": "12",
+        "D": "16"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "Trzydziestocentymetrową linijkę złamano dokładnie w miejscu podziałki oznaczonej „13 cm”. Którą z wymienionych niżej odległości można odmierzyć przy użyciu jednego z powstałych kawałków linijki?",
+      "options": {
+        "A": "7 cm",
+        "B": "13 cm",
+        "C": "15 cm",
+        "D": "20 cm"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "Na rysunku przedstawionym obok można znaleźć:",
+      "options": {
+        "A": "więcej niż dziesięć kwadratów",
+        "B": "więcej niż trzydzieści trójkątów",
+        "C": "kwadraty w co najmniej pięciu różnych rozmiarach",
+        "D": "trójkąty w co najmniej pięciu różnych rozmiarach"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "We wrześniu mogą wypadać:",
+      "options": {
+        "A": "dokładnie 3 poniedziałki",
+        "B": "dokładnie 4 wtorki",
+        "C": "dokładnie 5 piątków",
+        "D": "dokładnie 6 sobót"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "Na pastwisku pasą się cztery krowy, pięć gęsi i sześć kaczek. Zwierzęta te mają łącznie:",
+      "options": {
+        "A": "więcej niż 10 głów",
+        "B": "więcej niż 40 nóg",
+        "C": "mniej niż 30 nóg",
+        "D": "trzykrotnie więcej nóg niż głów"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Pewna liczba ma tę własność, że gdy ją podzielimy przez 7, to otrzymamy liczbę dwucyfrową, w której zapisie (w sys- temie dziesiętnym) występują tylko cyfry 1 i 2. Co to może być za liczba?",
+      "options": {
+        "A": "84",
+        "B": "147",
+        "C": "784",
+        "D": "1477"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "Z jednej z pięciu jednakowych bombonierek Jacek wyjadł cztery czekoladki. Ile czekoladek mogło pozostać łącznie we wszystkich bombonierkach?",
+      "options": {
+        "A": "46",
+        "B": "57",
+        "C": "61",
+        "D": "70"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "W pewnej klasie jest dokładnie dwa razy więcej dziewcząt niż chłopców. Ilu uczniów może być w tej klasie?",
+      "options": {
+        "A": "24",
+        "B": "25",
+        "C": "28",
+        "D": "30"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Kwadrat można rozciąć na:",
+      "options": {
+        "A": "2 jednakowe trójkąty",
+        "B": "4 jednakowe trójkąty",
+        "C": "8 jednakowych trójkątów",
+        "D": "10 jednakowych trójkątów"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 15,
+      "text": "Iloczyn pewnych dwóch jednocyfrowych liczb jest dwukrotnie większy od ich sumy. Jedną z tych liczb może być:",
+      "options": {
+        "A": "1",
+        "B": "3",
+        "C": "4",
+        "D": "6"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "Jeśli czterocyfrową liczbę powiększymy o 28, to które jej cyfry mogą ulec zmianie?",
+      "options": {
+        "A": "jedności",
+        "B": "dziesiątek",
+        "C": "setek",
+        "D": "tysięcy"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 17,
+      "text": "Które z poniższych figur można rozciąć na cztery jednakowe części?",
+      "options": {
+        "A": "B) C) D)",
+        "B": "C) D)",
+        "C": "D)"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "Sznurek rozcięto na pięć kawałków. Pierwszy z nich miał długość ośmiu metrów, drugi był o połowę dłuższy niż pierwszy, trzeci był o połowę dłuższy niż drugi, czwarty – o połowę dłuższy niż trzeci, zaś piąty – o połowę krótszy niż czwarty. Wśród tych kawałków sznurka znajduje się kawałek o długości:",
+      "options": {
+        "A": "12 m",
+        "B": "18 m",
+        "C": "27 m",
+        "D": "40 m 50 cm"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Pięćdziesiąt dwuzłotówek ma taką samą wartość jak:",
+      "options": {
+        "A": "osiemdziesiąt złotówek",
+        "B": "dwadzieścia pięciozłotówek",
+        "C": "dwieście pięćdziesięciogroszówek",
+        "D": "tysiąc monet o nominale jednego grosza"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "Liczbę 27 można przedstawić w postaci sumy:",
+      "options": {
+        "A": "trzech różnych liczb jednocyfrowych",
+        "B": "trzech jednakowych liczb jednocyfrowych",
+        "C": "dwóch różnych liczb dwucyfrowych",
+        "D": "dwóch jednakowych liczb dwucyfrowych"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "W sakiewce są monety jednozłotowe, dwuzłotowe i pięciozłotowe. Monet pięciozłotowych jest dokładnie dwa razy więcej niż dwuzłotowych, a wszystkie monety jednozłotowe są łącznie warte dokładnie tyle, co wszystkie monety dwuzłotowe. W takim razie w sakiewce jest:",
+      "options": {
+        "A": "tyle samo złotówek co pięciozłotówek",
+        "B": "tyle samo złotówek co dwuzłotówek",
+        "C": "dwa razy więcej złotówek niż dwuzłotówek",
+        "D": "dwa razy mniej złotówek niż pięciozłotówek Ukazały się książki zawierające zadania wraz z rozwiązaniami z Alfika Matematycznego z lat 1994 – 2003:  „Konkursy matematyczne dla najmłodszych” (dla klas III – IV)  „Konkursy matematyczne dla uczniów szkół podstawowych” (dla klas V – VI)  „Konkursy matematyczne dla gimnazjalistów” (dla klas I – III gimnazjum) (lata 1994 – 2002) Książki do nabycia w sprzedaży wysyłkowej. Przyjmujemy zamówienia listownie lub meilem biuro@daniel.osdw.pl Zapraszamy też na obozy wypoczynkowo-naukowe „Konie, matematyka i języki” w czasie wakacji. © Copyright by Łowcy Talentów – JERSZ, Wrocław 2006"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

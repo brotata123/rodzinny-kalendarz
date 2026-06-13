@@ -1,0 +1,391 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2009",
+  "year": "2009",
+  "edition": "2009",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Ile pieniędzy może mieć w portmonetce Aneta, jeśli ma ona tylko monety dwuzłotowe i pięciozłotowe oraz łącznie ma dokładnie pięć monet?",
+      "options": {
+        "A": "mniej niż 10 zł",
+        "B": "16 zł",
+        "C": "20 zł",
+        "D": "więcej niż 30 zł"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "W każde pole tablicy przedstawionej na rysunku obok wpisano jedną liczbę. Wpisano tam:",
+      "options": {
+        "A": "dokładnie 3 liczby dwucyfrowe",
+        "B": "dokładnie 4 liczby, których cyfra jedności jest większa niż 6 42 9 367",
+        "C": "więcej liczb jednocyfrowych niż trzycyfrowych",
+        "D": "liczbę o cyfrze dziesiątek równej 4 192 71 99"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "O której godzinie wskazówki zegara (godzinowa i minutowa) pokrywają się? 19 8 128",
+      "options": {
+        "A": "1200",
+        "B": "1830",
+        "C": "2145",
+        "D": "1515"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "Ile dni mogła trwać konferencja, która zaczęła się w środę rano, a zakończyła w piątek wieczorem?",
+      "options": {
+        "A": "3 dni",
+        "B": "5 dni",
+        "C": "7 dni",
+        "D": "więcej niż 8 dni"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "Która z poniższych cyfr występuje przynajmniej dwukrotnie w zapisie liczby: dwanaście milionów piętnaście tysięcy czterysta dwa?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "4"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "Pan Bogusław jedzie zgodnie z przepisami (obowiązuje go ograniczenie prędkości do 90 km/h). Gdyby zwiększył swoją prędkość dwukrotnie, to przekroczyłby dopuszczalną prędkość o ponad 30 km/h. Jaka może być prędkość samochodu pana Bogusława?",
+      "options": {
+        "A": "60 km/h",
+        "B": "80 km/h",
+        "C": "90 km/h",
+        "D": "95 km/h"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "Joasia wyrwała jedną kartkę ze stustronicowej książki. Strony o jakich numerach mogły znajdować się na wyrwanej kartce?",
+      "options": {
+        "A": "strony o numerach 82 i 83",
+        "B": "strony o numerach 85 i 86",
+        "C": "strony o numerach 97 i 98",
+        "D": "strony o numerach 111 i 112"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "Mając do dyspozycji trzy betonowe bloczki, każdy o szerokości 20 cm, długości 50 cm i wysokości 40 cm, możemy ułożyć wieżę o wysokości:",
+      "options": {
+        "A": "60 cm",
+        "B": "120 cm",
+        "C": "2 m",
+        "D": "1 m"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "Podłogę o długości 3 metrów i szerokości 2 metrów chcemy wyłożyć „w szachownicę” dwoma rodzajami kwadratowych kafelków o boku długości 20 cm: białymi i czarnymi. W tym celu potrzebujemy:",
+      "options": {
+        "A": "więcej niż 100 białych płytek",
+        "B": "mniej niż 100 czarnych płytek",
+        "C": "tyle samo płytek białych co czarnych",
+        "D": "150 płytek (łącznie obu kolorów)"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "Pani Jadzia zakupiła 5 opakowań szklanek, po 12 sztuk w każdym. Okazało się, że niektóre szklanki są uszkodzone – w każdym opakowaniu przynajmniej jedna szklanka była uszkodzona, ale w każdym opakowaniu nieuszkodzona była więcej niż połowa szklanek. Ile uszkodzonych szklanek mogło być łącznie we wszystkich opakowaniach?",
+      "options": {
+        "A": "4",
+        "B": "14",
+        "C": "24",
+        "D": "26"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Każdy z trzech braci: Jacek, Staszek i Bartek ma dziś urodziny. Wiadomo, że Jacek jest dwa razy starszy od Staszka, a Staszek jest dwa razy starszy od Bartka. Ile łącznie lat mogą mieć trzej bracia?",
+      "options": {
+        "A": "21",
+        "B": "35",
+        "C": "48",
+        "D": "42"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "Numer ostatniej strony encyklopedii jest liczbą czterocyfrową, mającą cyfrę tysięcy równą 1 i cyfrę setek równą 5. Ile kartek może mieć ta encyklopedia?",
+      "options": {
+        "A": "1500",
+        "B": "760",
+        "C": "2000",
+        "D": "800"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "Ilu braci może mieć Antek, jeśli wiadomo, że jego siostra ma więcej niż dwóch braci?",
+      "options": {
+        "A": "jednego",
+        "B": "dwóch",
+        "C": "trzech",
+        "D": "czterech"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Połowa oszczędności Jacka jest o ponad 10 złotych większa niż połowa oszczędności Placka. O ile więcej pieniędzy od Placka może mieć Jacek?",
+      "options": {
+        "A": "o 10 zł",
+        "B": "o 15 zł",
+        "C": "o 20 zł",
+        "D": "o 25 zł"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 15,
+      "text": "W którym roku luty miał więcej niż 28 dni?",
+      "options": {
+        "A": "2000",
+        "B": "2002",
+        "C": "2003",
+        "D": "2006"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "Niektóre z białych pól diagramu pokazanego na rysunku obok chcemy zamalować na czarno. Możemy to zrobić tak, aby:",
+      "options": {
+        "A": "pola połączone odcinkiem zawsze były różnego koloru",
+        "B": "każde pole czarne było połączone odcinkiem z dokładnie jednym czarnym",
+        "C": "każde pole czarne było połączone odcinkiem z dokładnie dwoma czarnymi",
+        "D": "każde pole było połączone przynajmniej z jednym białym i przynajmniej z jednym czarnym polem"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 17,
+      "text": "Piłka tenisowa kosztuje tyle co pięć gum do żucia, zaś pluszowa zabawka kosztuje tyle co trzy gumy do żucia. Każdy z dwóch braci – Piotr i Paweł – dostał od rodziców na Dzień Dziecka tę samą kwotę pieniędzy. Piotr kupił jedną pluszową zabawkę, jedną piłkę tenisową i 4 gumy do żucia, wydając na to dokładnie wszystkie otrzymane pieniądze. Pawłowi wystarczy zatem pieniędzy na zakup:",
+      "options": {
+        "A": "4 pluszowych zabawek",
+        "B": "2 piłek tenisowych i pluszowej zabawki",
+        "C": "2 gum do żucia i 2 piłek tenisowych",
+        "D": "3 piłek tenisowych"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "Na rysunku obok można znaleźć:",
+      "options": {
+        "A": "więcej niż 34 różne kwadraty",
+        "B": "kwadraty więcej niż pięciu różnych wielkości",
+        "C": "trójkąty w przynajmniej pięciu różnych rozmiarach",
+        "D": "najmniejszy z kwadratów widocznych na rysunku występuje w ponad 16 miejscach"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Staszek pomyślał sobie pewną liczbę (naturalną), a następnie pomnożył wszystkie jej cyfry. Jaki wynik mógł otrzymać?",
+      "options": {
+        "A": "84",
+        "B": "72",
+        "C": "64",
+        "D": "91"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "Jaś ma w skarbonce jedynie monety 20-groszowe i 50-groszowe, przy czym monet 20-groszowych ma półtora raza więcej niż 50-groszowych. Jaka może być wartość monet znajdujących się w skarbonce Jasia?",
+      "options": {
+        "A": "2 zł",
+        "B": "4 zł",
+        "C": "6 zł",
+        "D": "8 zł"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "Sklep otrzymuje banany w skrzynkach dwóch rodzajów – mniejsza skrzynka zawiera 7 kg bananów, zaś większa zawiera 12 kg bananów. Przy ostatniej dostawie do sklepu dowieziono 100 kg bananów. Ile skrzynek tych owoców mógł odebrać ów sklep?",
+      "options": {
+        "A": "8",
+        "B": "10",
+        "C": "11",
+        "D": "15 W sprzedaży posiadamy zbiory zadań z rozwiązaniami z Alfika Matematycznego:  „Konkursy matematyczne dla najmłodszych” (zadania dla klas III – IV z lat 1994 – 2003)  „Konkursy matematyczne dla uczniów szkół podstawowych” (zadania dla klas V – VI z lat 1994 – 2003)  „Konkursy matematyczne dla gimnazjalistów” (zadania dla klas I – III gimnazjum z lat 1994 – 2002) Książki do nabycia w sprzedaży wysyłkowej. Przyjmujemy zamówienia listownie i przez Internet. Zapraszamy też na obozy wypoczynkowo-naukowe w czasie wakacji. © Copyright by Łowcy Talentów – JERSZ, Wilczyn 2009"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

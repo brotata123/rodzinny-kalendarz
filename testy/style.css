@@ -645,3 +645,52 @@ body {
   .app-header h1 { font-size: 1.4rem; }
   .results-summary { flex-direction: column; }
 }
+
+/* ── SZPAK ── */
+.szpak-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--gray-50, #f9fafb);
+  border: 1.5px solid var(--gray-200, #e5e7eb);
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+.szpak-text {
+  flex: 1;
+  font-size: 0.93rem;
+  color: var(--gray-800, #1f2937);
+  line-height: 1.4;
+}
+.szpak-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.szpak-true {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #166534;
+}
+.szpak-true.active {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: white;
+}
+.szpak-false {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+.szpak-false.active {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: white;
+}
+.szpak-btn:hover { opacity: 0.85; }

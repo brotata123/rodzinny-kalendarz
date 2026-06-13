@@ -1,0 +1,391 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2016",
+  "year": "2016",
+  "edition": "2016",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "U zegarmistrza wiszą trzy zegary wskazujące godziny: 1312, 1317 i 1322. Jaka może być prawidłowa godzina, jeśli jeden z tych zegarów spieszy o 2 minuty, a inny spóźnia się o 3 minuty?",
+      "options": {
+        "A": "1310",
+        "B": "1315",
+        "C": "1320",
+        "D": "1325"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "W klasie Agaty jest trzy razy więcej dziewcząt niż chłopców. Ilu uczniów może liczyć klasa Agaty?",
+      "options": {
+        "A": "21",
+        "B": "24",
+        "C": "27",
+        "D": "30"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "Rok 2016 to czwarty rok przestępny, który wystąpił za życia Bartka. Ile lat może mieć Bartek, jeśli dziś obchodzi urodziny?",
+      "options": {
+        "A": "11",
+        "B": "13",
+        "C": "15",
+        "D": "17"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "Z 12 zapałek, wykorzystując je wszystkie i żadnej nie łamiąc, chcemy ułożyć trójkąt. Jeden z boków tego trójkąta może mieć długość:",
+      "options": {
+        "A": "2 zapałek",
+        "B": "3 zapałek",
+        "C": "4 zapałek",
+        "D": "6 zapałek"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "Na pewnej szachownicy ponad połowa pól to pola leżące na brzegu szachownicy. Jakie wymiary może mieć ta szachownica?",
+      "options": {
+        "A": "4×4",
+        "B": "5×5",
+        "C": "6×6",
+        "D": "7×7"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "Franek i Hubert mają łącznie tyle lat co Beata. Ile lat może mieć Beata, jeśli obaj chłopcy dziś obchodzą urodziny i Hubert jest o 3 lata starszy od Franka?",
+      "options": {
+        "A": "12 lat",
+        "B": "15 lat",
+        "C": "18 lat",
+        "D": "19 lat"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "Z 12 jednakowych sześciennych klocków chcemy zbudować cztery wieże, z których każda będzie miała inną wysokość. Jaka może być wysokość najwyższej wieży?",
+      "options": {
+        "A": "4 klocki",
+        "B": "5 klocki",
+        "C": "6 klocków",
+        "D": "7 klocków"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "Pierwszy dzień pewnego miesiąca wypadł w piątek, a ostatni dzień tego miesiąca – w sobotę. Jaki to mógł być miesiąc?",
+      "options": {
+        "A": "styczeń",
+        "B": "kwiecień",
+        "C": "czerwiec",
+        "D": "grudzień"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "Na stole leżą cztery karteczki z cyframi (na każdej zapisana jest jedna cyfra), tworzące liczbę 1234. W pojedynczym ruchu możemy zamienić miejscami dwie karteczki. Czy można:",
+      "options": {
+        "A": "w dokładnie 2 ruchach otrzymać liczbę 3421",
+        "B": "w dokładnie 2 ruchach otrzymać liczbę 4132",
+        "C": "w dokładnie 3 ruchach otrzymać liczbę 4123",
+        "D": "w dokładnie 2 ruchach otrzymać liczbę 4321"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "Suma cyfr pewnej trzycyfrowej liczby jest równa iloczynowi jej cyfr. Wśród cyfr tej liczby może być:",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Kwadrat można rozciąć na:",
+      "options": {
+        "A": "4 kwadraty",
+        "B": "7 kwadratów",
+        "C": "9 kwadratów",
+        "D": "16 kwadratów"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "Pani Magda ma piątkę dzieci, każde w innym wieku. Dziś kupiła pudełko 10 cukierków i każdemu ze swoich dzieci dała tyle cukierków ilu miało ono starszych braci. Ile córek może mieć pani Magda?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "3"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "Jacek jest winny Maćkowi 7 zł, Maciek jest winny Staszkowi 2 zł, a Staszek jest winny Jackowi 12 zł. Chłopcy mogą się rozliczyć między sobą, jeśli każdy z nich ma tylko:",
+      "options": {
+        "A": "monety jednozłotowe",
+        "B": "monety dwuzłotowe",
+        "C": "monety pięciozłotowe",
+        "D": "banknoty dziesięciozłotowe"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Do ponumerowania wszystkich stron pewnej książki użyto 204 cyfry. Którą z cyfr zapisano więcej niż 20 razy?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "4",
+        "D": "9"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 15,
+      "text": "Chcemy rozciąć szachownicę (nie rozcinając żadnego z jej pól) na trzy prostokąty tak, aby każdy z tych prostokątów zawierał tyle samo białych pól. Możemy tego dokonać, jeśli pole w lewym górnym rogu szachownicy jest czarne, a wymiary szachownicy to:",
+      "options": {
+        "A": "4×4",
+        "B": "5×5",
+        "C": "6×6",
+        "D": "8×8"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "Agata ma monety dwuzłotowe i jednozłotowe (przynajmniej po dwie w każdym nominale), a Beata ma monety pięciozłotowe i jednozłotowe (również przynajmniej po dwie w każdym nominale). Każda z dziewczynek ma taką samą kwotę pieniędzy i każda ma tyle samo monet. Ile monet może mieć każda z dziewczynek?",
+      "options": {
+        "A": "7",
+        "B": "10",
+        "C": "12",
+        "D": "15"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 17,
+      "text": "Staszek ma sześcienną kostkę do gry, której ściany zawierają od 1 do 6 oczek (każda ściana inną liczbę). Oczka na trzech ścianach są białe, a na pozostałych trzech ścianach – czarne, przy czym białych oczek jest na całej kostce o jedno więcej niż czarnych oczek. Staszek rzucił kostką trzy razy i łącznie wyrzucił 3 białe oczka i 5 czarnych oczek. Ze wszystkich tych informacji wynika, że:",
+      "options": {
+        "A": "ściana z 2 oczkami zawiera białe oczka",
+        "B": "ściana z 3 oczkami zawiera czarne oczka",
+        "C": "ściana z 4 oczkami zawiera białe oczka",
+        "D": "ściana z 5 oczkami zawiera czarne oczka"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "Jaka może być łączna długość trzech kolejnych miesięcy?",
+      "options": {
+        "A": "mniej niż 14 tygodni",
+        "B": "14 tygodni",
+        "C": "więcej niż 14 tygodni",
+        "D": "15 tygodni"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Na stole leżą 4 monety, wszystkie orłami do góry. W każdym ruchu wybieramy trzy monety i odwracamy je na drugą stronę. W ilu ruchach można doprowadzić do sytuacji, gdy wszystkie monety będą leżały reszkami do góry?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "6"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "Rok urodzenia Grzesia powstaje przez przestawienie cyfr w roku urodzenia Jacka. Jaka może być różnica wieku między chłopcami, jeśli obaj urodzili się w tym samym miesiącu w XXI wieku?",
+      "options": {
+        "A": "5 lat",
+        "B": "7 lat",
+        "C": "9 lat",
+        "D": "11 lat"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "Na stole stoją cztery pudełka. Każde zawiera przynajmniej jedną kulkę i łącznie jest w nich 9 kulek. Na każdym pudełku jest informacja ile kulek zawiera to pudełko. Na pierwszym pudełku napisane jest „więcej niż 6”, na drugim – „więcej niż 3”, na trzecim– „tyle co w pierwszym”, a na czwartym – „tyle co w drugim”. Tylko na dwóch pudełkach napisano prawdę. Na których?",
+      "options": {
+        "A": "na pierwszym pudełku",
+        "B": "na drugim pudełku",
+        "C": "na trzecim pudełku",
+        "D": "na czwartym pudełku PATRONI I PARTNERZY © COPYRIGHT BY ŁOWCY TALENTÓW – JERSZ. WILCZYN"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

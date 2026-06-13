@@ -1,0 +1,391 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2012",
+  "year": "2012",
+  "edition": "2012",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Jeśli teraz jest godzina 1600, to:",
+      "options": {
+        "A": "za 27 godzin będzie wieczór",
+        "B": "za 36 godzin będzie wieczór",
+        "C": "za 51 godzin będzie wieczór",
+        "D": "za 68 godzin będzie wieczór"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "Pewna liczba naturalna ma iloczyn cyfr równy 12, a jej suma cyfr wynosi 7. Jedną z cyfr tej liczby może być:",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "6"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "Jaś może pomyśleć taką liczbę, by wynik przeprowadzonych obliczeń był:",
+      "options": {
+        "A": "6 razy mniejszy od pomyślanej liczby",
+        "B": "5 razy mniejszy od pomyślanej liczby D",
+        "C": "8 razy mniejszy od pomyślanej liczby",
+        "D": "7 razy mniejszy od pomyślanej liczby"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "Pan Alojzy ma ponad 70 lat. Ile może wynosić iloczyn cyfr roku jego urodzenia?",
+      "options": {
+        "A": "45",
+        "B": "60",
+        "C": "72",
+        "D": "75"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "Na rysunku obok przedstawiono kwadrat podzielony na 16 białych i 16 czarnych trójkątów. Wśród tych trójkątów są dokładnie:",
+      "options": {
+        "A": "4 trójkąty sąsiadujące (mające wspólny bok) z trzema czarnymi trójkątami",
+        "B": "4 trójkąty sąsiadujące (mające wspólny bok) z trzema białymi trójkątami",
+        "C": "8 trójkątów sąsiadujących (mających wspólny bok) z jednym czarnym i dwoma białymi trójkątami",
+        "D": "8 trójkątów sąsiadujących (mających wspólny bok) z jednym białym i dwoma czarnymi trójkątami"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "Iloczyn dwóch liczb dwucyfrowych pomniejszony o 1 może być liczbą:",
+      "options": {
+        "A": "dwucyfrową",
+        "B": "trzycyfrową",
+        "C": "czterocyfrową",
+        "D": "pięciocyfrową"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "O pewnej szachownicy wiadomo, że zarówno pole w lewym dolnym rogu, jak i pole w lewym górnym rogu jest koloru białego. Jaki może być rozmiar tej szachownicy?",
+      "options": {
+        "A": "5×5",
+        "B": "6×6",
+        "C": "7×7",
+        "D": "8×8"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "Jacek i jego pięciu kolegów zamówili w gospodzie miskę pierogów. Próbując sprawiedliwie podzielić je między siebie policzyli, że zawartość miski pozwala na to, by każdy z nich zjadł 8 pierogów, ale nie wystarcza na to by każdy zjadł 9 pierogów. Ile pierogów mogło być w misce?",
+      "options": {
+        "A": "44",
+        "B": "49",
+        "C": "52",
+        "D": "54"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "Na ile kwadratów można rozciąć kwadrat?",
+      "options": {
+        "A": "2",
+        "B": "4",
+        "C": "8",
+        "D": "16"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "W 82-stronicowej książce obrazki są jedynie na stronach, których numer ma iloczyn cyfr równy 24 (na każdej takiej stronie jest jeden obrazek). W takim razie:",
+      "options": {
+        "A": "na pierwszych 30 stronach książki nie ma żadnych obrazków",
+        "B": "na ostatnich 30 stronach książki nie ma żadnych obrazków",
+        "C": "w całej książce są cztery obrazki",
+        "D": "na ostatnich 40 stronach książki są dokładnie dwa obrazki"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "Państwo Kowalscy w sierpniu uroczyście obchodzili setny dzień życia swojego nowonarodzonego syna. W jakim miesiącu mógł się urodzić ich synek?",
+      "options": {
+        "A": "w kwietniu",
+        "B": "w maju",
+        "C": "w czerwcu",
+        "D": "w lipcu"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Pani Stanisława zapłaciła w sklepie za zakupy odliczoną kwotą, wręczając kasjerce 12 monet. Ile mogły kosztować te zakupy?",
+      "options": {
+        "A": "24 zł",
+        "B": "25 zł",
+        "C": "26 zł",
+        "D": "27 zł"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "W numerze roku, w którym urodził się pan Stanisław występują tylko dwie różne cyfry. Ile lat może mieć pan Stanisław?",
+      "options": {
+        "A": "mniej niż 30",
+        "B": "pięćdziesiąt kilka",
+        "C": "siedemdziesiąt kilka",
+        "D": "ponad 80"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "W pewnym domu mieszkają cztery dziewczynki: Zuzia, Ola, Marysia i Agata. Wiemy, że żadna z nich nie mieszka na najwyższym, szóstym piętrze, żadna też nie mieszka na parterze. Wiemy też, że Zuzia mieszka niżej niż Marysia, Agata wyżej niż Ola i niżej niż Zuzia. Na którym piętrze może mieszkać Marysia?",
+      "options": {
+        "A": "trzecim",
+        "B": "czwartym",
+        "C": "piątym",
+        "D": "szóstym"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Schronisko górskie ma 3 pokoje 5-osobowe, 2 pokoje 4-osobowe, 1 pokój 3-osobowy i 1 pokój 2-osobowy. W schronisku chcemy umieścić wycieczkę klasową składającą się z 25 uczniów i 3 nauczycieli. Chcemy przy tym, by nauczyciele spali w osobnym pokoju oraz by chłopcy i dziewczynki byli w osobnych pokojach. Wycieczkę da się umieścić w tym schronisku, jeśli liczba dziewczynek jest równa:",
+      "options": {
+        "A": "11",
+        "B": "13",
+        "C": "17",
+        "D": "18"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 15,
+      "text": "Cztery strzałki pokazane na rysunku poniżej wskazują cztery kierunki świata.",
+      "options": {
+        "A": "jeśli strzałka A wskazuje południowy-wschód, to strzałka B wskazuje południowy-zachód",
+        "B": "jeśli strzałka B wskazuje północny-zachód, to strzałka C wskazuje południowy-zachód",
+        "C": "jeśli strzałka C wskazuje południowy-zachód, to strzałka D wskazuje północny-wschód B",
+        "D": "jeśli strzałka D wskazuje północny-wschód, to strzałka A wskazuje południowy-wschód"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "W czasie urlopu pana Waldka dni, w których padał deszcz było dokładnie o A połowę więcej niż dni, w których nie padał deszcz. Jak długi mógł być urlop pana Waldka?",
+      "options": {
+        "A": "10 dni",
+        "B": "12 dni",
+        "C": "14 dni",
+        "D": "15 dni"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "Wśród kilkunastu skrzyń stojących na strychu niektóre są puste i ważą po 15 kg, a pozostałe są pełne złota i ważą po 120 kg. Ile spośród tych skrzyń może zawierać złoto, jeśli łącznie wszystkie skrzynie ważą 480 kg?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Gdyby 27 orzechów rozdzielić między trzech chłopców tak, by pierwszy dostał dwa razy mniej niz drugi, zaś drugi – trzy razy mniej niż trzeci, to wśród chłopców byłby taki, który otrzymał:",
+      "options": {
+        "A": "2 orzechy",
+        "B": "3 orzechy",
+        "C": "4 orzechy",
+        "D": "5 orzechów"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "Jeżeli każdą gwiazdkę w zapisie: 8 * 3 * 1 * 5 * 2 zamienimy na znak dodawania lub znak mnożenia, a następnie wykonamy otrzymane działanie (zgodnie z kolejnością wykonywania działań), to możemy otrzymać wynik równy:",
+      "options": {
+        "A": "15",
+        "B": "18",
+        "C": "21",
+        "D": "25"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "Na pastwisku pasą się krowy i gęsi. Zwierzęta te mają łącznie 40 nóg. O ile więcej gęsi niż krów może być na tym pastwisku?",
+      "options": {
+        "A": "2",
+        "B": "4",
+        "C": "6",
+        "D": "8 W sprzedaży posiadamy zbiory zadań z rozwiązaniami z Alfika Matematycznego:  „Konkursy matematyczne dla najmłodszych” (zadania dla klas III – IV z lat 1994 – 2007)  „Konkursy matematyczne dla uczniów szkół podstawowych” (zadania dla klas V – VI z lat 1994 – 2009)  „Konkursy matematyczne dla gimnazjalistów” (zadania dla klas I – III gimnazjum z lat 1994 – 2010) Książki do nabycia w sprzedaży wysyłkowej. Przyjmujemy zamówienia listownie i przez Internet. Zapraszamy też na obozy wypoczynkowo-naukowe w czasie wakacji, i na kółka matematyczne we Wrocławiu. © Copyright by Łowcy Talentów – JERSZ, Wilczyn 2012"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

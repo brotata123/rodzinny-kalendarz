@@ -1,0 +1,391 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2013",
+  "year": "2013",
+  "edition": "2013",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Sylwia ma pięć monet. Ile może mieć pieniędzy?",
+      "options": {
+        "A": "1 zł",
+        "B": "2 zł",
+        "C": "3 zł",
+        "D": "4 zł"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "Ile może kosztować 9 jednakowych autek, jeśli za jedno autko można zapłacić (odliczoną kwotą) trzema monetami?",
+      "options": {
+        "A": "72 zł",
+        "B": "18 zł",
+        "C": "66 zł",
+        "D": "90 zł"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "Aby z kamieniołomu zabrać 20 głazów o wadze 800 kg każdy można zamówić:",
+      "options": {
+        "A": "4 ciężarówki o ładowności 4 ton",
+        "B": "6 ciężarówek o ładowności 3 ton",
+        "C": "9 ciężarówek o ładowności 2 ton",
+        "D": "3 ciężarówki o ładowności 6 ton"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "W którym miesiącu może się zdarzyć, że pierwszy i ostatni dzień miesiąca wypadną w tym samym dniu tygodnia?",
+      "options": {
+        "A": "w styczniu",
+        "B": "w lutym",
+        "C": "w marcu",
+        "D": "w kwietniu"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "Z ilu zapałek (nie łamiąc żadnej zapałki i wykorzystując je wszystkie) można ułożyć kwadrat?",
+      "options": {
+        "A": "16",
+        "B": "18",
+        "C": "24",
+        "D": "30"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "11 ołówków kosztuje więcej niż 9 złotych, ale mniej niż 10 złotych. Ile może kosztować jeden ołówek?",
+      "options": {
+        "A": "81 gr",
+        "B": "85 gr",
+        "C": "90 gr",
+        "D": "92 gr"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "Staszek jest o 24 lata młodszy od ojca. Rok temu ojciec był od niego dokładnie 9 razy starszy. Wobec tego:",
+      "options": {
+        "A": "za rok Staszek będzie młodszy od ojca równo 7 razy",
+        "B": "za dwa lata Staszek będzie młodszy od ojca równo 5 razy",
+        "C": "za cztery lata Staszek będzie młodszy od ojca równo 4 razy",
+        "D": "za sześć lat Staszek będzie młodszy od ojca równo 3 razy"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "W urnie jest 12 kulek, każda w kolorze czerwonym lub zielonym. Gdyby połowę spośród zielonych kulek przemalować na czerwono, to w każdym z obu kolorów byłoby tyle samo kulek. W urnie znajduje się:",
+      "options": {
+        "A": "więcej kulek zielonych niż czerwonych",
+        "B": "ponad 9 kulek zielonych",
+        "C": "więcej niż 2 kulki czerwone",
+        "D": "więcej niż 3 kulki czerwone"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "Sznurek o długości 35 metrów rozcięto na dwa kawałki, z których jeden był cztery razy dłuższy niż drugi. Jeden z otrzymanych kawałków był:",
+      "options": {
+        "A": "krótszy niż 5 metrów",
+        "B": "krótszy niż 7 metrów",
+        "C": "dłuższy niż 25 metrów",
+        "D": "dłuższy niż 30 metrów"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "Każda z trzech dziewczynek ma inną liczbę lalek i każda z nich ma przynajmniej 5 lalek. Ile łącznie lalek mogą mieć te trzy dziewczynki?",
+      "options": {
+        "A": "15",
+        "B": "16",
+        "C": "18",
+        "D": "20"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Jacek i Maciek urodzili się w XXI wieku i obaj obchodzą dziś urodziny. Wiadomo, że rok urodzenia Maćka można otrzymać przez zamianę miejscami cyfr w roku urodzenia Jacka. Jaka może być różnica wieku między oboma chłopcami?",
+      "options": {
+        "A": "5 lat",
+        "B": "6 lat",
+        "C": "7 lat",
+        "D": "9 lat"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "Iloczyn pewnych dwóch liczb jednocyfrowych, z których żadna nie jest zerem, jest równy ich sumie. Te dwie liczby:",
+      "options": {
+        "A": "muszą być równe",
+        "B": "obie muszą być mniejsze niż 5",
+        "C": "ich suma musi być większa niż 10",
+        "D": "ich różnica musi być mniejsza niż 2"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "Ściany kostki do gry są opisane liczbami 1, 3, 5, 7, 9, 11 (każda ściana inną liczbą). Wiadomo też, że suma liczb znajdujących się na ścianach sąsiadujących ze ścianą z trójką wynosi 24 i że suma liczb znajdujących się na ścianach sąsiadujących ze ścianą z piątką też wynosi 24. Wobec tego:",
+      "options": {
+        "A": "naprzeciwko ściany z siódemką jest ściana z trójką",
+        "B": "naprzeciwko ściany z jedynką jest ściana z jedenastką",
+        "C": "naprzeciwko ściany z dziewiątką jest ściana z trójką",
+        "D": "naprzeciwko ściany z piątką jest ściana z jedynką"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Wskazówki zegara (godzinowa i minutowa) mijają się na tarczy zegara:",
+      "options": {
+        "A": "między godziną 1410 a godziną 1411",
+        "B": "między godziną 1517 a godziną 1518",
+        "C": "między godziną 1621 a godziną 1622",
+        "D": "między godziną 1725 a godziną 1726"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 15,
+      "text": "Przy okrągłym stole usiadło 20 osób w taki sposób, że każdy mężczyzna siedział obok kobiety, a każda kobieta siedziała obok mężczyzny. Ile kobiet mogło siedzieć przy tym stole?",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "10"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "Jeśli w miejsce każdej gwiazdki w wyrażeniu 9*8*7*6*5*4*3*2*1 wpiszemy znak „+” lub „–”, a następnie wykonamy otrzymane w ten sposób działania, to możemy otrzymać w wyniku liczbę:",
+      "options": {
+        "A": "3",
+        "B": "2",
+        "C": "1",
+        "D": "0"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 17,
+      "text": "Wanda obchodzi dziś urodziny – kończy dokładnie tyle lat, ile wynosi suma cyfr roku jej urodzenia. Kiedy mogła urodzić się Wanda?",
+      "options": {
+        "A": "w latach 70-tych XX wieku",
+        "B": "w latach 80-tych XX wieku",
+        "C": "w latach 90-tych XX wieku",
+        "D": "w wieku XXI"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "Na tablicy zapisane są dwie liczby. Agata dodała te liczby, Bartek je pomnożył, zaś Darek odjął jedną z tych liczb od drugiej. Każde z dzieci otrzymało ten sam wynik. W takim razie:",
+      "options": {
+        "A": "przynajmniej jedno dziecko musiało się pomylić",
+        "B": "przynajmniej dwójka dzieci musiała się pomylić",
+        "C": "mogło się zdarzyć, że tylko Bartek się pomylił",
+        "D": "mogło się zdarzyć, że tylko Darek się pomylił"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Kwadrat można rozciąć na cztery części, w taki sposób, by dało się z nich ułożyć (wykorzystując wszystkie części):",
+      "options": {
+        "A": "cztery jednakowe kwadraty",
+        "B": "trzy jednakowe prostokąty",
+        "C": "dwa jednakowe prostokąty",
+        "D": "dwa jednakowe kwadraty"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "Czarodziej zna dwa zaklęcia: pierwsze powoduje podwojenie liczby cukierków znajdujących się w worku, a drugie powoduje zniknięcie pięciu cukierków z worka. Początkowo w worku jest jeden cukierek. Czy przy pomocy swoich zaklęć czarodziej jest w stanie spowodować, by w worku znalazło się dokładnie:",
+      "options": {
+        "A": "14 cukierków",
+        "B": "15 cukierków",
+        "C": "17 cukierków",
+        "D": "18 cukierków"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "Na pastwisku pasą się krowy i gęsi. Zwierzęta te mają łącznie 32 głowy i 84 nogi. W takim razie:",
+      "options": {
+        "A": "krów jest więcej niż gęsi",
+        "B": "krów jest więcej niż 10",
+        "C": "gęsi mają łącznie więcej nóg niż krowy głów",
+        "D": "krów jest ponad dwukrotnie mniej niż gęsi PARTNERZY PATRONI © Copyright by ŁOWCY TALENTÓW – JERSZ, Wilczyn 2013, www.jersz.pl"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

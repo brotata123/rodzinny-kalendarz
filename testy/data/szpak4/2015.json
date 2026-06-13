@@ -1,0 +1,373 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2015",
+  "year": "2015",
+  "edition": "2015",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Iloczyn dwóch liczb (naturalnych) wynosi 48. Ile może wynosić suma tych dwóch liczb?",
+      "options": {
+        "A": "14",
+        "B": "16",
+        "C": "18",
+        "D": "19"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "Jacek dwa lata temu skończył 7 lat. W takim razie:",
+      "options": {
+        "A": "za rok Jacek skończy 8 lat",
+        "B": "za dwa lata Jacek skończy 11 lat",
+        "C": "trzy lata temu Jacek skończył 6 lat",
+        "D": "za trzy lata Jacek skończy 11 lat"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "O której z wymienionych poniżej godzin obie wskazówki zegara (godzinowa i minutowa) znajdują się pomiędzy czwórką a piątką?",
+      "options": {
+        "A": "1623",
+        "B": "1522",
+        "C": "1721",
+        "D": "1627"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "Którą z poniższych liczb można przedstawić w postaci iloczynu dwóch lub więcej liczb jednocyfrowych?",
+      "options": {
+        "A": "21",
+        "B": "51",
+        "C": "81",
+        "D": "121"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "W którym dniu może wypaść pierwsza sobota października?",
+      "options": {
+        "A": "5 października",
+        "B": "6 października",
+        "C": "7 października",
+        "D": "8 października"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "Wśród sześciu kolejnych miesięcy:",
+      "options": {
+        "A": "może być dokładnie 5 miesięcy mających po 31 dni",
+        "B": "mogą być dokładnie 4 miesiące mające po 31 dni",
+        "C": "mogą być dokładnie 3 miesiące mające po 31 dni",
+        "D": "mogą być dokładnie 2 miesiące mające po 31 dni"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "Banknot 50-złotowy chcemy rozmienić na dwuzłotówki i pięciozłotówki. Możemy go w ten sposób rozmienić na:",
+      "options": {
+        "A": "16 monet",
+        "B": "18 monet",
+        "C": "20 monet",
+        "D": "22 monety"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "Pewna liczba dwucyfrowa ma tę własność, że gdy zamienimy miejscami jej cyfry, zmniejsza się ona o 54. Jaka może być suma cyfr tej liczby, jeśli żadna z jej cyfr nie jest zerem?",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "9"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "Kwadrat chcemy rozciąć na 15 lub mniej części w taki sposób, by każda z otrzymanych części była kwadratem o boku 1 cm albo kwadratem o boku 2 cm. Który z kwadratów możemy tak rozciąć?",
+      "options": {
+        "A": "kwadrat o boku długości 3 cm",
+        "B": "kwadrat o boku długości 4 cm",
+        "C": "kwadrat o boku długości 5 cm",
+        "D": "kwadrat o boku długości 6 cm"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "Jaką długość może mieć rok?",
+      "options": {
+        "A": "dokładnie 52 tygodnie",
+        "B": "52 tygodnie i 1 dzień",
+        "C": "52 tygodnie i 2 dni",
+        "D": "52 tygodnie i 3 dni"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Na pewnej (biało-czarnej) szachownicy o wymiarach 5×5 pole w prawym górnym rogu jest czarne. W takim razie:",
+      "options": {
+        "A": "pole w lewym górnym rogu szachownicy jest czarne",
+        "B": "pole w lewym dolnym rogu szachownicy jest białe",
+        "C": "pole w prawym dolnym rogu szachownicy jest czarne",
+        "D": "szachownica ma więcej pól czarnych niż białych"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "W woreczku są żetony w trzech kolorach: zielonym, czerwonym i niebieskim (przynajmniej po jednym żetonie w każdym kolorze). Ile żetonów może być w tym woreczku, jeśli wiemy, że w każdym kolorze jest inna liczba żetonów i w każdym z kolorów jest mniej niż połowa wszystkich żetonów?",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "9"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "W kilku identycznych paczkach cukierków jest łącznie 96 cukierków. Ile cukierków może zawierać każda z tych paczek?",
+      "options": {
+        "A": "12",
+        "B": "14",
+        "C": "16",
+        "D": "18"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Kwadrat można rozciąć na:",
+      "options": {
+        "A": "4 kwadraty",
+        "B": "6 kwadratów",
+        "C": "7 kwadratów",
+        "D": "9 kwadratów"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "Bartek ma monety w trzech nominałach: złotówki, dwuzłotówki i pięciozłotówki. Wiemy, że monet pięciozłotowych ma o jedną więcej niż monet dwuzłotowych, a monet dwuzłotowych ma o dwie więcej niż monet o nominale 1 zł. Jaka może być łączna wartość wszystkich monet Bartka?",
+      "options": {
+        "A": "30 zł",
+        "B": "32 zł",
+        "C": "33 zł",
+        "D": "35 zł"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 17,
+      "text": "Rok temu wszystkie dzieci pani Beaty miały łącznie tyle lat co pani Beata, a teraz wszystkie dzieci mają łącznie o 3 lata więcej niż pani Beata. Wynika stąd, że:",
+      "options": {
+        "A": "pani Beata ma dokładnie 3 dzieci",
+        "B": "pani Beata ma dokładnie 4 dzieci",
+        "C": "za rok dzieci pani Beaty będą miały łącznie o 6 lat więcej niż pani Beata",
+        "D": "za 2 lata dzieci pani Beaty będą miały łącznie o 12 lat więcej niż pani Beata"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "Pewne dwie liczby jednocyfrowe mają tę własność, że ich iloczyn jest równy ich sumie. Jedną z tych liczb może być liczba:",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Na pewnej (biało-czarnej) szachownicy o wymiarach 8×8 każde pole, które sąsiaduje (ma wspólny bok) z czterema czarnymi polami przemalowujemy na zielono. Następnie każde pole, które sąsiaduje (ma wspólny bok) z przynajmniej trzema zielonymi polami przemalowujemy na czerwono. Na tak pokolorowanej szachownicy:",
+      "options": {
+        "A": "jest więcej pól białych niż czarnych",
+        "B": "jest więcej pól czarnych niż zielonych",
+        "C": "jest więcej pól zielonych niż czerwonych",
+        "D": "jest więcej pól czerwonych niż białych"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "W pewnej klasie jest dokładnie dwa razy więcej dziewcząt niż chłopców. Ilu uczniów może liczyć ta klasa?",
+      "options": {
+        "A": "21",
+        "B": "24",
+        "C": "25",
+        "D": "27"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "Przy okrągłym stole, przy którym jest 10 miejsc, usiadło 10 osób. Ile wśród nich mogło być kobiet, jeśli wiemy, że każda kobieta usiadła obok jakiegoś mężczyzny, a każdy mężczyzna usiadł obok jakiejś kobiety?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6 PATRONI I PARTNERZY © COPYRIGHT BY ŁOWCY TALENTÓW – JERSZ. WILCZYN 2013"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

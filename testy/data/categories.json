@@ -62,6 +62,15 @@
       "color": "#2563eb",
       "emoji": "📊",
       "available": true
+    },
+    {
+      "id": "szpak4",
+      "name": "MAT SZPAK",
+      "class": "Klasa 4",
+      "folder": "data/szpak4",
+      "color": "#b45309",
+      "emoji": "🐦",
+      "available": true
     }
   ]
 }

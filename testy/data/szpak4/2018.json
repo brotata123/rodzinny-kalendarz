@@ -1,0 +1,391 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2018",
+  "year": "2018",
+  "edition": "2018",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Jakie wymiary może mieć prostokątna szachownica, której pole w lewym górnym rogu jest tego samego koloru co pole w prawym dolnym rogu?",
+      "options": {
+        "A": "4 × 4",
+        "B": "5 × 5",
+        "C": "4 × 5",
+        "D": "3 × 5"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "Która z poniższych liczb ma cyfrę setek mniejszą od cyfry jedności?",
+      "options": {
+        "A": "tysiąc dwieście czternaście",
+        "B": "dwanaście tysięcy trzysta osiem",
+        "C": "dwa tysiące czterdzieści trzy",
+        "D": "tysiąc czterysta pięćdziesiąt"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "W którym dniu może wypaść pierwsza niedziela marca?",
+      "options": {
+        "A": "4 marca",
+        "B": "6 marca",
+        "C": "7 marca",
+        "D": "8 marca"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "Joasia ma kilkanaście monet, z których każda to moneta 1 zł, moneta 2 zł lub moneta 5 zł. Ile pieniędzy może mieć Joasia, jeśli łączna liczba jej dwuzłotówek i pięciozłotówek jest równa liczbie jej złotówek?",
+      "options": {
+        "A": "30 zł",
+        "B": "40 zł",
+        "C": "50 zł",
+        "D": "60 zł"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "Zarówno pan Jacek, jak i jego syn obchodzą dziś urodziny. W dniu narodzin syna pan Jacek obchodził trzydzieste urodziny, a dziś jest od niego dokładnie cztery razy starszy. W takim razie pan Jacek:",
+      "options": {
+        "A": "trzy lata temu był dokładnie 5 razy starszy od syna",
+        "B": "cztery lata temu był dokładnie 6 razy starszy od syna",
+        "C": "pięć lat temu był dokładnie 7 razy starszy od syna",
+        "D": "sześć lat temu był dokładnie 8 razy starszy od syna"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "Kwadrat można rozciąć na:",
+      "options": {
+        "A": "10 kwadratów",
+        "B": "11 kwadratów",
+        "C": "12 kwadratów",
+        "D": "13 kwadratów"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "Dwadzieścia cukierków można podzielić między pięcioro dzieci w taki sposób, by każde dziecko otrzymało:",
+      "options": {
+        "A": "taką samą liczbę cukierków",
+        "B": "inną liczbę cukierków",
+        "C": "parzystą liczbę cukierków",
+        "D": "nieparzystą liczbę cukierków"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "Iloczyn cyfr pewnej liczby jest równy sumie cyfr tej liczby. Liczba ta może być:",
+      "options": {
+        "A": "dwucyfrowa",
+        "B": "trzycyfrowa",
+        "C": "czterocyfrowa",
+        "D": "pięciocyfrowa"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "Pan Jan za dwa lata będzie miał tyle lat ile łącznie czwórka jego dzieci. W takim razie:",
+      "options": {
+        "A": "za rok pan Jan będzie miał o 4 lata więcej niż łącznie jego dzieci",
+        "B": "za trzy lata pan Jan będzie miał o 3 lata mniej niż łącznie jego dzieci",
+        "C": "dziś pan Jan ma o 6 lata więcej niż łącznie jego dzieci",
+        "D": "rok temu pan Jan miał o 8 lat więcej niż łącznie jego dzieci"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "Pan Stanisław wrócił do pracy po 25 dniach nieprzerwanej nieobecności. W jakim dniu tygodnia mógł wrócić do pracy, jeśli w okresie jego nieobecności wypadły dokładnie trzy niedziele?",
+      "options": {
+        "A": "we wtorek",
+        "B": "w środę",
+        "C": "w czwartek",
+        "D": "w piątek"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Suma pewnych dwóch różnych liczb jest o 8 większa od (dodatniej) różnicy tych liczb. W takim razie:",
+      "options": {
+        "A": "mniejsza z liczb musi być równa 4",
+        "B": "większa z liczb musi być większa niż 6",
+        "C": "mniejsza z liczb może być mniejsza od 4",
+        "D": "większa z liczb może być większa niż 8"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "Pewna klasa liczy 21 uczniów, wśród których chłopców jest więcej niż dziewczynek. Na wycieczkę pojechali wszyscy uczniowie za wyjątkiem czterech chłopców. Jaka może być liczba chłopców w tej klasie, jeśli na wycieczce dziewczynek było więcej niż chłopców?",
+      "options": {
+        "A": "10",
+        "B": "11",
+        "C": "12",
+        "D": "13"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "W pewnym roku marzec rozpoczął się piątkiem. Który z poniższych miesięcy owego roku mógł rozpocząć się poniedziałkiem?",
+      "options": {
+        "A": "styczeń",
+        "B": "luty",
+        "C": "kwiecień",
+        "D": "maj"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Ile jabłek może być łącznie w dziesięciu skrzynkach, jeśli w każdej skrzynce jest albo 9 kg, albo 15 kg jabłek?",
+      "options": {
+        "A": "110 kg",
+        "B": "120 kg",
+        "C": "130 kg",
+        "D": "140 kg"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 15,
+      "text": "Jacek jest o połowę starszy od Marty, a Marta jest o 6 lat młodsza od Jacka. Ile lat mogą mieć łącznie Jacek i Marta?",
+      "options": {
+        "A": "20",
+        "B": "24",
+        "C": "25",
+        "D": "30"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "W miejsce każdej gwiazdki w schemacie: * · * + * · * = 11 chcemy wstawić inną cyfrę tak, by otrzymana równość była prawdziwa. Wśród czterech użytych cyfr może być cyfra:",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 17,
+      "text": "Zegarmistrz ma pięć zegarów, z których każdy wskazuje inną godzinę. Wskazują one: 1513, 1517, 1521, 1519, 1520. Wiemy, że jeden z tych zegarów spóźnia się o 5 minut, a inny spieszy o minutę. Wśród tych zegarów jest zegar, który spóźnia się o:",
+      "options": {
+        "A": "4 minuty",
+        "B": "3 minuty",
+        "C": "2 minuty",
+        "D": "1 minutę"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "W pewnym turnieju szachowym każdy uczestnik rozegrał z każdym innym dokładnie jedną partię. Jaka mogła być łączna liczba rozegranych partii?",
+      "options": {
+        "A": "21",
+        "B": "28",
+        "C": "32",
+        "D": "36"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Ilu uczniów może liczyć klasa, w której dziewcząt jest o połowę więcej niż chłopców?",
+      "options": {
+        "A": "21",
+        "B": "24",
+        "C": "25",
+        "D": "28"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "Ile dni może upłynąć od pierwszego wtorku września do pierwszego wtorku października?",
+      "options": {
+        "A": "21",
+        "B": "28",
+        "C": "30",
+        "D": "35"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "Która z poniższych liczb ma tę własność, że wstawiając odpowiednią cyfrę między jej cyfrę jedności a cyfrę dziesiątek możemy otrzymać jej trzycyfrową wielokrotność?",
+      "options": {
+        "A": "12",
+        "B": "15",
+        "C": "21",
+        "D": "24 © COPYRIGHT BY ŁOWCY TALENTÓW – JERSZ. WILCZYN 2018"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

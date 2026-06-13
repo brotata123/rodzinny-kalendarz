@@ -151,7 +151,7 @@ async function loadTestList() {
         const d = new Date(saved.savedAt);
         const timeStr = d.toLocaleDateString('pl-PL', { day: 'numeric', month: 'short' })
           + ' ' + d.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' });
-        const answered = saved.answers.filter(a => a !== null).length;
+        const answered = saved.answers.filter(a => hasAnyAnswer(a)).length;
         const total = saved.answers.length;
         const m = Math.floor(saved.secondsLeft / 60);
         const s = String(saved.secondsLeft % 60).padStart(2, '0');
@@ -228,7 +228,7 @@ async function loadTest(file) {
 }
 
 function showResumeModal(saved) {
-  const answered = saved.answers.filter(a => a !== null).length;
+  const answered = saved.answers.filter(a => hasAnyAnswer(a)).length;
   const total = saved.answers.length;
   const m = Math.floor(saved.secondsLeft / 60);
   const s = String(saved.secondsLeft % 60).padStart(2, '0');
@@ -237,7 +237,7 @@ function showResumeModal(saved) {
     + ' o ' + d.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' });
 
   document.getElementById('resume-info').innerHTML =
-    `Odpowiedziałeś na <strong>${answered} z ${total}</strong> pytań.<br>
+    `Masz zapisany postęp: <strong>${answered} z ${total}</strong> pytań.<br>
      Pozostały czas: <strong>${m}:${s}</strong>.<br>
      Zapisano: ${timeStr}.`;
   document.getElementById('modal-resume').style.display = 'flex';
@@ -278,7 +278,17 @@ function showRules() {
 
   // Tabela punktacji z JSON testu (jeśli jest) lub domyślna
   const scoringEl = document.getElementById('rules-scoring');
-  if (t.scoringTable) {
+  const isSzpakTest = t.questions && t.questions[0] && isSzpak(t.questions[0]);
+  if (isSzpakTest) {
+    document.getElementById('rules-list').innerHTML = `
+      <li>Test zawiera <strong>${t.totalQuestions} zadań</strong>, każde z 4 stwierdzeniami (A, B, C, D)</li>
+      <li>Każde stwierdzenie oceniasz <strong>niezależnie</strong>: PRAWDA lub FAŁSZ</li>
+      <li>Łącznie ${t.totalQuestions * 4} decyzji do podjęcia</li>
+      <li>Czas na rozwiązanie: <strong>${t.timeMinutes || 90} minut</strong></li>`;
+    scoringEl.innerHTML = `
+      <div class="score-row header"><span>Decyzja</span><span>Poprawna</span><span>Błędna</span><span>Brak</span></div>
+      <div class="score-row"><span>każda (×${t.totalQuestions * 4})</span><span class="green">+1 pkt</span><span class="red">−1 pkt</span><span>0 pkt</span></div>`;
+  } else if (t.scoringTable) {
     scoringEl.innerHTML = `
       <div class="score-row header"><span>Zadania</span><span>Poprawna</span><span>Błędna</span><span>Brak</span></div>
       ${t.scoringTable.map(row => `
@@ -303,8 +313,9 @@ function showRules() {
   } else {
     bonusEl.style.display = 'none';
   }
-  document.getElementById('rules-maxpoints').textContent =
-    `${t.maxPoints} punktów (${t.totalQuestions} zadań × wartość zadania)`;
+  document.getElementById('rules-maxpoints').textContent = isSzpakTest
+    ? `${t.maxPoints} punktów (${t.totalQuestions} zadań × 4 stwierdzenia × 1 pkt)`
+    : `${t.maxPoints} punktów (${t.totalQuestions} zadań × wartość zadania)`;
 
   showScreen('screen-rules');
 }
@@ -312,7 +323,7 @@ function showRules() {
 // ─── Start test ───────────────────────────────────────────────
 function startTest() {
   const t = currentTest;
-  answers = new Array(t.questions.length).fill(null);
+  answers = t.questions.map(q => isSzpak(q) ? {A:null,B:null,C:null,D:null} : null);
   currentQ = 0;
   testFinished = false;
   secondsLeft = (t.timeMinutes || 75) * 60;
@@ -347,8 +358,11 @@ function updateTimerDisplay() {
 
 // ─── Multi-answer helpers ─────────────────────────────────────
 function isMultiAnswer(q) {
-  // Multi-answer if correct is an array OR test has multiAnswer flag
   return Array.isArray(q.correct) || (currentTest && currentTest.multiAnswer);
+}
+
+function isSzpak(q) {
+  return q && q.correct !== null && typeof q.correct === 'object' && !Array.isArray(q.correct);
 }
 
 function getSelectedLetters(idx) {
@@ -370,7 +384,7 @@ function renderQuestion() {
   document.getElementById('q-points').textContent = `${q.points} pkt`;
   document.getElementById('q-text').textContent = q.text;
 
-  const answered = answers.filter(a => a !== null).length;
+  const answered = answers.filter(a => hasAnyAnswer(a)).length;
   document.getElementById('progress-bar').style.width = `${(answered / total) * 100}%`;
 
   const pagesDiv = document.getElementById('question-pages');
@@ -389,7 +403,33 @@ function renderQuestion() {
   const optsDiv = document.getElementById('options');
   optsDiv.innerHTML = '';
 
-  if (multi) {
+  if (isSzpak(q)) {
+    // SZPAK: each option independently TRUE/FALSE/unanswered
+    const hint = document.createElement('p');
+    hint.className = 'multi-hint';
+    hint.textContent = '🐦 Oceń każde stwierdzenie: PRAWDA lub FAŁSZ';
+    optsDiv.appendChild(hint);
+    const state = answers[currentQ] || {A:null,B:null,C:null,D:null};
+    Object.entries(q.options).forEach(([letter, text]) => {
+      const row = document.createElement('div');
+      row.className = 'szpak-row';
+      const textSpan = document.createElement('span');
+      textSpan.className = 'szpak-text';
+      textSpan.innerHTML = `<span class="option-letter">${letter}</span> ${text}`;
+      const btnTrue = document.createElement('button');
+      btnTrue.className = 'szpak-btn szpak-true' + (state[letter] === true ? ' active' : '');
+      btnTrue.textContent = 'PRAWDA';
+      btnTrue.onclick = () => setSzpakAnswer(letter, state[letter] === true ? null : true);
+      const btnFalse = document.createElement('button');
+      btnFalse.className = 'szpak-btn szpak-false' + (state[letter] === false ? ' active' : '');
+      btnFalse.textContent = 'FAŁSZ';
+      btnFalse.onclick = () => setSzpakAnswer(letter, state[letter] === false ? null : false);
+      row.appendChild(textSpan);
+      row.appendChild(btnTrue);
+      row.appendChild(btnFalse);
+      optsDiv.appendChild(row);
+    });
+  } else if (multi) {
     // Multi-answer: checkbox style
     const hint = document.createElement('p');
     hint.className = 'multi-hint';
@@ -423,6 +463,15 @@ function renderQuestion() {
 
 function selectAnswer(letter) {
   answers[currentQ] = letter;
+  renderQuestion();
+  saveProgress();
+}
+
+function setSzpakAnswer(letter, value) {
+  if (!answers[currentQ] || typeof answers[currentQ] !== 'object') {
+    answers[currentQ] = {A:null,B:null,C:null,D:null};
+  }
+  answers[currentQ] = {...answers[currentQ], [letter]: value};
   renderQuestion();
   saveProgress();
 }
@@ -468,10 +517,16 @@ function buildQuestionDots() {
   });
 }
 
+function hasAnyAnswer(a) {
+  if (a === null) return false;
+  if (Array.isArray(a)) return a.length > 0;
+  if (typeof a === 'object') return Object.values(a).some(v => v !== null);
+  return true;
+}
+
 function updateDots() {
   document.querySelectorAll('#question-dots .dot').forEach((d, i) => {
-    const hasAnswer = answers[i] !== null && !(Array.isArray(answers[i]) && answers[i].length === 0);
-    d.className = 'dot' + (hasAnswer ? ' answered' : '') + (i === currentQ ? ' current' : '');
+    d.className = 'dot' + (hasAnyAnswer(answers[i]) ? ' answered' : '') + (i === currentQ ? ' current' : '');
   });
 }
 
@@ -499,6 +554,12 @@ function finishTest() {
 
 function isAnswerCorrect(q, given) {
   if (given === null) return false;
+  if (isSzpak(q)) {
+    if (!given || typeof given !== 'object') return false;
+    return Object.keys(q.correct).every(letter =>
+      given[letter] !== null && given[letter] === q.correct[letter]
+    );
+  }
   const correct = Array.isArray(q.correct) ? [...q.correct].sort() : [q.correct];
   const givenArr = Array.isArray(given) ? [...given].sort() : [given];
   return JSON.stringify(correct) === JSON.stringify(givenArr);
@@ -508,11 +569,41 @@ function calculateAndShowResults() {
   const t = currentTest;
   let points = t.startingPoints || 0;
   let correctCount = 0;
-  const wrongQuestions = [];   // błędne odpowiedzi
-  const skippedQuestions = []; // pominięte (brak odpowiedzi)
+  const wrongQuestions = [];
+  const skippedQuestions = [];
 
   t.questions.forEach((q, i) => {
     const given = answers[i];
+
+    if (isSzpak(q)) {
+      // Score each option independently
+      const state = (given && typeof given === 'object') ? given : {A:null,B:null,C:null,D:null};
+      let allSkipped = true;
+      let allCorrect = true;
+      Object.keys(q.correct).forEach(letter => {
+        const userVal = state[letter];
+        if (userVal === null) {
+          allCorrect = false; // unanswered = 0 pts, no penalty
+        } else {
+          allSkipped = false;
+          if (userVal === q.correct[letter]) {
+            points += 1;
+          } else {
+            points -= 1;
+            allCorrect = false;
+          }
+        }
+      });
+      if (allSkipped) {
+        skippedQuestions.push(q.id);
+      } else if (allCorrect) {
+        correctCount++;
+      } else {
+        wrongQuestions.push(q.id);
+      }
+      return;
+    }
+
     if (given === null) {
       skippedQuestions.push(q.id);
       return;
@@ -595,12 +686,22 @@ function showReview() {
     item.className = `review-item ${isSkipped ? 'skipped' : isCorrect ? 'correct' : 'wrong'}`;
 
     // Format answer display
-    const givenStr = isSkipped ? '' : (Array.isArray(given) ? given.join(', ') : given);
-    const correctStr = Array.isArray(q.correct) ? q.correct.join(', ') : q.correct;
-
     let answersHtml = '';
-    if (!isSkipped) answersHtml += `<span class="ans-label ${isCorrect ? 'ans-given correct' : 'ans-given'}">Twoja: ${givenStr}</span>`;
-    if (!isCorrect) answersHtml += `<span class="ans-label ans-correct-show">Poprawna: ${correctStr}</span>`;
+    if (isSzpak(q)) {
+      const state = (given && typeof given === 'object') ? given : {};
+      answersHtml = Object.entries(q.correct).map(([letter, correctVal]) => {
+        const userVal = state[letter] !== undefined ? state[letter] : null;
+        const optCorrect = userVal === correctVal;
+        const valStr = userVal === null ? '—' : (userVal ? 'PRAWDA' : 'FAŁSZ');
+        const correctStr = correctVal ? 'PRAWDA' : 'FAŁSZ';
+        return `<span class="ans-label ${userVal === null ? '' : optCorrect ? 'ans-given correct' : 'ans-given'}">${letter}: ${valStr}${!optCorrect ? ` <em>(${correctStr})</em>` : ''}</span>`;
+      }).join('');
+    } else {
+      const givenStr = isSkipped ? '' : (Array.isArray(given) ? given.join(', ') : given);
+      const correctStr = Array.isArray(q.correct) ? q.correct.join(', ') : q.correct;
+      if (!isSkipped) answersHtml += `<span class="ans-label ${isCorrect ? 'ans-given correct' : 'ans-given'}">Twoja: ${givenStr}</span>`;
+      if (!isCorrect) answersHtml += `<span class="ans-label ans-correct-show">Poprawna: ${correctStr}</span>`;
+    }
 
     item.innerHTML = `
       <div class="review-item-header">
@@ -629,8 +730,15 @@ function showSolution(idx) {
   const q = currentTest.questions[idx];
   document.getElementById('modal-title').textContent = `Rozwiązanie – Zadanie ${q.id}`;
   document.getElementById('modal-q-text').textContent = q.text;
-  document.getElementById('modal-answer').textContent =
-    `Poprawna odpowiedź: ${q.correct}  —  ${q.options[q.correct]}`;
+  if (isSzpak(q)) {
+    const answerLines = Object.entries(q.correct).map(([letter, val]) =>
+      `${letter}) ${q.options[letter] || ''} → ${val ? 'PRAWDA' : 'FAŁSZ'}`
+    ).join('\n');
+    document.getElementById('modal-answer').textContent = answerLines;
+  } else {
+    document.getElementById('modal-answer').textContent =
+      `Poprawna odpowiedź: ${q.correct}  —  ${q.options[q.correct]}`;
+  }
 
   const solutionEl = document.getElementById('modal-solution-text');
   solutionEl.textContent = q.solution || '';

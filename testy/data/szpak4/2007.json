@@ -1,0 +1,389 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2007",
+  "year": "2007",
+  "edition": "2007",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Którą z poniższych figur można rozciąć na dwa jednakowe kawałki, tnąc jedynie wzdłuż zaznaczonych linii?",
+      "options": {
+        "A": "B) C) D)",
+        "B": "C) D)",
+        "C": "D)"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "Ile jabłek może być łącznie w trzech skrzyniach, jeżeli każda skrzynia zawiera albo 50 kg albo 70 kg jabłek?",
+      "options": {
+        "A": "120 kg",
+        "B": "150 kg",
+        "C": "170 kg",
+        "D": "ponad 200 kg"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "Sto jajek można rozdzielić między 7 osób tak, aby każda z nich otrzymała:",
+      "options": {
+        "A": "więcej niż 14 jajek",
+        "B": "mniej niż 14 jajek",
+        "C": "dokładnie 14 jajek",
+        "D": "więcej niż 15 jajek"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "W trzech workach jest łącznie 30 kg ziemniaków, przy czym w pierwszym worku jest więcej ziemniaków niż w drugim, zaś w drugim – więcej niż w trzecim. Ile ziemniaków może być w pierwszym worku?",
+      "options": {
+        "A": "7 kg",
+        "B": "10 kg",
+        "C": "12 kg",
+        "D": "15 kg"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "Jeśli pozamieniamy miejscami litery wyrazu, to otrzymamy jego anagram (np. DIORA jest anagramem słowa RADIO). Który z poniższych wyrazów jest anagramem słowa SALKA?",
+      "options": {
+        "A": "KLASA",
+        "B": "LASKA",
+        "C": "KASA",
+        "D": "SKALA"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "W portmonetce Anety znajdują się jedynie monety dwuzłotowe i pięciozłotowe, o łącznej wartości 37 złotych. Ile pięciozłotówek może mieć w portmonetce Aneta?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "8",
+        "D": "4"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "Liczba palindromiczna to taka liczba, która czytana od początku wygląda dokładnie tak samo jak czytana wspak (np. 12421). Która z wymienionych poniżej liczb jest liczbą palindromiczną?",
+      "options": {
+        "A": "654456",
+        "B": "123123",
+        "C": "457547",
+        "D": "98789"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "Liczbę 30 można przedstawić w postaci iloczynu dwóch liczb naturalnych, z których jedna jest równa:",
+      "options": {
+        "A": "3",
+        "B": "5",
+        "C": "7",
+        "D": "9"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "Cegła ma wymiary 21 cm × 14 cm × 7 cm. Wieżę o jakiej wysokości można zbudować z trzech takich cegieł?",
+      "options": {
+        "A": "28 cm",
+        "B": "35 cm",
+        "C": "42 cm",
+        "D": "64 cm"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "Która z poniższych liczb ma tę własność, że gdy ją pomnożymy przez sumę jej cyfr, to otrzymamy wynik 90?",
+      "options": {
+        "A": "15",
+        "B": "30",
+        "C": "45",
+        "D": "90"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Którą godzinę może wskazywać zegar, którego wskazówka minutowa jest na siódemce, a wskazówka godzinowa znajduje się w prawej połowie tarczy?",
+      "options": {
+        "A": "1435",
+        "B": "335",
+        "C": "1540",
+        "D": "635"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "Ze standardowej szachownicy o wymiarach 8 na 8 pól wycięto kwadrat złożony z 25 pól. Ile czarnych pól mógł zawierać ten kwadrat?",
+      "options": {
+        "A": "11",
+        "B": "12",
+        "C": "13",
+        "D": "14"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "Na stole jest 12 pudełek z przykrywką: 7 koloru czerwonego, 3 koloru żółtego i 2 koloru zielonego (przykrywka i pudełko mają ten sam kolor). Można tak pozamieniać między sobą przykrywki tych pudełek, aby:",
+      "options": {
+        "A": "żadne pudełko nie miało tego samego koloru, co jego przykrywka",
+        "B": "każde pudełko albo było czerwone, albo miało czerwoną przykrywkę",
+        "C": "żadne czerwone pudełko nie miało żółtej przykrywki",
+        "D": "każde zielone pudełko miało żółtą przykrywkę"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Z ilu zapałek można ułożyć kwadrat? Zapałek nie wolno łamać i trzeba wykorzystać je wszystkie.",
+      "options": {
+        "A": "z 4 zapałek",
+        "B": "z 8 zapałek",
+        "C": "z 12 zapałek",
+        "D": "z 20 zapałek"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 15,
+      "text": "W trzech pudełkach znajduje się łącznie 20 kulek. Wiadomo, że w pierwszym pudełku jest dwa razy więcej kulek niż w trzecim, a w drugim jest dokładnie 5 kulek. Jaka może być liczba kulek znajdujących się w pierwszym pudełku?",
+      "options": {
+        "A": "8",
+        "B": "9",
+        "C": "10",
+        "D": "12"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "Wzdłuż drogi, w odległościach co sto metrów, rozstawione są biało-czerwone słupki. Pewien samochód w ciągu minuty jazdy minął dokładnie 7 takich słupków. Jaką odległość mógł przejechać w ciągu tej minuty?",
+      "options": {
+        "A": "700 m",
+        "B": "550 m",
+        "C": "620 m",
+        "D": "750 m"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 17,
+      "text": "Iloczyn cyfr której z poniższych liczb jest większy niż 5?",
+      "options": {
+        "A": "123",
+        "B": "107",
+        "C": "418",
+        "D": "150"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "Którą szachownicę można rozciąć na prostokąty o wymiarach 2 pola na 3 pola?",
+      "options": {
+        "A": "B) C) D)",
+        "B": "C) D)",
+        "C": "D)"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Która z wymienionych poniżej liczb w zapisie dziesiętnym ma przynajmniej dwa zera?",
+      "options": {
+        "A": "pięćdziesiąt",
+        "B": "czterysta dwa",
+        "C": "tysiąc piętnaście",
+        "D": "tysiąc osiem"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "Ile wtorków może wypaść w ciągu jednego roku?",
+      "options": {
+        "A": "51",
+        "B": "52",
+        "C": "53",
+        "D": "54"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "Która z poniższych liczb ma tę własność, że po pomnożeniu przez 7 daje w wyniku liczbę trzycyfrową (w zapisie dziesiętnym)?",
+      "options": {
+        "A": "12",
+        "B": "14",
+        "C": "15",
+        "D": "17 W sprzedaży posiadamy zbiory zadań z rozwiązaniami z Alfika Matematycznego:  „Konkursy matematyczne dla najmłodszych” (zadania dla klas III – IV z lat 1994 – 2003)  „Konkursy matematyczne dla uczniów szkół podstawowych” (zadania dla klas V – VI z lat 1994 – 2003)  „Konkursy matematyczne dla gimnazjalistów” (zadania dla klas I – III gimnazjum z lat 1994 – 2002) Książki do nabycia w sprzedaży wysyłkowej. Przyjmujemy zamówienia listownie i przez Internet. Zapraszamy też na obozy wypoczynkowo-naukowe „Konie, matematyka i języki” w czasie wakacji. © Copyright by Łowcy Talentów – JERSZ, Wilczyn 2007"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

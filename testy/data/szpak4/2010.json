@@ -1,0 +1,391 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2010",
+  "year": "2010",
+  "edition": "2010",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Którą z poniższych kwot można odliczyć samymi dwu- i pięciozłotówkami, jeśli chcemy użyć dokładnie dwa razy więcej dwuzłotówek niż pięciozłotówek?",
+      "options": {
+        "A": "47 zł",
+        "B": "54 zł",
+        "C": "63 zł",
+        "D": "85 zł"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "W magazynie znajduje się pięć skrzynek pomarańczy. Jeśli każda skrzynka zawiera albo 3 kg albo 5 kg pomarańczy, to ile łącznie pomarańczy mogą one zawierać?",
+      "options": {
+        "A": "21 kg",
+        "B": "22 kg",
+        "C": "23 kg",
+        "D": "24 kg"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "Która z czterech wymienionych poniżej liczb ma tę własność, że jest mniejsza od sumy trzech pozostałych?",
+      "options": {
+        "A": "24",
+        "B": "18",
+        "C": "49",
+        "D": "91"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "Koło na rysunku obok zostało podzielone na 13 obszarów. Wśród tych obszarów:",
+      "options": {
+        "A": "każdy sąsiaduje z przynajmniej czterema innymi obszarami",
+        "B": "jest taki obszar, który sąsiaduje z siedmioma innymi",
+        "C": "więcej niż połowa obszarów sąsiaduje z pięcioma lub więcej obszarami",
+        "D": "jest taki obszar, który sąsiaduje z mniej niż czterema obszarami"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "W którym dniu może wypaść pierwsza niedziela listopada?",
+      "options": {
+        "A": "3 listopada",
+        "B": "5 listopada",
+        "C": "7 listopada",
+        "D": "8 listopada"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "Którą z poniższych liczb można zwiększyć sześciokrotnie przez dopisanie jednej cyfry na początku liczby?",
+      "options": {
+        "A": "20",
+        "B": "40",
+        "C": "50",
+        "D": "60"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "Numer ostatniej strony encyklopedii jest liczbą czterocyfrową, mającą cyfrę tysięcy równą 1 i cyfrę setek równą 5. Ile kartek może mieć ta encyklopedia?",
+      "options": {
+        "A": "1500",
+        "B": "760",
+        "C": "1550",
+        "D": "800"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "Która z poniższych liczb ma tę własność, że jest dokładnie o 9 mniejsza od liczby powstałej z niej przez zamianę miejscami obu jej cyfr?",
+      "options": {
+        "A": "23",
+        "B": "32",
+        "C": "46",
+        "D": "89"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "Pewna dwucyfrowa liczba ma tę własność, że suma jej cyfr jest równa iloczynowi jej cyfr. Jaką może mieć ona cyfrę dziesiątek?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "Trójkąt pokazany na rysunku obok (trójkąt równoboczny) można rozciąć na:",
+      "options": {
+        "A": "dwa jednakowe trójkąty",
+        "B": "trzy jednakowe trójkąty",
+        "C": "cztery jednakowe trójkąty",
+        "D": "sześć jednakowych trójkątów"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Między ile osób możemy rozdzielić 24 cukierki, jeśli chcemy by każdy otrzymał inną liczbę cukierków i każdy dostał przynajmniej 2 cukierki?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "8"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "Czterej rolnicy chcą podzielić kwadratowe pole na cztery jednakowe działki. Mogą to zrobić w taki sposób, by każda z otrzymanych działek miała kształt:",
+      "options": {
+        "A": "trójkąta",
+        "B": "prostokąta (nie będącego kwadratem)",
+        "C": "kwadratu",
+        "D": "koła"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "Jeśli 12 (jednakowych) długopisów kosztuje tyle samo co 15 (jednakowych) ołówków, to:",
+      "options": {
+        "A": "8 długopisów kosztuje tyle co 10 ołówków",
+        "B": "16 długopisów kosztuje tyle co 21 ołówków",
+        "C": "3 długopisy i 2 ołówki kosztują łącznie tyle co 6 ołówków",
+        "D": "4 długopisy i 3 ołówki kosztują łącznie tyle co 8 ołówków"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Jaką cyfrę jedności może mieć liczba, którą można przedstawić w postaci iloczynu pewnej liczby trójek?",
+      "options": {
+        "A": "1",
+        "B": "5",
+        "C": "7",
+        "D": "8"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 15,
+      "text": "Staś ma do dyspozycji cztery zestawy kartoników. Z którego z tych zestawów, wykorzystując wszystkie kartkoniki może ułożyć kwadrat? Kartoniki w układanym kwadracie nie mogą na siebie zachodzić i trzeba wykorzystać wszystkie kartoniki z zestawu.",
+      "options": {
+        "A": "1 kwadratowy kartonik o boku 20 cm i 5 kwadratowych kartoników o boku 10 cm każdy",
+        "B": "1 kwadratowy kartonik o boku 30 cm i 7 kwadratowych kartoników o boku 10 cm każdy",
+        "C": "1 kwadratowy kartonik o boku 40 cm i 9 kwadratowych kartoników o boku 10 cm każdy",
+        "D": "3 kwadratowe kartoniki o boku 20 cm i 4 kwadratowe kartoniki o boku 10 cm każdy"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "Na stole leży stosik 10 kamyków. Jacek i Agatka na zmianę wykonują ruch polegający na dorzuceniu 6 kamyków albo zabraniu 9 kamyków. Po wykonaniu pewnej liczby takich ruchów na stole może poz ostać:",
+      "options": {
+        "A": "7 kamyków",
+        "B": "4 kamyki",
+        "C": "19 kamyków",
+        "D": "13 kamyków"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 17,
+      "text": "Z ilu klocków o kształcie jak na rysunku obok można zbudować kwadrat? Klocki nie mogą na siebie zachodzić i trzeba wykorzystać je wszystkie.",
+      "options": {
+        "A": "4",
+        "B": "8",
+        "C": "16",
+        "D": "36"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "Na ile kwadratów (niekoniecznie jednakowych) można rozciąć kwadrat?",
+      "options": {
+        "A": "4",
+        "B": "7",
+        "C": "9",
+        "D": "12"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Wśród 27 przedstawicieli pięciu kontynentów było więcej Amerykanów niż mieszkańców Afryki, mniej Australijczyków niż Europejczyków, więcej Azjatów niż Amerykanów i mniej Europejczyków niż Afrykanów. Ilu mogło być przedstawicieli Europy, jeśli wiemy, że każdy z wymienionych pięciu kontynentów był reprezentowany przez przynajmniej dwie osoby?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "W ciągu dwutygodniowego urlopu pana Waldka nie zdarzyło się ani razu by padało przez trzy kolejne dni. Ale nie było też takiej sytuacji, by trzy kolejne dni były bez deszczu. Ile deszczowych dni mógł mieć pan Waldek w trakcie tego urlopu?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "10",
+        "D": "11"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "W każdej z trzech urn znajduje się inna liczba kulek, przy czym w każdej są przynajmniej dwie kulki. Wiadomo też, że urna zawierająca najwięcej kulek zawiera ich o dwie więcej niż urna, w której jest najmniej kulek. Jaka może być łączna liczba kulek we wszystkich urnach?",
+      "options": {
+        "A": "6",
+        "B": "12",
+        "C": "19",
+        "D": "24 W sprzedaży posiadamy zbiory zadań z rozwiązaniami z Alfika Matematycznego:  „Konkursy matematyczne dla najmłodszych” (zadania dla klas III – IV z lat 1994 – 2007)  „Konkursy matematyczne dla uczniów szkół podstawowych” (zadania dla klas V – VI z lat 1994 – 2009)  „Konkursy matematyczne dla gimnazjalistów” (zadania dla klas I – III gimnazjum z lat 1994 – 2002) Książki do nabycia w sprzedaży wysyłkowej. Przyjmujemy zamówienia listownie i przez Internet. Zapraszamy też na obozy wypoczynkowo-naukowe w czasie wakacji. © Copyright by Łowcy Talentów – JERSZ, Wilczyn 2010"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

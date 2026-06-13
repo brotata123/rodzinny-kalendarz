@@ -1,0 +1,391 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2014",
+  "year": "2014",
+  "edition": "2014",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "W ilu monetach można wypłacić kwotę 5 zł?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "Którą z poniższych liczb można przedstawić w postaci iloczynu liczb jednocyfrowych?",
+      "options": {
+        "A": "52",
+        "B": "98",
+        "C": "68",
+        "D": "63"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "Ściany sześciennej kostki do gry opisano liczbami 3, 8, 0, 11, 6 i 14 (każdą ścianę inną liczbą) tak, że suma liczb na każdej parze przeciwległych ścian była taka sama. Wobec tego:",
+      "options": {
+        "A": "ściana z liczbą 3 sąsiaduje ze ścianą z liczbą 6",
+        "B": "ściana z liczbą 8 leży naprzeciwko ściany z liczbą 11",
+        "C": "ściana z liczbą 11 sąsiaduje ze ścianą z liczbą 3",
+        "D": "ściana z liczbą 14 leży naprzeciwko ściany z liczbą 0"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "Na każdej z czterech wymienionych poniżej szachownic pole w lewym górnym rogu jest białe. Na której z nich białe jest również pole w prawym dolnym rogu?",
+      "options": {
+        "A": "szachownica rozmiaru 6×6",
+        "B": "szachownica rozmiaru 7×7",
+        "C": "szachownica rozmiaru 8×8",
+        "D": "szachownica rozmiaru 9×9"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "Iloczyn cyfr pewnej liczby dwucyfrowej wynosi 12. Jaka może być suma cyfr tej liczby?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "Wybory prezydenta Stanów Zjednoczonych zawsze odbywają się w pierwszy wtorek po pierwszym poniedziałku listopada. Jaka może być data tych wyborów?",
+      "options": {
+        "A": "1 listopada",
+        "B": "2 listopada",
+        "C": "8 listopada",
+        "D": "9 listopada"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "Strony pewnej książki są ponumerowane kolejnymi liczbami od 1 do 40. Do ponumerowania stron tej książki:",
+      "options": {
+        "A": "użyto 71 cyfr",
+        "B": "użyto 14 razy cyfrę 3",
+        "C": "użyto 11 razy cyfrę 0",
+        "D": "użyto 4 razy cyfrę 5"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "Bartek i Darek zjedli razem całą paczkę cukierków. Bartek zjadł ponad trzy razy więcej cukierków niż Darek, zaś Darek zjadł o 12 cukierków mniej Bartek. Ile cukierków mogło być w tej paczce?",
+      "options": {
+        "A": "17",
+        "B": "19",
+        "C": "22",
+        "D": "24"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "Która z poniższych liczb dwucyfrowych zwiększa się 9-krotnie po wstawieniu zera pomiędzy jej cyfry?",
+      "options": {
+        "A": "27",
+        "B": "36",
+        "C": "45",
+        "D": "54"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "Na niektórych polach szachownicy o wymiarach 4×4 chcemy ustawić po jednym pionku tak, by w każdym wierszu i w każdej kolumnie znajdowała się jednakowa liczba pionków. Ile pionków możemy w ten sposób ustawić?",
+      "options": {
+        "A": "4",
+        "B": "8",
+        "C": "10",
+        "D": "12"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Na stole leżą trzy stosy kamieni: na pierwszym stosie jest 11 kamieni, na drugim – 8 kamieni, a na trzecim – 5 kamieni. Kamienie wolno przenosić między stosami za każdym razem biorąc po jednym kamyku z dwóch stosów i odkładając oba kamyki na trzeci stos. Przy pomocy takich ruchów można:",
+      "options": {
+        "A": "przenieść wszystkie kamyki na pierwszy stos",
+        "B": "przenieść wszystkie kamyki na drugi stos",
+        "C": "przenieść wszystkie kamyki na trzeci stos",
+        "D": "doprowadzić do sytuacji, gdy na każdym stosie będzie 8 kamieni"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "W trakcie 10-dniowego urlopu pana Pawła często padał deszcz, nie zdarzyło się jednak by padało przez trzy kolejne dni. Z drugiej strony nie zdarzyło się również, by trzy kolejne dni były bez deszczu. Ile deszczowych dni mogło wystąpić w trakcie urlopu pana Pawła?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "6",
+        "D": "7"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "Staszek ma w portmonetce same dwuzłotówki i pięciozłotówki, przy czym dwuzłotówek ma dwa razy tyle co pięciozłotówek. Ile pieniędzy może mieć Staszek?",
+      "options": {
+        "A": "27 zł",
+        "B": "30 zł",
+        "C": "35 zł",
+        "D": "36 zł"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Od pewnej dwucyfrowej liczby odjęto liczbę powstałą z niej przez zamianę miejscami obu cyfr. Jaki mógł być wynik tego odejmowania?",
+      "options": {
+        "A": "27",
+        "B": "36",
+        "C": "45",
+        "D": "56"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 15,
+      "text": "W każde pole szachownicy o wymiarach 3×3 wpisano jedną z liczb 1, 2, 3, 4, 5, 6, 7, 8, 9 (w każde pole inną liczbę) tak, że suma liczb w każdej kolumnie, w każdym wierszu i na każdej z dwóch przekątnych była taka sama. Ile mogła wynosić ta suma?",
+      "options": {
+        "A": "12",
+        "B": "14",
+        "C": "16",
+        "D": "15"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "W pewnej klasie dziewcząt jest dokładnie dwa i pół raza tyle co chłopców. Ilu uczniów może liczyć ta klasa?",
+      "options": {
+        "A": "24",
+        "B": "28",
+        "C": "35",
+        "D": "36"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 17,
+      "text": "Kwadratową łąkę chcemy podzielić na mniejsze kwadratowe działki (niekoniecznie jednakowe). Na ile działek możemy podzielić tę łąkę?",
+      "options": {
+        "A": "4",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "Uczniów pewnej klasy można podzielić na trzyosobowe grupy, można ich też podzielić na dwuosobowe grupy, natomiast gdyby próbować ich dzielić na pięcioosobowe grupy, to trzy osoby zostaną bez przydziału. Ilu uczniów może liczyć ta klasa?",
+      "options": {
+        "A": "mniej niż 10 uczniów",
+        "B": "kilkunastu uczniów",
+        "C": "dwudziestu kilku uczniów",
+        "D": "trzydziestu kilku uczniów"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Jaka może być liczba piątków w jednym roku?",
+      "options": {
+        "A": "51",
+        "B": "52",
+        "C": "53",
+        "D": "54"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "Część pól szachownicy o wymiarach 6×6 chcemy przemalować na zielono tak, by każde zielone pole sąsiadowało (miało wspólny bok) albo z dwoma zielonymi polami albo z trzema zielonymi polami. Jaka może być liczba pól przemalowanych na zielono?",
+      "options": {
+        "A": "20",
+        "B": "28",
+        "C": "30",
+        "D": "34"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "Rycerz walczący ze smokiem może jednym cięciem obciąć smokowi 7 głów albo 14 głów. Jeśli obetnie smokowi 7 głów, to w ich miejsce wyrastają nowe 23 głowy, jeśli zaś obetnie 14 głów, to w ich miejsce nic nie odrasta. Aby zabić smoka rycerz musi ściąć mu wszystkie głowy. Rycerz jest w stanie tego dokonać jeśli smok ma:",
+      "options": {
+        "A": "19 głów",
+        "B": "20 głów",
+        "C": "21 głów",
+        "D": "16 głów PATRONI I PARTNERZY © COPYRIGHT BY ŁOWCY TALENTÓW – JERSZ. WILCZYN 2014"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

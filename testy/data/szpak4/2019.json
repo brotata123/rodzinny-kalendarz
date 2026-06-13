@@ -1,0 +1,391 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2019",
+  "year": "2019",
+  "edition": "2019",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Pewien film trwał dłużej niż godzinę, ale krócej niż 100 minut. Ile kwadransów mógł trwać ten film?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "W jakim dniu może wypaść ostatni piątek listopada?",
+      "options": {
+        "A": "23 listopada",
+        "B": "24 listopada",
+        "C": "25 listopada",
+        "D": "26 listopada"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "Suma trzech kolejnych liczb (naturalnych) może być równa:",
+      "options": {
+        "A": "25",
+        "B": "27",
+        "C": "32",
+        "D": "36"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "W pudełku są kulki czerwone i niebieskie, przy czym niebieskich jest o 7 więcej niż czerwonych. Jaka może być łączna liczba kulek (obu kolorów) w tym pudełku?",
+      "options": {
+        "A": "19",
+        "B": "24",
+        "C": "27",
+        "D": "32"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "Bartek ma dzisiaj urodziny. Ile lat może kończyć, jeśli wiemy, że urodził się w XX wieku?",
+      "options": {
+        "A": "18",
+        "B": "19",
+        "C": "20",
+        "D": "21"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "Ania ma 10 monet, z których każda jest dwuzłotówką lub pięciozłotówką. Ile pieniędzy może mieć Ania?",
+      "options": {
+        "A": "21 zł",
+        "B": "32 zł",
+        "C": "38 zł",
+        "D": "40 zł"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "Na każdej ścianie sześciennej kostki do gry jest od 1 do 6 oczek (na każdej ścianie inna liczba). Marcin wykonał rzut pięcioma takimi kostkami i uzyskał łącznie 19 oczek. Na ilu kostkach mogły wypaść liczby nieparzyste, jeśli na żadnej z nich nie wypadła piątka?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "Przestawiając cyfry w roku urodzenia Ani możemy otrzymać rok urodzenia Basi. Jaka może być różnica wieku między dziewczynkami, jeśli obie obchodzą dziś urodziny i żadna nie skończyła jeszcze 20 lat?",
+      "options": {
+        "A": "4 lata",
+        "B": "7 lat",
+        "C": "9 lat",
+        "D": "12 lat"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "Na ile kwadratów (niekoniecznie jednakowych) można rozciąć kwadrat?",
+      "options": {
+        "A": "4",
+        "B": "6",
+        "C": "8",
+        "D": "10"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "W działaniu 3 · 4 – 2 · 5 + 1 można tak rozstawić nawiasy, żeby otrzymać działanie dające wynik:",
+      "options": {
+        "A": "0",
+        "B": "31",
+        "C": "33",
+        "D": "36"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Pewną biało-czarną szachownicę rozcięto na szachownice rozmiaru 3×3, wśród których było tyle samo szachownic z narożnymi polami czarnymi co szachownic z narożnymi polami białymi. Jaki mógł być rozmiar rozcinanej szachownicy?",
+      "options": {
+        "A": "6×6",
+        "B": "9×6",
+        "C": "9×9",
+        "D": "12×9"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "Na stole leży 5 monet, wszystkie reszkami do góry. W każdym ruchu odwracamy 3 monety. Wykonując takie ruchy możemy doprowadzić do sytuacji, gdy na stole będzie:",
+      "options": {
+        "A": "5 orłów",
+        "B": "4 orły i 1 reszka",
+        "C": "3 orły i 2 reszki",
+        "D": "2 orły i 3 reszki"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "Pewna trzycyfrowa liczba ma sumę cyfr równą iloczynowi cyfr. Jaka może być cyfra setek tej liczby?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "9"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Ile tygodni może upłynąć od ostatniego piątku czerwca do pierwszego piątku września?",
+      "options": {
+        "A": "8",
+        "B": "9",
+        "C": "10",
+        "D": "11"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 15,
+      "text": "Gdy nauczycielka dzieliła dzieci z pewnej klasy na grupy czteroosobowe, to jedna osoba zostawała bez przydziału, a gdy dzieliła na grupy pięcioosobowe, to dwie osoby zostawały bez przydziału. Ilu uczniów mogła liczyć ta klasa?",
+      "options": {
+        "A": "27",
+        "B": "22",
+        "C": "21",
+        "D": "mniej niż 20"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "W każdym wierzchołku kwadratu wpisano pewną liczbę jednocyfrową, a na każdym boku tego kwadratu – sumę liczb z jego końców. W ten sposób na bokach znalazły się liczby: 8, 10, 15, 17 (niekoniecznie w tej kolejności). Jedną z liczb wpisanych w wierzchołkach kwadratu mogła być:",
+      "options": {
+        "A": "2",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 17,
+      "text": "W pewnej klasie jest dokładnie 3 razy więcej dziewcząt niż chłopców. Ilu uczniów może liczyć ta klasa?",
+      "options": {
+        "A": "24",
+        "B": "27",
+        "C": "28",
+        "D": "30"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "W pewnym turnieju szachowym każdy uczestnik miał rozegrać z każdym innym jedną partię. Dwaj uczestnicy wycofali się w trakcie rozgrywek i nie rozegrali wszystkich zaplanowanych partii. Pozostali rozegrali między sobą wszystkie przewidziane partie. Ilu mogło być wszystkich uczestników turnieju, jeśli łącznie rozegrano 17 partii?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Pan Piotr ma córkę i syna. Rok temu pan Piotr był dokładnie dwa razy starszy od syna, a za rok będzie dokładnie dwa razy od córki. Kiedy mogła nastąpić taka sytuacja, że liczba lat pana Piotra jest równa łącznej liczbie lat obojga jego dzieci?",
+      "options": {
+        "A": "teraz",
+        "B": "rok temu",
+        "C": "za rok",
+        "D": "za dwa lata"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "Jeśli w miejsce każdej gwiazdki w schemacie: 5 * 4 * 3 * 2 * 1 wpiszemy znak dodawania, odejmowania lub mnożenia, a następnie wykonamy otrzymane działanie, to możemy otrzymać wynik:",
+      "options": {
+        "A": "16",
+        "B": "18",
+        "C": "19",
+        "D": "20"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "Ilu uczniów może liczyć klasa Marzeny, jeśli jest w niej dokładnie o połowę więcej chłopców niż dziewcząt?",
+      "options": {
+        "A": "21",
+        "B": "24",
+        "C": "25",
+        "D": "30 © COPYRIGHT BY ŁOWCY TALENTÓW – JERSZ. WILCZYN 2019"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

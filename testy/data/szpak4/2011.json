@@ -1,0 +1,390 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2011",
+  "year": "2011",
+  "edition": "2011",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Która z wymienionych poniżej liczb jest dwukrotnie większa od iloczynu swoich cyfr?",
+      "options": {
+        "A": "24",
+        "B": "36",
+        "C": "28",
+        "D": "72"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "W liczbie, o której pomyślałem, cyfra jedności jest o 3 mniejsza od cyfry setek, cyfra setek jest o 3 mniejsza od cyfry tysięcy, a cyfra tysięcy jest o 3 mniejsza od cyfry dziesiątek. Jaką cyfrę setek może mieć ta liczba?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "Która z poniższych liczb ma w swoim zapisie przynajmniej trzy różne cyfry?",
+      "options": {
+        "A": "dwieście trzynaście",
+        "B": "tysiąc dwadzieścia",
+        "C": "tysiąc sto",
+        "D": "dwieście dwa"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "Liczbę 360 można przedstawić w postaci iloczynu:",
+      "options": {
+        "A": "3 liczb jednocyfrowych",
+        "B": "4 liczb jednocyfrowych",
+        "C": "5 liczb jednocyfrowych",
+        "D": "6 liczb jednocyfrowych"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "Kwadrat rozcięto na jednakowe kwadraciki. Ile części można otrzymać z takiego podziału?",
+      "options": {
+        "A": "64",
+        "B": "72",
+        "C": "81",
+        "D": "90"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "Staszek był za granicą przez pełne trzy kolejne miesiące, łącznie 91 dni. Pierwszym miesiącem pobytu za granicą mógł być:",
+      "options": {
+        "A": "kwiecień",
+        "B": "czerwiec",
+        "C": "sierpień",
+        "D": "listopad"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "W urnie jest osiem kulek, opisanych liczbami od 1 do 8 (każda kulka inną liczbą). Chcemy te kulki pomalować w taki sposób, by suma liczb na kulkach każdego koloru była taka sama. Możemy to zrobić, używając:",
+      "options": {
+        "A": "2 kolorów",
+        "B": "3 kolorów",
+        "C": "4 kolorów",
+        "D": "5 kolorów"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "Kwadrat o boku długości 6, pokazany na rysunku obok, rozcięto na 11 mniejszych kwadratów. Z otrzymanych części (wykorzystując je wszystkie) można ułożyć prostokąt o szerokości:",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "Szachownica o wymiarach 5×5 ma pole w lewym dolnym rogu koloru czarnego. Na szachownicy tej jest dokładnie:",
+      "options": {
+        "A": "12 pól białych",
+        "B": "12 pól czarnych",
+        "C": "13 pól białych",
+        "D": "13 pól czarnych"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "Na pierwszym stosie kładziemy jeden kamyk, na drugim stosie – również jeden kamyk, a na każdym kolejnym stosie – łączną liczbę ułożonych już kamyków (tzn. na trzecim stosie kładziemy 1 + 1 = 2 kamyki itd.). Wobec tego:",
+      "options": {
+        "A": "na szóstym stosie będzie 16 kamyków",
+        "B": "na siódmym stosie będzie 30 kamyków",
+        "C": "na ósmym stosie będzie ponad 60 kamyków",
+        "D": "na dziewiątym stosie będzie 126 kamyków"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Po obliczeniu sumy kolejnych liczb naturalnych Maciek stwierdził, że otrzymał wynik będący dwucyfrową liczbą o jednakowych cyfrach. Jakie liczby mógł dodać Maciek?",
+      "options": {
+        "A": "od 1 do 9",
+        "B": "od 1 do 10",
+        "C": "od 1 do 11",
+        "D": "od 1 do 12"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "W którym wieku wystąpił rok o tej własności, że iloczyn jego cyfr jest równy 210?",
+      "options": {
+        "A": "XIII",
+        "B": "XIV",
+        "C": "XV",
+        "D": "XVI"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "Jacek ma pewną kwotę w dwuzłotówkach i pięciozłotówkach, przy czym dwuzłotówek ma dwa razy więcej niż pięciozłotówek. Ile może mieć pieniędzy?",
+      "options": {
+        "A": "36 zł",
+        "B": "40 zł",
+        "C": "45 zł",
+        "D": "56 zł"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Pan Jan ma trzech synów i wszyscy mają dziś urodziny. Iloczyn liczb ich lat wynosi 385. Jeśli żadne z dzieci pana Jana nie urodziło się w ubiegłym roku, to wśród jego dzieci musi być:",
+      "options": {
+        "A": "trzylatek",
+        "B": "pięciolatek",
+        "C": "siedmiolatek",
+        "D": "dziewięciolatek"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 15,
+      "text": "Pociąg zestawiony jest z lokomotywy oraz 10 wagonów (łącznie pierwszej i drugiej klasy). Ile wagonów drugiej klasy może być w składzie pociągu, jeśli wiadomo, że do każdego wagonu drugiej klasy przyłączony jest wagon pierwszej klasy, a do każdego wagonu pierwszej klasy przyłączony jest wagon drugiej klasy?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "Która z poniższych liczb pierwszych może być dzielnikiem trzycyfrowej liczby ułożonej z cyfr 1, 2 i 3 (cyfry w układanej liczbie nie mogą się powtarzać)?",
+      "options": {
+        "A": "5",
+        "B": "7",
+        "C": "11",
+        "D": "13"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 17,
+      "text": "Gdyby do liczby, o której pomyślałem dodać jeden, to suma jej cyfr zmalałaby o 26. Liczba, o której pomyślałem mogła być:",
+      "options": {
+        "A": "jednocyfrowa",
+        "B": "dwucyfrowa",
+        "C": "trzycyfrowa",
+        "D": "czterocyfrowa"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "Którą z poniższych figur można rozciąć na trzy jednakowe części?",
+      "options": {
+        "A": "B) C) D)",
+        "B": "C) D)",
+        "C": "D)"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Cztery zegarki pokazują następujące godziny: 1510, 1451, 1502, 1459. Wiadomo, że jeden z tych zegarków spóźnia się o 7 minut, zaś inny spieszy się o 4 minuty. Jaka może być prawidłowa godzina?",
+      "options": {
+        "A": "1458",
+        "B": "1447",
+        "C": "1455",
+        "D": "1506"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "Suma pewnych dwóch jednocyfrowych liczb naturalnych jest o 12 większa od ich różnicy. Ile może być równa mniejsza z dodawanych liczb?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "Jeśli pomiędzy każde dwie cyfry w napisie: 2 5 1 6 3 wstawimy znak dodawania (+), mnożenia ( · ) lub odejmowania ( – ), to po wykonaniu otrzymanych w ten sposób działań możemy otrzymać wynik:",
+      "options": {
+        "A": "5",
+        "B": "7",
+        "C": "10",
+        "D": "13 W sprzedaży posiadamy zbiory zadań z rozwiązaniami z Alfika Matematycznego:  „Konkursy matematyczne dla najmłodszych” (zadania dla klas III – IV z lat 1994 – 2007)  „Konkursy matematyczne dla uczneiów szkół podstawowych” (zadania dla klas V – VI z lat 1994 – 2009)  „Konkursy matematyczne dla gimnazjalistów” (zadania dla klas I – III gimnazjum z lat 1994 – 2009) Książki do nabycia w sprzedaży wysyłkowej. Przyjmujemy zamówienia telefonicznie i przez Internet. Zapraszamy też na obozy wypoczynkowo-naukowe w czasie wakacji. © Copyright by Łowcy Talentów – JERSZ, Wilczyn 2011"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

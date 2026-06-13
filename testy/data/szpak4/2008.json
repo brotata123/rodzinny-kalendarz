@@ -1,0 +1,390 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK 2008",
+  "year": "2008",
+  "edition": "2008",
+  "class": "Klasa 4",
+  "totalQuestions": 21,
+  "maxPoints": 168,
+  "startingPoints": 84,
+  "timeMinutes": 90,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Przedstawienie teatralne trwało dokładnie 170 minut. Ile to było czasu?",
+      "options": {
+        "A": "mniej niż 12 kwadransów",
+        "B": "ponad 3 godziny",
+        "C": "więcej niż dwie i pół godziny",
+        "D": "mniej niż 10 000 sekund"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 2,
+      "text": "Którą z poniższych kwot można odliczyć mając do dyspozycji jedynie dwuzłotówki i pięciozłotówki?",
+      "options": {
+        "A": "6 zł",
+        "B": "3 zł",
+        "C": "13 zł",
+        "D": "11 zł"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 3,
+      "text": "Który z poniższych znaków powstał przez obrót znaku pokazanego na rysunku obok?",
+      "options": {
+        "A": "B) C) D)",
+        "B": "C) D)",
+        "C": "D)"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 4,
+      "text": "Marek wykonuje rzut trzema sześciennymi kostkami do gry. Wiemy, że na pierwszej kostce wypadły dwa oczka. Łączna liczba oczek uzyskana na wszystkich trzech kostkach mogła być równa:",
+      "options": {
+        "A": "13",
+        "B": "15",
+        "C": "17",
+        "D": "19"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 5,
+      "text": "W Anglii do dziś używane są nietypowe jednostki długości: mile, jardy, stopy i cale. Jedna mila jest równa 1760 jardów, 1 jard to 3 stopy, a 1 stopa to 12 cali. Która z poniższych odległości jest dokładnie równa jednej mili?",
+      "options": {
+        "A": "1760 jardów",
+        "B": "5280 stóp",
+        "C": "21 120 cali",
+        "D": "3520 stóp"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 6,
+      "text": "Na rysunku obok pokazany jest wyświetlacz elektronicznego zegarka, częściowo zasłonięty paskiem papieru. Jaką godzinę może wskazywać zegar?",
+      "options": {
+        "A": "późniejszą niż 1330, ale wcześniejszą niż 1500",
+        "B": "późniejszą niż 1430, ale wcześniejszą niż 1600",
+        "C": "późniejszą niż 1530, ale wcześniejszą niż 1700",
+        "D": "późniejszą niż 1630, ale wcześniejszą niż 1800"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 7,
+      "text": "Którą z poniższych liczb można przedstawić w postaci iloczynu dwóch liczb (naturalnych) większych niż 1?",
+      "options": {
+        "A": "121",
+        "B": "61",
+        "C": "91",
+        "D": "143"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 8,
+      "text": "Do zapisania której z poniższych liczb (w systemie dziesiętnym) potrzebna jest cyfra zero?",
+      "options": {
+        "A": "sto tysięcy sto jedenaście",
+        "B": "sto jedenaście tysięcy sto jedenaście",
+        "C": "jedenaście tysięcy sto jeden",
+        "D": "tysiąc sto jedenaście"
+      },
+      "correct": {
+        "A": true,
+        "B": false,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 9,
+      "text": "Szachownica przedstawiona na rysunku obok ma:",
+      "options": {
+        "A": "tyle samo pól białych co czarnych",
+        "B": "mniej niż 18 pól czarnych",
+        "C": "tyle samo pól czarnych w każdym wierszu",
+        "D": "więcej niż 17 pól białych"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 10,
+      "text": "Która z wymienionych poniżej liczb ma sumę cyfr większą niż iloczyn cyfr?",
+      "options": {
+        "A": "124",
+        "B": "302",
+        "C": "181",
+        "D": "99"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 11,
+      "text": "Syn państwa Kowalskich urodził się w środę, 14 lutego pewnego roku. W jakim dniu tygodnia mógł wypaść dzień, w którym ich syn skończył miesiąc, tj. 14 marca owego roku?",
+      "options": {
+        "A": "wtorek",
+        "B": "środa",
+        "C": "czwartek",
+        "D": "piątek"
+      },
+      "correct": {
+        "A": false,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 12,
+      "text": "W każdym z trzech pudełek znajduje się pewna liczba magicznych kulek. Wiadomo, że w pierwszym pudełku jest więcej kulek niż w trzecim, łącznie w pudełkach pierwszym i trzecim jest dokładnie tyle kulek co w drugim, a w drugim pudełku jest mniej niż 6 kulek. Ile kulek może być w pierwszym pudełku?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "6"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 13,
+      "text": "Jeśli 8 zł wystarcza do zakupienia 4 metrów tasiemki, ale jest to za mało by kupić 5 metrów takiej tasiemki, to:",
+      "options": {
+        "A": "10 zł wystarcza do kupienia 5 metrów tasiemki 12",
+        "B": "6 zł to za mało do kupienia 4 metrów tasiemki",
+        "C": "12 zł wystarcza do kupienia 8 metrów tasiemki",
+        "D": "3 zł to za mało do kupienia 2 metrów tasiemki 9 3"
+      },
+      "correct": {
+        "A": true,
+        "B": true,
+        "C": false,
+        "D": true
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 14,
+      "text": "Którą godzinę może wskazywać zegar przedstawiony na rysunku obok? 6",
+      "options": {
+        "A": "1230",
+        "B": "1330",
+        "C": "1430",
+        "D": "1530"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": true,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 15,
+      "text": "Zegarmistrz ma dwa zegarki, z których jeden wskazuje godzinę 1628, a drugi 1632. Jeśli wiemy, że jeden z tych zegarków spieszy się o nie więcej niż 5 minut, a drugi spóźnia się o nie więcej niż 5 minut, to jaka może być prawidłowa godzina?",
+      "options": {
+        "A": "1627",
+        "B": "1629",
+        "C": "1631",
+        "D": "1633"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 16,
+      "text": "Pewne dwie liczby (naturalne), z których żadna nie jest równa zero, mają tę własność, że ich iloczyn jest równy ich sumie. Jedna z tych dwóch liczb może być:",
+      "options": {
+        "A": "mniejsza niż 2",
+        "B": "mniejsza niż 4",
+        "C": "równa 4",
+        "D": "równa 6"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 17,
+      "text": "Ojciec w testamencie nakazał rozdzielić swoje stado owiec między trzech synów tak, by najstarszy syn otrzymał dokładnie dwa razy tyle owiec co średni syn, zaś średni dokładnie dwa razy tyle co najmłodszy. Czy uda się spełnić wolę ojca, jeśli stado liczy:",
+      "options": {
+        "A": "100 owiec",
+        "B": "140 owiec",
+        "C": "210 owiec",
+        "D": "160 owiec"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 18,
+      "text": "O której godzinie wskazówki zegara są ustawione w jednej linii?",
+      "options": {
+        "A": "1800",
+        "B": "1230",
+        "C": "1545",
+        "D": "600"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 19,
+      "text": "Jeśli siedem (jednakowych) ołówków kosztuje 10 zł i kilkadziesiąt groszy, to ile może kosztować jeden taki ołówek?",
+      "options": {
+        "A": "1 zł 43 gr",
+        "B": "1 zł 49 gr",
+        "C": "1 zł 53 gr",
+        "D": "1 zł 59 gr"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 20,
+      "text": "Na ile kwadratów (niekoniecznie jednakowych) można rozciąć kwadrat?",
+      "options": {
+        "A": "na 4 kwadraty",
+        "B": "na 9 kwadratów",
+        "C": "na 12 kwadratów",
+        "D": "na 6 kwadratów"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    },
+    {
+      "id": 21,
+      "text": "W kilku jednakowych bombonierkach jest łącznie dokładnie 100 czekoladek. Ile czekoladek może zawierać każda bombonierka?",
+      "options": {
+        "A": "5 czekoladek",
+        "B": "6 czekoladek",
+        "C": "20 czekoladek",
+        "D": "25 czekoladek W sprzedaży posiadamy zbiory zadań z rozwiązaniami z Alfika Matematycznego:  „Konkursy matematyczne dla najmłodszych” (zadania dla klas III – IV z lat 1994 – 2003)  „Konkursy matematyczne dla uczniów szkół podstawowych” (zadania dla klas V – VI z lat 1994 – 2003)  „Konkursy matematyczne dla gimnazjalistów” (zadania dla klas I – III gimnazjum z lat 1994 – 2002) Książki do nabycia w sprzedaży wysyłkowej. Przyjmujemy zamówienia listownie i przez Internet. Zapraszamy też na obozy wypoczynkowo-naukowe „Konie, matematyka i języki” w czasie wakacji. © Copyright by Łowcy Talentów – JERSZ, Wilczyn 2008"
+      },
+      "correct": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false
+      },
+      "points": 1,
+      "penalty": -1
+    }
+  ]
+}

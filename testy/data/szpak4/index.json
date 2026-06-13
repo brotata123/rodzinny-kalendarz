@@ -1,0 +1,21 @@
+{
+  "category": "szpak4",
+  "name": "MAT SZPAK",
+  "class": "Klasa 4",
+  "tests": [
+    {"year":"2019","yearSort":2019,"edition":"2019","file":"data/szpak4/2019.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84},
+    {"year":"2018","yearSort":2018,"edition":"2018","file":"data/szpak4/2018.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84},
+    {"year":"2017","yearSort":2017,"edition":"2017","file":"data/szpak4/2017.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84},
+    {"year":"2016","yearSort":2016,"edition":"2016","file":"data/szpak4/2016.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84},
+    {"year":"2015","yearSort":2015,"edition":"2015","file":"data/szpak4/2015.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84},
+    {"year":"2014","yearSort":2014,"edition":"2014","file":"data/szpak4/2014.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84},
+    {"year":"2013","yearSort":2013,"edition":"2013","file":"data/szpak4/2013.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84},
+    {"year":"2012","yearSort":2012,"edition":"2012","file":"data/szpak4/2012.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84},
+    {"year":"2011","yearSort":2011,"edition":"2011","file":"data/szpak4/2011.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84},
+    {"year":"2010","yearSort":2010,"edition":"2010","file":"data/szpak4/2010.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84},
+    {"year":"2009","yearSort":2009,"edition":"2009","file":"data/szpak4/2009.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84},
+    {"year":"2008","yearSort":2008,"edition":"2008","file":"data/szpak4/2008.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84},
+    {"year":"2007","yearSort":2007,"edition":"2007","file":"data/szpak4/2007.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84},
+    {"year":"2006","yearSort":2006,"edition":"2006","file":"data/szpak4/2006.json","totalQuestions":21,"maxPoints":168,"timeMinutes":90,"startingPoints":84}
+  ]
+}
