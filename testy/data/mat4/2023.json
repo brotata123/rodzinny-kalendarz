@@ -1,0 +1,465 @@
+{
+  "name": "Matematix 2023 – Klasa 4",
+  "year": 2023,
+  "season": "wiosna",
+  "class": "klasa 4",
+  "category": "mat4",
+  "timeMinutes": 75,
+  "totalQuestions": 30,
+  "maxPoints": 150,
+  "startingPoints": 30,
+  "scoringNote": "start 30pkt, poprawna +pkt, blad -pkt/4, brak 0",
+  "pages": [],
+  "questions": [
+    {
+      "id": 1,
+      "text": "Ile jest trzycyfrowych liczb o sumie cyfr mniejszej niż 3?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "9"
+      },
+      "correct": "B",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 2,
+      "text": "W zawodach piłkarskich brały udział 4 drużyny i każda rozegrała jeden mecz z każdą z pozostałych. Ile meczy rozegrano?",
+      "options": {
+        "A": "4",
+        "B": "6",
+        "C": "8",
+        "D": "12",
+        "E": "16"
+      },
+      "correct": "B",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 3,
+      "text": "W ilu miejscach trzeba rozciąć pięciometrowy sznurek, żeby otrzymać cztery jednakowej długości kawałki?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "A",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 4,
+      "text": "Ile obrotów wykonuje wskazówka minutowa zegara w czasie, w którym wskazówka godzinowa wykonuje pół obrotu?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "6",
+        "D": "12",
+        "E": "24"
+      },
+      "correct": "C",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 5,
+      "text": "Dwumetrowy sznurek rozcięto na trzy kawałki, z których pierwszy miał długość 90 cm, a drugi – 90 mm. Jaka była długość trzeciego kawałka sznurka?",
+      "options": {
+        "A": "20 mm",
+        "B": "20 cm",
+        "C": "100 cm",
+        "D": "101 cm",
+        "E": "110 cm"
+      },
+      "correct": "D",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 6,
+      "text": "Która z poniższych liczb nie jest sumą dwóch kolejnych liczb naturalnych?",
+      "options": {
+        "A": "7",
+        "B": "9",
+        "C": "11",
+        "D": "14",
+        "E": "15"
+      },
+      "correct": "D",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 7,
+      "text": "Z kwadratowej szachownicy złożonej z 36 pól odcięto wszystkie pola leżące na brzegu szachownicy. Otrzymano w ten sposób mniejszą kwadratową szachownicę. Ile miała ona pól?",
+      "options": {
+        "A": "9",
+        "B": "12",
+        "C": "14",
+        "D": "16",
+        "E": "25"
+      },
+      "correct": "D",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 8,
+      "text": "Przez n! (czyt: n silnia) oznaczamy iloczyn wszystkich liczb naturalnych od 1 do n, np. 4! = 1 · 2 · 3 · 4. Oblicz 5!",
+      "options": {
+        "A": "24",
+        "B": "48",
+        "C": "80",
+        "D": "100",
+        "E": "120"
+      },
+      "correct": "E",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 9,
+      "text": "Pensjonat oferuje 10 pokoi, z czego połowa to pokoje 2-osobowe, a połowa – 3-osobowe. Ile co najmniej pokoi potrzeba dla zakwaterowania 20-osobowej wycieczki?",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "9",
+        "E": "10"
+      },
+      "correct": "C",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 10,
+      "text": "Uczniów pewnej klasy podzielono na grupy 12-osobowe i bez przydziału pozostało 8 uczniów. Gdyby tę samą klasę podzielić na grupy 6-osobowe, to ilu uczniów zostałoby bez przydziału?",
+      "options": {
+        "A": "5",
+        "B": "4",
+        "C": "3",
+        "D": "2",
+        "E": "1 Zadania po 4 punkty"
+      },
+      "correct": "D",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 11,
+      "text": "Rok temu Piotr i Paweł mieli łącznie 18 lat. Ile lat będą mieli łącznie za rok?",
+      "options": {
+        "A": "19",
+        "B": "20",
+        "C": "21",
+        "D": "22",
+        "E": "23"
+      },
+      "correct": "D",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 12,
+      "text": "Ile kafelków rozmiaru 30 cm × 50 cm potrzeba do wyłożenia podłogi pomieszczenia o wymiarach 2 m × 3 m ?",
+      "options": {
+        "A": "36",
+        "B": "37",
+        "C": "38",
+        "D": "39",
+        "E": "40"
+      },
+      "correct": "E",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 13,
+      "text": "Pewna liczba dwucyfrowa o sumie cyfr 13 jest kwadratem liczby jednocyfrowej. Jaka jest cyfra dziesiątek tej liczby?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7",
+        "E": "8"
+      },
+      "correct": "A",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 14,
+      "text": "Ziemniaki sprzedawane są w workach 3-kilogramowych (małych) i 5-kilogramowych (dużych). Staszek kupił łącznie 24 kg ziemniaków w 6 workach. Ile małych worków ziemniaków kupił?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      },
+      "correct": "C",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 15,
+      "text": "Wszystkie narożne pola kwadratowej biało-czarnej szachownicy rozmiaru 9×9 są czarne. Jeśli szachownicę tę rozetniemy na szachownice rozmiaru 3×3, to ile z otrzymanych szachownic będzie miało narożne pola białe?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5",
+        "E": "6"
+      },
+      "correct": "C",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 16,
+      "text": "Suma pewnych trzech kolejnych liczb naturalnych wynosi 39. Ile wynosi suma najmniejszej i największej z tych trzech liczb?",
+      "options": {
+        "A": "22",
+        "B": "23",
+        "C": "24",
+        "D": "25",
+        "E": "26"
+      },
+      "correct": "E",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 17,
+      "text": "Liczba palindromiczna to liczba, która czytana wprzód wygląda tak samo jak czytana wspak, np. 5445. Zarówno pani Maria, jak i jej młodszy brat, urodzili się w latach o numerach palindromicznych. O ile lat starsza jest pani Maria od swojego brata, jeśli oboje obchodzą urodziny w tym samym dniu roku?",
+      "options": {
+        "A": "9",
+        "B": "10",
+        "C": "11",
+        "D": "12",
+        "E": "15"
+      },
+      "correct": "C",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 18,
+      "text": "W klasie liczącej 24 uczniów jest tyle samo dziewczynek co chłopców. Połowa uczniów tej klasy potrafi jeździć na łyżwach. Jeśli na łyżwach potrafi jeździć 5 chłopców, to ile dziewczynek nie posiada tej umiejętności?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "C",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 19,
+      "text": "Dwanaście żetonów umieszczono w trzech pudełkach w taki sposób, że w każdym pudełku znalazła się inna liczba żetonów i w każdym pudełku było mniej żetonów niż łącznie w pozostałych dwóch pudełkach. Najmniej żetonów trafiło do pierwszego pudełka. Ile?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      },
+      "correct": "C",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 20,
+      "text": "Przy okrągłym stole jest 5 miejsc, na których usiedli: Ania, Bartek, Czarek, Darek i Ela. Jeśli Bartek siedział pomiędzy dziewczynkami, a Darek siedział po prawej stronie Ani, to kto siedział po prawej stronie Czarka?",
+      "options": {
+        "A": "Ania",
+        "B": "Bartek",
+        "C": "Czarek",
+        "D": "Darek",
+        "E": "Ela Zadania po 5 punktów"
+      },
+      "correct": "E",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 21,
+      "text": "Kwadrat o obwodzie długości 24 cm rozcięto na trzy jednakowe prostokąty. Jaką długość miał obwód każdego z otrzymanych prostokątów?",
+      "options": {
+        "A": "6 cm",
+        "B": "8 cm",
+        "C": "10 cm",
+        "D": "12 cm",
+        "E": "16 cm"
+      },
+      "correct": "E",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 22,
+      "text": "Mama Antka kończy dzisiaj tyle lat, ile wynosi suma cyfr roku jej urodzenia. Ile lat ma mama Antka?",
+      "options": {
+        "A": "18",
+        "B": "21",
+        "C": "23",
+        "D": "26",
+        "E": "27"
+      },
+      "correct": "A",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 23,
+      "text": "Trzymetrowy sznurek rozcięto na trzy kawałki: dwa krótkie, tej samej długości i jeden długi, o 60 cm dłuższy od każdego z krótkich kawałków. Jaka była długość krótkiego kawałka?",
+      "options": {
+        "A": "50 cm",
+        "B": "60 cm",
+        "C": "70 cm",
+        "D": "80 cm",
+        "E": "90 cm"
+      },
+      "correct": "D",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 24,
+      "text": "Jeśli liczbę 37 przedstawimy w postaci sumy sześciu liczb (naturalnych), to ile najwięcej nieparzystych składników może mieć ta suma?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5",
+        "E": "6"
+      },
+      "correct": "D",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 25,
+      "text": "Pierwszy dzień pewnego roku przestępnego wypadł w środę. W jakim dniu tygodnia wypadł ostatni dzień owego roku?",
+      "options": {
+        "A": "we wtorek",
+        "B": "w środę",
+        "C": "w czwartek",
+        "D": "w piątek",
+        "E": "w sobotę"
+      },
+      "correct": "C",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 26,
+      "text": "Pan Marek jedzie z Warszawy do Krakowa trasą, która ma 300 km długości. Godzinę temu był dokładnie w połowie drogi, a teraz jest dwa razy bliżej Krakowa niż Warszawy. Z jaką prędkością jedzie pan Marek?",
+      "options": {
+        "A": "50 km/h",
+        "B": "60 km/h",
+        "C": "80 km/h",
+        "D": "90 km/h",
+        "E": "100 km/h"
+      },
+      "correct": "A",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 27,
+      "text": "W urnie są 3 kule zielone, 4 kule niebieskie i 5 kul czerwonych. Ile co najmniej kul trzeba wyjąć (bez oglądania) z urny, aby mieć pewność, że wśród wyjętych będą kule przynajmniej dwóch kolorów?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "D",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 28,
+      "text": "W pierwszym pudełku jest 5 kamyków, a w drugim pudełku – 10 kamyków. W każdym ruchu przekładamy 4 kamyki z drugiego pudełka do pierwszego, albo przekładamy 3 kamyki z pierwszego pudełka do drugiego. Jaka jest najmniejsza liczba ruchów, w których można wszystkie kamyki przełożyć do jednego pudełka?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "B",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 29,
+      "text": "W równaniu 12 – 3 + 4 + 56 = 78 należy zamienić miejscami dwie cyfry tak, aby otrzymana równość była prawdziwa. Suma zamienionych cyfr może wynosić:",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "A",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 30,
+      "text": "Suma cyfr pewnej trzycyfrowej liczby jest równa iloczynowi jej cyfr. Ile wynosi ta suma cyfr?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "D",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    }
+  ]
+}

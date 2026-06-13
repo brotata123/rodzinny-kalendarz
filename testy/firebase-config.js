@@ -1,4 +1,3 @@
-// Używa tej samej konfiguracji Firebase co aplikacja Kalendarz
 const FIREBASE_CONFIG = {
   apiKey:            "AIzaSyCgHTkg2qFFkf7byguhwhmVGCaVcAjU0LE",
   authDomain:        "kalendarz-2e225.firebaseapp.com",

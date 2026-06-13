@@ -3,26 +3,23 @@ firebase.initializeApp(FIREBASE_CONFIG);
 const db = firebase.firestore();
 
 // ─── State ───────────────────────────────────────────────────
-let currentTest = null;     // loaded test JSON
-let answers = [];           // user answers (null = skipped)
-let currentQ = 0;           // 0-based question index
+let currentCategory = null;  // selected category object
+let currentTest = null;      // loaded test JSON
+let answers = [];
+let currentQ = 0;
 let timerInterval = null;
 let secondsLeft = 0;
 let testFinished = false;
 
 // ─── Zapis postępu (localStorage) ────────────────────────────
-function saveKey(year) { return `testy_progress_${year}`; }
+function saveKey(year) {
+  const catId = currentCategory ? currentCategory.id : 'alfik4';
+  return `testy_progress_${catId}_${year}`;
+}
 
 function saveProgress() {
   if (!currentTest || testFinished) return;
-  const data = {
-    year: currentTest.year,
-    file: currentTest._file,
-    answers,
-    currentQ,
-    secondsLeft,
-    savedAt: Date.now()
-  };
+  const data = { year: currentTest.year, file: currentTest._file, answers, currentQ, secondsLeft, savedAt: Date.now() };
   localStorage.setItem(saveKey(currentTest.year), JSON.stringify(data));
 }
 
@@ -37,12 +34,6 @@ function clearProgress(year) {
   localStorage.removeItem(saveKey(year));
 }
 
-function savedAt(year) {
-  const p = loadProgress(year);
-  if (!p) return null;
-  return new Date(p.savedAt);
-}
-
 // ─── Helpers ─────────────────────────────────────────────────
 function getFamilyId() {
   return window.location.hash.replace('#', '') || null;
@@ -54,35 +45,92 @@ function showScreen(id) {
   window.scrollTo(0, 0);
 }
 
+// ─── Ekran kategorii ─────────────────────────────────────────
+async function loadCategories() {
+  const grid = document.getElementById('category-grid');
+  grid.innerHTML = '<p style="padding:20px;color:#9ca3af">Ładowanie…</p>';
+
+  try {
+    const resp = await fetch('data/categories.json?v=' + Date.now());
+    const data = await resp.json();
+    grid.innerHTML = '';
+
+    data.categories.forEach(cat => {
+      const card = document.createElement('div');
+      card.className = 'category-card' + (cat.available ? '' : ' category-unavailable');
+      card.style.setProperty('--cat-color', cat.color);
+      card.innerHTML = `
+        <div class="category-emoji">${cat.emoji}</div>
+        <div class="category-info">
+          <div class="category-name">${cat.name}</div>
+          <div class="category-class">${cat.class}</div>
+        </div>
+        ${!cat.available ? '<div class="category-soon">Wkrótce</div>' : '<div class="category-arrow">→</div>'}
+      `;
+      if (cat.available) card.onclick = () => selectCategory(cat);
+      grid.appendChild(card);
+    });
+  } catch (e) {
+    grid.innerHTML = `<p style="padding:20px;color:red">Błąd: ${e.message}</p>`;
+  }
+}
+
+function showCategories() {
+  stopTimer();
+  currentTest = null;
+  currentCategory = null;
+  testFinished = false;
+  showScreen('screen-categories');
+  loadCategories();
+}
+
+async function selectCategory(cat) {
+  currentCategory = cat;
+  document.getElementById('list-title').textContent = cat.name;
+  document.getElementById('list-subtitle').textContent = cat.class;
+  showScreen('screen-list');
+  loadTestList();
+}
+
+// ─── Lista testów ─────────────────────────────────────────────
 function showList() {
   stopTimer();
   currentTest = null;
   testFinished = false;
-  showScreen('screen-list');
-  loadTestList(); // odśwież listę, żeby zaktualizować badge z postępem
+  if (currentCategory) {
+    showScreen('screen-list');
+    loadTestList();
+  } else {
+    showCategories();
+  }
 }
 
-// ─── Load test list ───────────────────────────────────────────
 async function loadTestList() {
   const grid = document.getElementById('test-grid');
   grid.innerHTML = '<p style="padding:20px;color:#9ca3af">Ładowanie testów…</p>';
 
-  // Pobierz wyniki z Firestore (mapa rok → najlepszy wynik)
+  if (!currentCategory) { showCategories(); return; }
+
+  // Pobierz wyniki z Firestore (dla bieżącej kategorii)
   const doneMap = {};
   const familyId = getFamilyId();
   if (familyId) {
     try {
-      const snap = await db.collection('families').doc(familyId).collection('tests').get();
-      snap.forEach(doc => {
+      const snap = await db.collection('families').doc(familyId).collection('tests')
+        .where('category', '==', currentCategory.id)
+        .get();
+      // Fallback: jeśli brak wyników z filtrem category, pobierz bez filtru (stare wpisy alfik4)
+      const docs = snap.docs.length > 0 ? snap.docs : (currentCategory.id === 'alfik4'
+        ? (await db.collection('families').doc(familyId).collection('tests').get()).docs.filter(d => !d.data().category)
+        : []);
+      docs.forEach(doc => {
         const d = doc.data();
         if (!d.year) return;
         const key = String(d.year);
         if (!doneMap[key] || d.points > doneMap[key].points) {
           doneMap[key] = {
-            points: d.points,
-            maxPoints: d.maxPoints,
-            tasks: d.tasks,
-            maxTasks: d.maxTasks,
+            points: d.points, maxPoints: d.maxPoints,
+            tasks: d.tasks, maxTasks: d.maxTasks,
             createdAt: d.createdAt?.toDate ? d.createdAt.toDate() : null
           };
         }
@@ -93,19 +141,21 @@ async function loadTestList() {
   }
 
   try {
-    const resp = await fetch('data/alfik4/index.json');
+    const resp = await fetch(currentCategory.folder + '/index.json?v=' + Date.now());
     const idx = await resp.json();
     grid.innerHTML = '';
+
     idx.tests.forEach(t => {
       const saved = loadProgress(t.year);
       const savedBadge = saved ? (() => {
         const d = new Date(saved.savedAt);
-        const timeStr = d.toLocaleDateString('pl-PL', { day:'numeric', month:'short' })
-          + ' ' + d.toLocaleTimeString('pl-PL', { hour:'2-digit', minute:'2-digit' });
+        const timeStr = d.toLocaleDateString('pl-PL', { day: 'numeric', month: 'short' })
+          + ' ' + d.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' });
         const answered = saved.answers.filter(a => a !== null).length;
+        const total = saved.answers.length;
         const m = Math.floor(saved.secondsLeft / 60);
-        const s = String(saved.secondsLeft % 60).padStart(2,'0');
-        return `<div class="saved-badge">▶ W toku — ${answered}/30 odpowiedzi · pozostało ${m}:${s} · zapisano ${timeStr}</div>`;
+        const s = String(saved.secondsLeft % 60).padStart(2, '0');
+        return `<div class="saved-badge">▶ W toku — ${answered}/${total} odpowiedzi · pozostało ${m}:${s} · zapisano ${timeStr}</div>`;
       })() : '';
 
       const done = doneMap[String(t.year)];
@@ -145,11 +195,11 @@ async function loadTestList() {
       card.className = 'test-card' + (saved ? ' has-progress' : '') + (done ? ' is-done' : '');
       card.innerHTML = `
         <div class="year">${t.year}</div>
-        <div class="edition">${t.edition}</div>
+        <div class="edition">${t.edition || ''}</div>
         <div class="meta">
           <span>📝 <strong>${t.totalQuestions}</strong> zadań</span>
           <span>🏆 max <strong>${t.maxPoints}</strong> pkt</span>
-          <span>⏱ <strong>75</strong> min</span>
+          <span>⏱ <strong>${t.timeMinutes || 75}</strong> min</span>
         </div>
         ${t.startingPoints ? `<div style="margin-top:8px;font-size:0.82rem;color:#92400e;background:#fef3c7;padding:4px 8px;border-radius:6px">+${t.startingPoints} pkt startowych</div>` : ''}
         ${doneBadge}
@@ -170,11 +220,8 @@ async function loadTest(file) {
     currentTest = await resp.json();
     currentTest._file = file;
     const saved = loadProgress(currentTest.year);
-    if (saved) {
-      showResumeModal(saved);
-    } else {
-      showRules();
-    }
+    if (saved) showResumeModal(saved);
+    else showRules();
   } catch (e) {
     alert('Nie udało się załadować testu: ' + e.message);
   }
@@ -182,14 +229,15 @@ async function loadTest(file) {
 
 function showResumeModal(saved) {
   const answered = saved.answers.filter(a => a !== null).length;
+  const total = saved.answers.length;
   const m = Math.floor(saved.secondsLeft / 60);
-  const s = String(saved.secondsLeft % 60).padStart(2,'0');
+  const s = String(saved.secondsLeft % 60).padStart(2, '0');
   const d = new Date(saved.savedAt);
-  const timeStr = d.toLocaleDateString('pl-PL', { weekday:'long', day:'numeric', month:'long' })
-    + ' o ' + d.toLocaleTimeString('pl-PL', { hour:'2-digit', minute:'2-digit' });
+  const timeStr = d.toLocaleDateString('pl-PL', { weekday: 'long', day: 'numeric', month: 'long' })
+    + ' o ' + d.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' });
 
   document.getElementById('resume-info').innerHTML =
-    `Odpowiedziałeś na <strong>${answered} z 30</strong> pytań.<br>
+    `Odpowiedziałeś na <strong>${answered} z ${total}</strong> pytań.<br>
      Pozostały czas: <strong>${m}:${s}</strong>.<br>
      Zapisano: ${timeStr}.`;
   document.getElementById('modal-resume').style.display = 'flex';
@@ -224,6 +272,30 @@ function showRules() {
   const t = currentTest;
   document.getElementById('rules-title').textContent = t.name;
 
+  // Dynamiczna treść zasad zależna od kategorii
+  document.getElementById('rules-q-count').textContent = t.totalQuestions + ' zadań';
+  document.getElementById('rules-time').textContent = (t.timeMinutes || 75) + ' minut';
+
+  // Tabela punktacji z JSON testu (jeśli jest) lub domyślna
+  const scoringEl = document.getElementById('rules-scoring');
+  if (t.scoringTable) {
+    scoringEl.innerHTML = `
+      <div class="score-row header"><span>Zadania</span><span>Poprawna</span><span>Błędna</span><span>Brak</span></div>
+      ${t.scoringTable.map(row => `
+        <div class="score-row">
+          <span>${row.range}</span>
+          <span class="green">+${row.correct} pkt</span>
+          <span class="red">−${row.wrong} pkt</span>
+          <span>0 pkt</span>
+        </div>`).join('')}`;
+  } else {
+    scoringEl.innerHTML = `
+      <div class="score-row header"><span>Zadania</span><span>Poprawna</span><span>Błędna</span><span>Brak</span></div>
+      <div class="score-row"><span>1–10</span><span class="green">+3 pkt</span><span class="red">−¾ pkt</span><span>0 pkt</span></div>
+      <div class="score-row"><span>11–20</span><span class="green">+4 pkt</span><span class="red">−1 pkt</span><span>0 pkt</span></div>
+      <div class="score-row"><span>21–30</span><span class="green">+5 pkt</span><span class="red">−1¼ pkt</span><span>0 pkt</span></div>`;
+  }
+
   const bonusEl = document.getElementById('rules-bonus');
   if (t.startingPoints > 0) {
     bonusEl.style.display = 'block';
@@ -243,8 +315,7 @@ function startTest() {
   answers = new Array(t.questions.length).fill(null);
   currentQ = 0;
   testFinished = false;
-  secondsLeft = t.timeMinutes * 60;
-
+  secondsLeft = (t.timeMinutes || 75) * 60;
   buildQuestionDots();
   renderQuestion();
   showScreen('screen-test');
@@ -257,10 +328,7 @@ function startTimer() {
   timerInterval = setInterval(() => {
     secondsLeft--;
     updateTimerDisplay();
-    if (secondsLeft <= 0) {
-      stopTimer();
-      finishTest();
-    }
+    if (secondsLeft <= 0) { stopTimer(); finishTest(); }
   }, 1000);
 }
 
@@ -272,9 +340,22 @@ function updateTimerDisplay() {
   const el = document.getElementById('timer');
   const m = Math.floor(secondsLeft / 60);
   const s = secondsLeft % 60;
-  el.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  el.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
   el.className = 'timer';
   if (secondsLeft <= 300) el.classList.add(secondsLeft <= 60 ? 'danger' : 'warning');
+}
+
+// ─── Multi-answer helpers ─────────────────────────────────────
+function isMultiAnswer(q) {
+  // Multi-answer if correct is an array OR test has multiAnswer flag
+  return Array.isArray(q.correct) || (currentTest && currentTest.multiAnswer);
+}
+
+function getSelectedLetters(idx) {
+  const a = answers[idx];
+  if (a === null) return [];
+  if (Array.isArray(a)) return a;
+  return [a];
 }
 
 // ─── Render question ──────────────────────────────────────────
@@ -282,22 +363,20 @@ function renderQuestion() {
   const t = currentTest;
   const q = t.questions[currentQ];
   const total = t.questions.length;
+  const multi = isMultiAnswer(q);
 
-  // header
   document.getElementById('q-counter').textContent = `Zadanie ${currentQ + 1}/${total}`;
   document.getElementById('q-number').textContent = `Zadanie ${q.id}`;
   document.getElementById('q-points').textContent = `${q.points} pkt`;
   document.getElementById('q-text').textContent = q.text;
 
-  // progress bar
   const answered = answers.filter(a => a !== null).length;
   document.getElementById('progress-bar').style.width = `${(answered / total) * 100}%`;
 
-  // page image (show always the correct page based on question number)
   const pagesDiv = document.getElementById('question-pages');
   const imgEl = document.getElementById('page-img');
   const pageIdx = q.id <= 15 ? 0 : 1;
-  const pageUrl = t.pages[pageIdx];
+  const pageUrl = t.pages && t.pages[pageIdx];
   if (pageUrl) {
     imgEl.src = pageUrl;
     imgEl.style.display = 'block';
@@ -307,29 +386,55 @@ function renderQuestion() {
     pagesDiv.classList.remove('visible');
   }
 
-  // options
   const optsDiv = document.getElementById('options');
   optsDiv.innerHTML = '';
-  const selected = answers[currentQ];
-  Object.entries(q.options).forEach(([letter, text]) => {
-    const btn = document.createElement('button');
-    btn.className = 'option-btn' + (selected === letter ? ' selected' : '');
-    btn.innerHTML = `<span class="option-letter">${letter}</span><span>${text}</span>`;
-    btn.onclick = () => selectAnswer(letter);
-    optsDiv.appendChild(btn);
-  });
 
-  // nav buttons
+  if (multi) {
+    // Multi-answer: checkbox style
+    const hint = document.createElement('p');
+    hint.className = 'multi-hint';
+    hint.textContent = '✓ Zaznacz wszystkie poprawne odpowiedzi';
+    optsDiv.appendChild(hint);
+    const selected = getSelectedLetters(currentQ);
+    Object.entries(q.options).forEach(([letter, text]) => {
+      const btn = document.createElement('button');
+      const isSelected = selected.includes(letter);
+      btn.className = 'option-btn multi' + (isSelected ? ' selected' : '');
+      btn.innerHTML = `<span class="option-letter">${isSelected ? '☑' : '☐'}</span><span>${text}</span>`;
+      btn.onclick = () => toggleAnswer(letter);
+      optsDiv.appendChild(btn);
+    });
+  } else {
+    // Single-answer: radio style
+    const selected = answers[currentQ];
+    Object.entries(q.options).forEach(([letter, text]) => {
+      const btn = document.createElement('button');
+      btn.className = 'option-btn' + (selected === letter ? ' selected' : '');
+      btn.innerHTML = `<span class="option-letter">${letter}</span><span>${text}</span>`;
+      btn.onclick = () => selectAnswer(letter);
+      optsDiv.appendChild(btn);
+    });
+  }
+
   document.getElementById('btn-prev').disabled = currentQ === 0;
-  document.getElementById('btn-next').textContent =
-    currentQ === total - 1 ? 'Zakończ ✓' : 'Następne →';
-
-  // dots
+  document.getElementById('btn-next').textContent = currentQ === total - 1 ? 'Zakończ ✓' : 'Następne →';
   updateDots();
 }
 
 function selectAnswer(letter) {
   answers[currentQ] = letter;
+  renderQuestion();
+  saveProgress();
+}
+
+function toggleAnswer(letter) {
+  let current = getSelectedLetters(currentQ);
+  if (current.includes(letter)) {
+    current = current.filter(l => l !== letter);
+  } else {
+    current = [...current, letter].sort();
+  }
+  answers[currentQ] = current.length === 0 ? null : current;
   renderQuestion();
   saveProgress();
 }
@@ -340,13 +445,8 @@ function prevQuestion() {
 
 function nextQuestion() {
   const total = currentTest.questions.length;
-  if (currentQ < total - 1) {
-    currentQ++;
-    renderQuestion();
-    saveProgress();
-  } else {
-    finishTest();
-  }
+  if (currentQ < total - 1) { currentQ++; renderQuestion(); saveProgress(); }
+  else finishTest();
 }
 
 function skipQuestion() {
@@ -369,22 +469,17 @@ function buildQuestionDots() {
 }
 
 function updateDots() {
-  const dots = document.querySelectorAll('#question-dots .dot');
-  dots.forEach((d, i) => {
-    d.className = 'dot' +
-      (answers[i] !== null ? ' answered' : '') +
-      (i === currentQ ? ' current' : '');
+  document.querySelectorAll('#question-dots .dot').forEach((d, i) => {
+    const hasAnswer = answers[i] !== null && !(Array.isArray(answers[i]) && answers[i].length === 0);
+    d.className = 'dot' + (hasAnswer ? ' answered' : '') + (i === currentQ ? ' current' : '');
   });
 }
 
 // ─── Finish / Results ─────────────────────────────────────────
-function confirmQuit() {
-  document.getElementById('modal-quit').style.display = 'flex';
-}
+function confirmQuit() { document.getElementById('modal-quit').style.display = 'flex'; }
 function closeQuit(e) {
-  if (!e || e.target === document.getElementById('modal-quit')) {
+  if (!e || e.target === document.getElementById('modal-quit'))
     document.getElementById('modal-quit').style.display = 'none';
-  }
 }
 
 function saveAndExit() {
@@ -402,19 +497,33 @@ function finishTest() {
   calculateAndShowResults();
 }
 
+function isAnswerCorrect(q, given) {
+  if (given === null) return false;
+  const correct = Array.isArray(q.correct) ? [...q.correct].sort() : [q.correct];
+  const givenArr = Array.isArray(given) ? [...given].sort() : [given];
+  return JSON.stringify(correct) === JSON.stringify(givenArr);
+}
+
 function calculateAndShowResults() {
   const t = currentTest;
   let points = t.startingPoints || 0;
   let correctCount = 0;
+  const wrongQuestions = [];   // błędne odpowiedzi
+  const skippedQuestions = []; // pominięte (brak odpowiedzi)
 
   t.questions.forEach((q, i) => {
     const given = answers[i];
-    if (given === null) return;
-    if (given === q.correct) {
+    if (given === null) {
+      skippedQuestions.push(q.id);
+      return;
+    }
+    if (isAnswerCorrect(q, given)) {
       points += q.points;
       correctCount++;
     } else {
-      points -= q.points * 0.25;
+      const penalty = q.penalty !== undefined ? Math.abs(q.penalty) : q.points * 0.25;
+      points -= penalty;
+      wrongQuestions.push(q.id);
     }
   });
 
@@ -434,7 +543,7 @@ function calculateAndShowResults() {
     `<div class="comment-box"><span class="comment-emoji">${comment.emoji}</span>${comment.text}</div>`;
 
   showScreen('screen-results');
-  saveToFirestore(points, maxPts, correctCount, t.totalQuestions, comment.text);
+  saveToFirestore(points, maxPts, correctCount, t.totalQuestions, comment.text, wrongQuestions, skippedQuestions);
 }
 
 function getComment(pct) {
@@ -446,21 +555,21 @@ function getComment(pct) {
   return { emoji: '🔄', text: 'Czas na naukę! Sprawdź rozwiązania – na pewno następnym razem pójdzie lepiej.' };
 }
 
-async function saveToFirestore(points, maxPoints, tasks, maxTasks, comment) {
+async function saveToFirestore(points, maxPoints, tasks, maxTasks, comment, wrongQuestions = [], skippedQuestions = []) {
   const familyId = getFamilyId();
   if (!familyId) return;
   try {
     const t = currentTest;
+    const today = new Date().toISOString().slice(0, 10);
     await db.collection('families').doc(familyId).collection('tests').add({
       name: t.name,
       year: t.year,
-      date: t.date,
-      class: t.class,
-      points: points,
-      maxPoints: maxPoints,
-      tasks: tasks,
-      maxTasks: maxTasks,
-      comment: comment,
+      date: today,
+      class: t.class || null,
+      category: currentCategory ? currentCategory.id : 'alfik4',
+      points, maxPoints, tasks, maxTasks, comment,
+      wrongQuestions,
+      skippedQuestions,
       createdAt: firebase.firestore.FieldValue.serverTimestamp()
     });
     console.log('Wynik zapisany do Firestore');
@@ -477,20 +586,21 @@ function showReview() {
 
   t.questions.forEach((q, i) => {
     const given = answers[i];
-    const isCorrect = given === q.correct;
     const isSkipped = given === null;
-    const pts = isCorrect ? `+${q.points}` : isSkipped ? '0' : `−${(q.points * 0.25).toFixed(2).replace('.00','')}`;
+    const isCorrect = !isSkipped && isAnswerCorrect(q, given);
+    const penalty = q.penalty !== undefined ? q.penalty : q.points * 0.25;
+    const pts = isCorrect ? `+${q.points}` : isSkipped ? '0' : `−${penalty % 1 === 0 ? penalty : penalty.toFixed(2).replace('.00', '')}`;
 
     const item = document.createElement('div');
     item.className = `review-item ${isSkipped ? 'skipped' : isCorrect ? 'correct' : 'wrong'}`;
 
+    // Format answer display
+    const givenStr = isSkipped ? '' : (Array.isArray(given) ? given.join(', ') : given);
+    const correctStr = Array.isArray(q.correct) ? q.correct.join(', ') : q.correct;
+
     let answersHtml = '';
-    if (!isSkipped) {
-      answersHtml += `<span class="ans-label ${isCorrect ? 'ans-given correct' : 'ans-given'}">Twoja: ${given}</span>`;
-    }
-    if (!isCorrect) {
-      answersHtml += `<span class="ans-label ans-correct-show">Poprawna: ${q.correct}</span>`;
-    }
+    if (!isSkipped) answersHtml += `<span class="ans-label ${isCorrect ? 'ans-given correct' : 'ans-given'}">Twoja: ${givenStr}</span>`;
+    if (!isCorrect) answersHtml += `<span class="ans-label ans-correct-show">Poprawna: ${correctStr}</span>`;
 
     item.innerHTML = `
       <div class="review-item-header">
@@ -509,9 +619,7 @@ function showReview() {
   showScreen('screen-review');
 }
 
-function backToResults() {
-  showScreen('screen-results');
-}
+function backToResults() { showScreen('screen-results'); }
 
 // ─── Solution modal ───────────────────────────────────────────
 const AI_SOLUTION_URL = 'http://localhost:5678/webhook/testy-rozwiazanie';
@@ -525,13 +633,13 @@ function showSolution(idx) {
     `Poprawna odpowiedź: ${q.correct}  —  ${q.options[q.correct]}`;
 
   const solutionEl = document.getElementById('modal-solution-text');
-  solutionEl.textContent = q.solution;
+  solutionEl.textContent = q.solution || '';
 
-  // Przycisk AI — tylko na localhost
   const aiBtn = document.getElementById('modal-ai-btn');
   if (AI_AVAILABLE) {
     aiBtn.style.display = 'inline-flex';
     aiBtn.disabled = false;
+    aiBtn.style.background = '';
     aiBtn.innerHTML = '✨ Wyjaśnij z AI';
     aiBtn.onclick = () => generateAISolution(idx);
   } else {
@@ -546,13 +654,9 @@ function renderMarkdown(text) {
   let html = '';
   let i = 0;
 
-  function escape(s) {
-    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  }
+  function escape(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
   function bold(s) {
-    // Usuń LaTeX $...$ i $$...$$
     s = s.replace(/\$\$?.+?\$\$?/g, m => m.replace(/\$/g, '').replace(/\\[a-z]+\{?/g, '').replace(/\}/g, ''));
-    // Zamień backtick `kod` na <code>
     s = escape(s);
     s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
@@ -565,8 +669,6 @@ function renderMarkdown(text) {
 
   while (i < lines.length) {
     const line = lines[i];
-
-    // Numbered list item (may have indented sub-bullets after)
     if (isNumbered(line)) {
       html += '<ol>';
       while (i < lines.length && (isNumbered(lines[i]) || isIndented(lines[i]) || isEmpty(lines[i]))) {
@@ -574,25 +676,17 @@ function renderMarkdown(text) {
         if (isNumbered(lines[i])) {
           const itemText = bold(lines[i].replace(/^\d+\.\s*/, ''));
           i++;
-          // Collect sub-bullets
           let subHtml = '';
-          while (i < lines.length && (isIndented(lines[i]) || (isBullet(lines[i]) && !isNumbered(lines[i-1] || '')))) {
-            if (isIndented(lines[i])) {
-              subHtml += `<li>${bold(lines[i].replace(/^[ \t]+[-*]\s*/, ''))}</li>`;
-              i++;
-            } else break;
+          while (i < lines.length && isIndented(lines[i])) {
+            subHtml += `<li>${bold(lines[i].replace(/^[ \t]+[-*]\s*/, ''))}</li>`;
+            i++;
           }
           html += `<li>${itemText}${subHtml ? `<ul>${subHtml}</ul>` : ''}</li>`;
-        } else {
-          // Orphan indented line — skip
-          i++;
-        }
+        } else { i++; }
       }
       html += '</ol>';
       continue;
     }
-
-    // Top-level bullet list
     if (isBullet(line) && !isIndented(line)) {
       html += '<ul>';
       while (i < lines.length && isBullet(lines[i]) && !isIndented(lines[i])) {
@@ -602,18 +696,10 @@ function renderMarkdown(text) {
       html += '</ul>';
       continue;
     }
-
-    // Empty line → paragraph break
-    if (isEmpty(line)) {
-      i++;
-      continue;
-    }
-
-    // Regular line → paragraph
+    if (isEmpty(line)) { i++; continue; }
     html += `<p>${bold(line)}</p>`;
     i++;
   }
-
   return html;
 }
 
@@ -630,12 +716,8 @@ async function generateAISolution(idx) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        questionId: q.id,
-        question: q.text,
-        options: q.options,
-        correct: q.correct,
-        points: q.points,
-        year: currentTest.year
+        questionId: q.id, question: q.text, options: q.options,
+        correct: q.correct, points: q.points, year: currentTest.year
       })
     });
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
@@ -644,27 +726,20 @@ async function generateAISolution(idx) {
       solutionEl.innerHTML = `<span class="ai-badge">✨ AI</span>${renderMarkdown(data.solution)}`;
       aiBtn.style.display = 'none';
     } else {
-      throw new Error('Brak rozwiązania');
+      throw new Error('limit');
     }
   } catch (e) {
     console.warn('AI solution unavailable:', e.message);
     aiBtn.disabled = false;
-    aiBtn.innerHTML = '✨ Spróbuj ponownie';
+    aiBtn.innerHTML = '⚠️ Dzienny limit AI wyczerpany — spróbuj jutro';
+    aiBtn.style.background = '#6b7280';
   }
 }
 
 function closeSolution(e) {
-  if (!e || e.target === document.getElementById('modal-solution')) {
+  if (!e || e.target === document.getElementById('modal-solution'))
     document.getElementById('modal-solution').style.display = 'none';
-  }
 }
 
 // ─── Init ─────────────────────────────────────────────────────
-loadTestList();
-
-// Ustaw link powrotu do Kalendarza z familyId
-(function() {
-  const fid = getFamilyId();
-  const backBtn = document.getElementById('btn-back-kalendarz');
-  if (backBtn && fid) backBtn.href = '../index.html#' + fid;
-})();
+loadCategories();

@@ -1,0 +1,455 @@
+{
+  "name": "Leon Matematyczny 2023 – Klasa 4 Wiosna",
+  "year": 2023,
+  "season": "wiosna",
+  "class": "klasa 4",
+  "category": "leon4",
+  "timeMinutes": 45,
+  "totalQuestions": 29,
+  "maxPoints": 29,
+  "startingPoints": 0,
+  "multiAnswer": true,
+  "scoringNote": "1 pkt za wszystkie poprawne, 0 za bledne/pominiete",
+  "pages": [],
+  "questions": [
+    {
+      "id": 1,
+      "text": "Która z podanych liczb jest nieparzysta?",
+      "options": {
+        "A": "52",
+        "B": "12",
+        "C": "14",
+        "D": "37"
+      },
+      "correct": "D",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 2,
+      "text": "Wybierz brakującą liczbę, aby wynik działania był poprawny 157 - ….. = 124",
+      "options": {
+        "A": "13",
+        "B": "33",
+        "C": "24",
+        "D": "23"
+      },
+      "correct": "B",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 3,
+      "text": "Jaki jest wynik działania 2 7 - 3 ?",
+      "options": {
+        "A": "8",
+        "B": "10",
+        "C": "11",
+        "D": "13"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 4,
+      "text": "Wynik, którego działania jest najmniejszy?",
+      "options": {
+        "A": "99 + 0",
+        "B": "89 + 10",
+        "C": "79 + 11",
+        "D": "85 + 7"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 5,
+      "text": "Jak zapiszesz liczbę 27 w systemie rzymskim?",
+      "options": {
+        "A": "XVII",
+        "B": "DVII",
+        "C": "XXVII",
+        "D": "IIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 6,
+      "text": "Dla których par liczb NWD wynosi 6?",
+      "options": {
+        "A": "12, 16",
+        "B": "6, 12",
+        "C": "12, 18",
+        "D": "24, 30"
+      },
+      "correct": [
+        "B",
+        "C",
+        "D"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 7,
+      "text": "Wynikiem dodawania 2 liczb parzystych jest:",
+      "options": {
+        "A": "zero",
+        "B": "liczba nieparzysta",
+        "C": "liczba parzysta",
+        "D": "czasem liczba parzysta a czasem nieparzysta"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 8,
+      "text": "Mamy dwa działania. A) 9 2 + 3 oraz B) 9 (2 + 3). Prawdą jest że wyniki:",
+      "options": {
+        "A": "A = B",
+        "B": "A > B",
+        "C": "B > A",
+        "D": "A > 30 i B > 30"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 9,
+      "text": "Która z podanych liczb jest największa?",
+      "options": {
+        "A": "X",
+        "B": "III",
+        "C": "C",
+        "D": "XC"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 10,
+      "text": "N atasza pomyślała o pewnej liczbie dwucyfrowej. Pomnożyła ją przez 3. Wynik okazał się być dziel- nikiem liczby 78. O jakiej liczbie pomyślała Natasza?",
+      "options": {
+        "A": "11",
+        "B": "13",
+        "C": "17",
+        "D": "26"
+      },
+      "correct": [
+        "B",
+        "D"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 11,
+      "text": "Średnica koła ma długość 4 cm. Pole tego koła wynosi w przybliżeniu:",
+      "options": {
+        "A": "50,24 cm2",
+        "B": "25,12 cm2",
+        "C": "12,56 cm2",
+        "D": "brak odpowiedzi"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 12,
+      "text": "21 i 1/6 to tyle samo co:",
+      "options": {
+        "A": "306/14",
+        "B": "306/7",
+        "C": "1 153/14",
+        "D": "133/7"
+      },
+      "correct": "A",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 13,
+      "text": "Kąt prosty jest mniejszy od kąta półpełnego o:",
+      "options": {
+        "A": "90°",
+        "B": "45°",
+        "C": "30°",
+        "D": "180°"
+      },
+      "correct": "A",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 14,
+      "text": "Wskazówki zegara o godzinie 6:00 tworzą kąt:",
+      "options": {
+        "A": "pełny",
+        "B": "półpełny",
+        "C": "prosty",
+        "D": "ostry"
+      },
+      "correct": "B",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 15,
+      "text": "Jaka jest rzeczywista odległość z miejscowości A do miejscowości B? Skoro na mapie w skali 1: 50000, ta odległość wynosi 5 cm.",
+      "options": {
+        "A": "2,5 km",
+        "B": "0,25 km",
+        "C": "25 km",
+        "D": "250 km"
+      },
+      "correct": "A",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 16,
+      "text": "Wybierz zdanie prawdziwe:",
+      "options": {
+        "A": "Cięciwa jest zawsze krótsza od średnicy",
+        "B": "Istnieje cięciwa, której długość jest równa średnicy.",
+        "C": "Promień koła jest jego cięciwą.",
+        "D": "Cięciwa zawsze przechodzi przez środek okręgu."
+      },
+      "correct": "B",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 17,
+      "text": "Wskaż największą liczbę.",
+      "options": {
+        "A": "1 14/50",
+        "B": "1 1/4",
+        "C": "1,14",
+        "D": "1,114"
+      },
+      "correct": "A",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 18,
+      "text": "Która z poniższych liczb jest liczbą parzystą, podzielną przez 7.",
+      "options": {
+        "A": "76",
+        "B": "77",
+        "C": "96",
+        "D": "98"
+      },
+      "correct": "D",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 19,
+      "text": "NWW liczb 24 i 36",
+      "options": {
+        "A": "36",
+        "B": "72",
+        "C": "432",
+        "D": "864"
+      },
+      "correct": "B",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 20,
+      "text": "Jedna tona to:",
+      "options": {
+        "A": "1000 kg",
+        "B": "100000 dag",
+        "C": "1000000 g",
+        "D": "1000000 dag"
+      },
+      "correct": [
+        "A",
+        "B",
+        "C"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 21,
+      "text": "Pole kwadratu o boku 2 dm wynosi.",
+      "options": {
+        "A": "4 dm2",
+        "B": "400 cm2",
+        "C": "4 dm",
+        "D": "400 cm"
+      },
+      "correct": [
+        "A",
+        "B"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 22,
+      "text": "Kasia ma 150 cm wzrostu, kiedy się urodziła, mierzyła 54 cm, o ile urosła Kasia?",
+      "options": {
+        "A": "9 dm 6 cm",
+        "B": "96 cm",
+        "C": "1 m 6 cm",
+        "D": "9 cm 6 dm"
+      },
+      "correct": [
+        "A",
+        "B"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 23,
+      "text": "Wyniki, których równań to liczba nieparzysta, podzielna przez 3:",
+      "options": {
+        "A": "2 6 + 3",
+        "B": "4 8 - 5",
+        "C": "2 6 + 6",
+        "D": "6 9 - 11"
+      },
+      "correct": [
+        "A",
+        "B"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 24,
+      "text": "Które z poniższych liczb są podzielne przez 12?",
+      "options": {
+        "A": "600",
+        "B": "612",
+        "C": "700",
+        "D": "712"
+      },
+      "correct": [
+        "A",
+        "B"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 25,
+      "text": "Na farmie jest 10 kur 3 krowy i 7 owiec. Ile razem nóg mają zwierzęta?",
+      "options": {
+        "A": "60",
+        "B": "mniej niż 70",
+        "C": "ponad 60",
+        "D": "80"
+      },
+      "correct": [
+        "A",
+        "B"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 26,
+      "text": "Wynikiem działania - 17 + 16 jest:",
+      "options": {
+        "A": "33",
+        "B": "- 33",
+        "C": "1",
+        "D": "- 1"
+      },
+      "correct": "D",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 27,
+      "text": "Prostopadłościan jest.:",
+      "options": {
+        "A": "Sześcianem.",
+        "B": "Figurą płaską.",
+        "C": "Figurą przestrzenną.",
+        "D": "Bryłą obrotową."
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 28,
+      "text": "Jaką cyfrę musimy wstawić w miejsce kropek 5….40, aby otrzymać liczbę podzielną przez 3 i przez 4?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "6",
+        "D": "8"
+      },
+      "correct": [
+        "B",
+        "C"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 29,
+      "text": "Konkurs matematyczny Leon trwa 45 minut. Ile trwa ten konkurs?",
+      "options": {
+        "A": "3/4 godziny",
+        "B": "jedna godzina lekcyjna",
+        "C": "ponad pol godziny",
+        "D": "godzine"
+      },
+      "correct": [
+        "A",
+        "B",
+        "C"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    }
+  ]
+}

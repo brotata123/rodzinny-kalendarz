@@ -1,0 +1,449 @@
+{
+  "name": "Leon Matematyczny 2024 – Klasa 4 Wiosna",
+  "year": 2024,
+  "season": "wiosna",
+  "class": "klasa 4",
+  "category": "leon4",
+  "timeMinutes": 45,
+  "totalQuestions": 29,
+  "maxPoints": 29,
+  "startingPoints": 0,
+  "multiAnswer": true,
+  "scoringNote": "Za każde pytanie: 1 pkt za wszystkie poprawne odpowiedzi, 0 za błędne/pominięte",
+  "pages": [],
+  "questions": [
+    {
+      "id": 1,
+      "text": "Liczba o 20 większa od ilorazu liczby 120 : 6 wynosi:",
+      "options": {
+        "A": "0",
+        "B": "20",
+        "C": "40",
+        "D": "60"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 2,
+      "text": "Iloczyn 5 5 5 5 możemy zapisać w postaci:",
+      "options": {
+        "A": "54",
+        "B": "55",
+        "C": "552",
+        "D": "45"
+      },
+      "correct": "A",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 3,
+      "text": "Jeśli średnica okręgu ma długość 10 dm, to długość jego promienia wynosi:",
+      "options": {
+        "A": "40 dm",
+        "B": "20 dm",
+        "C": "10 dm",
+        "D": "5 dm"
+      },
+      "correct": "D",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 4,
+      "text": "Długość odcinka AB w skali 3 : 1 wynosi 4 cm, wobec tego ten odcinek ma długość:",
+      "options": {
+        "A": "3 cm",
+        "B": "4 cm",
+        "C": "12 cm",
+        "D": "34 cm"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 5,
+      "text": "Obwód narysowanego trójkąta wynosi:",
+      "options": {
+        "A": "14 cm",
+        "B": "15 cm",
+        "C": "24 cm",
+        "D": "48 cm"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 6,
+      "text": "Kąt o mierze 89o jest:",
+      "options": {
+        "A": "kątem ostrym",
+        "B": "kątem prostym",
+        "C": "kątem rozwartym",
+        "D": "kątem półpełnym"
+      },
+      "correct": "A",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 7,
+      "text": "Pole kwadratu o obwodzie 16 cm wynosi:",
+      "options": {
+        "A": "16 cm2",
+        "B": "8 cm2",
+        "C": "64 cm2",
+        "D": "32 cm2"
+      },
+      "correct": "A",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 8,
+      "text": "Odległość w rzeczywistości wynosi 2000 cm, w skali 1 :100 ta odległość będzie miała długość:",
+      "options": {
+        "A": "2 cm",
+        "B": "20 cm",
+        "C": "2000 cm",
+        "D": "200000 cm"
+      },
+      "correct": "B",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 9,
+      "text": "250 minut to:",
+      "options": {
+        "A": "2 godziny i 5 minut",
+        "B": "2 godziny i 10 minut",
+        "C": "2 godziny i 50 minut",
+        "D": "4 godziny i 10 minut"
+      },
+      "correct": "D",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 10,
+      "text": "Liczba 5 razy mniejsza od 555 to:",
+      "options": {
+        "A": "500",
+        "B": "111",
+        "C": "155",
+        "D": "550"
+      },
+      "correct": "B",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 11,
+      "text": "Różnica największej dwucyfrowej liczby i najmniejszej dwucyfrowej wynosi:",
+      "options": {
+        "A": "89",
+        "B": "100",
+        "C": "110",
+        "D": "989"
+      },
+      "correct": "A",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 12,
+      "text": "Kwadrat liczby 9 pomniejszony o 9 wynosi:",
+      "options": {
+        "A": "0",
+        "B": "9",
+        "C": "72",
+        "D": "81"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 13,
+      "text": "Wynik działania 3 − 2 wynosi:",
+      "options": {
+        "A": "1",
+        "B": "1",
+        "C": ""
+      },
+      "correct": [
+        "A",
+        "B"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 14,
+      "text": "Wspólną wielokrotnością liczb 2, 3 oraz 8 jest:",
+      "options": {
+        "A": "238",
+        "B": "13",
+        "C": "24",
+        "D": "832"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 15,
+      "text": "Iloraz liczb 250 i 50 wynosi:",
+      "options": {
+        "A": "50",
+        "B": "5",
+        "C": "300",
+        "D": "750"
+      },
+      "correct": "B",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 16,
+      "text": "Obwód podanego poniżej trójkąta wynosi:",
+      "options": {
+        "A": "38 cm",
+        "B": "50 cm",
+        "C": "63 cm",
+        "D": "75 cm"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 17,
+      "text": "Liczba setek w sumie liczb 187 i 113 wynosi:",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 18,
+      "text": "Wynikiem działania 10 - 4 : 2 jest liczba:",
+      "options": {
+        "A": "3",
+        "B": "6",
+        "C": "8",
+        "D": "10"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 19,
+      "text": "W sali kinowej jest dziesięć rzędów po 12 miejsc w każdym i 5 miejsc specjalnych. W tej sali jest:",
+      "options": {
+        "A": "125 miejsc",
+        "B": "120 miejsc",
+        "C": "60 miejsc",
+        "D": "12 miejsc"
+      },
+      "correct": "A",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 20,
+      "text": "Osiem kwadransów to:",
+      "options": {
+        "A": "80 minut",
+        "B": "100 minut",
+        "C": "120 minut",
+        "D": "800 minut"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 21,
+      "text": "Liczby większe od 47 to:",
+      "options": {
+        "A": "XXVIII",
+        "B": "L",
+        "C": "XLIX",
+        "D": "XXIII"
+      },
+      "correct": [
+        "B",
+        "C"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 22,
+      "text": "Które nierówności są prawidłowe?",
+      "options": {
+        "A": "1548 – 500 > 1000",
+        "B": "2400 : 600 > 5",
+        "C": "4874 – 800 > 5000",
+        "D": "250 : 50 < 60"
+      },
+      "correct": [
+        "A",
+        "D"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 23,
+      "text": "Które liczby są większe od 0,4?",
+      "options": {
+        "A": "0,397",
+        "B": "0,401",
+        "C": "0,098",
+        "D": "0,674"
+      },
+      "correct": [
+        "B",
+        "D"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 24,
+      "text": "Które działania dają wynik 25?",
+      "options": {
+        "A": "1600 : 64",
+        "B": "52",
+        "C": "125 : 25",
+        "D": "625 - 500"
+      },
+      "correct": [
+        "A",
+        "B"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 25,
+      "text": "Ćwierć kilograma to inaczej:",
+      "options": {
+        "A": "250 g",
+        "B": "25 dag",
+        "C": "0,25 kg",
+        "D": "2,5 kg"
+      },
+      "correct": [
+        "A",
+        "B",
+        "C"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 26,
+      "text": "Które lata były w XIV wieku?",
+      "options": {
+        "A": "1300",
+        "B": "1301",
+        "C": "1299",
+        "D": "1400"
+      },
+      "correct": [
+        "B",
+        "D"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 27,
+      "text": "Nieparzyste wyniki dają działania:",
+      "options": {
+        "A": "444 : 44",
+        "B": "150 : 150",
+        "C": "24 : 4",
+        "D": "400 : 50"
+      },
+      "correct": "B",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 28,
+      "text": "Odcinek o długości 2 cm narysowany w skali 100 : 1 będzie miał długość:",
+      "options": {
+        "A": "120 cm",
+        "B": "1,2 m",
+        "C": "200 cm",
+        "D": "2 m"
+      },
+      "correct": [
+        "C",
+        "D"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 29,
+      "text": "Które kąty mogą być kątami równoległoboku?",
+      "options": {
+        "A": "100o, 100o, 20o, 20o",
+        "B": "135o, 135o, 45o, 45o",
+        "C": "165o, 165o, 15o, 15o",
+        "D": "88o, 88o,12o,12o"
+      },
+      "correct": [
+        "B",
+        "C"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    }
+  ]
+}

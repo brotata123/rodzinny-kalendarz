@@ -1,0 +1,454 @@
+{
+  "name": "Leon Matematyczny 2023 – Klasa 4 Jesień",
+  "year": 2023,
+  "season": "jesien",
+  "class": "klasa 4",
+  "category": "leon4",
+  "timeMinutes": 45,
+  "totalQuestions": 29,
+  "maxPoints": 29,
+  "startingPoints": 0,
+  "multiAnswer": true,
+  "scoringNote": "1 pkt za wszystkie poprawne, 0 za bledne/pominiete",
+  "pages": [],
+  "questions": [
+    {
+      "id": 1,
+      "text": "Zaznacz działania, w których wynik to 25:",
+      "options": {
+        "A": "25 1",
+        "B": "25 0",
+        "C": "5 5",
+        "D": "25 : 25"
+      },
+      "correct": [
+        "A",
+        "C"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 2,
+      "text": "Jaka liczba kryje się pod ? 58 + 76 = 88 +",
+      "options": {
+        "A": "36",
+        "B": "47",
+        "C": "46",
+        "D": "44"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 3,
+      "text": "Leon chce kupić 15 batonów za 4 zł każdy. Ile zapłaci za zakupy?",
+      "options": {
+        "A": "40 zł",
+        "B": "50 zł",
+        "C": "60 zł",
+        "D": "70 zł"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 4,
+      "text": "Natasza pomyślała o liczbie, która jest większa od 15, ale mniejsza od 27. O której liczbie mogła pomyśleć Natasza?",
+      "options": {
+        "A": "12",
+        "B": "17",
+        "C": "25",
+        "D": "29"
+      },
+      "correct": [
+        "B",
+        "C"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 5,
+      "text": "Gdzie została poprawnie zapisana liczba: trzysta dwa tysiące sto pięć.",
+      "options": {
+        "A": "302105",
+        "B": "32105",
+        "C": "3021005",
+        "D": "30215"
+      },
+      "correct": "A",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 6,
+      "text": "Które zdania są prawdziwe?",
+      "options": {
+        "A": "dodawanie zera nie zmienia dodawanej liczby",
+        "B": "kolejność składników nie wpływa na wynik dodawania",
+        "C": "liczbę 16 można przedstawić w postaci sumy na kilka sposobów",
+        "D": "odejmowanie jest przemienne"
+      },
+      "correct": [
+        "A",
+        "B",
+        "C"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 7,
+      "text": "W której liczbie cyfra setek jest większa od liczby jedności.",
+      "options": {
+        "A": "321",
+        "B": "231",
+        "C": "132",
+        "D": "312"
+      },
+      "correct": [
+        "A",
+        "B",
+        "D"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 8,
+      "text": "Oblicz sumę liczb z pierwszego wiersza poniższej tabelki: 22 18 14 37 42 21 12 16 55 18",
+      "options": {
+        "A": "123",
+        "B": "133",
+        "C": "122",
+        "D": "43"
+      },
+      "correct": "B",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 9,
+      "text": "W 1957 roku skonstruowano pierwszy polski telewizor („Belweder”). Ile lat temu to było?",
+      "options": {
+        "A": "54",
+        "B": "62",
+        "C": "66",
+        "D": "68"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 10,
+      "text": "W autobusie siedzi 13 osób, a stoi 3 razy więcej. Ile jest osób w autobusie?",
+      "options": {
+        "A": "47",
+        "B": "49",
+        "C": "51",
+        "D": "52"
+      },
+      "correct": "D",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 11,
+      "text": "Ile możemy kupić biletów do ZOO, jeżeli jeden kosztuje 13 zł, a mamy uzbierane 55 zł?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "correct": "B",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 12,
+      "text": "Które nierówności zostały zapisane poprawnie?",
+      "options": {
+        "A": "15 : 5 > 20 : 4",
+        "B": "4 5 > 12 2",
+        "C": "40 : 5 < 3 3",
+        "D": "2 + 2 2 < 7 1"
+      },
+      "correct": [
+        "C",
+        "D"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 13,
+      "text": "Błażej codziennie jedzie w jedną stronę do szkoły na rowerze przez 17 minut. Ile czasu poświęca Błażej na jazdę rowerem do szkoły i ze szkoły do domu od poniedziałku do piątku?",
+      "options": {
+        "A": "180 minut",
+        "B": "170 minut",
+        "C": "10200 sekund",
+        "D": "12000 s"
+      },
+      "correct": [
+        "B",
+        "C"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 14,
+      "text": "Jedna godzina i 20 minut to:",
+      "options": {
+        "A": "3 kwadranse i 5 minut",
+        "B": "5 kwadransów i 5 minut",
+        "C": "90 minut",
+        "D": "4800 sekund"
+      },
+      "correct": [
+        "B",
+        "D"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 15,
+      "text": "Który miesiąc ma zawsze 28 dni?",
+      "options": {
+        "A": "styczeń",
+        "B": "luty",
+        "C": "kwiecień",
+        "D": "każdy"
+      },
+      "correct": "B",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 16,
+      "text": "L ukrecja chce ogrodzić swój prostokątny ogródek kwiatowy płotem. Ile metrów płotu musi kupić, jeżeli rabatka ma wymiary 1 m 20 cm i 1 m 80 cm.",
+      "options": {
+        "A": "3 m",
+        "B": "4,2 m",
+        "C": "6 m",
+        "D": "6,5 m"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 17,
+      "text": "Liczba o 12 większa od iloczynu liczb 8 i 9 to:",
+      "options": {
+        "A": "72",
+        "B": "79",
+        "C": "82",
+        "D": "84"
+      },
+      "correct": "D",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 18,
+      "text": "Ciocia ma 38 lat i jest młodsza od wujka o 7 lat. Ile lat mają łącznie ciocia i wujek?",
+      "options": {
+        "A": "69",
+        "B": "74",
+        "C": "83",
+        "D": "85"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 19,
+      "text": "Do liczby tysiąc pięć dodano dwa tysiące trzynaście. Wynik, który otrzymano jest:",
+      "options": {
+        "A": "podzielny przez 2",
+        "B": "podzielny przez 3",
+        "C": "podzielny przez 9",
+        "D": "podzielny przez 5"
+      },
+      "correct": [
+        "A",
+        "B"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 20,
+      "text": "Kasia ma 120 monet po 20 groszy. Ile złotych ma Kasia?",
+      "options": {
+        "A": "24 zł",
+        "B": "240 zł",
+        "C": "2400 zł",
+        "D": "2,4 zł"
+      },
+      "correct": "A",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 21,
+      "text": "Uzupełnij równanie tak żeby było poprawne: 123 + 231 = 432 - ?",
+      "options": {
+        "A": "27",
+        "B": "78",
+        "C": "82",
+        "D": "87"
+      },
+      "correct": "B",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 22,
+      "text": "Dzielimy 48 cukierków po równo między 6 uczniów. Ile cukierków dostanie każdy uczeń?",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "9"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 23,
+      "text": "Wynik poniższego działania jest: 2 7 5",
+      "options": {
+        "A": "większy od 68",
+        "B": "mniejszy od 70",
+        "C": "liczbą pierwszą",
+        "D": "liczbą złożoną"
+      },
+      "correct": [
+        "A",
+        "D"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 24,
+      "text": "Gdzie zostały poprawnie wypisane miesiące z II kwartału?",
+      "options": {
+        "A": "kwiecień, luty, maj",
+        "B": "kwiecień, czerwiec, maj",
+        "C": "kwiecień, maj, lipiec",
+        "D": "styczeń, luty, marzec"
+      },
+      "correct": "B",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 25,
+      "text": "Zwykły rok ma:",
+      "options": {
+        "A": "366 dni",
+        "B": "52 tygodnie",
+        "C": "52 tygodnie i 1 dzień",
+        "D": "52 tygodnie i 2 dni"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 26,
+      "text": "Jaki obwód ma trójkąt równoramienny, jeżeli podstawa jest równa 8 cm, a ramię jest o 3 cm krótsze od podstawy?",
+      "options": {
+        "A": "12 cm",
+        "B": "13 cm",
+        "C": "18 cm",
+        "D": "21 cm"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 27,
+      "text": "Filip chce przelać 2 litry soku do szklanek o objętości ćwierć litra. Ile szklanek napełni Filip?",
+      "options": {
+        "A": "8",
+        "B": "7",
+        "C": "6",
+        "D": "4"
+      },
+      "correct": "A",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 28,
+      "text": "Ile jest liczb dwucyfrowych, których cyfry są jednakowe?",
+      "options": {
+        "A": "5",
+        "B": "7",
+        "C": "9",
+        "D": "10"
+      },
+      "correct": "C",
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    },
+    {
+      "id": 29,
+      "text": "Prawdziwe są zdania:",
+      "options": {
+        "A": "można dzielić przez 0",
+        "B": "liczba podzielona przez samą siebie daje 1",
+        "C": "dzielenie liczby przez 1 nie zmienia tej liczby",
+        "D": "wynik dzielenia to iloczyn"
+      },
+      "correct": [
+        "B",
+        "C"
+      ],
+      "points": 1,
+      "penalty": 0,
+      "solution": ""
+    }
+  ]
+}

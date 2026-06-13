@@ -1,0 +1,37 @@
+{
+  "category": "leon4",
+  "name": "Leon Matematyczny",
+  "class": "Klasa 4",
+  "tests": [
+    {
+      "year": "2024 wiosna",
+      "yearSort": 20241,
+      "edition": "Wiosna 2024",
+      "file": "data/leon4/2024-wiosna.json",
+      "totalQuestions": 29,
+      "maxPoints": 29,
+      "timeMinutes": 45,
+      "startingPoints": 0
+    },
+    {
+      "year": "2023 jesień",
+      "yearSort": 20232,
+      "edition": "Jesień 2023",
+      "file": "data/leon4/2023-jesien.json",
+      "totalQuestions": 29,
+      "maxPoints": 29,
+      "timeMinutes": 45,
+      "startingPoints": 0
+    },
+    {
+      "year": "2023 wiosna",
+      "yearSort": 20231,
+      "edition": "Wiosna 2023",
+      "file": "data/leon4/2023-wiosna.json",
+      "totalQuestions": 29,
+      "maxPoints": 29,
+      "timeMinutes": 45,
+      "startingPoints": 0
+    }
+  ]
+}

@@ -4,16 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Testy Matematyczne</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=18">
 </head>
 <body>
 
-<!-- EKRAN: Lista testów -->
-<div id="screen-list" class="screen active">
+<!-- EKRAN: Wybór kategorii -->
+<div id="screen-categories" class="screen active">
   <header class="app-header">
-    <a id="btn-back-kalendarz" href="../index.html" class="btn-back-kalendarz">← Kalendarz</a>
     <h1>🧮 Testy Matematyczne</h1>
-    <p class="subtitle">Alfik Matematyczny – Klasa 4</p>
+    <p class="subtitle">Wybierz konkurs</p>
+  </header>
+  <div class="category-grid" id="category-grid"></div>
+</div>
+
+<!-- EKRAN: Lista testów -->
+<div id="screen-list" class="screen">
+  <header class="app-header">
+    <button class="btn-back" onclick="showCategories()">← Powrót</button>
+    <div class="header-title-group">
+      <h1 id="list-title">Testy</h1>
+      <p class="subtitle" id="list-subtitle"></p>
+    </div>
   </header>
   <div class="test-grid" id="test-grid"></div>
 </div>
@@ -27,28 +38,15 @@
   <div class="rules-box">
     <div class="rules-section">
       <h2>📋 Zasady testu</h2>
-      <ul>
-        <li>Test zawiera <strong>30 zadań</strong> z odpowiedziami wielokrotnego wyboru (A–E)</li>
+      <ul id="rules-list">
+        <li>Test zawiera <strong id="rules-q-count">30 zadań</strong> z odpowiedziami wielokrotnego wyboru (A–E)</li>
         <li>Każde zadanie ma <strong>jedną poprawną odpowiedź</strong></li>
-        <li>Czas na rozwiązanie: <strong>75 minut</strong></li>
+        <li>Czas na rozwiązanie: <strong id="rules-time">75 minut</strong></li>
       </ul>
     </div>
     <div class="rules-section">
       <h2>🏆 Punktacja</h2>
-      <div class="scoring-table">
-        <div class="score-row header">
-          <span>Zadania</span><span>Poprawna</span><span>Błędna</span><span>Brak</span>
-        </div>
-        <div class="score-row">
-          <span>1–10</span><span class="green">+3 pkt</span><span class="red">−¾ pkt</span><span>0 pkt</span>
-        </div>
-        <div class="score-row">
-          <span>11–20</span><span class="green">+4 pkt</span><span class="red">−1 pkt</span><span>0 pkt</span>
-        </div>
-        <div class="score-row">
-          <span>21–30</span><span class="green">+5 pkt</span><span class="red">−1¼ pkt</span><span>0 pkt</span>
-        </div>
-      </div>
+      <div class="scoring-table" id="rules-scoring"></div>
       <p id="rules-bonus" class="bonus-note" style="display:none"></p>
     </div>
     <div class="rules-section" id="rules-maxpoints-section">
@@ -175,6 +173,6 @@
 <script src="firebase-config.js?v=2"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-<script src="app.js?v=14"></script>
+<script src="app.js?v=19"></script>
 </body>
 </html>

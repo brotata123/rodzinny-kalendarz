@@ -1,0 +1,67 @@
+{
+  "categories": [
+    {
+      "id": "alfik4",
+      "name": "Alfik Matematyczny",
+      "class": "Klasa 4",
+      "folder": "data/alfik4",
+      "color": "#7c3aed",
+      "emoji": "🦔",
+      "available": true
+    },
+    {
+      "id": "leon4",
+      "name": "Leon",
+      "class": "Klasa 4",
+      "folder": "data/leon4",
+      "color": "#16a34a",
+      "emoji": "🦁",
+      "available": true
+    },
+    {
+      "id": "pingwin4",
+      "name": "Pingwin",
+      "class": "Klasa 4",
+      "folder": "data/pingwin4",
+      "color": "#0891b2",
+      "emoji": "🐧",
+      "available": false
+    },
+    {
+      "id": "panda4",
+      "name": "Panda",
+      "class": "Klasa 4",
+      "folder": "data/panda4",
+      "color": "#dc2626",
+      "emoji": "🐼",
+      "available": false
+    },
+    {
+      "id": "mpitagoras4",
+      "name": "Mały Pitagoras",
+      "class": "Klasa 4",
+      "folder": "data/mpitagoras4",
+      "color": "#d97706",
+      "emoji": "📐",
+      "available": false
+    },
+    {
+      "id": "mathman46",
+      "name": "Mathman",
+      "class": "Klasa 4–6",
+      "folder": "data/mathman46",
+      "color": "#374151",
+      "emoji": "🔢",
+      "available": false
+    },
+    {
+      "id": "mat4",
+      "name": "Matematix",
+      "class": "Klasa 4",
+      "folder": "data/mat4",
+      "color": "#2563eb",
+      "emoji": "📊",
+      "available": true
+    }
+  ]
+}

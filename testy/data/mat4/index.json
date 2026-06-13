@@ -1,0 +1,27 @@
+{
+  "category": "mat4",
+  "name": "Matematix",
+  "class": "Klasa 4",
+  "tests": [
+    {
+      "year": "2023",
+      "yearSort": 2023,
+      "edition": "2023",
+      "file": "data/mat4/2023.json",
+      "totalQuestions": 30,
+      "maxPoints": 150,
+      "timeMinutes": 75,
+      "startingPoints": 30
+    },
+    {
+      "year": "2022",
+      "yearSort": 2022,
+      "edition": "2022",
+      "file": "data/mat4/2022.json",
+      "totalQuestions": 30,
+      "maxPoints": 150,
+      "timeMinutes": 75,
+      "startingPoints": 30
+    }
+  ]
+}

@@ -1892,7 +1892,10 @@ function renderTests() {
 
         const commentRow = t.comment ? `<div class="test-comment">💬 ${escHtml(t.comment)}</div>` : '';
         const wrongRow = (t.wrongQuestions && t.wrongQuestions.length)
-          ? `<div class="test-wrong">❌ Błędne: zadania nr ${t.wrongQuestions.join(', ')}</div>`
+          ? `<div class="test-wrong">❌ Błędne: nr ${t.wrongQuestions.join(', ')}</div>`
+          : '';
+        const skippedRow = (t.skippedQuestions && t.skippedQuestions.length)
+          ? `<div class="test-skipped">⭕ Pominięte: nr ${t.skippedQuestions.join(', ')}</div>`
           : '';
 
         list.innerHTML += `
@@ -1905,6 +1908,7 @@ function renderTests() {
             <div class="test-metrics">${ptsBlock}${taskBlock}</div>
             ${commentRow}
             ${wrongRow}
+            ${skippedRow}
           </div>`;
       });
     })
@@ -1945,7 +1949,13 @@ function openTestDetail(id) {
 
   const wrongRow = (t.wrongQuestions && t.wrongQuestions.length)
     ? `<div style="margin-top:10px;padding:8px 12px;background:#fef2f2;border-radius:8px;font-size:12px;color:#dc2626;">
-        ❌ <strong>Błędne zadania:</strong> nr ${t.wrongQuestions.join(', ')}
+        ❌ <strong>Błędne:</strong> nr ${t.wrongQuestions.join(', ')}
+       </div>`
+    : '';
+
+  const skippedRow = (t.skippedQuestions && t.skippedQuestions.length)
+    ? `<div style="margin-top:6px;padding:8px 12px;background:#fff7ed;border-radius:8px;font-size:12px;color:#ea580c;">
+        ⭕ <strong>Pominięte:</strong> nr ${t.skippedQuestions.join(', ')}
        </div>`
     : '';
 
@@ -1957,6 +1967,7 @@ function openTestDetail(id) {
       <div class="test-metrics">${ptsBlock}${taskBlock}</div>
       ${commentRow}
       ${wrongRow}
+      ${skippedRow}
     </div>
     <div style="display:flex;gap:8px;margin-top:16px;">
       <button class="del-btn" style="flex:1;justify-content:center;" onclick="editTest('${id}')">✏️ Edytuj</button>

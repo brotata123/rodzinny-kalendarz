@@ -1,0 +1,465 @@
+{
+  "name": "Matematix 2022 – Klasa 4",
+  "year": 2022,
+  "season": "wiosna",
+  "class": "klasa 4",
+  "category": "mat4",
+  "timeMinutes": 75,
+  "totalQuestions": 30,
+  "maxPoints": 150,
+  "startingPoints": 30,
+  "scoringNote": "start 30pkt, poprawna +pkt, blad -pkt/4, brak 0",
+  "pages": [],
+  "questions": [
+    {
+      "id": 1,
+      "text": "Którą z poniższych liczb można przedstawić w postaci iloczynu liczb jednocyfrowych?",
+      "options": {
+        "A": "77",
+        "B": "52",
+        "C": "34",
+        "D": "57",
+        "E": "63"
+      },
+      "correct": "E",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 2,
+      "text": "Każde rozpoczęte pół godziny parkowania kosztuje 2 zł. Ile kosztuje czterogodzinne parkowanie?",
+      "options": {
+        "A": "8 zł",
+        "B": "10 zł",
+        "C": "12 zł",
+        "D": "14 zł",
+        "E": "16 zł"
+      },
+      "correct": "E",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 3,
+      "text": "Ile białych pól jest na szachownicy rozmiaru 5×5, której pole w lewym górnym rogu jest koloru białego?",
+      "options": {
+        "A": "11",
+        "B": "12",
+        "C": "13",
+        "D": "14",
+        "E": "15"
+      },
+      "correct": "C",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 4,
+      "text": "Ile stron ma 60-kartkowy zeszyt?",
+      "options": {
+        "A": "30",
+        "B": "60",
+        "C": "90",
+        "D": "120",
+        "E": "180"
+      },
+      "correct": "D",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 5,
+      "text": "Ile jest różnych trzycyfrowych liczb, które można ułożyć z cyfr 2, 3 i 5 (wykorzystując wszystkie cyfry)?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5",
+        "E": "6"
+      },
+      "correct": "E",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 6,
+      "text": "W banku monety pakuje się w rulony po 50 sztuk. Ile wart jest rulon 20-groszówek?",
+      "options": {
+        "A": "1 zł",
+        "B": "2 zł",
+        "C": "5 zł",
+        "D": "10 zł",
+        "E": "20 zł"
+      },
+      "correct": "D",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 7,
+      "text": "Jacek chodzi na basen dwa razy w tygodniu – w środy i soboty. Ile najwięcej razy może być na basenie w ciągu całego miesiąca?",
+      "options": {
+        "A": "7",
+        "B": "8",
+        "C": "9",
+        "D": "10",
+        "E": "11"
+      },
+      "correct": "C",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 8,
+      "text": "Która z poniższych liczb pomnożona przez sumę swoich cyfr da największy wynik iloczynu?",
+      "options": {
+        "A": "12",
+        "B": "15",
+        "C": "20",
+        "D": "21",
+        "E": "22"
+      },
+      "correct": "B",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 9,
+      "text": "Pan Michał opuścił hotel w tym samym dniu tygodnia, w którym do tego hotelu przyjechał. Ile nocy spędził w hotelu, jeśli był w nim krócej niż 10 dni?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8",
+        "E": "9"
+      },
+      "correct": "C",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 10,
+      "text": "Ile jest takich miesięcy w ciągu roku, które mają mniej niż 30 dni?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "3",
+        "E": "4 Zadania po 4 punkty"
+      },
+      "correct": "B",
+      "points": 3,
+      "penalty": -0.75,
+      "solution": ""
+    },
+    {
+      "id": 11,
+      "text": "Ania za trzy lata będzie miała dwa razy tyle lat, ile miała rok temu. Ile lat ma Ania?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8",
+        "E": "9"
+      },
+      "correct": "A",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 12,
+      "text": "Ile najwięcej ćwierćlitrowych szklanek można napełnić sokiem z dwóch pełnych półtoralitrowych butelek?",
+      "options": {
+        "A": "4",
+        "B": "6",
+        "C": "8",
+        "D": "12",
+        "E": "16"
+      },
+      "correct": "D",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 13,
+      "text": "Na każdej z 6 ścian kostki do gry jest od 1 do 6 oczek (na każdej ścianie inna liczba). Jacek w pięciu rzutach kostką uzyskał łącznie 18 oczek. Ile oczek uzyskał w trzecim rzucie, jeśli wynik każdego rzutu był większy niż wynik rzutu poprzedniego?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      },
+      "correct": "D",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 14,
+      "text": "Ile razy więcej obrotów wykona w ciągu godziny wskazówka sekundowa od wskazówki minutowej?",
+      "options": {
+        "A": "5",
+        "B": "10",
+        "C": "20",
+        "D": "30",
+        "E": "60"
+      },
+      "correct": "E",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 15,
+      "text": "Na pierwsze spotkanie szkolnego koła wolontariatu przyszło 24 uczniów – tyle samo chłopców co dziewczynek. Na drugim spotkaniu chłopców było dwukrotnie więcej, a dziewczynek dwukrotnie mniej niż na pierwszym spotkaniu. Ilu uczniów przyszło na drugie spotkanie?",
+      "options": {
+        "A": "18",
+        "B": "21",
+        "C": "24",
+        "D": "27",
+        "E": "30"
+      },
+      "correct": "E",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 16,
+      "text": "Cukierki pakowane są w paczki trzech rozmiarów. W trzech małych paczkach jest tyle cukierków co w dwóch średnich paczkach, a w dwóch średnich paczkach jest tyle cukierków co w jednej dużej paczce. Jeśli cukierki z sześciu małych paczek i jednej dużej paczki przepakujemy w paczki średnie to ile paczek otrzymamy?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7",
+        "E": "8"
+      },
+      "correct": "C",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 17,
+      "text": "Na każdym białym polu szachownicy o rozmiarze 4×4 ustawiono tyle pionków, z iloma czarnymi polami sąsiaduje to pole. Ile łącznie pionków ustawiono na szachownicy?",
+      "options": {
+        "A": "16",
+        "B": "18",
+        "C": "24",
+        "D": "32",
+        "E": "inna odpowiedź"
+      },
+      "correct": "C",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 18,
+      "text": "Jaką odległość pokonuje w ciągu minuty samochód poruszający się z prędkością 120 km/h?",
+      "options": {
+        "A": "500 m",
+        "B": "1000 m",
+        "C": "1200 m",
+        "D": "1500 m",
+        "E": "2000 m"
+      },
+      "correct": "E",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 19,
+      "text": "Za dwa lata Maciek i Franek będą mieli łącznie 24 lata. Jaka jest różnica wieku między chłopcami, jeśli dwa lata temu Maciek miał 8 lat?",
+      "options": {
+        "A": "1 rok",
+        "B": "2 lata",
+        "C": "3 lata",
+        "D": "4 lata",
+        "E": "są w tym samym wieku"
+      },
+      "correct": "E",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 20,
+      "text": "W pewnym miesiącu wypadło pięć piątków, pięć sobót i pięć niedziel. Jakim dniem tygodnia zaczął się ów miesiąc?",
+      "options": {
+        "A": "środą",
+        "B": "czwartkiem",
+        "C": "piątkiem",
+        "D": "sobotą",
+        "E": "niedzielą Zadania po 5 punktów"
+      },
+      "correct": "C",
+      "points": 4,
+      "penalty": -1.0,
+      "solution": ""
+    },
+    {
+      "id": 21,
+      "text": "W pudełku są kulki zielone i kulki czerwone – łącznie 20 kulek – przy czym kulek czerwonych jest o połowę więcej niż zielonych. Ile kulek czerwonych trzeba przemalować na zielono, żeby kulek zielonych było tyle samo co czerwonych?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "4",
+        "D": "6",
+        "E": "8"
+      },
+      "correct": "B",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 22,
+      "text": "Ściany sześciennej kostki do gry opisane są liczbami od 1 do 6 (każda ściana inną liczbą). Basia rzuca dwiema kostkami, a jako wynik przyjmuje iloczyn większej z dwóch wyrzuconych liczb i różnicy obu wyrzuconych liczb. Jaka była suma liczb wyrzuconych na obu kostkach, jeśli wynik wyliczony przez Basię wynosił 10?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8",
+        "E": "9"
+      },
+      "correct": "D",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 23,
+      "text": "Iloczyn cyfr pewnej liczby pięciocyfrowej wynosi 12, a suma jej cyfr wynosi 9. Ile razy cyfra 1 występuje w zapisie tej liczby?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      },
+      "correct": "B",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 24,
+      "text": "W pewnym turnieju szachowym każdy szachista rozegrał dwie partie z każdym z pozostałych. Ilu szachistów brało udział w turnieju, jeśli łącznie rozegrano 30 partii?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8",
+        "E": "9"
+      },
+      "correct": "B",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 25,
+      "text": "Pani Mariola urodziła się w XX wieku. Jej prawnuk urodził się w XXI wieku, w dniu jej urodzin, w roku, którego numer powstaje przez zamianę miejscami cyfr w roku urodzenia pani Marioli. Ile lat miała pani Mariola w dniu narodzin prawnuka, jeśli nie miała więcej niż 100 lat?",
+      "options": {
+        "A": "80",
+        "B": "89",
+        "C": "90",
+        "D": "99",
+        "E": "100"
+      },
+      "correct": "D",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 26,
+      "text": "Bankomat wypłaca pieniądze przy użyciu banknotów o nominałach 20 zł i 50 zł. Pan Jacek wypłacił z bankomatu pewną kwotę otrzymując 8 banknotów. Gdyby bankomat dokonywał wypłat używając wyłącznie banknotów o nominałach 10 zł i 200 zł, pan Jacek otrzymałby tylko 3 banknoty. Ile dwudziestozłotówek otrzymał pan Jacek?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6",
+        "E": "7"
+      },
+      "correct": "D",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 27,
+      "text": "Bartek ma pewną liczbę dwuzłotówek, a Basia – pewną liczbę pięciozłotówek. Gdyby Bartek miał o jedną dwuzłotówkę więcej, to miałby tyle pieniędzy co Basia. Gdyby zaś Bartek oddał Basi jedną swoją monetę, to oboje mieliby po tyle samo monet. Ile monet ma Bartek?",
+      "options": {
+        "A": "4",
+        "B": "6",
+        "C": "7",
+        "D": "8",
+        "E": "10"
+      },
+      "correct": "A",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 28,
+      "text": "Cena pewnej książki w marcu wzrosła o połowę, a w kwietniu spadła o połowę, do poziomu 18 zł. W lutym książka ta była:",
+      "options": {
+        "A": "o 6 zł droższa niż w kwietniu",
+        "B": "o 4 zł droższa niż w kwietniu",
+        "C": "o 6 zł tańsza niż w kwietniu",
+        "D": "o 4 zł tańsza niż w kwietniu",
+        "E": "w tej samej cenie co w kwietniu"
+      },
+      "correct": "A",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 29,
+      "text": "Kwadrat o obwodzie 12 cm rozcięto na 3 jednakowe prostokąty. Jaki jest obwód każdego z otrzymanych prostokątów?",
+      "options": {
+        "A": "4 cm",
+        "B": "6 cm",
+        "C": "8 cm",
+        "D": "9 cm",
+        "E": "12 cm"
+      },
+      "correct": "C",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    },
+    {
+      "id": 30,
+      "text": "Wczoraj na lekcji obecni byli wszyscy chłopcy i połowa dziewczynek z pewnej klasy – łącznie 18 uczniów. Dzisiaj na lekcji była połowa chłopców i wszystkie dziewczynki z tej klasy – łącznie 24 uczniów. Ilu uczniów liczy owa klasa?",
+      "options": {
+        "A": "25",
+        "B": "26",
+        "C": "27",
+        "D": "28",
+        "E": "30"
+      },
+      "correct": "D",
+      "points": 5,
+      "penalty": -1.25,
+      "solution": ""
+    }
+  ]
+}
