@@ -134,10 +134,18 @@ function showScreen(name) {
   if (fab) fab.style.display = noFabScreens.includes(name) ? 'none' : 'flex';
   if (nav) nav.style.display = isAppScreen ? 'flex' : 'none';
 
-  // Aktywna zakładka w dolnej nawigacji
+  // Aktywna zakładka w dolnej nawigacji + bounce
   ['calendar', 'grades', 'contests', 'events', 'todo', 'results', 'plan'].forEach(n => {
     const el = document.getElementById('nav-' + n);
-    if (el) el.classList.toggle('active', n === name);
+    if (!el) return;
+    const wasActive = el.classList.contains('active');
+    el.classList.toggle('active', n === name);
+    if (n === name && !wasActive) {
+      el.classList.remove('nav-bounce');
+      void el.offsetWidth; // reflow — resetuje animację
+      el.classList.add('nav-bounce');
+      el.addEventListener('animationend', () => el.classList.remove('nav-bounce'), { once: true });
+    }
   });
 
   // Oznacz ekran jako odwiedzony (czyści badge)

@@ -1438,6 +1438,16 @@
     .nav-icon  { font-size: 20px; line-height: 1; }
     .nav-label { font-size: 9px; font-weight: 500; color: var(--text-light); }
     .nav-item.active .nav-label { color: var(--mint); font-weight: 700; }
+    @keyframes navBounce {
+      0%   { transform: scale(1); }
+      35%  { transform: scale(1.42); }
+      60%  { transform: scale(0.88); }
+      80%  { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+    .nav-bounce .nav-icon, .nav-bounce .nav-icon-wrap {
+      animation: navBounce 0.42s cubic-bezier(0.34,1.56,0.64,1);
+    }
 
     /* Odznaki badge na ikonie nawigacji */
     .nav-icon-wrap {
