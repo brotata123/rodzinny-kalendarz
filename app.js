@@ -1393,13 +1393,13 @@ function removePhoto() {
     <input type="file" id="f-photo" accept="image/*" style="display:none" onchange="onPhotoSelected(this)">`;
 }
 
-async function compressAndUpload(file, eventId) {
+async function compressAndUpload(file) {
   return new Promise((resolve, reject) => {
     const img = new Image();
     const url = URL.createObjectURL(file);
-    img.onload = async () => {
+    img.onload = () => {
       URL.revokeObjectURL(url);
-      const MAX = 1200;
+      const MAX = 800;
       let w = img.width, h = img.height;
       if (w > MAX || h > MAX) {
         if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
@@ -1408,14 +1408,7 @@ async function compressAndUpload(file, eventId) {
       const canvas = document.createElement('canvas');
       canvas.width = w; canvas.height = h;
       canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-      canvas.toBlob(async blob => {
-        try {
-          const storage = firebase.storage();
-          const ref = storage.ref(`families/${familyId}/events/${eventId}_${Date.now()}.jpg`);
-          await ref.put(blob, { contentType: 'image/jpeg' });
-          resolve(await ref.getDownloadURL());
-        } catch (e) { reject(e); }
-      }, 'image/jpeg', 0.82);
+      resolve(canvas.toDataURL('image/jpeg', 0.65));
     };
     img.onerror = reject;
     img.src = url;
@@ -1625,8 +1618,7 @@ async function submitForm() {
       // Upload zdjęcia jeśli wybrane
       const photoInput = document.getElementById('f-photo');
       if (photoInput && photoInput.files && photoInput.files[0]) {
-        const tempId = editMode && editDocId ? editDocId : ('tmp_' + Date.now());
-        evData.imageUrl = await compressAndUpload(photoInput.files[0], tempId);
+        evData.imageUrl = await compressAndUpload(photoInput.files[0]);
       } else if (editMode && editDocId) {
         // Zachowaj istniejące zdjęcie jeśli nie wybrano nowego
         const previewImg = document.querySelector('#photo-pick-area img');
