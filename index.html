@@ -1495,6 +1495,56 @@
     .nav-badge.show { display: flex; }
 
     /* ============================================================
+       EKRAN SZACHY
+    ============================================================ */
+    .chess-platform-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 2px 16px rgba(15,31,61,0.07);
+      margin-bottom: 16px;
+    }
+    body.dark .chess-platform-card { background: var(--card-bg); }
+    .chess-platform-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .chess-platform-name { font-weight: 700; font-size: 16px; color: var(--text); }
+    .chess-username { font-size: 12px; color: var(--mint); text-decoration: none; }
+    .chess-ratings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .chess-rating-item {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 12px 8px;
+      text-align: center;
+    }
+    .chess-rating-label { font-size: 11px; color: var(--text-light); margin-bottom: 2px; }
+    .chess-rating-value { font-size: 22px; font-weight: 800; }
+    .chess-rating-icon  { font-size: 14px; margin-bottom: 2px; }
+    .chess-games-row {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-light);
+      text-align: center;
+    }
+    @keyframes chess-spin { to { transform: rotate(360deg); } }
+    .chess-spinner {
+      width: 32px; height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--mint);
+      border-radius: 50%;
+      animation: chess-spin 0.8s linear infinite;
+    }
+
+    /* ============================================================
        GLOBALNY FAB (+)
     ============================================================ */
     .global-fab {
@@ -2023,6 +2073,57 @@
   </div>
 
   <!-- ============================================================
+       EKRAN: SZACHY
+  ============================================================ -->
+  <div id="screen-chess" class="screen">
+    <div class="header">
+      <div class="header-top">
+        <div>
+          <div class="header-title">♟️ Szachy</div>
+          <div class="header-sub" id="chess-header-sub">Rankingi online</div>
+        </div>
+        <button onclick="refreshChess()" style="background:none;border:none;font-size:22px;cursor:pointer;padding:4px;line-height:1;">🔄</button>
+      </div>
+    </div>
+    <div class="screen-body" style="flex:1;padding:16px;overflow-y:auto;padding-bottom:calc(var(--nav-height) + 80px);">
+      <div id="chess-loading" style="display:flex;align-items:center;justify-content:center;padding:48px;flex-direction:column;gap:14px;">
+        <div class="chess-spinner"></div>
+        <div style="color:var(--text-light);font-size:14px;">Pobieranie rankingów…</div>
+      </div>
+      <div id="chess-content" hidden>
+        <!-- Lichess -->
+        <div class="chess-platform-card">
+          <div class="chess-platform-header">
+            <div style="font-size:28px;line-height:1;">🏇</div>
+            <div>
+              <div class="chess-platform-name">Lichess</div>
+              <a href="https://lichess.org/@/Szaszlykoszop" target="_blank" class="chess-username">@Szaszlykoszop</a>
+            </div>
+          </div>
+          <div class="chess-ratings-grid" id="lichess-ratings"></div>
+          <div class="chess-games-row" id="lichess-games"></div>
+        </div>
+        <!-- Chess.com -->
+        <div class="chess-platform-card">
+          <div class="chess-platform-header">
+            <div style="font-size:28px;line-height:1;">♞</div>
+            <div>
+              <div class="chess-platform-name">Chess.com</div>
+              <a href="https://www.chess.com/member/olafszszachy" target="_blank" class="chess-username">olafszszachy</a>
+            </div>
+          </div>
+          <div class="chess-ratings-grid" id="chesscom-ratings"></div>
+        </div>
+      </div>
+      <div id="chess-error" hidden style="text-align:center;padding:40px;color:var(--text-light);">
+        <div style="font-size:40px;margin-bottom:12px;">⚠️</div>
+        <div style="margin-bottom:16px;">Nie można pobrać danych</div>
+        <button onclick="refreshChess()" style="padding:8px 22px;border:1.5px solid var(--mint);background:none;color:var(--mint);border-radius:20px;cursor:pointer;font-size:14px;">Spróbuj ponownie</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
        CUSTOM CONFIRM DIALOG
   ============================================================ -->
   <div class="modal-overlay" id="confirm-modal" onclick="closeConfirmDialog(event)">
@@ -2078,6 +2179,10 @@
         <span class="nav-icon">📚</span>
       </div>
       <div class="nav-label">Plan</div>
+    </div>
+    <div class="nav-item" id="nav-chess" onclick="showScreen('chess')">
+      <div class="nav-icon">♟️</div>
+      <div class="nav-label">Szachy</div>
     </div>
   </div>
 

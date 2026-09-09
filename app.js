@@ -135,7 +135,7 @@ function showScreen(name) {
   if (nav) nav.style.display = isAppScreen ? 'flex' : 'none';
 
   // Aktywna zakładka w dolnej nawigacji + bounce
-  ['calendar', 'grades', 'contests', 'events', 'todo', 'results', 'plan'].forEach(n => {
+  ['calendar', 'grades', 'contests', 'events', 'todo', 'results', 'plan', 'chess'].forEach(n => {
     const el = document.getElementById('nav-' + n);
     if (!el) return;
     const wasActive = el.classList.contains('active');
@@ -159,6 +159,7 @@ function showScreen(name) {
   if (name === 'todo')     renderTasks();
   if (name === 'results')  renderResults();
   if (name === 'plan')     renderPlanLekcji();
+  if (name === 'chess')    renderChess();
 }
 
 // ============================================================
@@ -2750,4 +2751,87 @@ function renderPlanLekcji() {
 function selectPlanDay(i) {
   currentPlanDay = i;
   renderPlanLekcji();
+}
+
+// ============================================================
+// SZACHY — rankingi Lichess i Chess.com
+// ============================================================
+let _chessLoaded = false;
+
+function renderChess() {
+  if (_chessLoaded) return;
+  fetchChessData();
+}
+
+function refreshChess() {
+  _chessLoaded = false;
+  document.getElementById('chess-content').hidden = true;
+  document.getElementById('chess-error').hidden = true;
+  document.getElementById('chess-loading').style.display = 'flex';
+  fetchChessData();
+}
+
+async function fetchChessData() {
+  try {
+    const [lichessRes, chesscomRes] = await Promise.all([
+      fetch('https://lichess.org/api/user/Szaszlykoszop'),
+      fetch('https://api.chess.com/pub/player/olafszszachy/stats')
+    ]);
+    if (!lichessRes.ok || !chesscomRes.ok) throw new Error('fetch failed');
+    const [lichess, chesscom] = await Promise.all([lichessRes.json(), chesscomRes.json()]);
+
+    renderLichessRatings(lichess);
+    renderChesscomRatings(chesscom);
+
+    document.getElementById('chess-loading').style.display = 'none';
+    document.getElementById('chess-content').hidden = false;
+    document.getElementById('chess-error').hidden = true;
+    _chessLoaded = true;
+
+    const t = new Date().toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('chess-header-sub').textContent = 'Zaktualizowano o ' + t;
+  } catch {
+    document.getElementById('chess-loading').style.display = 'none';
+    document.getElementById('chess-error').hidden = false;
+  }
+}
+
+function chessRatingColor(r) {
+  if (r >= 1800) return '#e67e22';
+  if (r >= 1500) return '#3dbf8a';
+  if (r >= 1200) return '#3498db';
+  return '#95a5a6';
+}
+
+function chessRatingItem(icon, label, rating) {
+  const color = chessRatingColor(rating);
+  return `<div class="chess-rating-item">
+    <div class="chess-rating-icon">${icon}</div>
+    <div class="chess-rating-label">${label}</div>
+    <div class="chess-rating-value" style="color:${color}">${rating}</div>
+  </div>`;
+}
+
+function renderLichessRatings(data) {
+  const p = data.perfs || {};
+  const items = [
+    p.bullet    ? chessRatingItem('⚡', 'Bullet',   p.bullet.rating)   : '',
+    p.blitz     ? chessRatingItem('🔥', 'Blitz',    p.blitz.rating)    : '',
+    p.rapid     ? chessRatingItem('⏱️', 'Rapid',    p.rapid.rating)    : '',
+    p.puzzle    ? chessRatingItem('🧩', 'Puzzle',   p.puzzle.rating)   : '',
+  ];
+  document.getElementById('lichess-ratings').innerHTML = items.join('');
+  const c = data.count || {};
+  document.getElementById('lichess-games').textContent =
+    `${c.all || 0} partii • ${c.win || 0}W / ${c.draw || 0}R / ${c.loss || 0}P`;
+}
+
+function renderChesscomRatings(data) {
+  const items = [
+    data.chess_bullet ? chessRatingItem('⚡', 'Bullet',  data.chess_bullet.last.rating) : '',
+    data.chess_blitz  ? chessRatingItem('🔥', 'Blitz',   data.chess_blitz.last.rating)  : '',
+    data.chess_rapid  ? chessRatingItem('⏱️', 'Rapid',   data.chess_rapid.last.rating)  : '',
+    data.tactics      ? chessRatingItem('🧩', 'Taktyki', data.tactics.highest.rating)   : '',
+  ];
+  document.getElementById('chesscom-ratings').innerHTML = items.join('');
 }
