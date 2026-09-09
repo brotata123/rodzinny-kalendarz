@@ -1574,6 +1574,44 @@
     }
     .chess-chart-wrap { position: relative; height: 200px; }
     .chess-chart-info { font-size: 11px; color: var(--text-light); text-align: center; margin-top: 8px; }
+    .chess-otb-info {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .chess-otb-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .chess-otb-label { color: var(--text-light); min-width: 80px; font-size: 12px; }
+    .chess-otb-links {
+      margin-top: 14px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .chess-otb-link {
+      flex: 1;
+      text-align: center;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      background: var(--bg);
+    }
+    .chess-otb-updated {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--text-light);
+      text-align: right;
+    }
 
     /* ============================================================
        GLOBALNY FAB (+)
@@ -2145,6 +2183,20 @@
           </div>
           <div class="chess-ratings-grid" id="chesscom-ratings"></div>
         </div>
+        <!-- OTB — partie na żywo -->
+        <div class="chess-platform-card">
+          <div class="chess-platform-header">
+            <div style="font-size:28px;line-height:1;">🏆</div>
+            <div>
+              <div class="chess-platform-name">OTB — Partie na żywo</div>
+              <div style="font-size:12px;color:var(--text-light);">FIDE · PZSzach</div>
+            </div>
+          </div>
+          <div class="chess-ratings-grid" id="otb-ratings"></div>
+          <div class="chess-otb-info" id="otb-info"></div>
+          <div class="chess-otb-links" id="otb-links"></div>
+        </div>
+
         <!-- Wykres postępu -->
         <div class="chess-platform-card">
           <div class="chess-chart-section-title">📈 Wykres postępu</div>

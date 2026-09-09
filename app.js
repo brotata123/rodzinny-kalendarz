@@ -2792,6 +2792,7 @@ async function fetchChessData() {
 
     renderLichessRatings(lichess);
     renderChesscomRatings(chesscom);
+    renderOTB();
 
     // Zapisz historię Lichess
     _chessHistory.lichess = lichessHistory;
@@ -2983,4 +2984,46 @@ function renderChesscomRatings(data) {
     data.tactics      ? chessRatingItem('🧩', 'Taktyki', data.tactics.highest.rating)   : '',
   ];
   document.getElementById('chesscom-ratings').innerHTML = items.join('');
+}
+
+// ============================================================
+// OTB — dane statyczne (aktualizuj po każdym turnieju)
+// ============================================================
+const OTB_DATA = {
+  fideId:    '545050945',
+  standard:  1442,
+  rapid:     1448,
+  blitz:     null,
+  kategoria: 'III',
+  klub:      'KSz Biało-Czarni Bolszewo',
+  pzszachId: '11201202',
+  updated:   '2026-09-09',
+};
+
+function renderOTB() {
+  // Rankingi
+  const ratingsEl = document.getElementById('otb-ratings');
+  if (!ratingsEl) return;
+  const items = [
+    OTB_DATA.standard ? chessRatingItem('🎯', 'Standard', OTB_DATA.standard) : '',
+    OTB_DATA.rapid    ? chessRatingItem('⏱️', 'Rapid',    OTB_DATA.rapid)    : '',
+    OTB_DATA.blitz    ? chessRatingItem('🔥', 'Blitz',    OTB_DATA.blitz)    : '',
+  ].filter(Boolean);
+  ratingsEl.innerHTML = items.join('');
+
+  // Info
+  document.getElementById('otb-info').innerHTML = `
+    <div class="chess-otb-row"><span class="chess-otb-label">Kategoria</span><strong>${OTB_DATA.kategoria}</strong></div>
+    <div class="chess-otb-row"><span class="chess-otb-label">Klub</span>${OTB_DATA.klub}</div>
+    <div class="chess-otb-row"><span class="chess-otb-label">FIDE ID</span><a href="https://ratings.fide.com/profile/${OTB_DATA.fideId}" target="_blank" style="color:var(--mint);text-decoration:none;">${OTB_DATA.fideId}</a></div>
+    <div class="chess-otb-row"><span class="chess-otb-label">PZSzach</span>${OTB_DATA.pzszachId}</div>
+    <div class="chess-otb-updated">Dane z: ${OTB_DATA.updated}</div>
+  `;
+
+  // Linki
+  document.getElementById('otb-links').innerHTML = `
+    <a class="chess-otb-link" href="https://ratings.fide.com/profile/${OTB_DATA.fideId}" target="_blank">🌐 Profil FIDE</a>
+    <a class="chess-otb-link" href="https://www.chessmanager.com/en/tournaments?name=Szymczak" target="_blank">🏅 ChessManager</a>
+    <a class="chess-otb-link" href="http://www.cr-pzszach.pl/ew/viewpage.php?page_id=6&id=150892" target="_blank">📋 CR PZSzach</a>
+  `;
 }
