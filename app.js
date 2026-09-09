@@ -2678,9 +2678,22 @@ const PLAN_LEKCJI = {
     { p: 3, s: 'Szachy ♟️',                  t: '',                       c: 'other', span: 2 },
     { p: 5, s: 'Matematyka',                  t: 'Beata Falkiewicz',       c: 'mat'  },
     { p: 6, s: 'Plastyka',                    t: 'Beata Mielewczyk',       c: 'arts' },
-    { p: 7, s: 'Wychowanie fizyczne',         t: 'Andrzej Rybiński',       c: 'pe'   },
+    { p: 7, s: 'Basen 🏊',                    t: 'Andrzej Rybiński',       c: 'pe',   endTime: '15:10' },
   ],
 };
+
+const KULINARKI_LEKCJA = { p: 8, s: 'Kulinarki 🍳', t: '', c: 'arts', span: 2, startTime: '14:25', endTime: '16:00' };
+
+function isKulinarkiWeek() {
+  const ref = new Date('2026-09-15T12:00:00');
+  const today = new Date();
+  const dow = today.getDay();
+  const diff = (2 - dow + 7) % 7; // dni do wtorku (0 jeśli dziś wtorek)
+  const thisTuesday = new Date(today);
+  thisTuesday.setDate(today.getDate() + diff);
+  const weeks = Math.round((thisTuesday - ref) / (7 * 24 * 60 * 60 * 1000));
+  return weeks % 2 === 0;
+}
 
 const PLAN_DAY_NAMES = ['Pn', 'Wt', 'Śr', 'Czw', 'Pt'];
 const PLAN_DAY_FULL  = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek'];
@@ -2703,7 +2716,10 @@ function renderPlanLekcji() {
   const container = document.getElementById('plan-lessons');
   if (!container) return;
 
-  const lessons = PLAN_LEKCJI[currentPlanDay] || [];
+  let lessons = [...(PLAN_LEKCJI[currentPlanDay] || [])];
+  if (currentPlanDay === 1 && isKulinarkiWeek()) {
+    lessons = [...lessons, KULINARKI_LEKCJA];
+  }
   if (!lessons.length) {
     container.innerHTML = '<div class="empty-state"><div class="es-icon">🎉</div><p>Wolne!</p></div>';
     return;
@@ -2711,7 +2727,7 @@ function renderPlanLekcji() {
 
   container.innerHTML = lessons.map(l => {
     const color = SUBJECT_COLORS[l.c] || SUBJECT_COLORS.other;
-    const start = (PERIOD_TIMES[l.p] || '').split('–')[0];
+    const start = l.startTime || (PERIOD_TIMES[l.p] || '').split('–')[0];
     let end;
     if (l.endTime)       end = l.endTime;
     else if (l.span)     end = (PERIOD_TIMES[l.p + l.span - 1] || '').split('–')[1];
