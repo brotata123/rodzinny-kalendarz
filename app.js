@@ -2794,11 +2794,8 @@ async function fetchChessData() {
     renderChesscomRatings(chesscom);
     renderOTB();
 
-    // Zapisz historię Lichess
-    _chessHistory.lichess = lichessHistory;
-
-    // Zapisz i załaduj historię Chess.com z Firestore
-    await saveChesscomSnapshot(chesscom);
+    // Zapisz i załaduj historię z Firestore (Chess.com + Lichess)
+    await saveChesscomSnapshot(chesscom, lichess);
     _chessHistory.chesscom = await loadChesscomHistory();
 
     document.getElementById('chess-loading').style.display = 'none';
@@ -2817,17 +2814,24 @@ async function fetchChessData() {
   }
 }
 
-async function saveChesscomSnapshot(data) {
+async function saveChesscomSnapshot(chesscom, lichess) {
   const today = new Date().toISOString().split('T')[0];
   try {
     const ref = db.collection('chess_snapshots').doc(today);
     const existing = await ref.get();
     if (!existing.exists) {
+      const p = lichess?.perfs || {};
       await ref.set({
-        bullet:  data.chess_bullet?.last?.rating  || null,
-        blitz:   data.chess_blitz?.last?.rating   || null,
-        rapid:   data.chess_rapid?.last?.rating   || null,
-        tactics: data.tactics?.highest?.rating    || null,
+        // Chess.com
+        bullet:  chesscom.chess_bullet?.last?.rating  || null,
+        blitz:   chesscom.chess_blitz?.last?.rating   || null,
+        rapid:   chesscom.chess_rapid?.last?.rating   || null,
+        tactics: chesscom.tactics?.highest?.rating    || null,
+        // Lichess (historia prywatna — zbieramy sami)
+        lichess_bullet: p.bullet?.rating  || null,
+        lichess_blitz:  p.blitz?.rating   || null,
+        lichess_rapid:  p.rapid?.rating   || null,
+        lichess_puzzle: p.puzzle?.rating  || null,
         ts: Date.now()
       });
     }
@@ -2866,31 +2870,24 @@ function updateChessChart() {
 
   let labels = [], values = [], infoText = '';
 
-  if (_chartPlatform === 'lichess') {
-    const hist = _chessHistory.lichess;
-    if (!hist) return;
-    const nameMap = { bullet: 'Bullet', blitz: 'Blitz', rapid: 'Rapid', puzzle: 'Puzzle' };
-    const entry = hist.find(h => h.name === nameMap[_chartFormat]);
-    if (!entry || !entry.points.length) {
-      infoText = 'Brak danych dla tego formatu'; labels = []; values = [];
-    } else {
-      const cutoff = Date.now() - 90 * 24 * 60 * 60 * 1000;
-      const pts = entry.points.filter(([y, m, d]) => new Date(y, m, d).getTime() >= cutoff);
-      const src = pts.length ? pts : entry.points.slice(-60);
-      labels = src.map(([y, m, d]) => `${d}.${m + 1}`);
-      values = src.map(([,,,r]) => r);
-      infoText = `Lichess · ostatnie ${src.length} dni z danymi`;
-    }
+  const hist = _chessHistory.chesscom;
+  const fieldMap = {
+    lichess: { bullet: 'lichess_bullet', blitz: 'lichess_blitz', rapid: 'lichess_rapid', puzzle: 'lichess_puzzle' },
+    chesscom: { bullet: 'bullet', blitz: 'blitz', rapid: 'rapid', puzzle: 'tactics' },
+  };
+  const field = fieldMap[_chartPlatform][_chartFormat];
+  const platformLabel = _chartPlatform === 'lichess' ? 'Lichess' : 'Chess.com';
+
+  if (!hist || !hist.length) {
+    infoText = `Brak historii ${platformLabel} (zbiera się od dziś)`;
   } else {
-    const hist = _chessHistory.chesscom;
-    if (!hist || !hist.length) { infoText = 'Brak historii Chess.com (zbiera się od dziś)'; }
-    else {
-      const fieldMap = { bullet: 'bullet', blitz: 'blitz', rapid: 'rapid', puzzle: 'tactics' };
-      const field = fieldMap[_chartFormat];
-      const pts = hist.filter(d => d[field] != null);
-      labels = pts.map(d => d.date.slice(5)); // MM-DD
+    const pts = hist.filter(d => d[field] != null);
+    if (!pts.length) {
+      infoText = `Brak danych dla tego formatu`;
+    } else {
+      labels = pts.map(d => d.date.slice(5));
       values = pts.map(d => d[field]);
-      infoText = `Chess.com · ${pts.length} pomiar${pts.length === 1 ? '' : 'y'}`;
+      infoText = `${platformLabel} · ${pts.length} pomiar${pts.length === 1 ? '' : 'y'}`;
     }
   }
 
