@@ -2671,7 +2671,6 @@ const PLAN_LEKCJI = {
     { p: 5, s: 'Historia',                    t: 'Monika Burkowska',       c: 'mat'  },
     { p: 6, s: 'Język angielski',             t: 'Marzena Bogucka',        c: 'lang' },
     { p: 7, s: 'Religia / Etyka',             t: 'Dubert / Mendyka',       c: 'other' },
-    { p: 8, s: 'Basen 🏊',                    t: 'Magdalena Guzon',        c: 'pe',   endTime: '15:10' },
   ],
   4: [
     { p: 1, s: 'Język polski',                t: 'A. Plechan-Kręcicka',   c: 'lang', span: 2 },
