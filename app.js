@@ -1369,9 +1369,12 @@ function buildFormHtml(type) {
 // ============================================================
 //  PHOTO ATTACHMENT HELPERS
 // ============================================================
+let _pendingPhotoFile = null;
+
 function onPhotoSelected(input) {
   const file = input.files[0];
   if (!file) return;
+  _pendingPhotoFile = file;
   const reader = new FileReader();
   reader.onload = e => {
     const area = document.getElementById('photo-pick-area');
@@ -1386,6 +1389,7 @@ function onPhotoSelected(input) {
 }
 
 function removePhoto() {
+  _pendingPhotoFile = null;
   const area = document.getElementById('photo-pick-area');
   if (!area) return;
   area.innerHTML = `
@@ -1481,6 +1485,7 @@ function closeFormModal(e) {
 }
 
 function closeFormModalDirect() {
+  _pendingPhotoFile = null;
   document.getElementById('form-modal').classList.remove('open');
   const btn = document.getElementById('btn-save');
   btn.disabled = false;
@@ -1618,13 +1623,13 @@ async function submitForm() {
       };
 
       // Upload zdjęcia jeśli wybrane
-      const photoInput = document.getElementById('f-photo');
-      if (photoInput && photoInput.files && photoInput.files[0]) {
-        evData.imageUrl = await compressAndUpload(photoInput.files[0]);
+      if (_pendingPhotoFile) {
+        evData.imageUrl = await compressAndUpload(_pendingPhotoFile);
+        _pendingPhotoFile = null;
       } else if (editMode && editDocId) {
         // Zachowaj istniejące zdjęcie jeśli nie wybrano nowego
         const previewImg = document.querySelector('#photo-pick-area img');
-        if (previewImg && previewImg.src && !previewImg.src.startsWith('data:')) {
+        if (previewImg && previewImg.src) {
           evData.imageUrl = previewImg.src;
         }
       }
