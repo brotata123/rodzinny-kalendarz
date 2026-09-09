@@ -2981,6 +2981,18 @@ function renderChesscomRatings(data) {
     data.tactics      ? chessRatingItem('🧩', 'Taktyki', data.tactics.highest.rating)   : '',
   ];
   document.getElementById('chesscom-ratings').innerHTML = items.join('');
+
+  // Zsumuj statystyki ze wszystkich formatów
+  let win = 0, draw = 0, loss = 0;
+  ['chess_bullet', 'chess_blitz', 'chess_rapid', 'chess_daily'].forEach(k => {
+    const r = data[k]?.record || {};
+    win  += r.win  || 0;
+    draw += r.draw || 0;
+    loss += r.loss || 0;
+  });
+  const all = win + draw + loss;
+  document.getElementById('chesscom-games').textContent =
+    `${all} partii • ${win}W / ${draw}R / ${loss}P`;
 }
 
 // ============================================================
