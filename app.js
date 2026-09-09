@@ -2759,7 +2759,11 @@ function selectPlanDay(i) {
 let _chessLoaded = false;
 
 function renderChess() {
-  if (_chessLoaded) return;
+  // Przy pierwszym otwarciu: pokaż spinner; przy powrotach: cicha aktualizacja w tle
+  if (!_chessLoaded) {
+    document.getElementById('chess-loading').style.display = 'flex';
+    document.getElementById('chess-content').hidden = true;
+  }
   fetchChessData();
 }
 
