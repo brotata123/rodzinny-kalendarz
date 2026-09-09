@@ -2674,8 +2674,8 @@ const PLAN_LEKCJI = {
   ],
   4: [
     { p: 1, s: 'Język polski',                t: 'A. Plechan-Kręcicka',   c: 'lang', span: 2 },
-    { p: 3, s: 'Szachy ♟️',                  t: '',                       c: 'other', span: 2 },
-    { p: 5, s: 'Matematyka',                  t: 'Beata Falkiewicz',       c: 'mat'  },
+    { p: 3, s: 'Szachy ♟️',                  t: '',                       c: 'other' },
+    { p: 4, s: 'Matematyka',                  t: 'Beata Falkiewicz',       c: 'mat',  span: 2 },
     { p: 6, s: 'Plastyka',                    t: 'Beata Mielewczyk',       c: 'arts' },
     { p: 7, s: 'Basen 🏊',                    t: 'Andrzej Rybiński',       c: 'pe',   endTime: '15:10' },
   ],
