@@ -1494,6 +1494,62 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
     .tog-track.on .tog-thumb { left: 19px; }
+
+    /* ============================================================
+       PLAN LEKCJI
+    ============================================================ */
+    .plan-wrap {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px 16px;
+      padding-bottom: calc(var(--nav-height) + 80px);
+    }
+
+    .plan-lesson-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--white);
+      border-radius: 14px;
+      margin-bottom: 8px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .plan-period-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+      flex-shrink: 0;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .plan-subject-bar {
+      width: 4px;
+      min-height: 36px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      align-self: stretch;
+    }
+
+    .plan-subject {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 2px;
+    }
+
+    .plan-time {
+      font-size: 11px;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body>
@@ -1837,6 +1893,29 @@
   </div>
 
   <!-- ============================================================
+       EKRAN: PLAN LEKCJI
+  ============================================================ -->
+  <div id="screen-plan" class="screen">
+    <div class="header">
+      <div class="header-top">
+        <div>
+          <div class="header-title">Plan lekcji</div>
+          <div class="header-sub" id="plan-header-sub">Klasa 4A</div>
+        </div>
+        <div style="font-size:26px;">📚</div>
+      </div>
+      <div class="view-toggle">
+        <button class="vt-btn" id="plan-tab-0" onclick="selectPlanDay(0)">Pn</button>
+        <button class="vt-btn" id="plan-tab-1" onclick="selectPlanDay(1)">Wt</button>
+        <button class="vt-btn" id="plan-tab-2" onclick="selectPlanDay(2)">Śr</button>
+        <button class="vt-btn" id="plan-tab-3" onclick="selectPlanDay(3)">Czw</button>
+        <button class="vt-btn" id="plan-tab-4" onclick="selectPlanDay(4)">Pt</button>
+      </div>
+    </div>
+    <div class="plan-wrap" id="plan-lessons"></div>
+  </div>
+
+  <!-- ============================================================
        EKRAN: WYNIKI
   ============================================================ -->
   <div id="screen-results" class="screen">
@@ -1899,6 +1978,12 @@
         <span class="nav-badge" id="badge-results"></span>
       </div>
       <div class="nav-label">Wyniki</div>
+    </div>
+    <div class="nav-item" id="nav-plan" onclick="showScreen('plan')">
+      <div class="nav-icon-wrap">
+        <span class="nav-icon">📚</span>
+      </div>
+      <div class="nav-label">Plan</div>
     </div>
   </div>
 

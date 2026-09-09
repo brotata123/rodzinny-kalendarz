@@ -126,15 +126,16 @@ function showScreen(name) {
   const screen = document.getElementById('screen-' + name);
   if (screen) screen.classList.add('active');
 
-  // Pokaż/ukryj FAB i nawigację (ukryte na PIN i error)
+  // Pokaż/ukryj FAB i nawigację (ukryte na PIN, error i plan)
+  const noFabScreens = ['pin', 'error', 'plan'];
   const isAppScreen = !['pin', 'error'].includes(name);
   const fab = document.getElementById('global-fab');
   const nav = document.getElementById('global-nav');
-  if (fab) fab.style.display = isAppScreen ? 'flex' : 'none';
+  if (fab) fab.style.display = noFabScreens.includes(name) ? 'none' : 'flex';
   if (nav) nav.style.display = isAppScreen ? 'flex' : 'none';
 
   // Aktywna zakładka w dolnej nawigacji
-  ['calendar', 'grades', 'contests', 'events', 'todo', 'results'].forEach(n => {
+  ['calendar', 'grades', 'contests', 'events', 'todo', 'results', 'plan'].forEach(n => {
     const el = document.getElementById('nav-' + n);
     if (el) el.classList.toggle('active', n === name);
   });
@@ -149,6 +150,7 @@ function showScreen(name) {
   if (name === 'events')   renderEvents();
   if (name === 'todo')     renderTasks();
   if (name === 'results')  renderResults();
+  if (name === 'plan')     renderPlanLekcji();
 }
 
 // ============================================================
@@ -345,15 +347,20 @@ const PL_HOLIDAYS_MOVING = new Set([
   '2026-04-05','2026-04-06','2026-05-24','2026-06-04',
   '2027-03-28','2027-03-29','2027-05-16','2027-05-27',
 ]);
-// Ferie szkolne (Pomorskie)
+// Ferie szkolne (Pomorskie) + dni wolne od zajęć dydaktycznych
 const PL_SCHOOL_BREAKS = [
   { from: '2025-12-22', to: '2026-01-01' }, // Przerwa świąteczna Bożego Narodzenia
   { from: '2026-01-19', to: '2026-02-01' }, // Ferie zimowe 2025/2026 — Pomorskie (tura I)
   { from: '2026-04-02', to: '2026-04-07' }, // Wiosenna przerwa świąteczna (ogólnopolska)
   { from: '2026-06-27', to: '2026-08-31' }, // Ferie letnie 2026
-  { from: '2026-12-22', to: '2026-12-31' }, // Przerwa świąteczna Bożego Narodzenia
+  { from: '2026-10-14', to: '2026-10-14' }, // Święto KEN — szkoleniowe posiedzenie Rady Pedagogicznej
+  { from: '2026-11-09', to: '2026-11-10' }, // Dni wolne między weekendem a Świętem Niepodległości
+  { from: '2026-12-23', to: '2026-12-31' }, // Zimowa przerwa świąteczna 2026/2027
+  { from: '2027-01-04', to: '2027-01-05' }, // Dni wolne między świętami a Świętem Trzech Króli
   { from: '2027-02-01', to: '2027-02-14' }, // Ferie zimowe 2026/2027 — Pomorskie (tura II)
   { from: '2027-03-25', to: '2027-03-30' }, // Wiosenna przerwa świąteczna (ogólnopolska)
+  { from: '2027-05-10', to: '2027-05-12' }, // Egzaminy ósmoklasisty
+  { from: '2027-05-28', to: '2027-05-28' }, // Dzień wolny po Bożym Ciele
   { from: '2027-06-26', to: '2027-08-31' }, // Ferie letnie 2027
 ];
 
@@ -2467,4 +2474,125 @@ function otworzTesty(e) {
   e.preventDefault();
   const url = './testy/index.html' + (familyId ? '#' + familyId : '');
   window.location.href = url;
+}
+
+// ============================================================
+//  PLAN LEKCJI — klasa 4A
+// ============================================================
+const PERIOD_TIMES = [
+  '',             // 0 — nieużywany
+  '8:00–8:45',
+  '8:50–9:35',
+  '9:45–10:30',
+  '10:40–11:25',
+  '11:35–12:20',
+  '12:45–13:30',
+  '13:40–14:25',
+  '14:35–15:20',
+  '15:25–16:10',
+];
+
+const SUBJECT_COLORS = {
+  mat:   '#4a9eff',
+  lang:  '#3dbf8a',
+  pe:    '#f5a623',
+  arts:  '#b07af5',
+  tech:  '#ff6b6b',
+  other: '#8a97ab',
+};
+
+// 0=Pn, 1=Wt, 2=Śr, 3=Czw, 4=Pt
+const PLAN_LEKCJI = {
+  0: [
+    { p: 1, s: 'Edukacja zdrowotna',          t: 'Joanna Kulas',           c: 'pe'    },
+    { p: 2, s: 'Mindfulness',                 t: 'Przemysław Olczak',      c: 'other' },
+    { p: 3, s: 'Wychowanie fizyczne',         t: 'Magdalena Guzon',        c: 'pe',   span: 2 },
+    { p: 5, s: 'Informatyka',                 t: 'Marcin Kosmala',         c: 'tech'  },
+    { p: 6, s: 'Język angielski',             t: 'Marzena Bogucka',        c: 'lang'  },
+    { p: 7, s: 'Muzyka',                      t: 'Aleksandra Bagińska',    c: 'arts'  },
+  ],
+  1: [
+    { p: 1, s: 'Matematyka',                  t: 'Beata Falkiewicz',       c: 'mat'  },
+    { p: 2, s: 'Przyroda',                    t: 'Alicja Sokołowska',      c: 'mat'  },
+    { p: 3, s: 'Wychowanie fizyczne',         t: 'Magdalena Guzon',        c: 'pe'   },
+    { p: 4, s: 'Język angielski',             t: 'Marzena Bogucka',        c: 'lang', span: 2 },
+    { p: 6, s: 'Język hiszpański SP',         t: 'Natalia Kołczyńska',     c: 'lang' },
+    { p: 7, s: 'Ekologia',                    t: 'Monika Joskowska',       c: 'mat'  },
+  ],
+  2: [
+    { p: 1, s: 'Zajęcia praktyczno-techniczne', t: 'Beata Mielewczyk',    c: 'arts', span: 2 },
+    { p: 3, s: 'Język hiszpański SP',         t: 'Natalia Kołczyńska',     c: 'lang' },
+    { p: 4, s: 'Język angielski',             t: 'Marzena Bogucka',        c: 'lang' },
+    { p: 5, s: 'Matematyka',                  t: 'Beata Falkiewicz',       c: 'mat'  },
+    { p: 6, s: 'Język polski',                t: 'A. Plechan-Kręcicka',   c: 'lang' },
+    { p: 7, s: 'Godzina z wychowawcą',        t: 'Marzena Bogucka',        c: 'other' },
+    { p: 8, s: 'Robotyka',                    t: 'Marcin Kosmala',         c: 'tech' },
+  ],
+  3: [
+    { p: 1, s: 'Język polski',                t: 'A. Plechan-Kręcicka',   c: 'lang', span: 2 },
+    { p: 3, s: 'Przyroda',                    t: 'Alicja Sokołowska',      c: 'mat',  span: 2 },
+    { p: 5, s: 'Historia',                    t: 'Monika Burkowska',       c: 'mat'  },
+    { p: 6, s: 'Język angielski',             t: 'Marzena Bogucka',        c: 'lang' },
+    { p: 7, s: 'Religia / Etyka',             t: 'Dubert / Mendyka',       c: 'other' },
+    { p: 8, s: 'Basen 🏊',                    t: 'Magdalena Guzon',        c: 'pe',   endTime: '15:10' },
+  ],
+  4: [
+    { p: 1, s: 'Język polski',                t: 'A. Plechan-Kręcicka',   c: 'lang', span: 2 },
+    { p: 3, s: 'Szachy ♟️',                  t: '',                       c: 'other', span: 2 },
+    { p: 5, s: 'Matematyka',                  t: 'Beata Falkiewicz',       c: 'mat'  },
+    { p: 6, s: 'Plastyka',                    t: 'Beata Mielewczyk',       c: 'arts' },
+    { p: 7, s: 'Wychowanie fizyczne',         t: 'Andrzej Rybiński',       c: 'pe'   },
+  ],
+};
+
+const PLAN_DAY_NAMES = ['Pn', 'Wt', 'Śr', 'Czw', 'Pt'];
+const PLAN_DAY_FULL  = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek'];
+
+let currentPlanDay = null;
+
+function renderPlanLekcji() {
+  const jsDay = new Date().getDay(); // 0=Nd, 1=Pn, ..., 5=Pt, 6=Sb
+  const todayPlanIdx = (jsDay >= 1 && jsDay <= 5) ? jsDay - 1 : 0;
+  if (currentPlanDay === null) currentPlanDay = todayPlanIdx;
+
+  PLAN_DAY_NAMES.forEach((_, i) => {
+    const btn = document.getElementById('plan-tab-' + i);
+    if (btn) btn.classList.toggle('active', i === currentPlanDay);
+  });
+
+  const sub = document.getElementById('plan-header-sub');
+  if (sub) sub.textContent = PLAN_DAY_FULL[currentPlanDay] + (currentPlanDay === todayPlanIdx ? ' — dziś' : '');
+
+  const container = document.getElementById('plan-lessons');
+  if (!container) return;
+
+  const lessons = PLAN_LEKCJI[currentPlanDay] || [];
+  if (!lessons.length) {
+    container.innerHTML = '<div class="empty-state"><div class="es-icon">🎉</div><p>Wolne!</p></div>';
+    return;
+  }
+
+  container.innerHTML = lessons.map(l => {
+    const color = SUBJECT_COLORS[l.c] || SUBJECT_COLORS.other;
+    const start = (PERIOD_TIMES[l.p] || '').split('–')[0];
+    let end;
+    if (l.endTime)       end = l.endTime;
+    else if (l.span)     end = (PERIOD_TIMES[l.p + l.span - 1] || '').split('–')[1];
+    else                 end = (PERIOD_TIMES[l.p] || '').split('–')[1];
+    const timeStr = start + '–' + end;
+    const teacher = l.t ? ' · ' + l.t : '';
+    return `<div class="plan-lesson-card">
+      <div class="plan-period-num" style="background:${color}22;color:${color}">${l.p}${l.span ? '–' + (l.p + l.span - 1) : ''}</div>
+      <div class="plan-subject-bar" style="background:${color}"></div>
+      <div style="flex:1;min-width:0">
+        <div class="plan-subject">${l.s}</div>
+        <div class="plan-time">${timeStr}${teacher}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function selectPlanDay(i) {
+  currentPlanDay = i;
+  renderPlanLekcji();
 }
