@@ -2686,11 +2686,14 @@ const KULINARKI_LEKCJA = { p: 8, s: 'Kulinarki 🍳', t: '', c: 'arts', span: 2,
 function isKulinarkiWeek() {
   const ref = new Date('2026-09-15T12:00:00');
   const today = new Date();
-  const dow = today.getDay();
-  const diff = (2 - dow + 7) % 7; // dni do wtorku (0 jeśli dziś wtorek)
-  const thisTuesday = new Date(today);
-  thisTuesday.setDate(today.getDate() + diff);
-  const weeks = Math.round((thisTuesday - ref) / (7 * 24 * 60 * 60 * 1000));
+  const dow = today.getDay() || 7; // 1=Pn ... 7=Nd
+  const monday = new Date(today);
+  monday.setDate(today.getDate() - (dow - 1));
+  const tuesday = new Date(monday);
+  tuesday.setDate(monday.getDate() + 1);
+  tuesday.setHours(12, 0, 0, 0);
+  if (tuesday < ref) return false;
+  const weeks = Math.round((tuesday - ref) / (7 * 24 * 60 * 60 * 1000));
   return weeks % 2 === 0;
 }
 
