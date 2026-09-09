@@ -881,6 +881,17 @@ function openDayPopup(dateStr, dayNum) {
       </div>`;
   }
 
+  // Baner dnia wolnego od zajęć szkolnych
+  if (isSchoolBreak(dateStr)) {
+    html += `
+      <div class="event-item" style="background:rgba(245,166,35,0.1);margin-bottom:8px;border:1.5px solid rgba(245,166,35,0.28);">
+        <div class="event-icon">🏫</div>
+        <div class="event-info">
+          <div class="event-name" style="color:#9a6200">Dzień wolny od zajęć dydaktycznych</div>
+        </div>
+      </div>`;
+  }
+
   // Lista wydarzeń — sortuj rosnąco po godzinie (brak godziny = na końcu)
   const sortedEvs = [...dayEvs].sort((a, b) => {
     if (!a.time && !b.time) return 0;
@@ -904,7 +915,7 @@ function openDayPopup(dateStr, dayNum) {
       </div>`;
   });
 
-  if (!custody && dayEvs.length === 0) {
+  if (!custody && dayEvs.length === 0 && !isSchoolBreak(dateStr)) {
     html += `<div style="text-align:center;padding:24px 0;color:var(--text-light);font-size:13px;">
                Brak wpisów tego dnia
              </div>`;
