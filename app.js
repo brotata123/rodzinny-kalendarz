@@ -899,12 +899,14 @@ function openDayPopup(dateStr, dayNum) {
     if (!b.time) return -1;
     return a.time.localeCompare(b.time);
   });
+  window._popupImages = {};
   sortedEvs.forEach(ev => {
     const { icon, tagClass, tagName } = getCategoryDisplay(ev.category);
     const timeStr = ev.time ? ev.time : 'cały dzień';
     const locStr  = ev.location ? ` • ${ev.location}` : '';
+    if (ev.imageUrl) window._popupImages[ev.id] = ev.imageUrl;
     const thumbHtml = ev.imageUrl
-      ? `<div class="ev-thumb" onclick="event.stopPropagation();openImageViewer('${escHtml(ev.imageUrl)}')"><img src="${escHtml(ev.imageUrl)}" alt="zdjęcie"></div>`
+      ? `<div class="ev-thumb" onclick="event.stopPropagation();openImageViewer(window._popupImages['${ev.id}'])"><img src="${ev.imageUrl}" alt="zdjęcie"></div>`
       : '';
     html += `
       <div class="event-item" style="margin-bottom:8px;flex-wrap:wrap">
