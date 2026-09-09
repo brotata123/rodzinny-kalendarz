@@ -2754,12 +2754,15 @@ function selectPlanDay(i) {
 }
 
 // ============================================================
-// SZACHY — rankingi Lichess i Chess.com
+// SZACHY — rankingi + wykres postępu
 // ============================================================
-let _chessLoaded = false;
+let _chessLoaded    = false;
+let _chessChart     = null;
+let _chartPlatform  = 'lichess';
+let _chartFormat    = 'rapid';
+let _chessHistory   = { lichess: null, chesscom: null };
 
 function renderChess() {
-  // Przy pierwszym otwarciu: pokaż spinner; przy powrotach: cicha aktualizacja w tle
   if (!_chessLoaded) {
     document.getElementById('chess-loading').style.display = 'flex';
     document.getElementById('chess-content').hidden = true;
@@ -2777,15 +2780,25 @@ function refreshChess() {
 
 async function fetchChessData() {
   try {
-    const [lichessRes, chesscomRes] = await Promise.all([
+    const [lichessRes, chesscomRes, historyRes] = await Promise.all([
       fetch('https://lichess.org/api/user/Szaszlykoszop'),
-      fetch('https://api.chess.com/pub/player/olafszszachy/stats')
+      fetch('https://api.chess.com/pub/player/olafszszachy/stats'),
+      fetch('https://lichess.org/api/user/Szaszlykoszop/rating-history'),
     ]);
-    if (!lichessRes.ok || !chesscomRes.ok) throw new Error('fetch failed');
-    const [lichess, chesscom] = await Promise.all([lichessRes.json(), chesscomRes.json()]);
+    if (!lichessRes.ok || !chesscomRes.ok || !historyRes.ok) throw new Error('fetch failed');
+    const [lichess, chesscom, lichessHistory] = await Promise.all([
+      lichessRes.json(), chesscomRes.json(), historyRes.json()
+    ]);
 
     renderLichessRatings(lichess);
     renderChesscomRatings(chesscom);
+
+    // Zapisz historię Lichess
+    _chessHistory.lichess = lichessHistory;
+
+    // Zapisz i załaduj historię Chess.com z Firestore
+    await saveChesscomSnapshot(chesscom);
+    _chessHistory.chesscom = await loadChesscomHistory();
 
     document.getElementById('chess-loading').style.display = 'none';
     document.getElementById('chess-content').hidden = false;
@@ -2794,12 +2807,144 @@ async function fetchChessData() {
 
     const t = new Date().toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' });
     document.getElementById('chess-header-sub').textContent = 'Zaktualizowano o ' + t;
-  } catch {
+
+    updateChessChart();
+  } catch(e) {
+    console.error('chess fetch error', e);
     document.getElementById('chess-loading').style.display = 'none';
     document.getElementById('chess-error').hidden = false;
   }
 }
 
+async function saveChesscomSnapshot(data) {
+  const today = new Date().toISOString().split('T')[0];
+  try {
+    const ref = db.collection('chess_snapshots').doc(today);
+    const existing = await ref.get();
+    if (!existing.exists) {
+      await ref.set({
+        bullet:  data.chess_bullet?.last?.rating  || null,
+        blitz:   data.chess_blitz?.last?.rating   || null,
+        rapid:   data.chess_rapid?.last?.rating   || null,
+        tactics: data.tactics?.highest?.rating    || null,
+        ts: Date.now()
+      });
+    }
+  } catch(e) { console.warn('chess snapshot save failed', e); }
+}
+
+async function loadChesscomHistory() {
+  try {
+    const snap = await db.collection('chess_snapshots')
+      .orderBy('ts', 'asc').limit(120).get();
+    return snap.docs.map(d => ({ date: d.id, ...d.data() }));
+  } catch(e) { return []; }
+}
+
+// ---- Wykres ----
+function selectChartPlatform(plat) {
+  _chartPlatform = plat;
+  document.querySelectorAll('.chess-plat-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('cht-' + plat).classList.add('active');
+  // Puzzle niedostępne na Chess.com (są Taktyki)
+  if (plat === 'chesscom' && _chartFormat === 'puzzle') selectChartFormat('rapid');
+  else updateChessChart();
+}
+
+function selectChartFormat(fmt) {
+  _chartFormat = fmt;
+  document.querySelectorAll('.chess-fmt-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('chf-' + fmt).classList.add('active');
+  updateChessChart();
+}
+
+function updateChessChart() {
+  const isDark = document.body.classList.contains('dark');
+  const gridColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
+  const textColor = isDark ? '#a0b0c8' : '#8898aa';
+
+  let labels = [], values = [], infoText = '';
+
+  if (_chartPlatform === 'lichess') {
+    const hist = _chessHistory.lichess;
+    if (!hist) return;
+    const nameMap = { bullet: 'Bullet', blitz: 'Blitz', rapid: 'Rapid', puzzle: 'Puzzle' };
+    const entry = hist.find(h => h.name === nameMap[_chartFormat]);
+    if (!entry || !entry.points.length) {
+      infoText = 'Brak danych dla tego formatu'; labels = []; values = [];
+    } else {
+      const cutoff = Date.now() - 90 * 24 * 60 * 60 * 1000;
+      const pts = entry.points.filter(([y, m, d]) => new Date(y, m, d).getTime() >= cutoff);
+      const src = pts.length ? pts : entry.points.slice(-60);
+      labels = src.map(([y, m, d]) => `${d}.${m + 1}`);
+      values = src.map(([,,,r]) => r);
+      infoText = `Lichess · ostatnie ${src.length} dni z danymi`;
+    }
+  } else {
+    const hist = _chessHistory.chesscom;
+    if (!hist || !hist.length) { infoText = 'Brak historii Chess.com (zbiera się od dziś)'; }
+    else {
+      const fieldMap = { bullet: 'bullet', blitz: 'blitz', rapid: 'rapid', puzzle: 'tactics' };
+      const field = fieldMap[_chartFormat];
+      const pts = hist.filter(d => d[field] != null);
+      labels = pts.map(d => d.date.slice(5)); // MM-DD
+      values = pts.map(d => d[field]);
+      infoText = `Chess.com · ${pts.length} pomiar${pts.length === 1 ? '' : 'y'}`;
+    }
+  }
+
+  document.getElementById('chess-chart-info').textContent = infoText;
+
+  const ctx = document.getElementById('chess-chart').getContext('2d');
+  if (_chessChart) { _chessChart.destroy(); _chessChart = null; }
+  if (!values.length) return;
+
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+
+  _chessChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        data: values,
+        borderColor: '#3dbf8a',
+        backgroundColor: 'rgba(61,191,138,0.12)',
+        borderWidth: 2,
+        pointRadius: values.length > 30 ? 0 : 3,
+        pointHoverRadius: 5,
+        tension: 0.35,
+        fill: true,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => `Ranking: ${ctx.parsed.y}`
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { color: textColor, font: { size: 10 }, maxTicksLimit: 8, maxRotation: 0 },
+          grid: { color: gridColor }
+        },
+        y: {
+          min: Math.max(0, min - 50),
+          max: max + 50,
+          ticks: { color: textColor, font: { size: 10 } },
+          grid: { color: gridColor }
+        }
+      }
+    }
+  });
+}
+
+// ---- Aktualne rankingi ----
 function chessRatingColor(r) {
   if (r >= 1800) return '#e67e22';
   if (r >= 1500) return '#3dbf8a';
@@ -2819,10 +2964,10 @@ function chessRatingItem(icon, label, rating) {
 function renderLichessRatings(data) {
   const p = data.perfs || {};
   const items = [
-    p.bullet    ? chessRatingItem('⚡', 'Bullet',   p.bullet.rating)   : '',
-    p.blitz     ? chessRatingItem('🔥', 'Blitz',    p.blitz.rating)    : '',
-    p.rapid     ? chessRatingItem('⏱️', 'Rapid',    p.rapid.rating)    : '',
-    p.puzzle    ? chessRatingItem('🧩', 'Puzzle',   p.puzzle.rating)   : '',
+    p.bullet ? chessRatingItem('⚡', 'Bullet', p.bullet.rating) : '',
+    p.blitz  ? chessRatingItem('🔥', 'Blitz',  p.blitz.rating)  : '',
+    p.rapid  ? chessRatingItem('⏱️', 'Rapid',  p.rapid.rating)  : '',
+    p.puzzle ? chessRatingItem('🧩', 'Puzzle', p.puzzle.rating) : '',
   ];
   document.getElementById('lichess-ratings').innerHTML = items.join('');
   const c = data.count || {};

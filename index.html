@@ -1509,7 +1509,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       padding-bottom: 12px;
       border-bottom: 1px solid var(--border);
     }
@@ -1543,6 +1543,37 @@
       border-radius: 50%;
       animation: chess-spin 0.8s linear infinite;
     }
+    /* Wykres postępu */
+    .chess-chart-section-title {
+      font-weight: 700; font-size: 15px; color: var(--text);
+      margin-bottom: 12px;
+    }
+    .chess-plat-toggle {
+      display: flex; gap: 6px; margin-bottom: 10px;
+    }
+    .chess-plat-btn {
+      flex: 1; padding: 7px 4px; border-radius: 10px;
+      border: 1.5px solid var(--border); background: none;
+      font-size: 13px; font-weight: 600; color: var(--text-light);
+      cursor: pointer; transition: all 0.15s;
+    }
+    .chess-plat-btn.active {
+      background: var(--mint); border-color: var(--mint); color: #fff;
+    }
+    .chess-fmt-tabs {
+      display: flex; gap: 5px; margin-bottom: 14px; flex-wrap: wrap;
+    }
+    .chess-fmt-tab {
+      padding: 5px 10px; border-radius: 20px;
+      border: 1.5px solid var(--border); background: none;
+      font-size: 12px; font-weight: 600; color: var(--text-light);
+      cursor: pointer; transition: all 0.15s;
+    }
+    .chess-fmt-tab.active {
+      border-color: var(--mint); color: var(--mint); background: rgba(61,191,138,0.1);
+    }
+    .chess-chart-wrap { position: relative; height: 200px; }
+    .chess-chart-info { font-size: 11px; color: var(--text-light); text-align: center; margin-top: 8px; }
 
     /* ============================================================
        GLOBALNY FAB (+)
@@ -2114,6 +2145,24 @@
           </div>
           <div class="chess-ratings-grid" id="chesscom-ratings"></div>
         </div>
+        <!-- Wykres postępu -->
+        <div class="chess-platform-card">
+          <div class="chess-chart-section-title">📈 Wykres postępu</div>
+          <div class="chess-plat-toggle">
+            <button id="cht-lichess" class="chess-plat-btn active" onclick="selectChartPlatform('lichess')">🏇 Lichess</button>
+            <button id="cht-chesscom" class="chess-plat-btn" onclick="selectChartPlatform('chesscom')">♞ Chess.com</button>
+          </div>
+          <div class="chess-fmt-tabs">
+            <button id="chf-rapid"  class="chess-fmt-tab active" onclick="selectChartFormat('rapid')">⏱️ Rapid</button>
+            <button id="chf-blitz"  class="chess-fmt-tab"        onclick="selectChartFormat('blitz')">🔥 Blitz</button>
+            <button id="chf-bullet" class="chess-fmt-tab"        onclick="selectChartFormat('bullet')">⚡ Bullet</button>
+            <button id="chf-puzzle" class="chess-fmt-tab"        onclick="selectChartFormat('puzzle')">🧩 Puzzle</button>
+          </div>
+          <div class="chess-chart-wrap">
+            <canvas id="chess-chart"></canvas>
+          </div>
+          <div class="chess-chart-info" id="chess-chart-info"></div>
+        </div>
       </div>
       <div id="chess-error" hidden style="text-align:center;padding:40px;color:var(--text-light);">
         <div style="font-size:40px;margin-bottom:12px;">⚠️</div>
@@ -2185,6 +2234,9 @@
       <div class="nav-label">Szachy</div>
     </div>
   </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 
   <!-- Firebase SDK (compat — bez bundlera) -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
