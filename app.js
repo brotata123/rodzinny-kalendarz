@@ -903,8 +903,11 @@ function openDayPopup(dateStr, dayNum) {
     const { icon, tagClass, tagName } = getCategoryDisplay(ev.category);
     const timeStr = ev.time ? ev.time : 'cały dzień';
     const locStr  = ev.location ? ` • ${ev.location}` : '';
+    const thumbHtml = ev.imageUrl
+      ? `<div class="ev-thumb" onclick="event.stopPropagation();openImageViewer('${escHtml(ev.imageUrl)}')"><img src="${escHtml(ev.imageUrl)}" alt="zdjęcie"></div>`
+      : '';
     html += `
-      <div class="event-item" style="margin-bottom:8px">
+      <div class="event-item" style="margin-bottom:8px;flex-wrap:wrap">
         <div class="event-icon">${icon}</div>
         <div class="event-info">
           <div class="event-name">${escHtml(ev.title)}</div>
@@ -912,6 +915,7 @@ function openDayPopup(dateStr, dayNum) {
         </div>
         <button class="del-btn" onclick="editEntry('${ev._col||'event'}','${ev.id}')" title="Edytuj">✏️</button>
         <button class="del-btn" onclick="deleteEntry('${ev._col||'event'}','${ev.id}','${ev.seriesId||''}')" title="Usuń">🗑</button>
+        ${thumbHtml ? `<div style="width:100%;padding-left:40px">${thumbHtml}</div>` : ''}
       </div>`;
   });
 
@@ -999,6 +1003,14 @@ function _fillEditForm(id, data, seriesId) {
   if (timeEndEl) timeEndEl.value = data.timeEnd  || '';
   if (locEl)     locEl.value     = data.location || '';
   if (notEl)     notEl.value     = data.notes    || '';
+  if (data.imageUrl) {
+    const area = document.getElementById('photo-pick-area');
+    if (area) area.innerHTML = `
+      <div class="photo-preview-wrap">
+        <img src="${escHtml(data.imageUrl)}" alt="zdjęcie">
+        <button class="photo-remove-btn" onclick="removePhoto()">✕</button>
+      </div>`;
+  }
   editMode     = true;
   editDocId    = id;
   editSeriesId = seriesId;
@@ -1340,7 +1352,84 @@ function buildFormHtml(type) {
         <label class="form-label">Do kiedy</label>
         <input type="date" class="form-input" id="f-recurring-until" value="${getSchoolYearEnd()}">
       </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Zdjęcie (opcjonalnie)</label>
+      <div id="photo-pick-area">
+        <button type="button" class="photo-pick-btn" onclick="document.getElementById('f-photo').click()">
+          📎 Dodaj zdjęcie lub screen
+        </button>
+        <input type="file" id="f-photo" accept="image/*" style="display:none" onchange="onPhotoSelected(this)">
+      </div>
     </div>`;
+}
+
+// ============================================================
+//  PHOTO ATTACHMENT HELPERS
+// ============================================================
+function onPhotoSelected(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const area = document.getElementById('photo-pick-area');
+    if (!area) return;
+    area.innerHTML = `
+      <div class="photo-preview-wrap">
+        <img src="${e.target.result}" alt="podgląd">
+        <button class="photo-remove-btn" onclick="removePhoto()">✕</button>
+      </div>`;
+  };
+  reader.readAsDataURL(file);
+}
+
+function removePhoto() {
+  const area = document.getElementById('photo-pick-area');
+  if (!area) return;
+  area.innerHTML = `
+    <button type="button" class="photo-pick-btn" onclick="document.getElementById('f-photo').click()">
+      📎 Dodaj zdjęcie lub screen
+    </button>
+    <input type="file" id="f-photo" accept="image/*" style="display:none" onchange="onPhotoSelected(this)">`;
+}
+
+async function compressAndUpload(file, eventId) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = async () => {
+      URL.revokeObjectURL(url);
+      const MAX = 1200;
+      let w = img.width, h = img.height;
+      if (w > MAX || h > MAX) {
+        if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
+        else        { w = Math.round(w * MAX / h); h = MAX; }
+      }
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      canvas.toBlob(async blob => {
+        try {
+          const storage = firebase.storage();
+          const ref = storage.ref(`families/${familyId}/events/${eventId}_${Date.now()}.jpg`);
+          await ref.put(blob, { contentType: 'image/jpeg' });
+          resolve(await ref.getDownloadURL());
+        } catch (e) { reject(e); }
+      }, 'image/jpeg', 0.82);
+    };
+    img.onerror = reject;
+    img.src = url;
+  });
+}
+
+function openImageViewer(src) {
+  const viewer = document.getElementById('img-viewer');
+  document.getElementById('img-viewer-img').src = src;
+  viewer.classList.add('open');
+}
+
+function closeImageViewer() {
+  document.getElementById('img-viewer').classList.remove('open');
 }
 
 // Wybór rodzica w formularzu opieki
@@ -1532,6 +1621,20 @@ async function submitForm() {
         location: locEl  ? locEl.value.trim() || null : null,
         notes:    document.getElementById('f-notes').value.trim() || null,
       };
+
+      // Upload zdjęcia jeśli wybrane
+      const photoInput = document.getElementById('f-photo');
+      if (photoInput && photoInput.files && photoInput.files[0]) {
+        const tempId = editMode && editDocId ? editDocId : ('tmp_' + Date.now());
+        evData.imageUrl = await compressAndUpload(photoInput.files[0], tempId);
+      } else if (editMode && editDocId) {
+        // Zachowaj istniejące zdjęcie jeśli nie wybrano nowego
+        const previewImg = document.querySelector('#photo-pick-area img');
+        if (previewImg && previewImg.src && !previewImg.src.startsWith('data:')) {
+          evData.imageUrl = previewImg.src;
+        }
+      }
+
       if (editMode && editDocId) {
         if (editSeriesId) {
           // Aktualizuj całą serię (wszystkie wpisy z tym seriesId, bez zmiany dat)

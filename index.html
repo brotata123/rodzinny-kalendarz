@@ -816,6 +816,46 @@
 
     .form-group { margin-bottom: 14px; }
 
+    /* Photo attachment */
+    .photo-pick-btn {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 14px; border: 1.5px dashed var(--border);
+      border-radius: 12px; background: var(--cream);
+      color: var(--text-light); font-size: 13px; font-family: 'DM Sans', sans-serif;
+      cursor: pointer; width: 100%; transition: border-color 0.15s;
+    }
+    .photo-pick-btn:active { border-color: var(--mint); }
+    .photo-preview-wrap {
+      position: relative; border-radius: 12px; overflow: hidden;
+      max-height: 160px; background: #000;
+    }
+    .photo-preview-wrap img { width: 100%; object-fit: cover; max-height: 160px; display: block; }
+    .photo-remove-btn {
+      position: absolute; top: 6px; right: 6px;
+      background: rgba(0,0,0,0.55); color: #fff;
+      border: none; border-radius: 50%; width: 28px; height: 28px;
+      font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    }
+    .ev-thumb {
+      width: 100%; border-radius: 10px; overflow: hidden; margin-top: 6px;
+      max-height: 140px; cursor: pointer;
+    }
+    .ev-thumb img { width: 100%; object-fit: cover; max-height: 140px; display: block; }
+    /* Full-screen image viewer */
+    #img-viewer {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+      z-index: 200; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.2s;
+    }
+    #img-viewer.open { opacity: 1; pointer-events: all; }
+    #img-viewer img { max-width: 96vw; max-height: 90vh; border-radius: 10px; }
+    #img-viewer-close {
+      position: absolute; top: 16px; right: 16px;
+      background: rgba(255,255,255,0.15); border: none; color: #fff;
+      border-radius: 50%; width: 38px; height: 38px; font-size: 20px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+    }
+
     .form-label {
       display: block;
       font-size: 11px;
@@ -1946,6 +1986,12 @@
     </div>
   </div>
 
+  <!-- Full-screen image viewer -->
+  <div id="img-viewer" onclick="closeImageViewer()">
+    <button id="img-viewer-close" onclick="closeImageViewer()">✕</button>
+    <img id="img-viewer-img" src="" alt="">
+  </div>
+
   <!-- ============================================================
        GLOBALNY FAB (+)
   ============================================================ -->
@@ -1990,6 +2036,7 @@
   <!-- Firebase SDK (compat — bez bundlera) -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
 
   <!-- Konfiguracja Firebase — uzupełnij firebase-config.js! -->
   <script src="firebase-config.js"></script>
