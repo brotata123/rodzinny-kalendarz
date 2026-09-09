@@ -454,7 +454,7 @@ function buildMonthGrid() {
       div.appendChild(dotsDiv);
     }
 
-    div.addEventListener('click', () => openDayPopup(dateStr, d));
+    div.addEventListener('click', e => { addRipple(div, e); openDayPopup(dateStr, d); });
     grid.appendChild(div);
   }
 }
@@ -1375,6 +1375,19 @@ function buildFormHtml(type) {
         <input type="file" id="f-photo" accept="image/*" style="display:none" onchange="onPhotoSelected(this)">
       </div>
     </div>`;
+}
+
+// ============================================================
+//  RIPPLE HELPER
+// ============================================================
+function addRipple(el, e) {
+  const rect = el.getBoundingClientRect();
+  const r = document.createElement('span');
+  r.className = 'ripple-circle';
+  r.style.left = (e.clientX - rect.left) + 'px';
+  r.style.top  = (e.clientY - rect.top)  + 'px';
+  el.appendChild(r);
+  r.addEventListener('animationend', () => r.remove(), { once: true });
 }
 
 // ============================================================

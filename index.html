@@ -399,6 +399,18 @@
     }
     .day:active { transform: scale(0.9); }
     .day.empty  { pointer-events: none; }
+    @keyframes rippleOut {
+      to { transform: scale(5); opacity: 0; }
+    }
+    .ripple-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(61,191,138,0.38);
+      width: 24px; height: 24px;
+      margin: -12px 0 0 -12px;
+      pointer-events: none;
+      animation: rippleOut 0.5s ease-out forwards;
+    }
 
     .day-num {
       font-size: 12px;
