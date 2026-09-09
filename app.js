@@ -930,6 +930,9 @@ function openDayPopup(dateStr, dayNum) {
   html += `<button class="add-btn" onclick="closeDayPopupDirect(); openModal()">+ Dodaj wpis</button>`;
 
   document.getElementById('popup-content').innerHTML = html;
+  document.querySelectorAll('#popup-content > div').forEach((el, i) => {
+    el.style.animationDelay = `${i * 0.06}s`;
+  });
   document.getElementById('day-popup').classList.add('open');
 }
 
