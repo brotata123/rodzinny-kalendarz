@@ -2686,7 +2686,7 @@ const PLAN_LEKCJI = {
 const KULINARKI_LEKCJA = { p: 8, s: 'Kulinarki 🍳', t: '', c: 'arts', span: 2, startTime: '14:25', endTime: '16:00' };
 
 function isKulinarkiWeek() {
-  const ref = new Date('2026-09-15T12:00:00');
+  const ref = new Date('2026-09-22T12:00:00');
   const today = new Date();
   const dow = today.getDay() || 7; // 1=Pn ... 7=Nd
   const monday = new Date(today);
