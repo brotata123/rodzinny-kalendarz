@@ -2656,6 +2656,8 @@ const PLAN_LEKCJI = {
     { p: 4, s: 'Język angielski',             t: 'Marzena Bogucka',        c: 'lang', span: 2 },
     { p: 6, s: 'Język hiszpański SP',         t: 'Natalia Kołczyńska',     c: 'lang' },
     { p: 7, s: 'Ekologia',                    t: 'Monika Joskowska',       c: 'mat'  },
+    { spacer: true },
+    { p: '', s: 'Zajęcia szachowe ♟️',        t: '',                       c: 'other', startTime: '17:40', endTime: '19:00' },
   ],
   2: [
     { p: 1, s: 'Zajęcia praktyczno-techniczne', t: 'Beata Mielewczyk',    c: 'arts', span: 2 },
@@ -2730,6 +2732,7 @@ function renderPlanLekcji() {
   }
 
   container.innerHTML = lessons.map(l => {
+    if (l.spacer) return '<div class="plan-spacer"></div>';
     const color = SUBJECT_COLORS[l.c] || SUBJECT_COLORS.other;
     const start = l.startTime || (PERIOD_TIMES[l.p] || '').split('–')[0];
     let end;
