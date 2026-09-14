@@ -2674,7 +2674,7 @@ const PLAN_LEKCJI = {
     { p: 5, s: 'Historia',                    t: 'Monika Burkowska',       c: 'mat'  },
     { p: 6, s: 'Język angielski',             t: 'Marzena Bogucka',        c: 'lang' },
     { p: 7, s: 'Religia / Etyka',             t: 'Dubert / Mendyka',       c: 'other' },
-    { p: 8, s: 'TUS',                         t: 'Patrycja Damaszke-Heft', c: 'other' },
+    { p: 8, s: 'TUS',                         t: 'Patrycja Damaszke-Heft', c: 'other', activeFrom: '2026-09-24' },
   ],
   4: [
     { p: 1, s: 'Język polski',                t: 'A. Plechan-Kręcicka',   c: 'lang', span: 2 },
@@ -2724,9 +2724,20 @@ async function loadPlanOverridesIfNeeded() {
   } catch(e) { console.warn('plan_overrides load failed', e); }
 }
 
-function _baseLessonsForDay(day) {
-  const lessons = [...(PLAN_LEKCJI[day] || [])];
-  if (day === 1 && isKulinarkiWeek()) lessons.push(KULINARKI_LEKCJA);
+function _lessonActiveToday(l) {
+  if (!l.activeFrom) return true;
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  return today >= new Date(l.activeFrom + 'T00:00:00');
+}
+
+function _isKulinarkiLesson(l) {
+  return l.s === KULINARKI_LEKCJA.s;
+}
+
+// Kulinarki nigdy nie są tu dołączane — zawsze dodawane dynamicznie w renderPlanLekcji
+function _baseLessonsForDay(day, includeInactive = false) {
+  let lessons = [...(PLAN_LEKCJI[day] || [])];
+  if (!includeInactive) lessons = lessons.filter(l => _lessonActiveToday(l));
   return lessons;
 }
 
@@ -2794,9 +2805,15 @@ async function renderPlanLekcji() {
   if (planEditMode && planPendingEdits !== null) {
     lessons = planPendingEdits;
   } else if (planOverrides[currentPlanDay] !== undefined) {
-    lessons = planOverrides[currentPlanDay];
+    lessons = planOverrides[currentPlanDay].filter(l => _lessonActiveToday(l));
   } else {
     lessons = _baseLessonsForDay(currentPlanDay);
+  }
+
+  // Kulinarki zawsze dynamicznie — nigdy z overridów
+  if (!planEditMode && currentPlanDay === 1 && isKulinarkiWeek()) {
+    lessons = lessons.filter(l => !_isKulinarkiLesson(l));
+    lessons = [...lessons, KULINARKI_LEKCJA];
   }
 
   if (!planEditMode && !lessons.length) {
@@ -2829,8 +2846,9 @@ function togglePlanEdit() {
     planEditMode = true;
     const base = planOverrides[currentPlanDay] !== undefined
       ? planOverrides[currentPlanDay]
-      : _baseLessonsForDay(currentPlanDay);
-    planPendingEdits = base.map(l => _materializeLesson(l));
+      : _baseLessonsForDay(currentPlanDay, true); // includeInactive=true: TUS widoczny w edytorze
+    // Kulinarki nigdy w edytorze — są dynamiczne
+    planPendingEdits = base.filter(l => !_isKulinarkiLesson(l)).map(l => _materializeLesson(l));
     renderPlanLekcji();
   }
 }
