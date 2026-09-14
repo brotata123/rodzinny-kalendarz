@@ -2704,61 +2704,10 @@ function isKulinarkiWeek() {
 const PLAN_DAY_NAMES = ['Pn', 'Wt', 'Śr', 'Czw', 'Pt'];
 const PLAN_DAY_FULL  = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek'];
 
-let currentPlanDay   = null;
-let planEditMode     = false;
-let planOverrides    = {};
-let planOverridesLoaded = false;
-let planPendingEdits = null;
-let _planEditingIdx  = -1; // -1 = nowa lekcja
+let currentPlanDay = null;
 
-async function loadPlanOverridesIfNeeded() {
-  if (planOverridesLoaded) return;
-  planOverridesLoaded = true;
-  if (!familyId) return;
-  try {
-    const snap = await db.collection('families').doc(familyId).collection('plan_overrides').get();
-    snap.forEach(doc => {
-      const d = doc.data();
-      if (d && Array.isArray(d.lessons)) planOverrides[parseInt(doc.id)] = d.lessons;
-    });
-  } catch(e) { console.warn('plan_overrides load failed', e); }
-}
-
-function _materializeLesson(l) {
-  if (l.spacer) return { spacer: true };
-  const start = l.startTime || (PERIOD_TIMES[l.p] || '').split('–')[0] || '';
-  let end;
-  if (l.endTime)   end = l.endTime;
-  else if (l.span) end = (PERIOD_TIMES[(l.p + l.span - 1)] || '').split('–')[1] || '';
-  else             end = (PERIOD_TIMES[l.p] || '').split('–')[1] || '';
-  return { p: l.p !== undefined ? l.p : '', s: l.s || '', t: l.t || '', c: l.c || 'other', startTime: start, endTime: end };
-}
-
-function _renderLessonCard(l, idx, editMode) {
-  if (l.spacer) return editMode ? '' : '<div class="plan-spacer"></div>';
-  const color = SUBJECT_COLORS[l.c] || SUBJECT_COLORS.other;
-  const start = l.startTime || (PERIOD_TIMES[l.p] || '').split('–')[0];
-  let end;
-  if (l.endTime)   end = l.endTime;
-  else if (l.span) end = (PERIOD_TIMES[(l.p + l.span - 1)] || '').split('–')[1];
-  else             end = (PERIOD_TIMES[l.p] || '').split('–')[1];
-  const timeStr = (start || '') + '–' + (end || '');
-  const teacher = l.t ? ' · ' + l.t : '';
-  const editAttrs = editMode ? `class="plan-lesson-card editable" onclick="openLessonEditor(${idx})"` : 'class="plan-lesson-card"';
-  const deletBtn  = editMode ? `<button class="plan-delete-card-btn" onclick="event.stopPropagation();planDeleteLesson(${idx})">×</button>` : '';
-  return `<div ${editAttrs}>
-    <div class="plan-period-num" style="background:${color}22;color:${color}">${l.p}${l.span ? '–' + (l.p + l.span - 1) : ''}</div>
-    <div class="plan-subject-bar" style="background:${color}"></div>
-    <div style="flex:1;min-width:0">
-      <div class="plan-subject">${l.s}</div>
-      <div class="plan-time">${timeStr}${teacher}</div>
-    </div>
-    ${deletBtn}
-  </div>`;
-}
-
-async function renderPlanLekcji() {
-  const jsDay = new Date().getDay();
+function renderPlanLekcji() {
+  const jsDay = new Date().getDay(); // 0=Nd, 1=Pn, ..., 5=Pt, 6=Sb
   const todayPlanIdx = (jsDay >= 1 && jsDay <= 5) ? jsDay - 1 : 0;
   if (currentPlanDay === null) currentPlanDay = todayPlanIdx;
 
@@ -2773,162 +2722,38 @@ async function renderPlanLekcji() {
   const container = document.getElementById('plan-lessons');
   if (!container) return;
 
-  await loadPlanOverridesIfNeeded();
-
-  let lessons;
-  if (planEditMode && planPendingEdits !== null) {
-    lessons = planPendingEdits;
-  } else if (planOverrides[currentPlanDay] !== undefined) {
-    lessons = planOverrides[currentPlanDay];
-  } else {
-    lessons = [...(PLAN_LEKCJI[currentPlanDay] || [])];
-    if (currentPlanDay === 1 && isKulinarkiWeek()) lessons.push(KULINARKI_LEKCJA);
+  let lessons = [...(PLAN_LEKCJI[currentPlanDay] || [])];
+  if (currentPlanDay === 1 && isKulinarkiWeek()) {
+    lessons = [...lessons, KULINARKI_LEKCJA];
   }
-
-  if (!planEditMode && !lessons.length) {
+  if (!lessons.length) {
     container.innerHTML = '<div class="empty-state"><div class="es-icon">🎉</div><p>Wolne!</p></div>';
-  } else {
-    const cards = lessons.map((l, i) => _renderLessonCard(l, i, planEditMode)).join('');
-    const addBtn = planEditMode ? '<button class="plan-add-card-btn" onclick="openLessonEditor(-1)">＋</button>' : '';
-    container.innerHTML = cards + addBtn;
+    return;
   }
 
-  const bar = document.getElementById('plan-edit-bar');
-  if (bar) bar.style.display = planEditMode ? 'flex' : 'none';
-  const editBtn = document.getElementById('plan-edit-btn');
-  if (editBtn) editBtn.classList.toggle('active', planEditMode);
+  container.innerHTML = lessons.map(l => {
+    if (l.spacer) return '<div class="plan-spacer"></div>';
+    const color = SUBJECT_COLORS[l.c] || SUBJECT_COLORS.other;
+    const start = l.startTime || (PERIOD_TIMES[l.p] || '').split('–')[0];
+    let end;
+    if (l.endTime)       end = l.endTime;
+    else if (l.span)     end = (PERIOD_TIMES[l.p + l.span - 1] || '').split('–')[1];
+    else                 end = (PERIOD_TIMES[l.p] || '').split('–')[1];
+    const timeStr = start + '–' + end;
+    const teacher = l.t ? ' · ' + l.t : '';
+    return `<div class="plan-lesson-card">
+      <div class="plan-period-num" style="background:${color}22;color:${color}">${l.p}${l.span ? '–' + (l.p + l.span - 1) : ''}</div>
+      <div class="plan-subject-bar" style="background:${color}"></div>
+      <div style="flex:1;min-width:0">
+        <div class="plan-subject">${l.s}</div>
+        <div class="plan-time">${timeStr}${teacher}</div>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 function selectPlanDay(i) {
   currentPlanDay = i;
-  renderPlanLekcji();
-}
-
-// ---- Edit mode ----
-
-function togglePlanEdit() {
-  if (planEditMode) {
-    cancelPlanEdit();
-  } else {
-    planEditMode = true;
-    let base;
-    if (planOverrides[currentPlanDay] !== undefined) {
-      base = planOverrides[currentPlanDay];
-    } else {
-      base = [...(PLAN_LEKCJI[currentPlanDay] || [])];
-      if (currentPlanDay === 1 && isKulinarkiWeek()) base.push(KULINARKI_LEKCJA);
-    }
-    planPendingEdits = base.map(l => _materializeLesson(l));
-    renderPlanLekcji();
-  }
-}
-
-function cancelPlanEdit() {
-  planEditMode = false;
-  planPendingEdits = null;
-  renderPlanLekcji();
-}
-
-async function savePlanDay() {
-  if (!planPendingEdits || !familyId) return;
-  try {
-    await db.collection('families').doc(familyId).collection('plan_overrides').doc(String(currentPlanDay)).set({ lessons: planPendingEdits });
-    planOverrides[currentPlanDay] = [...planPendingEdits];
-    cancelPlanEdit();
-  } catch(e) { alert('Błąd zapisu: ' + e.message); }
-}
-
-async function resetPlanDay() {
-  if (!confirm('Przywrócić oryginalny plan na ten dzień?')) return;
-  if (!familyId) return;
-  try {
-    await db.collection('families').doc(familyId).collection('plan_overrides').doc(String(currentPlanDay)).delete();
-    delete planOverrides[currentPlanDay];
-    cancelPlanEdit();
-  } catch(e) { alert('Błąd: ' + e.message); }
-}
-
-function planDeleteLesson(idx) {
-  if (!planPendingEdits) return;
-  planPendingEdits.splice(idx, 1);
-  renderPlanLekcji();
-}
-
-// ---- Lesson editor modal ----
-
-function openLessonEditor(idx) {
-  _planEditingIdx = idx;
-  const isNew = idx === -1;
-  document.getElementById('plan-lesson-modal-title').textContent = isNew ? 'Dodaj lekcję' : 'Edytuj lekcję';
-  document.getElementById('ple-delete-row').style.display = isNew ? 'none' : '';
-
-  const l = isNew
-    ? { p: '', s: '', t: '', c: 'other', startTime: '', endTime: '' }
-    : (planPendingEdits[idx] || {});
-
-  document.getElementById('ple-subject').value = l.s || '';
-  document.getElementById('ple-teacher').value = l.t || '';
-  document.getElementById('ple-period').value  = l.p || '';
-  document.getElementById('ple-start').value   = l.startTime || '';
-  document.getElementById('ple-end').value     = l.endTime   || '';
-
-  const row = document.getElementById('ple-color-row');
-  row.innerHTML = Object.entries(SUBJECT_COLORS).map(([key, hex]) =>
-    `<div class="color-swatch${l.c === key ? ' selected' : ''}" style="background:${hex}" data-key="${key}" onclick="selectPlanColor('${key}')"></div>`
-  ).join('');
-
-  document.getElementById('plan-lesson-modal').classList.add('open');
-}
-
-function closeLessonEditor() {
-  document.getElementById('plan-lesson-modal').classList.remove('open');
-}
-
-function planModalOverlayClick(e) {
-  if (e.target === document.getElementById('plan-lesson-modal')) closeLessonEditor();
-}
-
-function selectPlanColor(key) {
-  document.querySelectorAll('#ple-color-row .color-swatch').forEach(el =>
-    el.classList.toggle('selected', el.dataset.key === key)
-  );
-}
-
-function planEditorPeriodChange() {
-  const p = parseInt(document.getElementById('ple-period').value);
-  if (p && PERIOD_TIMES[p]) {
-    const parts = PERIOD_TIMES[p].split('–');
-    document.getElementById('ple-start').value = parts[0] || '';
-    document.getElementById('ple-end').value   = parts[1] || '';
-  }
-}
-
-function saveLessonEditor() {
-  const s = document.getElementById('ple-subject').value.trim();
-  if (!s) { document.getElementById('ple-subject').focus(); return; }
-  const t         = document.getElementById('ple-teacher').value.trim();
-  const p         = document.getElementById('ple-period').value;
-  const startTime = document.getElementById('ple-start').value.trim();
-  const endTime   = document.getElementById('ple-end').value.trim();
-  const sel       = document.querySelector('#ple-color-row .color-swatch.selected');
-  const c         = sel ? sel.dataset.key : 'other';
-
-  const lesson = { p: p ? parseInt(p) : '', s, t, c, startTime, endTime };
-
-  if (_planEditingIdx === -1) {
-    planPendingEdits.push(lesson);
-  } else {
-    planPendingEdits[_planEditingIdx] = lesson;
-  }
-
-  closeLessonEditor();
-  renderPlanLekcji();
-}
-
-function deleteLessonFromPlan() {
-  if (_planEditingIdx < 0 || !planPendingEdits) return;
-  planPendingEdits.splice(_planEditingIdx, 1);
-  closeLessonEditor();
   renderPlanLekcji();
 }
 
