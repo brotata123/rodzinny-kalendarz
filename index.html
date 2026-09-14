@@ -1768,6 +1768,68 @@
       color: var(--text-light);
       line-height: 1.4;
     }
+
+    /* ============================================================
+       EDYTOR PLANU LEKCJI
+    ============================================================ */
+    .plan-edit-icon-btn {
+      background: none; border: none; font-size: 22px; cursor: pointer;
+      padding: 4px; opacity: 0.45; transition: opacity 0.15s; line-height: 1;
+    }
+    .plan-edit-icon-btn.active { opacity: 1; }
+
+    .plan-lesson-card.editable { cursor: pointer; position: relative; padding-right: 44px; }
+    .plan-delete-card-btn {
+      position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+      background: #ff5c5c22; color: #ff5c5c; border: none;
+      border-radius: 50%; width: 28px; height: 28px;
+      font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-weight: 700;
+    }
+    .plan-add-card-btn {
+      width: 100%; padding: 14px;
+      border: 2px dashed var(--border); border-radius: 14px;
+      background: none; color: var(--text-light);
+      font-size: 22px; cursor: pointer;
+      margin-bottom: 8px; transition: border-color 0.15s;
+    }
+    .plan-add-card-btn:active { border-color: var(--mint); }
+
+    .plan-edit-bar {
+      display: flex; gap: 8px; padding: 10px 16px 12px;
+      background: var(--white); border-top: 1px solid var(--border);
+    }
+    .plan-edit-bar .peb-reset {
+      flex: 0 0 auto; padding: 11px 14px; border-radius: 13px;
+      border: 1.5px solid var(--border); background: var(--white);
+      font-size: 13px; font-weight: 600; font-family: 'DM Sans', sans-serif;
+      cursor: pointer; color: var(--text-light);
+    }
+    .plan-edit-bar .peb-cancel {
+      flex: 1; padding: 11px; border-radius: 13px;
+      border: 1.5px solid var(--border); background: var(--white);
+      font-size: 13px; font-weight: 600; font-family: 'DM Sans', sans-serif;
+      cursor: pointer; color: var(--text-light);
+    }
+    .plan-edit-bar .peb-save {
+      flex: 2; padding: 11px; border-radius: 13px; border: none;
+      background: var(--mint); color: #fff;
+      font-size: 13px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer;
+    }
+
+    #plan-lesson-modal { z-index: 50; }
+    .color-swatch-row { display: flex; gap: 10px; margin-top: 6px; flex-wrap: wrap; }
+    .color-swatch {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 3px solid transparent; cursor: pointer;
+      transition: transform 0.12s, border-color 0.12s;
+    }
+    .color-swatch.selected { border-color: var(--text-dark); transform: scale(1.18); }
+    .ple-delete-btn {
+      width: 100%; padding: 11px; border-radius: 12px; border: none;
+      background: none; color: #ff5c5c; font-weight: 600; font-size: 13px;
+      cursor: pointer; font-family: 'DM Sans', sans-serif; margin-top: 4px;
+    }
   </style>
 </head>
 <body>
@@ -2120,7 +2182,10 @@
           <div class="header-title">Plan lekcji</div>
           <div class="header-sub" id="plan-header-sub">Klasa 4A</div>
         </div>
-        <div style="font-size:26px;">📚</div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button id="plan-edit-btn" class="plan-edit-icon-btn" onclick="togglePlanEdit()" aria-label="Edytuj plan">✏️</button>
+          <div style="font-size:26px;">📚</div>
+        </div>
       </div>
       <div class="view-toggle">
         <button class="vt-btn" id="plan-tab-0" onclick="selectPlanDay(0)">Pn</button>
@@ -2131,6 +2196,63 @@
       </div>
     </div>
     <div class="plan-wrap" id="plan-lessons"></div>
+    <div class="plan-edit-bar" id="plan-edit-bar" style="display:none">
+      <button class="peb-reset" onclick="resetPlanDay()" title="Przywróć oryginał">↺</button>
+      <button class="peb-cancel" onclick="cancelPlanEdit()">Anuluj</button>
+      <button class="peb-save" onclick="savePlanDay()">Zapisz</button>
+    </div>
+  </div>
+
+  <!-- Plan Lesson Editor Modal -->
+  <div class="modal-overlay" id="plan-lesson-modal" onclick="planModalOverlayClick(event)">
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <div class="modal-title" id="plan-lesson-modal-title">Edytuj lekcję</div>
+      <div class="form-group">
+        <label class="form-label">Przedmiot</label>
+        <input type="text" id="ple-subject" class="form-input" placeholder="Np. Matematyka">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Nauczyciel</label>
+        <input type="text" id="ple-teacher" class="form-input" placeholder="opcjonalnie">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Kolor</label>
+        <div class="color-swatch-row" id="ple-color-row"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Nr lekcji</label>
+        <select id="ple-period" class="form-input" onchange="planEditorPeriodChange()">
+          <option value="">— brak —</option>
+          <option value="1">1 · 8:00–8:45</option>
+          <option value="2">2 · 8:50–9:35</option>
+          <option value="3">3 · 9:45–10:30</option>
+          <option value="4">4 · 10:40–11:25</option>
+          <option value="5">5 · 11:35–12:20</option>
+          <option value="6">6 · 12:45–13:30</option>
+          <option value="7">7 · 13:40–14:25</option>
+          <option value="8">8 · 14:35–15:20</option>
+          <option value="9">9 · 15:25–16:10</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <div class="form-group" style="flex:1">
+          <label class="form-label">Godz. od</label>
+          <input type="text" id="ple-start" class="form-input" placeholder="8:00">
+        </div>
+        <div class="form-group" style="flex:1">
+          <label class="form-label">Godz. do</label>
+          <input type="text" id="ple-end" class="form-input" placeholder="8:45">
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:6px;">
+        <button class="btn-cancel" onclick="closeLessonEditor()" style="flex:1">Anuluj</button>
+        <button class="btn-save" onclick="saveLessonEditor()" style="flex:2">Zapisz</button>
+      </div>
+      <div id="ple-delete-row">
+        <button class="ple-delete-btn" onclick="deleteLessonFromPlan()">Usuń lekcję</button>
+      </div>
+    </div>
   </div>
 
   <!-- ============================================================
