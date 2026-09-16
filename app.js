@@ -3060,19 +3060,18 @@ async function fetchChessData() {
 }
 
 async function saveChesscomSnapshot(chesscom, lichess) {
+  if (!familyId) return;
   const today = new Date().toISOString().split('T')[0];
   try {
-    const ref = db.collection('chess_snapshots').doc(today);
+    const ref = db.collection('families').doc(familyId).collection('chess_snapshots').doc(today);
     const existing = await ref.get();
     if (!existing.exists) {
       const p = lichess?.perfs || {};
       await ref.set({
-        // Chess.com
-        bullet:  chesscom.chess_bullet?.last?.rating  || null,
-        blitz:   chesscom.chess_blitz?.last?.rating   || null,
-        rapid:   chesscom.chess_rapid?.last?.rating   || null,
-        tactics: chesscom.tactics?.highest?.rating    || null,
-        // Lichess (historia prywatna — zbieramy sami)
+        bullet:         chesscom.chess_bullet?.last?.rating  || null,
+        blitz:          chesscom.chess_blitz?.last?.rating   || null,
+        rapid:          chesscom.chess_rapid?.last?.rating   || null,
+        tactics:        chesscom.tactics?.highest?.rating    || null,
         lichess_bullet: p.bullet?.rating  || null,
         lichess_blitz:  p.blitz?.rating   || null,
         lichess_rapid:  p.rapid?.rating   || null,
@@ -3084,11 +3083,12 @@ async function saveChesscomSnapshot(chesscom, lichess) {
 }
 
 async function loadChesscomHistory() {
+  if (!familyId) return [];
   try {
-    const snap = await db.collection('chess_snapshots')
+    const snap = await db.collection('families').doc(familyId).collection('chess_snapshots')
       .orderBy('ts', 'asc').limit(120).get();
     return snap.docs.map(d => ({ date: d.id, ...d.data() }));
-  } catch(e) { return []; }
+  } catch(e) { console.warn('chess history load failed', e); return []; }
 }
 
 // ---- Wykres ----
