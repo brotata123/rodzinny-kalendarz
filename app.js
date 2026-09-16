@@ -2828,7 +2828,10 @@ async function renderPlanLekcji() {
   } else {
     const cards  = lessons.map((l, i) => _renderOneLessonCard(l, i, planEditMode)).join('');
     const addBtn = planEditMode
-      ? '<button class="plan-add-card-btn" onclick="openLessonEditor(-1)">＋</button>'
+      ? `<div class="plan-add-row">
+           <button class="plan-add-lesson-btn" onclick="openLessonEditor(-1)">＋ Lekcja</button>
+           <button class="plan-add-spacer-btn" onclick="addPlanSpacer()" title="Dodaj separator">— —</button>
+         </div>`
       : '';
     container.innerHTML = cards + addBtn;
   }
@@ -2866,12 +2869,30 @@ function cancelPlanEdit() {
   renderPlanLekcji();
 }
 
+function _sortPlanLessons(lessons) {
+  const getStartTime = l => {
+    if (l.spacer) return null;
+    return l.startTime || (PERIOD_TIMES[l.p] || '').split('–')[0] || '99:99';
+  };
+  const nonSpacers = lessons.filter(l => !l.spacer);
+  const spacers    = lessons.filter(l => l.spacer);
+  nonSpacers.sort((a, b) => getStartTime(a).localeCompare(getStartTime(b)));
+  if (!spacers.length) return nonSpacers;
+  // Wstaw spacery przed pierwszą lekcją wieczorną (≥16:00)
+  const eveningIdx = nonSpacers.findIndex(l => getStartTime(l) >= '16:00');
+  if (eveningIdx === -1) return [...nonSpacers, ...spacers];
+  const result = [...nonSpacers];
+  result.splice(eveningIdx, 0, ...spacers);
+  return result;
+}
+
 async function savePlanDay() {
   if (!planPendingEdits || !familyId) return;
   try {
+    const sorted = _sortPlanLessons(planPendingEdits);
     await db.collection('families').doc(familyId).collection('plan_overrides')
-      .doc(String(currentPlanDay)).set({ lessons: planPendingEdits });
-    planOverrides[currentPlanDay] = [...planPendingEdits];
+      .doc(String(currentPlanDay)).set({ lessons: sorted });
+    planOverrides[currentPlanDay] = sorted;
     cancelPlanEdit();
   } catch(e) { alert('Błąd zapisu: ' + e.message); }
 }
@@ -2885,6 +2906,12 @@ async function resetPlanDay() {
     delete planOverrides[currentPlanDay];
     cancelPlanEdit();
   } catch(e) { alert('Błąd: ' + e.message); }
+}
+
+function addPlanSpacer() {
+  if (!planPendingEdits) return;
+  planPendingEdits.push({ spacer: true });
+  renderPlanLekcji();
 }
 
 function planDeleteLesson(idx) {
