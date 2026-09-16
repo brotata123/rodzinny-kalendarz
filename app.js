@@ -2682,6 +2682,8 @@ const PLAN_LEKCJI = {
     { p: 4, s: 'Matematyka',                  t: 'Beata Falkiewicz',       c: 'mat',  span: 2 },
     { p: 6, s: 'Plastyka',                    t: 'Beata Mielewczyk',       c: 'arts' },
     { p: 7, s: 'Basen 🏊',                    t: 'Andrzej Rybiński',       c: 'pe',   endTime: '15:10' },
+    { spacer: true },
+    { p: '', s: 'Zajęcia szachowe ♟️',        t: '',                       c: 'other', startTime: '17:00', endTime: '18:00' },
   ],
 };
 
@@ -2810,10 +2812,15 @@ async function renderPlanLekcji() {
     lessons = _baseLessonsForDay(currentPlanDay);
   }
 
-  // Kulinarki zawsze dynamicznie — nigdy z overridów
+  // Kulinarki zawsze dynamicznie — nigdy z overridów, wstawiane przed spacer
   if (!planEditMode && currentPlanDay === 1 && isKulinarkiWeek()) {
     lessons = lessons.filter(l => !_isKulinarkiLesson(l));
-    lessons = [...lessons, KULINARKI_LEKCJA];
+    const spacerIdx = lessons.findIndex(l => l.spacer);
+    if (spacerIdx !== -1) {
+      lessons.splice(spacerIdx, 0, KULINARKI_LEKCJA);
+    } else {
+      lessons.push(KULINARKI_LEKCJA);
+    }
   }
 
   if (!planEditMode && !lessons.length) {
