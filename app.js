@@ -2726,10 +2726,19 @@ async function loadPlanOverridesIfNeeded() {
   } catch(e) { console.warn('plan_overrides load failed', e); }
 }
 
-function _lessonActiveToday(l) {
+function _dateForPlanDay(planDayIdx) {
+  const today = new Date();
+  const jsDay = today.getDay(); // 0=Nd,1=Pn..5=Pt,6=Sb
+  const todayPlanIdx = (jsDay >= 1 && jsDay <= 5) ? jsDay - 1 : 0;
+  const result = new Date(today);
+  result.setDate(today.getDate() + (planDayIdx - todayPlanIdx));
+  result.setHours(12, 0, 0, 0);
+  return result;
+}
+
+function _lessonActiveOn(l, date) {
   if (!l.activeFrom) return true;
-  const today = new Date(); today.setHours(0, 0, 0, 0);
-  return today >= new Date(l.activeFrom + 'T00:00:00');
+  return date >= new Date(l.activeFrom + 'T00:00:00');
 }
 
 function _isKulinarkiLesson(l) {
@@ -2739,7 +2748,10 @@ function _isKulinarkiLesson(l) {
 // Kulinarki nigdy nie są tu dołączane — zawsze dodawane dynamicznie w renderPlanLekcji
 function _baseLessonsForDay(day, includeInactive = false) {
   let lessons = [...(PLAN_LEKCJI[day] || [])];
-  if (!includeInactive) lessons = lessons.filter(l => _lessonActiveToday(l));
+  if (!includeInactive) {
+    const dayDate = _dateForPlanDay(day);
+    lessons = lessons.filter(l => _lessonActiveOn(l, dayDate));
+  }
   return lessons;
 }
 
@@ -2807,7 +2819,8 @@ async function renderPlanLekcji() {
   if (planEditMode && planPendingEdits !== null) {
     lessons = planPendingEdits;
   } else if (planOverrides[currentPlanDay] !== undefined) {
-    lessons = planOverrides[currentPlanDay].filter(l => _lessonActiveToday(l));
+    const dayDate = _dateForPlanDay(currentPlanDay);
+    lessons = planOverrides[currentPlanDay].filter(l => _lessonActiveOn(l, dayDate));
   } else {
     lessons = _baseLessonsForDay(currentPlanDay);
   }
