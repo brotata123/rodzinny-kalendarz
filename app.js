@@ -2673,7 +2673,7 @@ const PLAN_LEKCJI = {
     { p: 3, s: 'Przyroda',                    t: 'Alicja Sokołowska',      c: 'mat',  span: 2 },
     { p: 5, s: 'Historia',                    t: 'Monika Burkowska',       c: 'mat'  },
     { p: 6, s: 'Język angielski',             t: 'Marzena Bogucka',        c: 'lang' },
-    { p: 7, s: 'Religia / Etyka',             t: 'Dubert / Mendyka',       c: 'other' },
+    { p: 7, s: 'Dodatkowa matematyka',          t: '',                       c: 'mat'   },
     { p: 8, s: 'TUS',                         t: 'Patrycja Damaszke-Heft', c: 'other', activeFrom: '2026-10-01' },
   ],
   4: [
